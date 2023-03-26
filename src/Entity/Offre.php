@@ -52,5 +52,58 @@ class Offre
      */
     private $idbadge;
 
+    public function getIdoffre(): ?int
+    {
+        return $this->idoffre;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getTauxderemise(): ?int
+    {
+        return $this->tauxderemise;
+    }
+
+    public function setTauxderemise(int $tauxderemise): self
+    {
+        $this->tauxderemise = $tauxderemise;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIdbadge(): ?Badge
+    {
+        return $this->idbadge;
+    }
+
+    public function setIdbadge(?Badge $idbadge): self
+    {
+        $this->idbadge = $idbadge;
+
+        return $this;
+    }
+
 
 }

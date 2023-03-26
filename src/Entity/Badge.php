@@ -35,5 +35,34 @@ class Badge
      */
     private $nbpoint;
 
+    public function getIdbadge(): ?int
+    {
+        return $this->idbadge;
+    }
+
+    public function getTypebadge(): ?string
+    {
+        return $this->typebadge;
+    }
+
+    public function setTypebadge(string $typebadge): self
+    {
+        $this->typebadge = $typebadge;
+
+        return $this;
+    }
+
+    public function getNbpoint(): ?int
+    {
+        return $this->nbpoint;
+    }
+
+    public function setNbpoint(int $nbpoint): self
+    {
+        $this->nbpoint = $nbpoint;
+
+        return $this;
+    }
+
 
 }

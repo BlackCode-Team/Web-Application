@@ -41,5 +41,34 @@ class Affectationbadge
      */
     private $iduser;
 
+    public function getIdaffectation(): ?int
+    {
+        return $this->idaffectation;
+    }
+
+    public function getIdbadge(): ?Badge
+    {
+        return $this->idbadge;
+    }
+
+    public function setIdbadge(?Badge $idbadge): self
+    {
+        $this->idbadge = $idbadge;
+
+        return $this;
+    }
+
+    public function getIduser(): ?Utilisateur
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?Utilisateur $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
 
 }

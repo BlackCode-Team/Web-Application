@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -78,6 +79,95 @@ class Reservation
      * })
      */
     private $iditineraire;
+
+    public function getIdreservation(): ?int
+    {
+        return $this->idreservation;
+    }
+
+    public function getDatedebut(): ?\DateTimeInterface
+    {
+        return $this->datedebut;
+    }
+
+    public function setDatedebut(\DateTimeInterface $datedebut): self
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    public function getDatefin(): ?\DateTimeInterface
+    {
+        return $this->datefin;
+    }
+
+    public function setDatefin(\DateTimeInterface $datefin): self
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getPrixreservation(): ?int
+    {
+        return $this->prixreservation;
+    }
+
+    public function setPrixreservation(?int $prixreservation): self
+    {
+        $this->prixreservation = $prixreservation;
+
+        return $this;
+    }
+
+    public function getIduser(): ?Utilisateur
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?Utilisateur $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    public function getIdvehicule(): ?Vehicule
+    {
+        return $this->idvehicule;
+    }
+
+    public function setIdvehicule(?Vehicule $idvehicule): self
+    {
+        $this->idvehicule = $idvehicule;
+
+        return $this;
+    }
+
+    public function getIditineraire(): ?Itineraire
+    {
+        return $this->iditineraire;
+    }
+
+    public function setIditineraire(?Itineraire $iditineraire): self
+    {
+        $this->iditineraire = $iditineraire;
+
+        return $this;
+    }
 
 
 }
