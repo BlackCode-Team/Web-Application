@@ -24,40 +24,20 @@ class Vehicule
     #[ORM\Column(length: 255)]
     private ?string $type=null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="modele", type="string", length=255, nullable=true)
-     */
-    private $modele;
+    #[ORM\Column(length: 255)]
+    private ?string $modele=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="prix", type="integer", nullable=false)
-     */
-    private $prix;
+    #[ORM\Column]
+    private ?int $prix=null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="batterie", type="integer", nullable=true)
-     */
-    private $batterie;
+    #[ORM\Column]
+    private ?int $batterie=null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="matricule", type="string", length=255, nullable=true)
-     */
-    private $matricule;
+    #[ORM\Column(length: 255)]
+    private ?string $matricule=null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="puissance", type="integer", nullable=true)
-     */
-    private $puissance;
+    #[ORM\Column]
+    private ?int $puissance;
 
     /**
      * @var int|null
@@ -66,12 +46,8 @@ class Vehicule
      */
     private $iditineraire;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     */
-    private $image;
+    #[ORM\Column(length: 255)]
+    private ?string $image=null;
 
     /**
      * @var \Reservation

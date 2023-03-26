@@ -12,14 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Rating
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idrating", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idrating;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idrating=null;
 
     /**
      * @var int
@@ -28,12 +24,8 @@ class Rating
      */
     private $idvoiture;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbetoile", type="integer", nullable=false)
-     */
-    private $nbetoile;
+    #[ORM\Column]
+    private ?int $nbetoile=null;
 
 
 }
