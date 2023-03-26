@@ -12,49 +12,86 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Itineraire
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="iditineraire", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $iditineraire;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pointdepart", type="string", length=255, nullable=false)
-     */
-    private $pointdepart;
+    private ?int $iditineraire= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pointarrivee", type="string", length=255, nullable=false)
-     */
-    private $pointarrivee;
+    #[ORM\Column(length: 255)]
+    private ?string $pointdepart= null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="kilometrage", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $kilometrage;
+    #[ORM\Column(length: 255)]
+    private ?string  $pointarrivee= null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="dureeestimee", type="integer", nullable=false)
-     */
-    private $dureeestimee;
+    #[ORM\Column]
+    private ?float $kilometrage= null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nb_usage", type="integer", nullable=true)
-     */
-    private $nbUsage;
+    #[ORM\Column]
+    private ?int $dureeestimee= null;
+    #[ORM\Column]
+    private ?int $nbUsage= null;
+    public function getIditineraire(): ?int
+    {
+        return $this->iditineraire;
+    }
 
+    public function getPointdepart(): ?string
+    {
+        return $this->pointdepart;
+    }
+
+    public function setPointdepart(string $pointdepart): self
+    {
+        $this->pointdepart = $pointdepart;
+
+        return $this;
+    }
+
+    public function getPointarrivee(): ?string
+    {
+        return $this->pointarrivee;
+    }
+
+    public function setPointarrivee(string $pointarrivee): self
+    {
+        $this->pointarrivee = $pointarrivee;
+
+        return $this;
+    }
+
+    public function getKilometrage(): ?float
+    {
+        return $this->kilometrage;
+    }
+
+    public function setKilometrage(float $kilometrage): self
+    {
+        $this->kilometrage = $kilometrage;
+
+        return $this;
+    }
+
+    public function getDureeestimee(): ?int
+    {
+        return $this->dureeestimee;
+    }
+
+    public function setDureeestimee(int $dureeestimee): self
+    {
+        $this->dureeestimee = $dureeestimee;
+
+        return $this;
+    }
+    public function getNbUsage(): ?int
+    {
+        return $this->nbUsage;
+    }
+      public function setNbUsage(int $nbUsage): self
+    {
+        $this->nbUsage = $nbUsage;
+
+        return $this;
+    }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,6 +55,59 @@ class Commentaire
      * })
      */
     private $iduser;
+
+    public function getIdcomment(): ?int
+    {
+        return $this->idcomment;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(string $reponse): self
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getDatereponse(): ?\DateTimeInterface
+    {
+        return $this->datereponse;
+    }
+
+    public function setDatereponse(\DateTimeInterface $datereponse): self
+    {
+        $this->datereponse = $datereponse;
+
+        return $this;
+    }
+
+    public function getIdarticle(): ?Article
+    {
+        return $this->idarticle;
+    }
+
+    public function setIdarticle(?Article $idarticle): self
+    {
+        $this->idarticle = $idarticle;
+
+        return $this;
+    }
+
+    public function getIduser(): ?Utilisateur
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?Utilisateur $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
 
 
 }

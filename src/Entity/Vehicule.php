@@ -59,5 +59,101 @@ class Vehicule
      */
     private $idreservation;
 
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(?string $modele): self
+    {
+        $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getBatterie(): ?int
+    {
+        return $this->batterie;
+    }
+
+    public function setBatterie(?int $batterie): self
+    {
+        $this->batterie = $batterie;
+
+        return $this;
+    }
+
+    public function getMatricule(): ?string
+    {
+        return $this->matricule;
+    }
+
+    public function setMatricule(?string $matricule): self
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    public function getPuissance(): ?int
+    {
+        return $this->puissance;
+    }
+
+    public function setPuissance(?int $puissance): self
+    {
+        $this->puissance = $puissance;
+
+        return $this;
+    }
+
+    public function getIditineraire(): ?int
+    {
+        return $this->iditineraire;
+    }
+
+    public function setIditineraire(?int $iditineraire): self
+    {
+        $this->iditineraire = $iditineraire;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getIdreservation(): ?Reservation
+    {
+        return $this->idreservation;
+    }
+
+    public function setIdreservation(?Reservation $idreservation): self
+    {
+        $this->idreservation = $idreservation;
+
+        return $this;
+    }
+
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,59 @@ class Reponse
      * @ORM\Column(name="idclient", type="integer", nullable=false)
      */
     private $idclient;
+
+    public function getIdreponse(): ?int
+    {
+        return $this->idreponse;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDatereponse(): ?\DateTimeInterface
+    {
+        return $this->datereponse;
+    }
+
+    public function setDatereponse(\DateTimeInterface $datereponse): self
+    {
+        $this->datereponse = $datereponse;
+
+        return $this;
+    }
+
+    public function getIdagent(): ?int
+    {
+        return $this->idagent;
+    }
+
+    public function setIdagent(int $idagent): self
+    {
+        $this->idagent = $idagent;
+
+        return $this;
+    }
+
+    public function getIdclient(): ?int
+    {
+        return $this->idclient;
+    }
+
+    public function setIdclient(int $idclient): self
+    {
+        $this->idclient = $idclient;
+
+        return $this;
+    }
 
 
 }

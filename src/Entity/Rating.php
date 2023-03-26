@@ -27,5 +27,34 @@ class Rating
     #[ORM\Column]
     private ?int $nbetoile=null;
 
+    public function getIdrating(): ?int
+    {
+        return $this->idrating;
+    }
+
+    public function getIdvoiture(): ?int
+    {
+        return $this->idvoiture;
+    }
+
+    public function setIdvoiture(int $idvoiture): self
+    {
+        $this->idvoiture = $idvoiture;
+
+        return $this;
+    }
+
+    public function getNbetoile(): ?int
+    {
+        return $this->nbetoile;
+    }
+
+    public function setNbetoile(int $nbetoile): self
+    {
+        $this->nbetoile = $nbetoile;
+
+        return $this;
+    }
+
 
 }

@@ -31,5 +31,22 @@ class Historique
      */
     private $idreservation;
 
+    public function getIdhistorique(): ?int
+    {
+        return $this->idhistorique;
+    }
+
+    public function getIdreservation(): ?Reservation
+    {
+        return $this->idreservation;
+    }
+
+    public function setIdreservation(?Reservation $idreservation): self
+    {
+        $this->idreservation = $idreservation;
+
+        return $this;
+    }
+
 
 }
