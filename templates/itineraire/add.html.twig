@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+<form>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <label> Car Brand </label>
+                        <select class="form-control">
+                          <option>Any Brands</option>
+                          <option>Any Brands</option>
+                          <option>Any Brands</option>
+                          <option>Any Brands</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <label> Car Type </label>
+                        <select class="form-control">
+                          <option>Any Type</option>
+                          <option>Any Type</option>
+                          <option>Any Type</option>
+                          <option>Any Type</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <label> Car Price </label>
+                        <select class="form-control">
+                          <option>Price Low to High</option>
+                          <option>Price High to Low</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input type="submit" class="form-control btn-primary" value="Search Car Now">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                {% endblock %}
