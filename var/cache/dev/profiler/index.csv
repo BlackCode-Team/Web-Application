@@ -83,3 +83,7 @@ a0bc65,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,167
 092d3e,127.0.0.1,GET,http://127.0.0.1:8000/assets/css/main.css.map,1679885626,,404
 1a1916,127.0.0.1,GET,http://127.0.0.1:8000/assets/color-files/color-08.css.map,1679885626,6136a3,404
 6136a3,127.0.0.1,GET,http://127.0.0.1:8000/assets/color-files/color-08.css.map,1679885626,,404
+dc08c0,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1679929882,71ec2b,404
+71ec2b,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1679929882,,404
+5d5b5b,127.0.0.1,GET,http://127.0.0.1:8000/vehicule,1679929892,,200
+025bdb,127.0.0.1,GET,http://127.0.0.1:8000/vehicule,1679930137,,200

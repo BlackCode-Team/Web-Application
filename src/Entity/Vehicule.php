@@ -35,27 +35,14 @@ class Vehicule
     private ?string $matricule=null;
 
     #[ORM\Column]
-    private ?int $puissance;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="iditineraire", type="integer", nullable=true)
-     */
-    private $iditineraire;
+    private ?int $puissance=null;
 
     #[ORM\Column(length: 255)]
     private ?string $image=null;
 
-    /**
-     * @var \Reservation
-     *
-     * @ORM\ManyToOne(targetEntity="Reservation")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreservation", referencedColumnName="idreservation")
-     * })
-     */
-    private $idreservation;
+    #[ORM\ManyToOne(targetEntity: Reservation::class, inversedBy: 'Vehicule')]
+    #[ORM\JoinColumn(name: 'idreservation', referencedColumnName: 'idreservation')]
+    private ?int $idreservation=null;
 
     public function getModele(): ?string
     {
@@ -117,18 +104,6 @@ class Vehicule
         return $this;
     }
 
-    public function getIditineraire(): ?int
-    {
-        return $this->iditineraire;
-    }
-
-    public function setIditineraire(?int $iditineraire): self
-    {
-        $this->iditineraire = $iditineraire;
-
-        return $this;
-    }
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -149,6 +124,35 @@ class Vehicule
     public function setIdreservation(?Reservation $idreservation): self
     {
         $this->idreservation = $idreservation;
+
+        return $this;
+    }
+
+    public function getIdVehicule(): ?int
+    {
+        return $this->idVehicule;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

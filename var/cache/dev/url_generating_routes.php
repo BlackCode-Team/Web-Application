@@ -4,6 +4,8 @@
 
 return [
     'app_itineraire' => [[], ['_controller' => 'App\\Controller\\ItineraireController::index'], [], [['text', '/itineraire']], [], [], []],
+    'app_rating' => [[], ['_controller' => 'App\\Controller\\RatingController::index'], [], [['text', '/rating']], [], [], []],
+    'app_vehicule' => [[], ['_controller' => 'App\\Controller\\VehiculeController::index'], [], [['text', '/vehicule']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], [], []],
     '_profiler_home' => [[], ['_controller' => 'web_profiler.controller.profiler::homeAction'], [], [['text', '/_profiler/']], [], [], []],
