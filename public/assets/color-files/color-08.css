@@ -278,5 +278,7 @@
 
 .r-best-offer-list .r-best-offer-single ul li:hover {
   background-color: #459acf; }
-
+  .r-header .r-header-inner-banner .r-header-in-over {
+    color: #459acf;
+  }
 /*# sourceMappingURL=color-08.css.map */

@@ -99,7 +99,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
         // line 54
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.html"), "html", null, true);
         echo "\" class=\"d-inline-block\"><img src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/logo.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/carngo.png"), "html", null, true);
         echo "\" class=\"img-fluid d-block\" alt=\"\"></a>    ";
         // line 55
         echo "                    </div>
@@ -222,7 +222,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
                   <div class=\"r-footer-block\">
                     <img src=\"";
         // line 150
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/footer-logo.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/carngo.png"), "html", null, true);
         echo "\" class=\"d-block img-fluid\" alt=\"\">
                     <p>
                       We know the difference is in the details and that’s why our car rental services, in the tourism and business industry, stand out for their quality.
@@ -500,7 +500,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
                 <div class=\"row clearfix\">
                   <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12\">
                     <div class=\"r-logo\">
-                      <a href=\"{{asset('index.html')}}\" class=\"d-inline-block\"><img src=\"{{asset('assets/images/logo.png')}}\" class=\"img-fluid d-block\" alt=\"\"></a>    {# hetha fil index bech yetbadel iwali nom ta3 route d'accueil #}
+                      <a href=\"{{asset('index.html')}}\" class=\"d-inline-block\"><img src=\"{{asset('assets/images/carngo.png')}}\" class=\"img-fluid d-block\" alt=\"\"></a>    {# hetha fil index bech yetbadel iwali nom ta3 route d'accueil #}
                     </div>
                     <a href=\"{{asset('javaScript:void(0)')}}\" class=\"menu-icon\"> <i class=\"fa fa-bars\"></i> </a>
                   </div>
@@ -596,7 +596,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
               <div class=\"row clearfix\">
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
                   <div class=\"r-footer-block\">
-                    <img src=\"{{asset('assets/images/footer-logo.png')}}\" class=\"d-block img-fluid\" alt=\"\">
+                    <img src=\"{{asset('assets/images/carngo.png')}}\" class=\"d-block img-fluid\" alt=\"\">
                     <p>
                       We know the difference is in the details and that’s why our car rental services, in the tourism and business industry, stand out for their quality.
                     </p>
