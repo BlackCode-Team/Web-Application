@@ -1,25 +1,21 @@
 <?php
 
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Affectationbadge
- *
- * @ORM\Table(name="affectationbadge", indexes={@ORM\Index(name="idbadge", columns={"idbadge"}), @ORM\Index(name="iduser", columns={"iduser"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\AffectationbadgeRepository;
+
+#[ORM\Entity(repositoryClass: AffectationbadgeRepository::class)]
+
 class Affectationbadge
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idaffectation", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idaffectation;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idaffectation=null;
 
     /**
      * @var \Badge

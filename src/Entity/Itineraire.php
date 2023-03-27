@@ -3,13 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Repository;
+use App\Repository\ItineraireRepository;
 
-/**
- * Itineraire
- *
- * @ORM\Table(name="itineraire")
- * @ORM\Entity
- */
+
+#[ORM\Entity(repositoryClass: ItineraireRepository::class)]
+
 class Itineraire
 {
     #[ORM\Id]
@@ -31,6 +30,8 @@ class Itineraire
     private ?int $dureeestimee= null;
     #[ORM\Column]
     private ?int $nbUsage= null;
+
+
     public function getIditineraire(): ?int
     {
         return $this->iditineraire;

@@ -4,12 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Rating
- *
- * @ORM\Table(name="rating")
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\RatingRepository;
+
+#[ORM\Entity(repositoryClass: RatingRepository::class)]
+
 class Rating
 {
     #[ORM\Id]

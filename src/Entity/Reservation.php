@@ -2,25 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Reservation
- *
- * @ORM\Table(name="reservation", indexes={@ORM\Index(name="iduser", columns={"iduser"}), @ORM\Index(name="idvehicule", columns={"idvehicule"}), @ORM\Index(name="iditineraire", columns={"iditineraire"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\ReservationRepository;
+
+#[ORM\Entity(repositoryClass: ReservationRepository::class)]
+
 class Reservation
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idreservation", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idreservation;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idreservation=null;
 
     /**
      * @var \DateTime

@@ -2,25 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Reponse
- *
- * @ORM\Table(name="reponse")
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\ResponseRepository;
+
+#[ORM\Entity(repositoryClass: ResponseRepository::class)]
+
 class Reponse
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idreponse", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idreponse;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?inr $idreponse=null;
 
     /**
      * @var string

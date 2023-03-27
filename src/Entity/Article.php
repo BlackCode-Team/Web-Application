@@ -4,22 +4,17 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Article
- *
- * @ORM\Table(name="article")
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\ArticleRepository;
+
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
+
 class Article
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idarticle", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idarticle;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idarticle=null;
 
     /**
      * @var string

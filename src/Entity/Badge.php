@@ -4,22 +4,21 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Badge
- *
- * @ORM\Table(name="badge", uniqueConstraints={@ORM\UniqueConstraint(name="typebadge", columns={"typebadge"}), @ORM\UniqueConstraint(name="typebadge_2", columns={"typebadge"}), @ORM\UniqueConstraint(name="typebadge_3", columns={"typebadge"})})
- * @ORM\Entity
- */
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+use Repository;
+use App\Repository\BadgeRepository;
+
+#[ORM\Entity(repositoryClass: BadgeRepository::class)]
+
 class Badge
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idbadge", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idbadge;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idbadge=null;
 
     /**
      * @var string

@@ -1,53 +1,31 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Park
- *
- * @ORM\Table(name="park")
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\ParkRepository;
+
+
+#[ORM\Entity(repositoryClass: ParkRepository::class)]
 class Park
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idpark", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idpark;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idpark= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
-     */
-    private $nom;
+    #[ORM\Column(length: 255)]
+    private ?string $nom= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=false)
-     */
-    private $ville;
+    #[ORM\Column(length: 255)]
+    private ?string $ville= null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbspot", type="integer", nullable=false)
-     */
-    private $nbspot;
+    #[ORM\Column]
+    private ?int $nbspot= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="statut", type="string", length=255, nullable=false)
-     */
-    private $statut;
+    #[ORM\Column(length: 255)]
+    private ?string $statut= null;
 
     public function getIdpark(): ?int
     {

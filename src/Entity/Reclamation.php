@@ -2,25 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Reclamation
- *
- * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="iduser", columns={"iduser"}), @ORM\Index(name="idvehicule", columns={"idvehicule"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\ReclamationRepository;
+
+#[ORM\Entity(repositoryClass: ReclamationRepository::class)]
+
 class Reclamation
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idreclamation", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idreclamation;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idreclamation=null;
 
     /**
      * @var string

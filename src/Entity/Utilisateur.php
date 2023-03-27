@@ -4,22 +4,17 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Utilisateur
- *
- * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="idaffectation", columns={"idaffectation"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\UtilisateurRepository;
+
+#[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+
 class Utilisateur
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="iduser", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $iduser;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $iduser=null;
 
     /**
      * @var string

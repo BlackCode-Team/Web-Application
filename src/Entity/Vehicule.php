@@ -6,9 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Repository;
 use App\Repository\VehiculeRepository;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\VehiculeRepository")
- */
+
 #[ORM\Entity(repositoryClass: VehiculeRepository::class)]
 class Vehicule
 {

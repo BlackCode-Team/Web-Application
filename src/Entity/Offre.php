@@ -1,25 +1,19 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Offre
- *
- * @ORM\Table(name="offre", indexes={@ORM\Index(name="idbadge", columns={"idbadge"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\OffreRepository;
+
+#[ORM\Entity(repositoryClass: OffreRepository::class)]
+
 class Offre
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idoffre", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idoffre;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idoffre=null;
 
     /**
      * @var string

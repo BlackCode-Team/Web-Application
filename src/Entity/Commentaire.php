@@ -2,25 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Commentaire
- *
- * @ORM\Table(name="commentaire", indexes={@ORM\Index(name="idarticle", columns={"idarticle"}), @ORM\Index(name="iduser", columns={"iduser"})})
- * @ORM\Entity
- */
+use Repository;
+use App\Repository\CommentaireRepository;
+
+#[ORM\Entity(repositoryClass: CommentaireRepository::class)]
+
 class Commentaire
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idcomment", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idcomment;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idcomment=null;
 
     /**
      * @var string
