@@ -11529,7 +11529,7 @@ div.r-who-we-outer {
   .r-drivers-part::after {
     content: "";
     display: inline-block;
-    background: url(../images/driver-pic.png) left top no-repeat;
+  /* background: url() left top no-repeat;*/
     position: absolute;
     left: 20%;
     right: 0;
