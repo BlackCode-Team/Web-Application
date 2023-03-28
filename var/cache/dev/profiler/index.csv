@@ -222,3 +222,6 @@ a4260e,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20al
 f164b3,127.0.0.1,GET,http://127.0.0.1:8000/rating,1679982115,,200
 e0155d,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1679982116,f91549,404
 f91549,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1679982116,,404
+a425ca,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1680025298,229258,404
+229258,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1680025299,,404
+f60e31,127.0.0.1,GET,http://127.0.0.1:8000/itineraire,1680025308,,200

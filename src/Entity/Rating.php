@@ -17,7 +17,7 @@ class Rating
     private ?int $idrating=null;
 
     #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Rating')]
-    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
+    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idVehicule')]
     private ?int $idvehicule=null;
 
     #[ORM\Column]
