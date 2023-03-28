@@ -1,20 +1,72 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
-{% block title %}Hello ItineraireController!{% endblock %}
+    {% block body %}
+      <div class="row">
+                                                               
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>List des Postion</h4>
+                                    </div>                 
+                                </div>
+                            </div>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+                            <div class="widget-content-area ">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                                <div class="table-responsive new-products">
+                                   <table class="table">
+        <thead>
+            <tr>
+                <th>Iditineraire</th>
+                <th>Pointdepart</th>
+                <th>Pointarrivee</th>
+                <th>Kilometrage</th>
+                <th>Dureeestimee</th>
+                <th>NbUsage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for itineraire in itineraires %}
+            <tr>
+                <td>{{ itineraire.iditineraire }}</td>
+                <td>{{ itineraire.pointdepart }}</td>
+                <td>{{ itineraire.pointarrivee }}</td>
+                <td>{{ itineraire.kilometrage }}</td>
+                <td>{{ itineraire.dureeestimee }}</td>
+                <td>{{ itineraire.nbUsage }}</td>
+                <td>
+                    <a href="{{ path('app_itineraire_show', {'iditineraire': itineraire.iditineraire}) }}">show</a>
+                    <a href="{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>                                              {# table lehne #}
+                                </div>
+                                <div class="pagination-section">
+                                    <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                                        <li><a href="javascript:void(0);">«</a></li>
+                                        <li><a href="javascript:void(0);">1</a></li>
+                                        <li><a href="javascript:void(0);">2</a></li>
+                                        <li><a href="javascript:void(0);">3</a></li>
+                                        <li><a href="javascript:void(0);">4</a></li>
+                                        <li><a href="javascript:void(0);">5</a></li>
+                                        <li><a href="javascript:void(0);">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Mega-PC/Desktop/Web-Application/src/Controller/ItineraireController.php'|file_link(0) }}">src/Controller/ItineraireController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Mega-PC/Desktop/Web-Application/templates/itineraire/index.html.twig'|file_link(0) }}">templates/itineraire/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('app_itineraire_new') }}">Create new</a>
+
+    
 {% endblock %}

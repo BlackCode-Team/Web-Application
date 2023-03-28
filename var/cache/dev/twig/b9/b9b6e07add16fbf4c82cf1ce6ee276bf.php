@@ -274,7 +274,7 @@ class __TwigTemplate_2fbf557a760d1626c5a72df1ef020f2f extends Template
                             <a href=\"\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
-                                    <span>Gestion Reclamation</span>
+                                    <span>Gestion Reservation</span>
                                 </div>
                             </a>
                           
@@ -1101,7 +1101,7 @@ class __TwigTemplate_2fbf557a760d1626c5a72df1ef020f2f extends Template
                             <a href=\"\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
-                                    <span>Gestion Reclamation</span>
+                                    <span>Gestion Reservation</span>
                                 </div>
                             </a>
                           

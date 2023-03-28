@@ -25,7 +25,6 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -33,7 +32,7 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +44,7 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "itineraire/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "itineraire/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "itineraire/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -56,25 +55,6 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello ItineraireController!";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,30 +64,118 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        // line 4
+        echo "      <div class=\"row\">
+                                                               
+                    <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
+                        <div class=\"statbox widget box\">
+                            <div class=\"widget-header \">
+                                <div class=\"row\">
+                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
+                                        <h4>List des Postion</h4>
+                                    </div>                 
+                                </div>
+                            </div>
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
+                            <div class=\"widget-content-area \">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/Mega-PC/Desktop/Web-Application/src/Controller/ItineraireController.php", 0), "html", null, true);
-        echo "\">src/Controller/ItineraireController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/Mega-PC/Desktop/Web-Application/templates/itineraire/index.html.twig", 0), "html", null, true);
-        echo "\">templates/itineraire/index.html.twig</a></code></li>
-    </ul>
-</div>
+                                <div class=\"table-responsive new-products\">
+                                   <table class=\"table\">
+        <thead>
+            <tr>
+                <th>Iditineraire</th>
+                <th>Pointdepart</th>
+                <th>Pointarrivee</th>
+                <th>Kilometrage</th>
+                <th>Dureeestimee</th>
+                <th>NbUsage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        ";
+        // line 32
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["itineraires"]) || array_key_exists("itineraires", $context) ? $context["itineraires"] : (function () { throw new RuntimeError('Variable "itineraires" does not exist.', 32, $this->source); })()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["itineraire"]) {
+            // line 33
+            echo "            <tr>
+                <td>";
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 34), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointdepart", [], "any", false, false, false, 35), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointarrivee", [], "any", false, false, false, 36), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "kilometrage", [], "any", false, false, false, 37), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "dureeestimee", [], "any", false, false, false, 38), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "nbUsage", [], "any", false, false, false, 39), "html", null, true);
+            echo "</td>
+                <td>
+                    <a href=\"";
+            // line 41
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_show", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 41)]), "html", null, true);
+            echo "\">show</a>
+                    <a href=\"";
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_edit", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 42)]), "html", null, true);
+            echo "\">edit</a>
+                </td>
+            </tr>
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 46
+            echo "            <tr>
+                <td colspan=\"7\">no records found</td>
+            </tr>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['itineraire'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 50
+        echo "        </tbody>
+    </table>                                              ";
+        // line 52
+        echo "                                </div>
+                                <div class=\"pagination-section\">
+                                    <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
+                                        <li><a href=\"javascript:void(0);\">«</a></li>
+                                        <li><a href=\"javascript:void(0);\">1</a></li>
+                                        <li><a href=\"javascript:void(0);\">2</a></li>
+                                        <li><a href=\"javascript:void(0);\">3</a></li>
+                                        <li><a href=\"javascript:void(0);\">4</a></li>
+                                        <li><a href=\"javascript:void(0);\">5</a></li>
+                                        <li><a href=\"javascript:void(0);\">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <a href=\"";
+        // line 69
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_new");
+        echo "\">Create new</a>
+
+    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,30 +197,82 @@ class __TwigTemplate_3b50b1b4a3f828045e103182d22a8da6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  175 => 69,  156 => 52,  153 => 50,  144 => 46,  135 => 42,  131 => 41,  126 => 39,  122 => 38,  118 => 37,  114 => 36,  110 => 35,  106 => 34,  103 => 33,  98 => 32,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
-{% block title %}Hello ItineraireController!{% endblock %}
+    {% block body %}
+      <div class=\"row\">
+                                                               
+                    <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
+                        <div class=\"statbox widget box\">
+                            <div class=\"widget-header \">
+                                <div class=\"row\">
+                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
+                                        <h4>List des Postion</h4>
+                                    </div>                 
+                                </div>
+                            </div>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+                            <div class=\"widget-content-area \">
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                                <div class=\"table-responsive new-products\">
+                                   <table class=\"table\">
+        <thead>
+            <tr>
+                <th>Iditineraire</th>
+                <th>Pointdepart</th>
+                <th>Pointarrivee</th>
+                <th>Kilometrage</th>
+                <th>Dureeestimee</th>
+                <th>NbUsage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for itineraire in itineraires %}
+            <tr>
+                <td>{{ itineraire.iditineraire }}</td>
+                <td>{{ itineraire.pointdepart }}</td>
+                <td>{{ itineraire.pointarrivee }}</td>
+                <td>{{ itineraire.kilometrage }}</td>
+                <td>{{ itineraire.dureeestimee }}</td>
+                <td>{{ itineraire.nbUsage }}</td>
+                <td>
+                    <a href=\"{{ path('app_itineraire_show', {'iditineraire': itineraire.iditineraire}) }}\">show</a>
+                    <a href=\"{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}\">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"7\">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>                                              {# table lehne #}
+                                </div>
+                                <div class=\"pagination-section\">
+                                    <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
+                                        <li><a href=\"javascript:void(0);\">«</a></li>
+                                        <li><a href=\"javascript:void(0);\">1</a></li>
+                                        <li><a href=\"javascript:void(0);\">2</a></li>
+                                        <li><a href=\"javascript:void(0);\">3</a></li>
+                                        <li><a href=\"javascript:void(0);\">4</a></li>
+                                        <li><a href=\"javascript:void(0);\">5</a></li>
+                                        <li><a href=\"javascript:void(0);\">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/Users/Mega-PC/Desktop/Web-Application/src/Controller/ItineraireController.php'|file_link(0) }}\">src/Controller/ItineraireController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/Users/Mega-PC/Desktop/Web-Application/templates/itineraire/index.html.twig'|file_link(0) }}\">templates/itineraire/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href=\"{{ path('app_itineraire_new') }}\">Create new</a>
+
+    
 {% endblock %}
 ", "itineraire/index.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\itineraire\\index.html.twig");
     }

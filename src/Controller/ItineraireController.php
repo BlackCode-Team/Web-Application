@@ -2,17 +2,77 @@
 
 namespace App\Controller;
 
+use App\Entity\Itineraire;
+use App\Form\ItineraireType;
+use App\Repository\ItineraireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/itineraire')]
 class ItineraireController extends AbstractController
 {
-    #[Route('/itineraire', name: 'app_itineraire')]
-    public function index(): Response
+    #[Route('/', name: 'app_itineraire_index', methods: ['GET'])]
+    public function index(ItineraireRepository $itineraireRepository): Response
     {
         return $this->render('itineraire/index.html.twig', [
-            'controller_name' => 'ItineraireController',
+            'itineraires' => $itineraireRepository->findAll(),
         ]);
+    }
+
+    #[Route('/new', name: 'app_itineraire_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, ItineraireRepository $itineraireRepository): Response
+    {
+        $itineraire = new Itineraire();
+        $form = $this->createForm(ItineraireType::class, $itineraire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $itineraireRepository->save($itineraire, true);
+
+            return $this->redirectToRoute('app_itineraire_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('itineraire/new.html.twig', [
+            'itineraire' => $itineraire,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{iditineraire}', name: 'app_itineraire_show', methods: ['GET'])]
+    public function show(Itineraire $itineraire): Response
+    {
+        return $this->render('itineraire/show.html.twig', [
+            'itineraire' => $itineraire,
+        ]);
+    }
+
+    #[Route('/{iditineraire}/edit', name: 'app_itineraire_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Itineraire $itineraire, ItineraireRepository $itineraireRepository): Response
+    {
+        $form = $this->createForm(ItineraireType::class, $itineraire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $itineraireRepository->save($itineraire, true);
+
+            return $this->redirectToRoute('app_itineraire_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('itineraire/edit.html.twig', [
+            'itineraire' => $itineraire,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{iditineraire}', name: 'app_itineraire_delete', methods: ['POST'])]
+    public function delete(Request $request, Itineraire $itineraire, ItineraireRepository $itineraireRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$itineraire->getIditineraire(), $request->request->get('_token'))) {
+            $itineraireRepository->remove($itineraire, true);
+        }
+
+        return $this->redirectToRoute('app_itineraire_index', [], Response::HTTP_SEE_OTHER);
     }
 }
