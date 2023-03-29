@@ -301,3 +301,9 @@ aaaf9e,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/assets/img/profile-12.jpg,
 7792f2,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/,1680033732,,200
 00c506,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680033733,de73b7,404
 de73b7,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680033733,,404
+f9f3f3,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/2,1680040632,,200
+17ae98,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/2/edit,1680040639,,200
+88937b,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680043900,f963eb,404
+f963eb,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680043900,,404
+aa3783,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680044428,7be771,404
+7be771,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680044428,,404
