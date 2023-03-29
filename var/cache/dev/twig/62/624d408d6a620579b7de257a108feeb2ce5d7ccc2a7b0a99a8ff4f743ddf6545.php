@@ -58,10 +58,10 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
       <meta name=\"keywords\" content=\"\" >
 
       <!-- FAVICON -->
-      <link rel=\"shortcut icon\" href=\"";
+     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/favicon.png"), "html", null, true);
-        echo "\">
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo-4.png"), "html", null, true);
+        echo "\"/>
     ";
         // line 17
         $this->displayBlock('stylesheet', $context, $blocks);
@@ -160,7 +160,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                           <li class=\"r-has-child\">
                             <a href=\"";
         // line 87
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule");
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("car-listing.html"), "html", null, true);
         echo "\">VEHICLES</a>
                             <ul class=\"pl-0 ml-0\">
                               <li><a href=\"";
@@ -178,13 +178,9 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                           <li><a href=\"";
         // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("gallery.html"), "html", null, true);
-        echo "\">GALLERY</a></li>
+        echo "\">PARK</a></li>
                           <li><a href=\"";
         // line 94
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("drivers.html"), "html", null, true);
-        echo "\">DRIVERS</a></li>
-                          <li><a href=\"";
-        // line 95
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("contact.html"), "html", null, true);
         echo "\">CONTACT US</a></li>
                         </ul>
@@ -199,7 +195,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                 <h1>Car<b>Ngo</b> </h1>
                 <div class=\"r-breadcrum\">
                   ";
-        // line 111
+        // line 110
         echo "                </div>
               </div>
             </div>
@@ -207,13 +203,13 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
         </header> 
         <section id=\"r-drivers-part\" class=\"r-drivers-part\">
         ";
-        // line 117
+        // line 116
         $this->displayBlock('body', $context, $blocks);
         echo " ";
-        // line 118
+        // line 117
         echo "        </section>
         ";
-        // line 144
+        // line 143
         echo "        <footer>
           <div class=\"r-footer\">
             <div class=\"container\">
@@ -221,18 +217,13 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
                   <div class=\"r-footer-block\">
                     <img src=\"";
-        // line 150
+        // line 149
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/carngo.png"), "html", null, true);
         echo "\" class=\"d-block img-fluid\" alt=\"\">
                     <p>
                       We know the difference is in the details and that’s why our car rental services, in the tourism and business industry, stand out for their quality.
                     </p>
-                    <form action=\"#\">
-                      <div class=\"r-newsletter\">
-                        <input type=\"email\" placeholder=\"Subscribe Newsletter\">
-                        <button class=\"btn\"><i class=\"fa fa-envelope\"></i></button>
-                      </div>
-                    </form>
+                    
                   </div>
                 </div>
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
@@ -279,7 +270,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                   <div class=\"r-footer-block\">
                     <div class=\"r-footer-widget r-footer-map\">
                       <a href=\"#\"> <img src=\"";
-        // line 205
+        // line 199
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-footer-map.png"), "html", null, true);
         echo "\" class=\"icon\" alt=''/> RoyalCars on Map</a>
                     </div>
@@ -300,7 +291,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
               </div>
               <div class=\"row clearfix r-footer-strip\">
                 <div class=\"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                 © 2019 Created by <a href=\"https://jthemes.com/\" target=\"_blank\" title=\"Best Corporate WordPress, HTML Templates\">jThemes Studio</a>
+                 © 2023 Created by <a href=\"\" target=\"_blank\" title=\"Best Corporate WordPress, HTML Templates\">BLACKCODE</a>
                 </div>
                 <div class=\"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12\">
                  <ul>
@@ -315,9 +306,9 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
         </footer>
       </div>
       ";
-        // line 238
+        // line 232
         $this->displayBlock('javaScript', $context, $blocks);
-        // line 253
+        // line 247
         echo "
   </body>
 
@@ -363,7 +354,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
 
     }
 
-    // line 117
+    // line 116
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -382,7 +373,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
 
     }
 
-    // line 238
+    // line 232
     public function block_javaScript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -392,33 +383,33 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
 
-        // line 239
+        // line 233
         echo "      <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src=\"";
-        // line 241
+        // line 235
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: BOOTSTRAP.JS -->
       <script src=\"";
-        // line 244
+        // line 238
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/tether.min.js"), "html", null, true);
         echo "\"></script>
       <script src=\"";
-        // line 245
+        // line 239
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: PLUGINS -->
       <script src=\"";
-        // line 248
+        // line 242
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/plugins/owl/owl.carousel.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: CUSTOM -->
       <script src=\"";
-        // line 251
+        // line 245
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/custom.js"), "html", null, true);
         echo "\"></script>
       ";
@@ -442,7 +433,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
 
     public function getDebugInfo()
     {
-        return array (  422 => 251,  416 => 248,  410 => 245,  406 => 244,  400 => 241,  396 => 239,  386 => 238,  367 => 117,  355 => 23,  351 => 22,  345 => 18,  335 => 17,  321 => 253,  319 => 238,  283 => 205,  225 => 150,  217 => 144,  214 => 118,  211 => 117,  203 => 111,  188 => 95,  184 => 94,  180 => 93,  176 => 91,  172 => 90,  168 => 89,  163 => 87,  158 => 84,  155 => 83,  152 => 82,  149 => 81,  142 => 78,  124 => 62,  120 => 61,  115 => 60,  108 => 56,  105 => 55,  100 => 54,  69 => 25,  67 => 17,  63 => 16,  46 => 1,);
+        return array (  413 => 245,  407 => 242,  401 => 239,  397 => 238,  391 => 235,  387 => 233,  377 => 232,  358 => 116,  346 => 23,  342 => 22,  336 => 18,  326 => 17,  312 => 247,  310 => 232,  274 => 199,  221 => 149,  213 => 143,  210 => 117,  207 => 116,  199 => 110,  184 => 94,  180 => 93,  176 => 91,  172 => 90,  168 => 89,  163 => 87,  158 => 84,  155 => 83,  152 => 82,  149 => 81,  142 => 78,  124 => 62,  120 => 61,  115 => 60,  108 => 56,  105 => 55,  100 => 54,  69 => 25,  67 => 17,  63 => 16,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -462,7 +453,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
       <meta name=\"keywords\" content=\"\" >
 
       <!-- FAVICON -->
-      <link rel=\"shortcut icon\" href=\"{{asset('assets/images/favicon.png')}}\">
+     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
     {% block stylesheet %}
       <!-- CSS:: FONTS -->
       <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\" rel=\"stylesheet\">
@@ -533,14 +524,13 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                             </ul>
                           </li>
                           <li class=\"r-has-child\">
-                            <a href=\"{{path('app_vehicule')}}\">VEHICLES</a>
+                            <a href=\"{{asset('car-listing.html')}}\">VEHICLES</a>
                             <ul class=\"pl-0 ml-0\">
                               <li><a href=\"{{asset('car-list-map.html')}}\">Car List Map</a></li>
                               <li><a href=\"{{asset('-booking.html')}}\">Car Booking</a></li>
                             </ul>                      {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
                           </li>
-                          <li><a href=\"{{asset('gallery.html')}}\">GALLERY</a></li>
-                          <li><a href=\"{{asset('drivers.html')}}\">DRIVERS</a></li>
+                          <li><a href=\"{{asset('gallery.html')}}\">PARK</a></li>
                           <li><a href=\"{{asset('contact.html')}}\">CONTACT US</a></li>
                         </ul>
                       </nav>
@@ -600,12 +590,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
                     <p>
                       We know the difference is in the details and that’s why our car rental services, in the tourism and business industry, stand out for their quality.
                     </p>
-                    <form action=\"#\">
-                      <div class=\"r-newsletter\">
-                        <input type=\"email\" placeholder=\"Subscribe Newsletter\">
-                        <button class=\"btn\"><i class=\"fa fa-envelope\"></i></button>
-                      </div>
-                    </form>
+                    
                   </div>
                 </div>
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
@@ -670,7 +655,7 @@ class __TwigTemplate_47c8071f29afe53f54183bbcbbeb596265a9c71c69b71a747e1a095d482
               </div>
               <div class=\"row clearfix r-footer-strip\">
                 <div class=\"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                 © 2019 Created by <a href=\"https://jthemes.com/\" target=\"_blank\" title=\"Best Corporate WordPress, HTML Templates\">jThemes Studio</a>
+                 © 2023 Created by <a href=\"\" target=\"_blank\" title=\"Best Corporate WordPress, HTML Templates\">BLACKCODE</a>
                 </div>
                 <div class=\"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12\">
                  <ul>

@@ -10,11 +10,10 @@ use App\Repository\VehiculeRepository;
 #[ORM\Entity(repositoryClass: VehiculeRepository::class)]
 class Vehicule
 {
-    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $idVehicule= null;
+    private ?int $idvehicule= null;
 
     #[ORM\Column(length: 255)]
     private ?string $status = 'disponible';
@@ -40,9 +39,6 @@ class Vehicule
     #[ORM\Column(length: 255)]
     private ?string $image=null;
 
-    #[ORM\ManyToOne(targetEntity: Reservation::class, inversedBy: 'Vehicule')]
-    #[ORM\JoinColumn(name: 'idreservation', referencedColumnName: 'idreservation')]
-    private ?int $idreservation=null;
 
     public function getModele(): ?string
     {
@@ -116,21 +112,9 @@ class Vehicule
         return $this;
     }
 
-    public function getIdreservation(): ?Reservation
+    public function getIdvehicule(): ?int
     {
-        return $this->idreservation;
-    }
-
-    public function setIdreservation(?Reservation $idreservation): self
-    {
-        $this->idreservation = $idreservation;
-
-        return $this;
-    }
-
-    public function getIdVehicule(): ?int
-    {
-        return $this->idVehicule;
+        return $this->idvehicule;
     }
 
     public function getStatus(): ?string
