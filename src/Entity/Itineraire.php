@@ -16,8 +16,7 @@ class Itineraire
     #[ORM\Column]
 
     private ?int $iditineraire= null;
-  #[ORM\OneToMany(mappedBy: 'itineraire', targetEntity: Reservation::class)]
-    private Collection $reservations;
+ 
     #[ORM\Column(length: 255)]
     private ?string $pointdepart= null;
 

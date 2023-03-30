@@ -16,8 +16,7 @@ class Utilisateur
     #[ORM\Column]
 
 private ?int $iduser=null;
-/*#[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Reservation::class)]
-private Collection $reservations;*/
+
 
     #[ORM\Column(length: 255)]
     private ?string $role=null;
