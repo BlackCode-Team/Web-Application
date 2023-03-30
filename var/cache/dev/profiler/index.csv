@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 8d7eaa,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1679876155,9f5a7e,404
 9f5a7e,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1679876155,,404
 9d3b22,127.0.0.1,GET,http://127.0.0.1:8000/itineraire,1679876175,,200
@@ -555,4 +556,28 @@ d477f5,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20al
 610d75,127.0.0.1,GET,http://127.0.0.1:8000/vehicule/new,1680190252,,200
 d77301,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680190253,bb0812,404
 bb0812,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680190253,,404
+>>>>>>> Stashed changes
+=======
+f1c2dd,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192398,a5791b,500
+a5791b,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192398,,500
+ff67b3,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192478,a7537f,500
+a7537f,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192478,,500
+ed0134,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192664,20eb8b,500
+20eb8b,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192664,,500
+d3057d,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192683,d17da0,500
+d17da0,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192683,,500
+058e8a,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192715,4556f5,500
+4556f5,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192715,,500
+f33194,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192800,,200
+35c69b,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192837,,200
+2cc82f,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680192982,,200
+728884,127.0.0.1,GET,http://127.0.0.1:8000/reservation/assets/color-files/color-06.css,1680193021,49d62f,404
+49d62f,127.0.0.1,GET,http://127.0.0.1:8000/reservation/assets/color-files/color-06.css,1680193021,,404
+541b02,127.0.0.1,GET,http://127.0.0.1:8000/reservation/assets/color-files/color-01.css,1680193022,96df97,404
+96df97,127.0.0.1,GET,http://127.0.0.1:8000/reservation/assets/color-files/color-01.css,1680193022,,404
+c32f55,127.0.0.1,GET,http://127.0.0.1:8000/reservation/11,1680193032,f4e8ca,500
+f4e8ca,127.0.0.1,GET,http://127.0.0.1:8000/reservation/11,1680193032,,500
+2862fa,127.0.0.1,GET,http://127.0.0.1:8000/reservation/11,1680193053,,200
+b70238,127.0.0.1,POST,http://127.0.0.1:8000/reservation/11,1680193067,,303
+73eecc,127.0.0.1,GET,http://127.0.0.1:8000/reservation/,1680193067,,200
 >>>>>>> Stashed changes

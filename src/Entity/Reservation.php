@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Repository;
 use App\Repository\ReservationRepository;
+use DateTimeInterface;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 
@@ -16,63 +17,41 @@ class Reservation
     #[ORM\Column]
     private ?int $idreservation=null;
 
-    /**
+     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datedebut", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date", nullable=false)
      */
-    private $datedebut;
-
-    /**
+    private $datedebut = null;
+     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datefin", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date", nullable=false)
      */
-    private $datefin;
+    private $datefin = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="status", type="string", length=255, nullable=false)
-     */
-    private $status;
+   
+ /*   #[ORM\Column(type: 'date')]
+    private ?DateTime $datedebut = null;
+    #[ORM\Column(type: 'date')]
+    private ?DateTime $datefin = null;*/
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="prixreservation", type="integer", nullable=true)
-     */
-    private $prixreservation;
+    #[ORM\Column(length: 255)]
+    private ?string $status ;
+   
+    #[ORM\Column]
+    private ?int $prixreservation=null;
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reservations')]
+    #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
+    private ?Utilisateur $utilisateur=null ;
 
-    /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="iduser", referencedColumnName="iduser")
-     * })
-     */
-    private $iduser;
+    #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Reservations')]
+    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
+    private ?Vehicule $vehicule = null;
 
-    /**
-     * @var \Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idvehicule", referencedColumnName="idvehicule")
-     * })
-     */
-    private $idvehicule;
-
-    /**
-     * @var \Itineraire
-     *
-     * @ORM\ManyToOne(targetEntity="Itineraire")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="iditineraire", referencedColumnName="iditineraire")
-     * })
-     */
-    private $iditineraire;
+    #[ORM\ManyToOne(targetEntity: Itineraire::class, inversedBy: 'Reservations')]
+    #[ORM\JoinColumn(name: 'iditineraire', referencedColumnName: 'iditineraire')]
+    private ?Itineraire $iditineraire = null;
 
     public function getIdreservation(): ?int
     {
@@ -165,3 +144,5 @@ class Reservation
 
 
 }
+
+

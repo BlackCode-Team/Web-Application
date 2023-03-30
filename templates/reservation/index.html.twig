@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+    {% block body %}
+        <div class="row" id="cancel-row">
+            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Reservation index</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <div class="table-responsive mb-4">
+                            <table id="zero-config" class="table table-striped table-hover table-bordered" style="width:100%">
+
+        <thead>
+            <tr>
+                <th>Idreservation</th> 
+                <th>datedebut</th>
+                <th>datefin</th>
+                <th>status</th>
+                <th>prixreservation</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.idreservation }}</td>       
+               <td>{{ reservation.datedebut|date('Y-m-d') }}</td>
+               <td>{{ reservation.datefin|date('Y-m-d') }}</td>
+               <td>{{ reservation.status }}</td>
+               <td>{{ reservation.prixreservation }}</td>
+               
+
+
+                <td>
+                    <a href="{{ path('app_reservation_show', {'idreservation': reservation.idreservation}) }}">show</a>
+                    <a href="{{ path('app_reservation_edit', {'idreservation': reservation.idreservation}) }}">edit</a>
+               
+                </td>
+            </tr>
+             {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+            {% endfor %}
+           </tbody>
+    </table>
+                </div>
+                            <div class="pagination-section">
+                                        <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                                            <li><a href="javascript:void(0);">«</a></li>
+                                            <li><a href="javascript:void(0);">1</a></li>
+                                            <li><a href="javascript:void(0);">2</a></li>
+                                            <li><a href="javascript:void(0);">3</a></li>
+                                            <li><a href="javascript:void(0);">4</a></li>
+                                            <li><a href="javascript:void(0);">5</a></li>
+                                            <li><a href="javascript:void(0);">»</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    <a href="{{ path('app_reservation_new') }}">Create new</a>
+{% endblock %}
