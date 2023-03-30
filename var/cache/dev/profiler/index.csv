@@ -465,3 +465,15 @@ fb1dbc,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20al
 066fe6,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/,1680102218,,200
 dc8806,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680102219,17e382,404
 17e382,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680102219,,404
+b66ee6,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur,1680181278,,301
+9de16f,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur/,1680181279,,200
+b49afc,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur/,1680181371,,200
+b591e0,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181372,6913bb,404
+6913bb,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181372,,404
+fd55cc,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur/,1680181377,,200
+56fd5b,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181378,3b6450,404
+3b6450,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181378,,404
+3af4c1,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur/,1680181638,,200
+25965c,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181639,2e56c1,404
+2e56c1,127.0.0.1,GET,https://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1680181639,,404
+064799,127.0.0.1,GET,https://127.0.0.1:8000/utilisateur/,1680182693,,200

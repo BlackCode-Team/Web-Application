@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur index{% endblock %}
+
+{% block body %}
+    <h1>Utilisateur index</h1>
+
+    <div class="row">
+                                                               
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>New Products</h4>
+                                    </div>                 
+                                </div>
+                            </div>
+
+                            <div class="widget-content-area ">
+
+                                <div class="table-responsive new-products">
+                                    <table class="table">
+        <thead>
+            <tr>
+                <th>Iduser</th>
+                <th>Role</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pwd</th>
+                <th>Email</th>
+                <th>Cin</th>
+                <th>Permis</th>
+                <th>Nbpoint</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.iduser }}</td>
+                <td>{{ utilisateur.role }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.pwd }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.cin }}</td>
+                <td>{{ utilisateur.permis }}</td>
+                <td>{{ utilisateur.nbpoint }}</td>
+                <td>
+                    <a href="{{ path('app_utilisateur_show', {'iduser': utilisateur.iduser}) }}">show</a>
+                    <a href="{{ path('app_utilisateur_edit', {'iduser': utilisateur.iduser}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_utilisateur_new') }}">Create new</a>
+{% endblock %}

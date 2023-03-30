@@ -16,71 +16,36 @@ class Utilisateur
     #[ORM\Column]
     private ?int $iduser=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=255, nullable=false)
-     */
-    private $role;
+    #[ORM\Column(length: 255)]
+    private ?string $role=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
-     */
-    private $nom;
+    #[ORM\Column(length: 255)]
+    private ?string $nom=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
-     */
-    private $prenom;
+    #[ORM\Column(length: 255)]
+    private ?string $prenom=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pwd", type="string", length=255, nullable=false)
-     */
-    private $pwd;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, nullable=false)
-     */
-    private $email;
+    #[ORM\Column(length: 255)]
+    private ?string $pwd=null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="cin", type="string", length=255, nullable=true)
-     */
-    private $cin;
+    #[ORM\Column(length: 255)]
+    private ?string $email=null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="permis", type="string", length=255, nullable=true)
-     */
-    private $permis;
+    #[ORM\Column(length: 255)]
+    private ?string $cin=null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nbpoint", type="integer", nullable=true)
-     */
-    private $nbpoint;
+    #[ORM\Column(length: 255)]
+    private ?string  $permis;
 
-    /**
-     * @var \Affectationbadge
-     *
-     * @ORM\ManyToOne(targetEntity="Affectationbadge")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idaffectation", referencedColumnName="idaffectation")
-     * })
-     */
-    private $idaffectation;
+    
+    #[ORM\Column]
+    private ?int $nbpoint=null;
+
+    
+    #[ORM\ManyToOne(targetEntity: Affectationbadge::class, inversedBy: 'Utilisateur')]
+    #[ORM\JoinColumn(name: 'idaffectation', referencedColumnName: 'idaffectation')]
+    private ?int $idaffectation=null;
 
     public function getIduser(): ?int
     {
