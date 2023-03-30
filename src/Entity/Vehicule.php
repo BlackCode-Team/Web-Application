@@ -14,8 +14,8 @@ class Vehicule
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $idvehicule= null;
-    #[ORM\OneToMany(mappedBy: 'vehicule', targetEntity: Reservation::class)]
-    private Collection $reservations;
+    /*#[ORM\OneToMany(mappedBy: 'vehicule', targetEntity: Reservation::class)]
+    private Collection $reservations;*/
 
     #[ORM\Column(length: 255)]
     private ?string $status = 'disponible';
