@@ -69,12 +69,14 @@ class __TwigTemplate_5ff470356652e1177442dda94842140a extends Template
         // line 4
         echo "    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
-        echo "\">back to list</a>
-
-    ";
-        // line 6
-        echo twig_include($this->env, $context, "itineraire/_delete_form.html.twig");
-        echo "
+        echo "\">
+                      <div class=\"inner col-12 clearfix\">
+                      
+                          <button  class=\"btn m-auto d-block float-right btn-full\">Retour a la liste des itineraire</button>
+        
+                      </div>
+                      </a>
+   
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -96,7 +98,7 @@ class __TwigTemplate_5ff470356652e1177442dda94842140a extends Template
 
     public function getDebugInfo()
     {
-        return array (  76 => 6,  70 => 4,  51 => 3,  47 => 2,  44 => 1,);
+        return array (  70 => 4,  51 => 3,  47 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -104,9 +106,14 @@ class __TwigTemplate_5ff470356652e1177442dda94842140a extends Template
         return new Source("
     {{ include('itineraire/new.html.twig', {'button_label': 'Update'}) }}
 {% block body %}
-    <a href=\"{{ path('app_itineraire_index') }}\">back to list</a>
-
-    {{ include('itineraire/_delete_form.html.twig') }}
+    <a href=\"{{ path('app_itineraire_index') }}\">
+                      <div class=\"inner col-12 clearfix\">
+                      
+                          <button  class=\"btn m-auto d-block float-right btn-full\">Retour a la liste des itineraire</button>
+        
+                      </div>
+                      </a>
+   
 {% endblock %}", "itineraire/edit.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\itineraire\\edit.html.twig");
     }
 }

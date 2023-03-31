@@ -29,7 +29,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
         $this->blocks = [
             'stylesheet' => [$this, 'block_stylesheet'],
             'body' => [$this, 'block_body'],
-            'javaScript' => [$this, 'block_javaScript'],
+            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -332,7 +332,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
         echo "\"></script>
       ";
         // line 229
-        $this->displayBlock('javaScript', $context, $blocks);
+        $this->displayBlock('javascript', $context, $blocks);
         // line 230
         echo "
   </body>
@@ -386,14 +386,14 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
     }
 
     // line 229
-    public function block_javaScript($context, array $blocks = [])
+    public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
         echo " ";
         
@@ -649,7 +649,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 
       <!-- JQUERY:: CUSTOM -->
       <script src=\"{{asset('assets/js/custom.js')}}\"></script>
-      {% block javaScript %} {% endblock %}
+      {% block javascript %} {% endblock %}
 
   </body>
 

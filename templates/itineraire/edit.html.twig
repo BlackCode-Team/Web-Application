@@ -1,7 +1,12 @@
 
     {{ include('itineraire/new.html.twig', {'button_label': 'Update'}) }}
 {% block body %}
-    <a href="{{ path('app_itineraire_index') }}">back to list</a>
-
+    <a href="{{ path('app_itineraire_index') }}">
+                      <div class="inner col-12 clearfix">
+                      
+                          <button  class="btn m-auto d-block float-right btn-full">Retour a la liste des itineraire</button>
+        
+                      </div>
+                      </a>
    
 {% endblock %}
