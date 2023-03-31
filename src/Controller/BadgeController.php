@@ -75,9 +75,5 @@ class BadgeController extends AbstractController
 
         return $this->redirectToRoute('app_badge_index', [], Response::HTTP_SEE_OTHER);
     }
-    #[Route('/AfficherBadge',name:'Aff')]
-    function Affiche(BadgeRepository $repo){
-       $badge=$repo->findAll();
-        return $this->render('badge/AfficherBadge.html.twig',['cc'=>$badge]);
-    }
+    
 }
