@@ -20,18 +20,10 @@ class Badge
     #[ORM\Column]
     private ?int $idbadge=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="typebadge", type="string", length=255, nullable=false)
-     */
+    #[ORM\Column(length: 255, nullable: true)]
     private $typebadge;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbpoint", type="integer", nullable=false)
-     */
+    #[ORM\Column(nullable:false)]
     private $nbpoint;
 
     public function getIdbadge(): ?int

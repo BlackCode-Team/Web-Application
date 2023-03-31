@@ -27,7 +27,9 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         $this->parent = false;
 
         $this->blocks = [
+            'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
+            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -55,36 +57,11 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo-4.png"), "html", null, true);
         echo "\"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href=\"";
+    ";
         // line 12
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link href=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 15
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
-    <link href=\"";
-        // line 19
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
-</head>
+        $this->displayBlock('css', $context, $blocks);
+        // line 26
+        echo "</head>
 <body>
     <div id=\"eq-loader\">
       <div class=\"eq-loader-div\">
@@ -99,10 +76,10 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
             <a href=\"#\" class=\"\"> <img src=\"";
-        // line 37
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo2.png"), "html", null, true);
         echo "\" class=\"img-fluid\" alt=\"logo\"></a> ";
-        // line 38
+        // line 41
         echo "        </div>
         <ul class=\"navbar-nav flex-row mr-auto\">
             <li class=\"nav-item ml-4 d-lg-none d-sm-block d-none\">
@@ -131,7 +108,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                                 <div class=\"media\">
                                     <div class=\"user-profile\">
                                         <img src=\"";
-        // line 65
+        // line 68
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-7.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
                                     </div>
@@ -146,7 +123,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                                 <div class=\"media\">
                                     <div class=\"user-profile\">
                                         <img src=\"";
-        // line 77
+        // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-11.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
                                     </div>
@@ -161,7 +138,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                                 <div class=\"media\">
                                     <div class=\"user-profile\">
                                         <img src=\"";
-        // line 89
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-12.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
                                     </div>
@@ -176,7 +153,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                                 <div class=\"media\">
                                     <div class=\"user-profile\">
                                         <img src=\"";
-        // line 101
+        // line 104
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-13.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
                                     </div>
@@ -194,7 +171,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                 <a href=\"javascript:void(0);\" class=\"nav-link dropdown-toggle user\">
                     <div class=\"user-profile d-lg-block d-none\">
                         <img src=\"";
-        // line 116
+        // line 119
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-7.jpg\" alt=\"admin-profile"), "html", null, true);
         echo "\" class=\"img-fluid\">
                     </div>
@@ -219,7 +196,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                      
                         <li class=\"menu\">
                             <a href=\"\">   ";
-        // line 139
+        // line 142
         echo "                                <div class=\"\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
@@ -315,425 +292,24 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
 
                 
                 ";
-        // line 233
+        // line 236
         $this->displayBlock('body', $context, $blocks);
         echo "                            ";
-        // line 234
+        // line 237
         echo " 
                
 
                
 
-                <div class=\"row\">
-                                                               
-                    <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
-                        <div class=\"statbox widget box\">
-                            <div class=\"widget-header \">
-                                <div class=\"row\">
-                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>New Products</h4>
-                                    </div>                 
-                                </div>
-                            </div>
-
-                            <div class=\"widget-content-area \">
-
-                                <div class=\"table-responsive new-products\">
-                                    <table class=\"table\">
-                                        <thead>
-                                            <tr>
-                                                <th class=\"form-check-column text-center\">
-                                                    <label  for=\"checkAll\" class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" id=\"checkAll\" class=\"new-control-input\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </th>
-                                                <th>Product</th>
-                                                <th>Type</th>
-                                                <th>SKU</th>
-                                                <th class=\"text-center\">Quantity</th>
-                                                <th>Image</th>
-                                                <th class=\"text-center\">Price</th>
-                                                <th class=\"text-center\">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Camera</td>
-                                                <td><span class=\"badge badge-info badge-pill\">Simple</span></td>
-                                                <td>#0001</td>
-                                                <td class=\"text-center\">1</td>
-                                                <td>
-                                                    <img src=\"";
-        // line 285
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-7.jpg"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #3862f5;\">
-                                                </td>
-                                                <td class=\"text-center\">\$848.95</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Mobile</td>
-                                                <td><span class=\"badge badge-info badge-pill\">Simple</span></td>
-                                                <td>#0002</td>
-                                                <td class=\"text-center\">1</td>
-                                                <td>
-                                                    <img src=\"";
-        // line 315
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-4.jpg"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #07e0c4;\">
-                                                </td>
-                                                <td class=\"text-center\">\$529.95</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Windows 10</td>
-                                                <td><span class=\"badge badge-success badge-pill\">Digital</span></td>
-                                                <td>#0003</td>
-                                                <td class=\"text-center\">3</td>
-                                                <td>
-                                                    <img src=\"";
-        // line 345
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-1.png"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #00b1f4;\">
-                                                </td>
-                                                <td class=\"text-center\">\$1584.00</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Watch</td>
-                                                <td><span class=\"badge badge-info badge-pill\">Simple</span></td>
-                                                <td>#0004</td>
-                                                <td class=\"text-center\">5</td>
-                                                <td>
-                                                    <img src=\"";
-        // line 375
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-3.jpg"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #f8538d;\">
-                                                </td>
-                                                <td class=\"text-center\">\$595.99</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Drone</td>
-                                                <td><span class=\"badge badge-info badge-pill\">Simple</span></td>
-                                                <td>#0005</td>
-                                                <td class=\"text-center\">1</td>                                                <td>
-                                                    <img src=\"";
-        // line 404
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-5.jpg"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #ffbb44;\">
-                                                </td>
-                                                <td class=\"text-center\">\$58.00</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox new-checkbox-rounded checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input chkbox\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Sunglasses</td>
-                                                <td><span class=\"badge badge-secondary badge-pill\">Bundled</span></td>
-                                                <td>#0006</td>
-                                                <td class=\"text-center\">6</td>
-                                                <td>
-                                                    <img src=\"";
-        // line 434
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/large-img-2.jpg"), "html", null, true);
-        echo "\" class=\"img-fluid\" alt=\"img-1\" style=\"border-color: #25d5e4;\">
-                                                </td>
-                                                <td class=\"text-center\">\$123.00</td>
-                                                <td class=\"text-center\">
-                                                    <div class=\"toolbar\">
-                                                        <div class=\"toolbar-toggle\">...</div>
-                                                        <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"View\"><i class=\"flaticon-view-3\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
-                                                            </li>
-                                                            <li class=\"list-inline-item\"><a href=\"javascript:void(0);\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class=\"pagination-section\">
-                                    <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
-                                        <li><a href=\"javascript:void(0);\">«</a></li>
-                                        <li><a href=\"javascript:void(0);\">1</a></li>
-                                        <li><a href=\"javascript:void(0);\">2</a></li>
-                                        <li><a href=\"javascript:void(0);\">3</a></li>
-                                        <li><a href=\"javascript:void(0);\">4</a></li>
-                                        <li><a href=\"javascript:void(0);\">5</a></li>
-                                        <li><a href=\"javascript:void(0);\">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-              
-
-
-                <div class=\"row\">
-                    <div class=\"col-xl-8 col-lg-8 col-md-8 col-12 layout-spacing\">
-                        <div class=\"statbox widget box box-shadow latest-invoice \">
-                            <div class=\"widget-header \">
-                                <div class=\"row\">
-                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>Latest Invoice</h4>
-                                    </div>                 
-                                </div>
-                            </div>
-                            <div class=\"widget-content-area \">
-                                <div class=\"table-responsive\">
-                                    <table class=\"table\">
-                                        <thead>
-                                            <tr>
-                                                <th class=\"form-check-column text-center\">
-                                                    <label for=\"invoiceAll\" class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" id=\"invoiceAll\" class=\"new-control-input\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </th>
-                                                <th>Product</th>
-                                                <th>Invoice no.</th>
-                                                <th>Date</th>
-                                                <th class=\"text-center\">Amount</th>
-                                                <th class=\"text-center\">Status</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Camera</td>
-                                                <td>#0001</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$15,202</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-secondary\">In Progress</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Iphone</td>
-                                                <td>#0002</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$650</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-success\">Approved</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Headphone</td>
-                                                <td>#0003</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$25</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-warning\">Pending</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Speakers</td>
-                                                <td>#0004</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$100</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-secondary\">In Progress</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Watch</td>
-                                                <td>#0005</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$85</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-success\">Approved</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class=\"form-check-column text-center\">
-                                                    <label class=\"new-control new-checkbox checkbox-primary pb-2\">
-                                                      <input type=\"checkbox\" class=\"new-control-input invoicechk\">
-                                                      <span class=\"new-control-indicator mt-2\"></span><span class=\"invisible\">s</span>
-                                                    </label>
-                                                </td>
-                                                <td>Sunglasses</td>
-                                                <td>#0006</td>
-                                                <td>16 Jan</td>
-                                                <td class=\"align-center\">\$19</td>
-                                                <td  class=\"text-center\">
-                                                    <span class=\"badge badge-pills outline-badge-danger\">Cancelled</span>
-                                                </td>
-                                                <td>
-                                                    <i class=\"flaticon-view-1 bs-tooltip\" data-placement=\"top\" data-original-title=\"View\"></i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                </div>
-
+                ";
+        // line 628
+        echo "
             
 
                
-                </div>
-
+                ";
+        // line 633
+        echo "
             </div>
         </div>
         <!--  END CONTENT PART  -->
@@ -756,7 +332,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         <div class=\"profile-content profile-content-scroll\">
             <div class=\"usr-profile\">
                 <img src=\"";
-        // line 652
+        // line 655
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-7.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
             </div>
@@ -784,78 +360,11 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         </div>
     </aside>
     <!--  BEGIN PROFILE SIDEBAR  -->
-
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src=\"";
-        // line 680
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/libs/jquery-3.1.1.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
+";
         // line 681
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/loader.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 682
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/popper.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 683
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 684
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 685
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/blockui/jquery.blockUI.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 686
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/app.js"), "html", null, true);
-        echo "\"></script>
-    <script>
-        \$(document).ready(function() {
-            App.init();
-        });
-    </script>
-    <script src=\"";
-        // line 692
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/custom.js"), "html", null, true);
-        echo "\"></script>
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
-
-    <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
-    <script src=\"";
-        // line 696
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 697
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 698
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 699
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/moment.latest.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 700
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/pignose.calendar.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 701
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/progressbar/progressbar.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 702
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/default-dashboard/default-custom.js"), "html", null, true);
-        echo "\"></script>
-    <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
-</body>
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 708
+        echo "</body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
 </html>";
@@ -867,7 +376,59 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
 
     }
 
-    // line 233
+    // line 12
+    public function block_css($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        // line 13
+        echo "    <link href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
+    <link href=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"";
+        // line 22
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/s"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
+    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 236
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -878,6 +439,96 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         echo "    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 681
+    public function block_javascript($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
+
+        // line 682
+        echo "    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src=\"";
+        // line 683
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/libs/jquery-3.1.1.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 684
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/loader.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 685
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/popper.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 686
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 687
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 688
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/blockui/jquery.blockUI.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 689
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/app.js"), "html", null, true);
+        echo "\"></script>
+    <script>
+        \$(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src=\"";
+        // line 695
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/custom.js"), "html", null, true);
+        echo "\"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
+    <script src=\"";
+        // line 699
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 700
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 701
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 702
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/moment.latest.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 703
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/pignose.calendar.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 704
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/progressbar/progressbar.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 705
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/default-dashboard/default-custom.js"), "html", null, true);
+        echo "\"></script>
+    <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -898,7 +549,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
 
     public function getDebugInfo()
     {
-        return array (  871 => 233,  855 => 702,  851 => 701,  847 => 700,  843 => 699,  839 => 698,  835 => 697,  831 => 696,  824 => 692,  815 => 686,  811 => 685,  807 => 684,  803 => 683,  799 => 682,  795 => 681,  791 => 680,  760 => 652,  539 => 434,  506 => 404,  474 => 375,  441 => 345,  408 => 315,  375 => 285,  322 => 234,  319 => 233,  223 => 139,  198 => 116,  180 => 101,  165 => 89,  150 => 77,  135 => 65,  106 => 38,  103 => 37,  84 => 21,  80 => 20,  76 => 19,  69 => 15,  65 => 14,  60 => 12,  55 => 10,  44 => 1,);
+        return array (  528 => 705,  524 => 704,  520 => 703,  516 => 702,  512 => 701,  508 => 700,  504 => 699,  497 => 695,  488 => 689,  484 => 688,  480 => 687,  476 => 686,  472 => 685,  468 => 684,  464 => 683,  461 => 682,  451 => 681,  432 => 236,  419 => 23,  415 => 22,  411 => 21,  407 => 20,  400 => 16,  396 => 15,  390 => 13,  380 => 12,  367 => 708,  365 => 681,  336 => 655,  312 => 633,  306 => 628,  299 => 237,  296 => 236,  200 => 142,  175 => 119,  157 => 104,  142 => 92,  127 => 80,  112 => 68,  83 => 41,  80 => 40,  64 => 26,  62 => 12,  57 => 10,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -914,6 +565,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
     <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    {% block css %}
     <link href=\"{{asset('back/assets/css/loader.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link href=\"{{asset('back/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
@@ -924,7 +576,9 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
     <link href=\"{{asset('back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/plugins/charts/chartist/chartist.css')}}\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"{{asset('back/assets/css/default-dashboard/style.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/s')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
+    {% endblock %}
 </head>
 <body>
     <div id=\"eq-loader\">
@@ -1141,7 +795,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
 
                
 
-                <div class=\"row\">
+                {# <div class=\"row\">
                                                                
                     <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
                         <div class=\"statbox widget box\">
@@ -1526,12 +1180,12 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
                     </div>
 
                    
-                </div>
+                </div> #}
 
             
 
                
-                </div>
+                {# </div> #}
 
             </div>
         </div>
@@ -1580,7 +1234,7 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
         </div>
     </aside>
     <!--  BEGIN PROFILE SIDEBAR  -->
-
+{% block javascript %}
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src=\"{{asset('back/assets/js/libs/jquery-3.1.1.min.js')}}\"></script>
     <script src=\"{{asset('back/assets/js/loader.js')}}\"></script>
@@ -1606,9 +1260,10 @@ class __TwigTemplate_662aecfc5774c91c4a441c7bc2d0c8ec4ceb3f58a8da354840391e64ac0
     <script src=\"{{asset('back/plugins/progressbar/progressbar.min.js')}}\"></script>
     <script src=\"{{asset('back/assets/js/default-dashboard/default-custom.js')}}\"></script>
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
+    {% endblock %}
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
-</html>", "back.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\back.html.twig");
+</html>", "back.html.twig", "C:\\Users\\MSI\\Documents\\GitHub\\Web-Application\\templates\\back.html.twig");
     }
 }

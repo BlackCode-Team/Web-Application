@@ -1,0 +1,37 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Badge index{% endblock %}
+
+{% block body %}
+    <h1>Badge index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idbadge</th>
+                <th>Typebadge</th>
+                <th>Nbpoint</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for badge in badges %}
+            <tr>
+                <td>{{ badge.idbadge }}</td>
+                <td>{{ badge.typebadge }}</td>
+                <td>{{ badge.nbpoint }}</td>
+                <td>
+                    <a href="{{ path('app_badge_show', {'idbadge': badge.idbadge}) }}">show</a>
+                    <a href="{{ path('app_badge_edit', {'idbadge': badge.idbadge}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_badge_new') }}">Create new</a>
+{% endblock %}

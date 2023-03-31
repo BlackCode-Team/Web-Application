@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Nous sommes fiers de vous présenter notre programme de badges exclusifs.
+Avec chaque location, vous pouvez gagner des points et des badges pour atteindre différents niveaux.
+Découvrez nos badges uniques et les avantages qu'ils offrent.</h2>
+</br>
+<div style="display: flex; justify-content: space-around;">
+  <div>
+    <img src="{{asset('assets/images/bronze.jpg')}}" alt="Badge 1" width="200" height="200">
+    <h3>Bronze</h3>
+    <p>Attribué aux noveaux utilisateurs </br>qui sont prêt à explorer nos services</p>
+    <p>*Points nécessaires : aucun </p>
+  </div>
+  <div>
+    <img src="{{asset('assets/images/silver.jpg')}}" alt="Badge 1" width="200" height="200">
+    <h3>Silver</h3>
+    <p>Attribué aux utilisateurs réguliers</br> ayant déjà profité de nos services.</p>
+    <p>*Points nécessaires : 100</p>
+  </div>
+  <div>
+    <img src="{{asset('assets/images/gold.jpg')}}" alt="Badge 1" width="200" height="200">
+    <h3>Gold</h3>
+    <p>Attribué aux utilisateurs fidèles ayant </br>loué plusieurs véhicules avec succès.</p>
+    <p>*Points nécessaires : 200</p>
+  </div>
+</div>
+</br>
+<div style="display: flex; justify-content: space-around;">
+  <div>
+    <img src="{{asset('assets/images/platinum.jpg')}}" alt="Badge 1" width="200" height="200">
+    <h3>Platinium</h3>
+    <p>DAttribué à nos clients experts ayant </br>une connaissances approfondie </br>de nos servies. </p>
+    <p>*Points nécessaires : 400</p>
+  </div>
+  <div>
+    <img src="{{asset('assets/images/diamond.jpg')}}" alt="Badge 1" width="200" height="200">
+    <h3>Diamond</h3>
+    <p>Attribué aux plus fidèles des clients, </br>les membres VIP !</p>
+    <p>*Points nécessaires : 500</p>
+  </div>
+</div>
+
+{% endblock %}

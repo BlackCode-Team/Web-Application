@@ -1,0 +1,30 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Badge{% endblock %}
+
+{% block body %}
+    <h1>Badge</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idbadge</th>
+                <td>{{ badge.idbadge }}</td>
+            </tr>
+            <tr>
+                <th>Typebadge</th>
+                <td>{{ badge.typebadge }}</td>
+            </tr>
+            <tr>
+                <th>Nbpoint</th>
+                <td>{{ badge.nbpoint }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_badge_index') }}">back to list</a>
+
+    <a href="{{ path('app_badge_edit', {'idbadge': badge.idbadge}) }}">edit</a>
+
+    {{ include('badge/_delete_form.html.twig') }}
+{% endblock %}
