@@ -37,9 +37,19 @@
                 <td>{{ itineraire.kilometrage }}</td>
                 <td>{{ itineraire.dureeestimee }}</td>
                 <td>{{ itineraire.nbUsage }}</td>
-                <td>
-                    <a href="{{ path('app_itineraire_show', {'iditineraire': itineraire.iditineraire}) }}">show</a>
-                    <a href="{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}">edit</a>
+                <td class="text-center">
+                      <div class="toolbar">
+                              <div class="toolbar-toggle">...</div>
+                                  <ul class="toolbar-dropdown animated fadeInUp table-controls list-inline">
+                                                           
+                                    <li class="list-inline-item"><a href="{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}" class="bs-tooltip" data-original-title="Edit"><i class="flaticon-edit-5"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}" class="bs-tooltip" data-original-title="Remove"><i class="flaticon-delete-6"></i></a>
+                                    </li>
+                          </ul>
+                       </div>
+                                       
+               
                 </td>
             </tr>
         {% else %}
@@ -65,8 +75,6 @@
                         </div>
                     </div>
                 </div>
-
-    <a href="{{ path('app_itineraire_new') }}">Create new</a>
 
     
 {% endblock %}

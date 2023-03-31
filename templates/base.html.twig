@@ -14,14 +14,14 @@
 
       <!-- FAVICON -->
      <link rel="icon" type="image/x-icon" href="{{asset('back/assets/img/logo-4.png')}}"/>
-    {% block stylesheet %}
+    {% block stylesheet %}  {% endblock %}
       <!-- CSS:: FONTS -->
       <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
       <!-- CSS:: MAIN -->
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
       <link rel="stylesheet" type="text/css" id="r-color-roller" href="{{asset('assets/color-files/color-08.css')}}">
-      {% endblock %}
+     
 
   </head>
   <body>
@@ -212,7 +212,7 @@
           </div>
         </footer>
       </div>
-      {% block javaScript %}
+     
       <div id="r-to-top" class="r-to-top"><i class="fa fa-angle-up"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -226,7 +226,7 @@
 
       <!-- JQUERY:: CUSTOM -->
       <script src="{{asset('assets/js/custom.js')}}"></script>
-      {% endblock %}
+      {% block javaScript %} {% endblock %}
 
   </body>
 

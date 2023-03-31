@@ -9,6 +9,7 @@
     <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
     <link rel="icon" type="image/x-icon" href="{{asset('back/assets/img/logo-4.png')}}"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    {% block css %}
     <link href="{{asset('back/assets/css/loader.css')}}" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link href="{{asset('back/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -19,7 +20,9 @@
     <link href="{{asset('back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('back/plugins/charts/chartist/chartist.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('back/assets/css/default-dashboard/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/s')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
+    {% endblock %}
 </head>
 <body>
     <div id="eq-loader">
@@ -236,7 +239,7 @@
 
                
 
-                <div class="row">
+                {# <div class="row">
                                                                
                     <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                         <div class="statbox widget box">
@@ -621,12 +624,12 @@
                     </div>
 
                    
-                </div>
+                </div> #}
 
             
 
                
-                </div>
+                {# </div> #}
 
             </div>
         </div>
@@ -675,7 +678,7 @@
         </div>
     </aside>
     <!--  BEGIN PROFILE SIDEBAR  -->
-
+{% block javascript %}
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{asset('back/assets/js/libs/jquery-3.1.1.min.js')}}"></script>
     <script src="{{asset('back/assets/js/loader.js')}}"></script>
@@ -701,6 +704,7 @@
     <script src="{{asset('back/plugins/progressbar/progressbar.min.js')}}"></script>
     <script src="{{asset('back/assets/js/default-dashboard/default-custom.js')}}"></script>
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
+    {% endblock %}
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->

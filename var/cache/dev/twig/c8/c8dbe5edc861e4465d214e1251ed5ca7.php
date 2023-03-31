@@ -65,8 +65,21 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
     ";
         // line 17
         $this->displayBlock('stylesheet', $context, $blocks);
-        // line 25
-        echo "
+        // line 18
+        echo "      <!-- CSS:: FONTS -->
+      <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\" rel=\"stylesheet\">
+
+      <!-- CSS:: MAIN -->
+      <link rel=\"stylesheet\" type=\"text/css\" href=\"";
+        // line 22
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/main.css"), "html", null, true);
+        echo "\">
+      <link rel=\"stylesheet\" type=\"text/css\" id=\"r-color-roller\" href=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/color-files/color-08.css"), "html", null, true);
+        echo "\">
+     
+
   </head>
   <body>
    
@@ -288,86 +301,8 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
           </div>
         </footer>
       </div>
-      ";
-        // line 215
-        $this->displayBlock('javaScript', $context, $blocks);
-        // line 230
-        echo "
-  </body>
-
-
-</html>";
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-    }
-
-    // line 17
-    public function block_stylesheet($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
-
-        // line 18
-        echo "      <!-- CSS:: FONTS -->
-      <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\" rel=\"stylesheet\">
-
-      <!-- CSS:: MAIN -->
-      <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/main.css"), "html", null, true);
-        echo "\">
-      <link rel=\"stylesheet\" type=\"text/css\" id=\"r-color-roller\" href=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/color-files/color-08.css"), "html", null, true);
-        echo "\">
-      ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 99
-    public function block_body($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
-
-        echo "    ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 215
-    public function block_javaScript($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
-
-        // line 216
-        echo "      <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
+     
+      <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src=\"";
         // line 218
@@ -396,6 +331,71 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/custom.js"), "html", null, true);
         echo "\"></script>
       ";
+        // line 229
+        $this->displayBlock('javaScript', $context, $blocks);
+        // line 230
+        echo "
+  </body>
+
+
+</html>";
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 17
+    public function block_stylesheet($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
+
+        echo "  ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 99
+    public function block_body($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        echo "    ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 229
+    public function block_javaScript($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javaScript"));
+
+        echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -416,7 +416,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 
     public function getDebugInfo()
     {
-        return array (  396 => 228,  390 => 225,  384 => 222,  380 => 221,  374 => 218,  370 => 216,  360 => 215,  341 => 99,  329 => 23,  325 => 22,  319 => 18,  309 => 17,  295 => 230,  293 => 215,  257 => 182,  204 => 132,  196 => 126,  193 => 100,  190 => 99,  182 => 93,  167 => 77,  163 => 76,  159 => 74,  155 => 73,  151 => 72,  146 => 70,  141 => 67,  138 => 66,  135 => 65,  132 => 64,  125 => 61,  107 => 45,  103 => 44,  98 => 43,  91 => 39,  88 => 38,  83 => 37,  69 => 25,  67 => 17,  63 => 16,  46 => 1,);
+        return array (  389 => 229,  370 => 99,  351 => 17,  337 => 230,  335 => 229,  331 => 228,  325 => 225,  319 => 222,  315 => 221,  309 => 218,  270 => 182,  217 => 132,  209 => 126,  206 => 100,  203 => 99,  195 => 93,  180 => 77,  176 => 76,  172 => 74,  168 => 73,  164 => 72,  159 => 70,  154 => 67,  151 => 66,  148 => 65,  145 => 64,  138 => 61,  120 => 45,  116 => 44,  111 => 43,  104 => 39,  101 => 38,  96 => 37,  79 => 23,  75 => 22,  69 => 18,  67 => 17,  63 => 16,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -437,14 +437,14 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 
       <!-- FAVICON -->
      <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
-    {% block stylesheet %}
+    {% block stylesheet %}  {% endblock %}
       <!-- CSS:: FONTS -->
       <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\" rel=\"stylesheet\">
 
       <!-- CSS:: MAIN -->
       <link rel=\"stylesheet\" type=\"text/css\" href=\"{{asset('assets/css/main.css')}}\">
       <link rel=\"stylesheet\" type=\"text/css\" id=\"r-color-roller\" href=\"{{asset('assets/color-files/color-08.css')}}\">
-      {% endblock %}
+     
 
   </head>
   <body>
@@ -635,7 +635,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
           </div>
         </footer>
       </div>
-      {% block javaScript %}
+     
       <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src=\"{{asset('assets/js/jquery.min.js')}}\"></script>
@@ -649,11 +649,11 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 
       <!-- JQUERY:: CUSTOM -->
       <script src=\"{{asset('assets/js/custom.js')}}\"></script>
-      {% endblock %}
+      {% block javaScript %} {% endblock %}
 
   </body>
 
 
-</html>", "base.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\base.html.twig");
     }
 }

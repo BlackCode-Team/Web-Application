@@ -23,8 +23,22 @@ class ItineraireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pointdepart')
-            ->add('pointarrivee')
+            ->add('pointdepart', TextType::class,[
+                'required' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez saisir le point de depart',
+                    ])
+                ],
+            ])
+            ->add('pointarrivee', TextType::class,[
+                'required' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez saisir le point d arrivé',
+                    ])
+                ],
+            ])
             ->add('kilometrage', IntegerType::class,[
                 'label' => 'Nombre de team',
                 'attr' => [
