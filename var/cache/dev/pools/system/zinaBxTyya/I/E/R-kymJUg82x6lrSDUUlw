@@ -1,7 +1,0 @@
-<?php //%5BC%5DApp%255CKernel%2523registerContainerConfiguration
-
-<<<<<<< Updated upstream:var/cache/dev/pools/system/mnVGiThcSa/I/E/R-kymJUg82x6lrSDUUlw
-return [PHP_INT_MAX, 1680187371];
-=======
-return [PHP_INT_MAX, 1680192398];
->>>>>>> Stashed changes:var/cache/dev/pools/system/zinaBxTyya/I/E/R-kymJUg82x6lrSDUUlw

@@ -6,13 +6,14 @@ use App\Entity\Vehicule;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Regex;
 
+use Symfony\Component\Validator\Constraints\File;
 
 use Symfony\Component\Validator\Constraints\Range;
 
@@ -20,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class VehiculeType extends AbstractType
 {
@@ -49,7 +51,22 @@ class VehiculeType extends AbstractType
                     'data' => 100,
                     'attr' => ['readonly' => true],])
             ->add('prix',IntegerType::class)
-            ->add('image')
+            ->add('image', FileType::class, [
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image file (JPEG, PNG, GIF).',
+                    ])
+                ]
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Ajouter',
+            ])
+            
         ;
     }
 
