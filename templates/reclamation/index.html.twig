@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idreclamation</th>
                 <th>Objet</th>
                 <th>Contenu</th>
                 <th>Date</th>
@@ -19,7 +18,6 @@
         <tbody>
         {% for reclamation in reclamations %}
             <tr>
-                <td>{{ reclamation.idreclamation }}</td>
                 <td>{{ reclamation.objet }}</td>
                 <td>{{ reclamation.contenu }}</td>
                 <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
