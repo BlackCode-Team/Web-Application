@@ -16,53 +16,28 @@ class Reclamation
     #[ORM\Column]
     private ?int $idreclamation=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="objet", type="string", length=255, nullable=false)
-     */
-    private $objet;
+    
+    #[ORM\Column(length: 255)]
+    private ?string $objet=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu", type="text", length=65535, nullable=false)
-     */
-    private $contenu;
+    #[ORM\Column(length: 255)]
+    private ?string $contenu=null;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
-     */
-    private $date;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="statut", type="string", length=255, nullable=true)
-     */
-    private $statut;
+    #[ORM\Column(type: "date")]
+     private ?\DateTimeInterface $date = null;
 
-    /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="iduser", referencedColumnName="iduser")
-     * })
-     */
-    private $iduser;
+    #[ORM\Column(length: 255)]
+    private ?string $statut=null;
 
-    /**
-     * @var \Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idvehicule", referencedColumnName="idvehicule")
-     * })
-     */
-    private $idvehicule;
+
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reclamation')]
+    #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
+    private ?Utilisateur $utilisateur=null ;
+
+    #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Reclamation')]
+    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
+    private ?Vehicule $vehicule = null;
 
     public function getIdreclamation(): ?int
     {

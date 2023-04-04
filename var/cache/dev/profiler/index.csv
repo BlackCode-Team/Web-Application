@@ -1,2 +1,5 @@
 4a970e,127.0.0.1,GET,http://127.0.0.1:8000/badge/AfficherBadge,1680304168,04931d,404
 04931d,127.0.0.1,GET,http://127.0.0.1:8000/badge/AfficherBadge,1680304168,,404
+63e56a,127.0.0.1,GET,https://127.0.0.1:8000/reclamation,1680567433,,301
+55bb09,127.0.0.1,GET,https://127.0.0.1:8000/reclamation/,1680567434,3dfef4,500
+3dfef4,127.0.0.1,GET,https://127.0.0.1:8000/reclamation/,1680567434,,500
