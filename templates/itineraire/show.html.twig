@@ -3,40 +3,94 @@
 {% block title %}Itineraire{% endblock %}
 
 {% block body %}
-    <h1>Itineraire</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Iditineraire</th>
-                <td>{{ itineraire.iditineraire }}</td>
-            </tr>
-            <tr>
-                <th>Pointdepart</th>
-                <td>{{ itineraire.pointdepart }}</td>
-            </tr>
-            <tr>
-                <th>Pointarrivee</th>
-                <td>{{ itineraire.pointarrivee }}</td>
-            </tr>
-            <tr>
-                <th>Kilometrage</th>
-                <td>{{ itineraire.kilometrage }}</td>
-            </tr>
-            <tr>
-                <th>Dureeestimee</th>
-                <td>{{ itineraire.dureeestimee }}</td>
-            </tr>
-            <tr>
-                <th>NbUsage</th>
-                <td>{{ itineraire.nbUsage }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_itineraire_index') }}">back to list</a>
 
-    <a href="{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}">edit</a>
 
-    {{ include('itineraire/_delete_form.html.twig') }}
+<div class="r-counter-section pt-5 pb-5 m-0">
+    <div class=".r-slider-serach.r-slider-serach-down > form .form-title" align="center">
+    <h1><b>Itineraire</b> Details</h1>
+    <br><br><br>
+   
+    </div>
+            <div class="container">
+    
+       <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="r-counter-box">
+                            <div class="r-counter-icon">
+                                <img src="{{asset('assets/images/icon-cars-count.png')}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="r-counts" data-count="172700">
+                              <!-- 1.172.700 -->
+                              <span class="r-count">{{ itineraire.pointdepart | upper }}</span>
+                            </div>
+                            <span class="r-count-title"> Point Depart </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="r-counter-box">
+                            <div class="r-counter-icon">
+                                <img src="{{asset('assets/images/icon-total-km.png')}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="r-counts" data-count="2450">
+                              <!-- 2.450 -->
+                              <span class="r-count">{{ itineraire.pointarrivee | upper }}</span>
+                            </div>
+                            <span class="r-count-title"> Point Arrivee </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="r-counter-box">
+                            <div class="r-counter-icon">
+                                <img src="{{asset('assets/images/advantage-icon-3.png')}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="r-counts" data-count="1211100">
+                              <!-- 1.211.100 -->
+                              <span class="r-count">{{ itineraire.kilometrage }} KM</span>
+                            </div>
+                            <span class="r-count-title"> Kilometrage </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="r-counter-box">
+                            <div class="r-counter-icon">
+                                <img src="{{asset('assets/images/advantage-icon-2.png')}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="r-counts" data-count="47250">
+                              <!-- 47.250 -->
+                              <span class="r-count">{{ itineraire.dureeestimee }}H</span>
+                            </div>
+                            <span class="r-count-title"> Dureeestimee </span>
+                        </div>
+
+        
+                    </div>
+                    
+                    <div class="inner col-12 clearfix">
+                    
+                    <a href="{{ path('app_itineraire_index') }}" class="btn m-auto d-block float-right btn-full">back to list</a>
+                    </div>
+                    
+                   
+                     <div class="inner col-12 clearfix">
+                       
+                   <a href="{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}" class="btn m-auto d-block float-right btn-full">edit</a>
+                     </div>
+                    
+                    <div class="inner col-12 clearfix">
+                    
+                         {{ include('itineraire/_delete_form.html.twig') }}
+                    </div>
+                    
+
+
+
+    </div>
+    </div>
+        
+
 {% endblock %}
