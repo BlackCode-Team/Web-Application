@@ -18,6 +18,7 @@
                         <table id="zero-config" class="table table-striped table-hover table-bordered" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>Modele</th>
                                     <th>Matricule</th>
                                     <th>Puissance</th>
                                     <th>Type</th>
@@ -31,14 +32,14 @@
                             <tbody>
                             {% for vehicule in vehicules %}
                                 <tr>
-                                    <td>{{ vehicule.status }}</td>
-                                    <td>{{ vehicule.type }}</td>
                                     <td>{{ vehicule.modele }}</td>
-                                    <td>{{ vehicule.prix }}</td>
-                                    <td>{{ vehicule.batterie }}</td>
                                     <td>{{ vehicule.matricule }}</td>
                                     <td>{{ vehicule.puissance }}</td>
-                                    <td>{{ vehicule.image }}</td>
+                                    <td>{{ vehicule.type }}</td>
+                                    <td>{{ vehicule.prix }}</td>
+                                    <td>{{ vehicule.batterie }}</td>
+                                    <td><img src="{{asset('assets/'~vehicule.image)}}" /></td>
+                                    <td>{{ vehicule.status }}</td>
                                     <td>
                                         <a href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
                                         <a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
