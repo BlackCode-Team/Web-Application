@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Reclamation;
-use App\Form\Reclamation3Type;
+use App\Form\ReclamationType;
 use App\Repository\ReclamationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,10 +25,11 @@ class ReclamationController extends AbstractController
     public function new(Request $request, ReclamationRepository $reclamationRepository): Response
     {
         $reclamation = new Reclamation();
-        $form = $this->createForm(Reclamation3Type::class, $reclamation);
+        $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $reclamation->setDate(new \DateTime());
             $reclamationRepository->save($reclamation, true);
 
             return $this->redirectToRoute('app_reclamation_index', [], Response::HTTP_SEE_OTHER);
@@ -51,7 +52,7 @@ class ReclamationController extends AbstractController
     #[Route('/{idreclamation}/edit', name: 'app_reclamation_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Reclamation $reclamation, ReclamationRepository $reclamationRepository): Response
     {
-        $form = $this->createForm(Reclamation3Type::class, $reclamation);
+        $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

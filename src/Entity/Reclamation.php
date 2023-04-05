@@ -39,6 +39,7 @@ class Reclamation
     #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
     private ?Vehicule $vehicule = null;
 
+
     public function getIdreclamation(): ?int
     {
         return $this->idreclamation;
@@ -112,6 +113,18 @@ class Reclamation
     public function setIdvehicule(?Vehicule $idvehicule): self
     {
         $this->idvehicule = $idvehicule;
+
+        return $this;
+    }
+
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): self
+    {
+        $this->vehicule = $vehicule;
 
         return $this;
     }
