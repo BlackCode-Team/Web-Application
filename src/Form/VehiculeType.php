@@ -52,6 +52,7 @@ class VehiculeType extends AbstractType
                     'attr' => ['readonly' => true],])
             ->add('prix',IntegerType::class)
             ->add('image', FileType::class, [
+                'data_class' => null,
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
@@ -64,8 +65,9 @@ class VehiculeType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Ajouter',
+                'label' => 'submit',
             ])
+            
             
         ;
     }
