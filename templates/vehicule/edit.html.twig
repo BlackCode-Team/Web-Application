@@ -14,12 +14,13 @@
                             </div>
                             <div class="widget-content widget-content-area">
 {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
-									<fieldset class="form-group mb-4">
+                                    <fieldset class="form-group mb-4">
                                         <div class="row">
                                             <label>Choisir type de vehicule</label>
                                             <div class="col-xl-10 col-lg-9 col-sm-10">
-                                                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'readonly': 'readonly'}}) }}
-                                                {{ form_errors(form.type) }}
+                                                <select class="form-control" readonly>
+                                                    <option value="{{ form.vars.value.type }}" selected>{{ form.vars.value.type }}</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </fieldset>
