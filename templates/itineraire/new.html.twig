@@ -53,7 +53,7 @@
                           <div class="form-group has-icon has-label date" id="datetimepicker3" data-target-input="nearest">
                               <label for="validationCustom04">Nombre d'heures de Location</label>
                                  {{ form_widget(form.dureeestimee, {'attr': {'class': 'form-control', 'placeholder': '0000','type' : "number",'id':'validationCustom04','required' : true}}) }}
-                                             <div class="invalid-feedback">
+                                             <div class="invalid-feedback" color="red">
                                         {{ form_errors(form.dureeestimee) }}
                                                 </div>   
                               <span class="form-control-icon"><i class="fa fa-clock-o"></i></span>

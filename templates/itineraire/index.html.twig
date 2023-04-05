@@ -32,8 +32,8 @@
         {% for itineraire in itineraires %}
             <tr>
                 <td>{{ itineraire.iditineraire }}</td>
-                <td>{{ itineraire.pointdepart }}</td>
-                <td>{{ itineraire.pointarrivee }}</td>
+                <td>{{ itineraire.pointdepart |upper}}</td>
+                <td>{{ itineraire.pointarrivee |upper}}</td>
                 <td>{{ itineraire.kilometrage }}</td>
                 <td>{{ itineraire.dureeestimee }}</td>
                 <td>{{ itineraire.nbUsage }}</td>
