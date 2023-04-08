@@ -7,7 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Repository;
 use App\Repository\ReservationRepository;
 use DateTimeInterface;
-
+use App\Entity\Utilisateur;
+use App\Entity\Vehicule;
+use App\Entity\Itineraire;
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 
 class Reservation
@@ -17,27 +19,19 @@ class Reservation
     #[ORM\Column]
     private ?int $idreservation=null;
 
-     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
-     */
-    private $datedebut = null;
-     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
-     */
-    private $datefin = null;
+ 
+    #[ORM\Column(type: "date")]
+     private ?\DateTimeInterface $datedebut;
+     public function __construct()
+     {
+         $this->datedebut = new \DateTime();
+     }
+     #[ORM\Column(type: "date")]
+     private ?\DateTimeInterface $datefin= null;
 
-   
- /*   #[ORM\Column(type: 'date')]
-    private ?DateTime $datedebut = null;
-    #[ORM\Column(type: 'date')]
-    private ?DateTime $datefin = null;*/
 
     #[ORM\Column(length: 255)]
-    private ?string $status ;
+    private ?string $status ="en_cours";
    
     #[ORM\Column]
     private ?int $prixreservation=null;
@@ -51,7 +45,7 @@ class Reservation
 
     #[ORM\ManyToOne(targetEntity: Itineraire::class, inversedBy: 'Reservations')]
     #[ORM\JoinColumn(name: 'iditineraire', referencedColumnName: 'iditineraire')]
-    private ?Itineraire $iditineraire = null;
+    private ?Itineraire $itineraire = null;
 
     public function getIdreservation(): ?int
     {
@@ -106,7 +100,7 @@ class Reservation
         return $this;
     }
 
-    public function getIduser(): ?Utilisateur
+   /* public function getIduser(): ?Utilisateur
     {
         return $this->iduser;
     }
@@ -140,8 +134,40 @@ class Reservation
         $this->iditineraire = $iditineraire;
 
         return $this;
+    }*/
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
     }
 
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): self
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+    public function getItineraire(): ?Itineraire
+    {
+        return $this->itineraire;
+    }
+
+    public function setItineraire(?Itineraire $itineraire): self
+    {
+        $this->itineraire = $itineraire;
+
+        return $this;
+    }
 
 }
 

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Reservation index{% endblock %}
 
@@ -9,7 +9,7 @@
                     <div class="widget-header">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                <h4>Reservation index</h4>
+                                <h4>Réservation </h4>
                             </div>
                         </div>
                     </div>
@@ -19,11 +19,14 @@
 
         <thead>
             <tr>
-                <th>Idreservation</th> 
-                <th>datedebut</th>
-                <th>datefin</th>
-                <th>status</th>
-                <th>prixreservation</th>
+                <th>Numero réservation</th> 
+                <th>Utilisateur</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>status Reservation</th>
+                <th>Tarification</th>
+                <th>Matricule Voiture</th>
+                <th>Point d'arrivée</th>
 
             </tr>
         </thead>
@@ -31,11 +34,14 @@
         {% for reservation in reservations %}
             <tr>
                 <td>{{ reservation.idreservation }}</td>       
-               <td>{{ reservation.datedebut|date('Y-m-d') }}</td>
+               <td>{{ reservation.utilisateur.prenom }}</td>
+               <td>{{ reservation.datedebut|date('Y-m-d')}}</td>
                <td>{{ reservation.datefin|date('Y-m-d') }}</td>
                <td>{{ reservation.status }}</td>
                <td>{{ reservation.prixreservation }}</td>
-               
+               <td>{{ reservation.vehicule.matricule }}</td>
+             <td>{{ reservation.itineraire.pointarrivee }}</td>
+
 
 
                 <td>
