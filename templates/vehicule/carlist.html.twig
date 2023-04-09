@@ -68,82 +68,36 @@
                 <div class="pull-right"><span class="r-total-result">6 Search results</span></div>
               </div>
               <div class="r-best-offer-list r-car-list-map mCustomScrollbar">
-                <div class="row clearfix">
-                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="r-best-offer-single">
-                      <div class="r-best-offer-in">
-                        <div class="r-offer-img">
-                          <a class="d-inline-block" href="#"><img src="assets/images/car-1.png" class="img-fluid d-block m-auto" alt=""></a>
-                        </div>
-                        <div class="r-best-offer-content">
-                          <a href="#"><b>Volk</b> GTR</a>
-                          <p>Start at <b>45.00 USD</b> per day</p>
-                          <ul class="pl-0 mb-0">
-                            <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
-                            <li><i class="fa fa-beer"></i><span>PETROL</span></li>
-                            <li><i class="fa fa-road"></i><span>2.3k CC</span></li>
-                          </ul>
-                        </div>
-                      </div>
+                <div class="row">
+                  {% for vehicule in vehicules %}
+                  <div class="col-md-4">
+                      <div class="card mb-4 shadow-sm">
+                          <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" />
+                          <div class="card-body">
+                              <p class="card-text"><a href="#">{{ vehicule.modele }}</a></p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                      <a href="{{ path('app_vehicule_index', {'id': vehicule.idvehicule}) }}" ></a>
+                                  </div>
+                            <div class="r-best-offer-content">
+                            <p>Start at <b>{{ vehicule.prix }} DT</b> per day</p>
+                            <ul class="pl-0 mb-0">
+                              <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
+                              <li><i class="fa fa-beer"></i><span>PETROL</span></li>
+                              <li><i class="fa fa-road"></i><span>{{ vehicule.puissance }}</span></li>
+                            </ul>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+                          </div>
+                              </ul>
+                              </div>
+                          </div>
                     </div>
                   </div>
-                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="r-best-offer-single">
-                      <div class="r-best-offer-in">
-                        <div class="r-offer-img">
-                          <a class="d-inline-block" href="#"><img src="assets/images/car-1.png" class="img-fluid d-block m-auto" alt=""></a>
-                        </div>
-                        <div class="r-best-offer-content">
-                          <a href="#"><b>Hyundai</b> Z.E</a>
-                          <p>Start at <b>45.00 USD</b> per day</p>
-                          <ul class="pl-0 mb-0">
-                            <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
-                            <li><i class="fa fa-beer"></i><span>PETROL</span></li>
-                            <li><i class="fa fa-road"></i><span>2.3k CC</span></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="r-best-offer-single">
-                      <div class="r-best-offer-in">
-                        <div class="r-offer-img">
-                          <a class="d-inline-block" href="#"><img src="assets/images/car-1.png" class="img-fluid d-block m-auto" alt=""></a>
-                        </div>
-                        <div class="r-best-offer-content">
-                          <a href="#"><b>Audi</b> R8</a>
-                          <p>Start at <b>45.00 USD</b> per day</p>
-                          <ul class="pl-0 mb-0">
-                            <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
-                            <li><i class="fa fa-beer"></i><span>PETROL</span></li>
-                            <li><i class="fa fa-road"></i><span>2.3k CC</span></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="r-best-offer-single">
-                      <div class="r-best-offer-in">
-                        <div class="r-offer-img">
-                          <a class="d-inline-block" href="#"><img src="assets/images/car-1.png" class="img-fluid d-block m-auto" alt=""></a>
-                        </div>
-                        <div class="r-best-offer-content">
-                          <a href="#"><b>Volk</b> GTR</a>
-                          <p>Start at <b>45.00 USD</b> per day</p>
-                          <ul class="pl-0 mb-0">
-                            <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
-                            <li><i class="fa fa-beer"></i><span>PETROL</span></li>
-                            <li><i class="fa fa-road"></i><span>2.3k CC</span></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
               </div>
-            </div>
+        </div>
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-12 p-0 r-map-area">
               <div class="r-hide-car-list r-flip-map">
                 <span>HIDE CAR LIST</span>

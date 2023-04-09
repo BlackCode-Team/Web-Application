@@ -146,8 +146,8 @@ class __TwigTemplate_7ba919568f6a4842ce294938c8c70d6f31c5f54004f80eafba9552fd47f
             echo "</td>
                                     <td><img src=\"";
             // line 41
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("assets/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 41))), "html", null, true);
-            echo "\" /></td>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 41))), "html", null, true);
+            echo "\"  /></td>
                                     <td>";
             // line 42
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "status", [], "any", false, false, false, 42), "html", null, true);
@@ -265,7 +265,7 @@ class __TwigTemplate_7ba919568f6a4842ce294938c8c70d6f31c5f54004f80eafba9552fd47f
                                     <td>{{ vehicule.type }}</td>
                                     <td>{{ vehicule.prix }}</td>
                                     <td>{{ vehicule.batterie }}</td>
-                                    <td><img src=\"{{asset('assets/'~vehicule.image)}}\" /></td>
+                                    <td><img src=\"{{ asset('images/' ~ vehicule.image) }}\"  /></td>
                                     <td>{{ vehicule.status }}</td>
                                     <td>
                                         <a href=\"{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}\">show</a>

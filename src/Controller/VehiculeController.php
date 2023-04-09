@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 #[Route('/vehicule')]
 class VehiculeController extends AbstractController
@@ -16,7 +18,7 @@ class VehiculeController extends AbstractController
     #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        return $this->render('vehicule/index.html.twig', [
+        return $this->render('vehicule/carlist.html.twig', [
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
@@ -29,11 +31,24 @@ class VehiculeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $vehiculeRepository->save($vehicule, true);
 
+            $file = $form['image']->getData();
+            $imageFile = $form->get('image')->getData();
+            
+            // génération d'un nom de fichier unique
+            $newFilename = uniqid().'.'.$imageFile->guessExtension();
+
+            // déplacement du fichier dans le dossier public/images
+            $imageFile->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+
+            // mise à jour de l'attribut "image" de l'objet véhicule
+            $vehicule->setImage($newFilename);
+            $vehiculeRepository->save($vehicule, true);
             return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->renderForm('vehicule/new.html.twig', [
             'vehicule' => $vehicule,
             'form' => $form,

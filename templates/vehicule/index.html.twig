@@ -38,7 +38,7 @@
                                     <td>{{ vehicule.type }}</td>
                                     <td>{{ vehicule.prix }}</td>
                                     <td>{{ vehicule.batterie }}</td>
-                                    <td><img src="{{asset('assets/'~vehicule.image)}}" /></td>
+                                    <td><img src="{{ asset('images/' ~ vehicule.image) }}"  /></td>
                                     <td>{{ vehicule.status }}</td>
                                     <td>
                                         <a href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
