@@ -1676,3 +1676,7 @@ cf421f,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20al
 22d26c,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/5,1681092671,,200
 ed6505,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/css/s,1681092690,eff96b,404
 eff96b,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/css/s,1681092690,,404
+dc60fc,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1681153166,d94d61,404
+d94d61,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1681153166,,404
+f2bfc5,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/,1681153172,4eb4a0,500
+4eb4a0,127.0.0.1,GET,http://127.0.0.1:8000/itineraire/,1681153172,,500
