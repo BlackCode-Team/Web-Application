@@ -1,0 +1,78 @@
+{% extends 'back.html.twig' %}
+
+    {% block body %}
+      <div class="row">
+                                                               
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>List des Postion</h4>
+                                    </div>                 
+                                </div>
+                            </div>
+
+                            <div class="widget-content-area ">
+
+                                <div class="table-responsive new-products">
+                                   <table class="table">
+        <thead>
+            <tr>
+                <th>idpark</th>
+                <th>ville</th>
+                <th>nom</th>
+                <th>statut</th>
+                <th>nbspot</th>
+
+            </tr>
+        </thead>
+        <tbody>
+       {% for park in parks %}
+            <tr>
+                <td>{{ park.idpark }}</td>
+                <td>{{ park.ville |upper}}</td>
+                <td>{{ park.nom |upper}}</td>
+                <td>{{ park.statut }}</td>
+                <td>{{ park.nbspot }}</td>
+                <td class="text-center">
+                      <div class="toolbar">
+                              <div class="toolbar-toggle">...</div>
+                                  <ul class="toolbar-dropdown animated fadeInUp table-controls list-inline">
+                                                           
+                                    <li class="list-inline-item"><a href="{{ path('app_park_edit', {'idpark': park.idpark}) }}" class="bs-tooltip" data-original-title="Edit"><i class="flaticon-edit-5"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="{{ path('app_park_delete', {'idpark': park.idpark}) }}" class="bs-tooltip" data-original-title="Remove"><i class="flaticon-delete-6"></i></a>
+                                    </li>
+                          </ul>
+                       </div>
+                                       
+               
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>                                              {# table lehne #}
+                                </div>
+                                <div class="pagination-section">
+                                    <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                                        <li><a href="javascript:void(0);">«</a></li>
+                                        <li><a href="javascript:void(0);">1</a></li>
+                                        <li><a href="javascript:void(0);">2</a></li>
+                                        <li><a href="javascript:void(0);">3</a></li>
+                                        <li><a href="javascript:void(0);">4</a></li>
+                                        <li><a href="javascript:void(0);">5</a></li>
+                                        <li><a href="javascript:void(0);">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    
+{% endblock %}

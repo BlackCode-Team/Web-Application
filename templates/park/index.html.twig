@@ -1,41 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Park index{% endblock %}
-
+{% block page %} Park  {% endblock %} 
 {% block body %}
-    <h1>Park index</h1>
+   
+       
+            <div class="r-header-inner-banner" align="center">
+              <div class="r-header-in-over">
+                <h1>Les <b>P</b>arks </h1>
+              </div>
+            </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Idpark</th>
-                <th>Nom</th>
-                <th>Ville</th>
-                <th>Nbspot</th>
-                <th>Statut</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for park in parks %}
-            <tr>
-                <td>{{ park.idpark }}</td>
-                <td>{{ park.nom }}</td>
-                <td>{{ park.ville }}</td>
-                <td>{{ park.nbspot }}</td>
-                <td>{{ park.statut }}</td>
-                <td>
-                    <a href="{{ path('app_park_show', {'idpark': park.idpark}) }}">show</a>
-                    <a href="{{ path('app_park_edit', {'idpark': park.idpark}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <section id="r-gallery-part" class="r-gallery-part">
+          <div class="container clearfix">
+        
+            <ul>
+             {% for park in parks %}
+              <li>
+                  <a href="{{ path('app_park_show', {'idpark': park.idpark}) }}" >
+                      <img src="{{asset('assets/images/gallery-img01.jpg')}}" class="d-block img-fluid" alt="">
+                      <div class="gallery-hover">
+                        <div class="gallery-text">
+                        <span>{{ park.ville |upper }} </span>
+                          <h5><b>{{ park.nom |upper }}</b></h5>
+                          <h5>   <b>nbSpots </b>  : {{ park.nbspot }}</h5>
+                          {% if park.statut == "ouvert" %}
+                          <div class="icon-gallery"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                          {% else %}
+                          <div class="icon-gallery"><i class="fa fa-close" aria-hidden="true"></i></div>
+                          {% endif %}
+                          
+                        </div>
+                      </div>
+                  </a>
+              </li>
+              {% endfor %}
 
-    <a href="{{ path('app_park_new') }}">Create new</a>
+          </div>
+        </section>
+        
+
+
 {% endblock %}

@@ -1,11 +1,64 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
-{% block title %}New Park{% endblock %}
 
+
+ {% block page %} Gestion des Parks   {% endblock %} 
 {% block body %}
-    <h1>Create new Park</h1>
+<div class="col-lg-6 layout-spacing">
+        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">                                
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Nouveau Park</h4>
+                                    </div>                                                                        
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+                                    {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
+									<div class="form-group row mb-4">
+                                        <label for="modele" class="col-xl-2 col-sm-3 col-sm-2 col-form-label">nom</label>
+                                        <div class="col-xl-10 col-lg-9 col-sm-10">
+            								{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+											{{ form_errors(form.nom) }}
+										</div>
+                                    </div>
+									<div class="form-group row mb-4">
+                                        <label for="modele" class="col-xl-2 col-sm-3 col-sm-2 col-form-label">Ville</label>
+                                        <div class="col-xl-10 col-lg-9 col-sm-10">
+            								{{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+											{{ form_errors(form.ville) }}
+										</div>
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <label for="matricue" class="col-xl-2 col-sm-3 col-sm-2 col-form-label">Satuts</label>
+                                        <div class="col-xl-10 col-lg-9 col-sm-10">
+											{{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+											{{ form_errors(form.statut) }}
+                                        </div>
+                                    </div>
+									
+                                    <div class="form-group row mb-4">
+										<label for="puissance" class="col-xl-2 col-sm-3 col-form-label">nbSpots</label>
+										<div class="col-xl-4 col-lg-5 col-sm-9">
+            								{{ form_widget(form.nbspot, {'attr': {'class': 'form-control'}}) }}
+											{{ form_errors(form.nbspot) }}
+										</div>
+										
+                                    {# <div class="form-group row mb-4">
+                                        <div class="col-xl-10 col-lg-9 col-sm-10">
+                                            {{ form_widget(form.image, {'attr': {'class': 'form-control', 'value': form.image.vars.value}}) }}
+                                            {{ form_errors(form.image) }}
+                                        </div>
+                                    </div> #}
+								       <div class="inner col-12 clearfix">
+                      
+                          <button type="submit" class="btn m-auto d-block float-right btn-full">Ajouter Park</button>
+        
+                      </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
 
-    {{ include('park/_form.html.twig') }}
-
-    <a href="{{ path('app_park_index') }}">back to list</a>
 {% endblock %}

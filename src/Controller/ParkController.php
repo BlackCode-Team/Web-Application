@@ -20,6 +20,13 @@ class ParkController extends AbstractController
             'parks' => $parkRepository->findAll(),
         ]);
     }
+    #[Route('/admin', name: 'app_park_indexad', methods: ['GET'])]
+    public function indexad(ParkRepository $parkRepository): Response
+    {
+        return $this->render('park/indexadmin.html.twig', [
+            'parks' => $parkRepository->findAll(),
+        ]);
+    }
 
     #[Route('/new', name: 'app_park_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ParkRepository $parkRepository): Response
@@ -66,13 +73,12 @@ class ParkController extends AbstractController
         ]);
     }
 
-    #[Route('/{idpark}', name: 'app_park_delete', methods: ['POST'])]
-    public function delete(Request $request, Park $park, ParkRepository $parkRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$park->getIdpark(), $request->request->get('_token'))) {
-            $parkRepository->remove($park, true);
-        }
-
-        return $this->redirectToRoute('app_park_index', [], Response::HTTP_SEE_OTHER);
+    #[Route('/{idpark}', name: 'app_park_delete')]
+    function Delete( ManagerRegistry $doctrine,Park $park ){
+        $em=$doctrine->getManager();
+        $em->remove($park);
+        $em->flush();
+        return $this->redirectToRoute('app_park_indexad');
     }
 }
+
