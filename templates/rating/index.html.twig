@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RatingController!{% endblock %}
+{% block title %}Notation/Rating{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <h1>Notation/Rating</h1>
+  <form action="{{ path('app_rating_save') }}" method="post">
+    <div class="form-group">
+      <label for="note">Note</label>
+      <input type="number" class="form-control" id="note" name="note" min="1" max="5" required>
+    </div>
+    <div class="form-group">
+      <label for="commentaire">Commentaire</label>
+      <textarea class="form-control" id="commentaire" name="commentaire" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Rania2/Documents/Web-Application/src/Controller/RatingController.php'|file_link(0) }}">src/Controller/RatingController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Rania2/Documents/Web-Application/templates/rating/index.html.twig'|file_link(0) }}">templates/rating/index.html.twig</a></code></li>
-    </ul>
-</div>
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.raty.js') }}"></script>
+  <script>
+    $(function() {
+      $('#note').raty({
+        path: "{{ asset('images') }}",
+        scoreName: "note"
+      });
+    });
+  </script>
 {% endblock %}
