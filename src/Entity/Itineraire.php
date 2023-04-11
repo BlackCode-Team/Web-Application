@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Repository;
 use App\Repository\ItineraireRepository;
-
+use App\Entity\Reservation;
 
 #[ORM\Entity(repositoryClass: ItineraireRepository::class)]
 
@@ -30,6 +30,13 @@ class Itineraire
     private ?int $dureeestimee= null;
     #[ORM\Column]
     private ?int $nbUsage= null;
+
+    
+    //     /**
+    //  * @ORM\OneToOne(targetEntity=Reservation::class, mappedBy="itineraire", cascade={"persist", "remove"})
+    //  */
+    // #[ORM\OneToOne(targetEntity: Reservation::class, mappedBy: 'itineraire')]
+    // private ?Reservation $reservation = null;
 
 
     public function getIditineraire(): ?int
