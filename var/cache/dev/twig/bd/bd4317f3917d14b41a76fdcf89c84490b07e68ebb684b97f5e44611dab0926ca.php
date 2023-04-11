@@ -212,6 +212,6 @@ class __TwigTemplate_ef5ee480f95e4341b1133e7301b48455b5c6fa73ace1cfdf7f9994c75b6
 
     <a href=\"{{ path('app_badge_new') }}\">Create new</a>
 {% endblock %}
-", "badge/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\badge\\index.html.twig");
+", "badge/index.html.twig", "C:\\Users\\MSI\\Documents\\GitHub\\Web-Application\\templates\\badge\\index.html.twig");
     }
 }

@@ -24,11 +24,7 @@ class BadgeType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir le type de badge',
-                    ]),
-                    new UniqueEntity([
-                        'message' => 'Ce type de badge est déjà utilisé',
-                        'fields' => 'typebadge'
-                    ]),
+                    ])
                 ],
             ])
             ->add('nbpoint',IntegerType::class,[

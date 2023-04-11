@@ -69,7 +69,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
-    <parameter key="images_directory">C:\Users\Rania2\Documents\Web-Application/public/images</parameter>
+    <parameter key="images_directory">C:\Users\MSI\Documents\GitHub\Web-Application/public/images</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -124,11 +124,7 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-<<<<<<< Updated upstream
     <parameter key="session.save_path">null</parameter>
-=======
-    <parameter key="session.save_path">C:\Users\MSI\Documents\GitHub\Web-Application\var\cache\dev/sessions</parameter>
->>>>>>> Stashed changes
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -369,6 +365,13 @@
         <argument type="service" id=".service_locator.GNc8e5B.App\Controller\OffreController"/>
       </call>
     </service>
+    <service id="App\Controller\OffresController" class="App\Controller\OffresController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GNc8e5B.App\Controller\OffresController"/>
+      </call>
+    </service>
     <service id="App\Controller\ParkController" class="App\Controller\ParkController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -431,6 +434,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ParkType" class="App\Form\ParkType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\RatingType" class="App\Form\RatingType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true">
@@ -1286,6 +1292,7 @@
         <argument>App\Form\ItineraireType</argument>
         <argument>App\Form\OffreType</argument>
         <argument>App\Form\ParkType</argument>
+        <argument>App\Form\RatingType</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\ReponseType</argument>
         <argument>App\Form\ReservationType</argument>
@@ -3378,11 +3385,7 @@
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler">
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-<<<<<<< Updated upstream
           <argument>null</argument>
-=======
-          <argument>C:\Users\MSI\Documents\GitHub\Web-Application\var\cache\dev/sessions</argument>
->>>>>>> Stashed changes
         </service>
       </argument>
     </service>
@@ -3435,11 +3438,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-<<<<<<< Updated upstream
-      <argument type="service" id=".service_locator.gwLwo7R"/>
-=======
-      <argument type="service" id=".service_locator.IiRnfPl"/>
->>>>>>> Stashed changes
+      <argument type="service" id=".service_locator.it_e4Yo"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6291,6 +6290,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffresController" class="App\Controller\OffresController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffresController" class="App\Controller\OffresController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\OffresController" class="App\Controller\OffresController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6322,6 +6324,8 @@
     <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParkType" class="App\Form\ParkType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ParkType" class="App\Form\ParkType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RatingType" class="App\Form\RatingType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RatingType" class="App\Form\RatingType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReponseType" class="App\Form\ReponseType" autowire="true" abstract="true"/>
@@ -6777,6 +6781,12 @@
         <argument key="offreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.FNXmt8R" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service_closure" id="App\Repository\OffreRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.QyDsvTD" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6802,6 +6812,25 @@
       <argument type="collection">
         <argument key="doctrine" type="service_closure" id=".errored.E2qZs7Z"/>
         <argument key="park" type="service_closure" id=".errored..service_locator.GxLEY6J.App\Entity\Park"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ho_fxxt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="ratingRepository" type="service_closure" id="App\Repository\RatingRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.fvmPtFf" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="rating" type="service_closure" id=".errored..service_locator.fvmPtFf.App\Entity\Rating"/>
+      </argument>
+    </service>
+    <service id=".service_locator.PbvythW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="rating" type="service_closure" id=".errored..service_locator.PbvythW.App\Entity\Rating"/>
+        <argument key="ratingRepository" type="service_closure" id="App\Repository\RatingRepository"/>
       </argument>
     </service>
     <service id=".service_locator.5_3wyDn" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6899,108 +6928,7 @@
         <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
       </argument>
     </service>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <service id=".service_locator.zdNrdoc" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="App\Controller\BadgeController::delete" type="service_closure" id=".service_locator.20cMmfJ"/>
-        <argument key="App\Controller\BadgeController::edit" type="service_closure" id=".service_locator.20cMmfJ"/>
-        <argument key="App\Controller\BadgeController::index" type="service_closure" id=".service_locator.6IMytWv"/>
-        <argument key="App\Controller\BadgeController::new" type="service_closure" id=".service_locator.6IMytWv"/>
-        <argument key="App\Controller\BadgeController::show" type="service_closure" id=".service_locator.Ho9aMJB"/>
-        <argument key="App\Controller\BadgesController::Affiche" type="service_closure" id=".service_locator.EkDI47j"/>
-        <argument key="App\Controller\HistoriqueController::delete" type="service_closure" id=".service_locator.7u.gGMd"/>
-        <argument key="App\Controller\HistoriqueController::edit" type="service_closure" id=".service_locator.7u.gGMd"/>
-        <argument key="App\Controller\HistoriqueController::index" type="service_closure" id=".service_locator.hhHlGwj"/>
-        <argument key="App\Controller\HistoriqueController::new" type="service_closure" id=".service_locator.hhHlGwj"/>
-        <argument key="App\Controller\HistoriqueController::show" type="service_closure" id=".service_locator.1ZBJPoc"/>
-        <argument key="App\Controller\ItineraireController::delete" type="service_closure" id=".service_locator.i7iqqrB"/>
-        <argument key="App\Controller\ItineraireController::edit" type="service_closure" id=".service_locator.i7iqqrB"/>
-        <argument key="App\Controller\ItineraireController::index" type="service_closure" id=".service_locator.K9TRytY"/>
-        <argument key="App\Controller\ItineraireController::new" type="service_closure" id=".service_locator.K9TRytY"/>
-        <argument key="App\Controller\ItineraireController::show" type="service_closure" id=".service_locator.FdDxxpr"/>
-        <argument key="App\Controller\ParkController::Delete" type="service_closure" id=".service_locator.dUBUwhu"/>
-        <argument key="App\Controller\ParkController::edit" type="service_closure" id=".service_locator.ZNVBNHv"/>
-        <argument key="App\Controller\ParkController::index" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController::indexad" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController::new" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController::show" type="service_closure" id=".service_locator.tUog_7F"/>
-        <argument key="App\Controller\ParkController::showadm" type="service_closure" id=".service_locator.tUog_7F"/>
-        <argument key="App\Controller\ReclamationController::delete" type="service_closure" id=".service_locator.i7JOFAN"/>
-        <argument key="App\Controller\ReclamationController::edit" type="service_closure" id=".service_locator.i7JOFAN"/>
-        <argument key="App\Controller\ReclamationController::index" type="service_closure" id=".service_locator.bvmeD74"/>
-        <argument key="App\Controller\ReclamationController::new" type="service_closure" id=".service_locator.bvmeD74"/>
-        <argument key="App\Controller\ReclamationController::show" type="service_closure" id=".service_locator.iq_16Ky"/>
-        <argument key="App\Controller\ReservationController::delete" type="service_closure" id=".service_locator.mxLQRmV"/>
-        <argument key="App\Controller\ReservationController::edit" type="service_closure" id=".service_locator.mxLQRmV"/>
-        <argument key="App\Controller\ReservationController::index" type="service_closure" id=".service_locator.VddRp04"/>
-        <argument key="App\Controller\ReservationController::new" type="service_closure" id=".service_locator.VddRp04"/>
-        <argument key="App\Controller\ReservationController::show" type="service_closure" id=".service_locator.jtI7Unb"/>
-        <argument key="App\Controller\UtilisateurController::delete" type="service_closure" id=".service_locator.KzL3gdR"/>
-        <argument key="App\Controller\UtilisateurController::edit" type="service_closure" id=".service_locator.KzL3gdR"/>
-        <argument key="App\Controller\UtilisateurController::index" type="service_closure" id=".service_locator.JMejbpE"/>
-        <argument key="App\Controller\UtilisateurController::new" type="service_closure" id=".service_locator.JMejbpE"/>
-        <argument key="App\Controller\UtilisateurController::show" type="service_closure" id=".service_locator.r5W7ygF"/>
-        <argument key="App\Controller\VehiculeController::delete" type="service_closure" id=".service_locator.YdyC4xD"/>
-        <argument key="App\Controller\VehiculeController::edit" type="service_closure" id=".service_locator.YdyC4xD"/>
-        <argument key="App\Controller\VehiculeController::index" type="service_closure" id=".service_locator.y1420Rl"/>
-        <argument key="App\Controller\VehiculeController::new" type="service_closure" id=".service_locator.y1420Rl"/>
-        <argument key="App\Controller\VehiculeController::show" type="service_closure" id=".service_locator.pB20uqv"/>
-        <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="App\Controller\BadgeController:delete" type="service_closure" id=".service_locator.20cMmfJ"/>
-        <argument key="App\Controller\BadgeController:edit" type="service_closure" id=".service_locator.20cMmfJ"/>
-        <argument key="App\Controller\BadgeController:index" type="service_closure" id=".service_locator.6IMytWv"/>
-        <argument key="App\Controller\BadgeController:new" type="service_closure" id=".service_locator.6IMytWv"/>
-        <argument key="App\Controller\BadgeController:show" type="service_closure" id=".service_locator.Ho9aMJB"/>
-        <argument key="App\Controller\BadgesController:Affiche" type="service_closure" id=".service_locator.EkDI47j"/>
-        <argument key="App\Controller\HistoriqueController:delete" type="service_closure" id=".service_locator.7u.gGMd"/>
-        <argument key="App\Controller\HistoriqueController:edit" type="service_closure" id=".service_locator.7u.gGMd"/>
-        <argument key="App\Controller\HistoriqueController:index" type="service_closure" id=".service_locator.hhHlGwj"/>
-        <argument key="App\Controller\HistoriqueController:new" type="service_closure" id=".service_locator.hhHlGwj"/>
-        <argument key="App\Controller\HistoriqueController:show" type="service_closure" id=".service_locator.1ZBJPoc"/>
-        <argument key="App\Controller\ItineraireController:delete" type="service_closure" id=".service_locator.i7iqqrB"/>
-        <argument key="App\Controller\ItineraireController:edit" type="service_closure" id=".service_locator.i7iqqrB"/>
-        <argument key="App\Controller\ItineraireController:index" type="service_closure" id=".service_locator.K9TRytY"/>
-        <argument key="App\Controller\ItineraireController:new" type="service_closure" id=".service_locator.K9TRytY"/>
-        <argument key="App\Controller\ItineraireController:show" type="service_closure" id=".service_locator.FdDxxpr"/>
-        <argument key="App\Controller\ParkController:Delete" type="service_closure" id=".service_locator.dUBUwhu"/>
-        <argument key="App\Controller\ParkController:edit" type="service_closure" id=".service_locator.ZNVBNHv"/>
-        <argument key="App\Controller\ParkController:index" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController:indexad" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController:new" type="service_closure" id=".service_locator.xwfY7a4"/>
-        <argument key="App\Controller\ParkController:show" type="service_closure" id=".service_locator.tUog_7F"/>
-        <argument key="App\Controller\ParkController:showadm" type="service_closure" id=".service_locator.tUog_7F"/>
-        <argument key="App\Controller\ReclamationController:delete" type="service_closure" id=".service_locator.i7JOFAN"/>
-        <argument key="App\Controller\ReclamationController:edit" type="service_closure" id=".service_locator.i7JOFAN"/>
-        <argument key="App\Controller\ReclamationController:index" type="service_closure" id=".service_locator.bvmeD74"/>
-        <argument key="App\Controller\ReclamationController:new" type="service_closure" id=".service_locator.bvmeD74"/>
-        <argument key="App\Controller\ReclamationController:show" type="service_closure" id=".service_locator.iq_16Ky"/>
-        <argument key="App\Controller\ReservationController:delete" type="service_closure" id=".service_locator.mxLQRmV"/>
-        <argument key="App\Controller\ReservationController:edit" type="service_closure" id=".service_locator.mxLQRmV"/>
-        <argument key="App\Controller\ReservationController:index" type="service_closure" id=".service_locator.VddRp04"/>
-        <argument key="App\Controller\ReservationController:new" type="service_closure" id=".service_locator.VddRp04"/>
-        <argument key="App\Controller\ReservationController:show" type="service_closure" id=".service_locator.jtI7Unb"/>
-        <argument key="App\Controller\UtilisateurController:delete" type="service_closure" id=".service_locator.KzL3gdR"/>
-        <argument key="App\Controller\UtilisateurController:edit" type="service_closure" id=".service_locator.KzL3gdR"/>
-        <argument key="App\Controller\UtilisateurController:index" type="service_closure" id=".service_locator.JMejbpE"/>
-        <argument key="App\Controller\UtilisateurController:new" type="service_closure" id=".service_locator.JMejbpE"/>
-        <argument key="App\Controller\UtilisateurController:show" type="service_closure" id=".service_locator.r5W7ygF"/>
-        <argument key="App\Controller\VehiculeController:delete" type="service_closure" id=".service_locator.YdyC4xD"/>
-        <argument key="App\Controller\VehiculeController:edit" type="service_closure" id=".service_locator.YdyC4xD"/>
-        <argument key="App\Controller\VehiculeController:index" type="service_closure" id=".service_locator.y1420Rl"/>
-        <argument key="App\Controller\VehiculeController:new" type="service_closure" id=".service_locator.y1420Rl"/>
-        <argument key="App\Controller\VehiculeController:show" type="service_closure" id=".service_locator.pB20uqv"/>
-        <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-=======
-    <service id=".service_locator.aXt5YDf" class="Symfony\Component\DependencyInjection\ServiceLocator">
-=======
-    <service id=".service_locator.Pj6Gxxp" class="Symfony\Component\DependencyInjection\ServiceLocator">
->>>>>>> Stashed changes
+    <service id=".service_locator.MlHcIPp" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BadgeController::delete" type="service_closure" id=".service_locator.6DFA8px"/>
@@ -7019,21 +6947,24 @@
         <argument key="App\Controller\ItineraireController::index" type="service_closure" id=".service_locator.UnRSzoY"/>
         <argument key="App\Controller\ItineraireController::new" type="service_closure" id=".service_locator.UnRSzoY"/>
         <argument key="App\Controller\ItineraireController::show" type="service_closure" id=".service_locator.OT94dsS"/>
-<<<<<<< Updated upstream
-        <argument key="App\Controller\ParkController::Delete" type="service_closure" id=".service_locator.GxLEY6J"/>
-=======
         <argument key="App\Controller\OffreController::delete" type="service_closure" id=".service_locator.BPGibOO"/>
         <argument key="App\Controller\OffreController::edit" type="service_closure" id=".service_locator.BPGibOO"/>
         <argument key="App\Controller\OffreController::index" type="service_closure" id=".service_locator.YIoBPiR"/>
         <argument key="App\Controller\OffreController::new" type="service_closure" id=".service_locator.YIoBPiR"/>
         <argument key="App\Controller\OffreController::show" type="service_closure" id=".service_locator.b7fVg6S"/>
-        <argument key="App\Controller\ParkController::delete" type="service_closure" id=".service_locator.cGoyxgZ"/>
->>>>>>> Stashed changes
+        <argument key="App\Controller\OffresController::Affiche" type="service_closure" id=".service_locator.FNXmt8R"/>
+        <argument key="App\Controller\ParkController::Delete" type="service_closure" id=".service_locator.GxLEY6J"/>
         <argument key="App\Controller\ParkController::edit" type="service_closure" id=".service_locator.cGoyxgZ"/>
         <argument key="App\Controller\ParkController::index" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController::indexad" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController::new" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController::show" type="service_closure" id=".service_locator.._4ytyw"/>
+        <argument key="App\Controller\ParkController::showadm" type="service_closure" id=".service_locator.._4ytyw"/>
+        <argument key="App\Controller\RatingController::delete" type="service_closure" id=".service_locator.PbvythW"/>
+        <argument key="App\Controller\RatingController::edit" type="service_closure" id=".service_locator.PbvythW"/>
+        <argument key="App\Controller\RatingController::index" type="service_closure" id=".service_locator.ho_fxxt"/>
+        <argument key="App\Controller\RatingController::new" type="service_closure" id=".service_locator.ho_fxxt"/>
+        <argument key="App\Controller\RatingController::show" type="service_closure" id=".service_locator.fvmPtFf"/>
         <argument key="App\Controller\ReclamationController::delete" type="service_closure" id=".service_locator..6S4TIj"/>
         <argument key="App\Controller\ReclamationController::edit" type="service_closure" id=".service_locator..6S4TIj"/>
         <argument key="App\Controller\ReclamationController::index" type="service_closure" id=".service_locator.5_3wyDn"/>
@@ -7079,21 +7010,24 @@
         <argument key="App\Controller\ItineraireController:index" type="service_closure" id=".service_locator.UnRSzoY"/>
         <argument key="App\Controller\ItineraireController:new" type="service_closure" id=".service_locator.UnRSzoY"/>
         <argument key="App\Controller\ItineraireController:show" type="service_closure" id=".service_locator.OT94dsS"/>
-<<<<<<< Updated upstream
-        <argument key="App\Controller\ParkController:Delete" type="service_closure" id=".service_locator.GxLEY6J"/>
-=======
         <argument key="App\Controller\OffreController:delete" type="service_closure" id=".service_locator.BPGibOO"/>
         <argument key="App\Controller\OffreController:edit" type="service_closure" id=".service_locator.BPGibOO"/>
         <argument key="App\Controller\OffreController:index" type="service_closure" id=".service_locator.YIoBPiR"/>
         <argument key="App\Controller\OffreController:new" type="service_closure" id=".service_locator.YIoBPiR"/>
         <argument key="App\Controller\OffreController:show" type="service_closure" id=".service_locator.b7fVg6S"/>
-        <argument key="App\Controller\ParkController:delete" type="service_closure" id=".service_locator.cGoyxgZ"/>
->>>>>>> Stashed changes
+        <argument key="App\Controller\OffresController:Affiche" type="service_closure" id=".service_locator.FNXmt8R"/>
+        <argument key="App\Controller\ParkController:Delete" type="service_closure" id=".service_locator.GxLEY6J"/>
         <argument key="App\Controller\ParkController:edit" type="service_closure" id=".service_locator.cGoyxgZ"/>
         <argument key="App\Controller\ParkController:index" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController:indexad" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController:new" type="service_closure" id=".service_locator.QyDsvTD"/>
         <argument key="App\Controller\ParkController:show" type="service_closure" id=".service_locator.._4ytyw"/>
+        <argument key="App\Controller\ParkController:showadm" type="service_closure" id=".service_locator.._4ytyw"/>
+        <argument key="App\Controller\RatingController:delete" type="service_closure" id=".service_locator.PbvythW"/>
+        <argument key="App\Controller\RatingController:edit" type="service_closure" id=".service_locator.PbvythW"/>
+        <argument key="App\Controller\RatingController:index" type="service_closure" id=".service_locator.ho_fxxt"/>
+        <argument key="App\Controller\RatingController:new" type="service_closure" id=".service_locator.ho_fxxt"/>
+        <argument key="App\Controller\RatingController:show" type="service_closure" id=".service_locator.fvmPtFf"/>
         <argument key="App\Controller\ReclamationController:delete" type="service_closure" id=".service_locator..6S4TIj"/>
         <argument key="App\Controller\ReclamationController:edit" type="service_closure" id=".service_locator..6S4TIj"/>
         <argument key="App\Controller\ReclamationController:index" type="service_closure" id=".service_locator.5_3wyDn"/>
@@ -7121,7 +7055,6 @@
         <argument key="App\Controller\VehiculeController:show" type="service_closure" id=".service_locator.0J1782j"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
->>>>>>> 471308da4104360eaaad4f70dbeadb16addb5ea7
       </argument>
     </service>
     <service id=".service_locator.19_mNxd" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7183,11 +7116,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-<<<<<<< Updated upstream
-    <service id=".service_locator.gwLwo7R" class="Symfony\Component\DependencyInjection\ServiceLocator">
-=======
-    <service id=".service_locator.IiRnfPl" class="Symfony\Component\DependencyInjection\ServiceLocator">
->>>>>>> Stashed changes
+    <service id=".service_locator.it_e4Yo" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\BadgeType" type="service_closure" id="App\Form\BadgeType"/>
@@ -7195,6 +7124,7 @@
         <argument key="App\Form\ItineraireType" type="service_closure" id="App\Form\ItineraireType"/>
         <argument key="App\Form\OffreType" type="service_closure" id="App\Form\OffreType"/>
         <argument key="App\Form\ParkType" type="service_closure" id="App\Form\ParkType"/>
+        <argument key="App\Form\RatingType" type="service_closure" id="App\Form\RatingType"/>
         <argument key="App\Form\ReclamationType" type="service_closure" id="App\Form\ReclamationType"/>
         <argument key="App\Form\ReponseType" type="service_closure" id="App\Form\ReponseType"/>
         <argument key="App\Form\ReservationType" type="service_closure" id="App\Form\ReservationType"/>
@@ -7600,6 +7530,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.GNc8e5B" method="withContext"/>
     </service>
+    <service id=".service_locator.GNc8e5B.App\Controller\OffresController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\OffresController"/>
+      <argument>App\Controller\OffresController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GNc8e5B" method="withContext"/>
+    </service>
     <service id=".service_locator.GNc8e5B.App\Controller\ParkController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ParkController"/>
       <argument>App\Controller\ParkController</argument>
@@ -7824,28 +7760,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-      <argument type="service" id=".service_locator.zdNrdoc"/>
-=======
-      <argument type="service" id=".service_locator.aXt5YDf"/>
->>>>>>> 471308da4104360eaaad4f70dbeadb16addb5ea7
-=======
-      <argument type="service" id=".service_locator.Pj6Gxxp"/>
->>>>>>> Stashed changes
+      <argument type="service" id=".service_locator.MlHcIPp"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-      <argument type="service" id=".service_locator.zdNrdoc"/>
-=======
-      <argument type="service" id=".service_locator.aXt5YDf"/>
->>>>>>> 471308da4104360eaaad4f70dbeadb16addb5ea7
-=======
-      <argument type="service" id=".service_locator.Pj6Gxxp"/>
->>>>>>> Stashed changes
+      <argument type="service" id=".service_locator.MlHcIPp"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7876,6 +7796,8 @@
     <service id=".errored..service_locator.._4ytyw.App\Entity\Park" class="App\Entity\Park"/>
     <service id=".errored..service_locator.cGoyxgZ.App\Entity\Park" class="App\Entity\Park"/>
     <service id=".errored..service_locator.GxLEY6J.App\Entity\Park" class="App\Entity\Park"/>
+    <service id=".errored..service_locator.fvmPtFf.App\Entity\Rating" class="App\Entity\Rating"/>
+    <service id=".errored..service_locator.PbvythW.App\Entity\Rating" class="App\Entity\Rating"/>
     <service id=".errored..service_locator.Ky9OCSE.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator..6S4TIj.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
     <service id=".errored..service_locator.awRdKq3.App\Entity\Reponse" class="App\Entity\Reponse"/>
@@ -8830,15 +8752,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <service id="argument_resolver.controller_locator" alias=".service_locator.zdNrdoc"/>
-=======
-    <service id="argument_resolver.controller_locator" alias=".service_locator.aXt5YDf"/>
->>>>>>> 471308da4104360eaaad4f70dbeadb16addb5ea7
-=======
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Pj6Gxxp"/>
->>>>>>> Stashed changes
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MlHcIPp"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8862,19 +8776,9 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <service id=".service_locator.cGNkRAf" alias=".service_locator.zdNrdoc"/>
-=======
-    <service id=".service_locator.3M54_E6" alias=".service_locator.aXt5YDf"/>
->>>>>>> 471308da4104360eaaad4f70dbeadb16addb5ea7
+    <service id=".service_locator.WaB7YWY" alias=".service_locator.MlHcIPp"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.Lls.sw6" alias=".service_locator.gwLwo7R"/>
-=======
-    <service id=".service_locator.PPh_0IF" alias=".service_locator.Pj6Gxxp"/>
-    <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator..CC1.AL" alias=".service_locator.IiRnfPl"/>
->>>>>>> Stashed changes
+    <service id=".service_locator.qUh1NFn" alias=".service_locator.it_e4Yo"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.W9y3dzm" alias=".service_locator.GNc8e5B"/>
@@ -8913,10 +8817,14 @@
     <service id=".service_locator.NNsDEm_" alias=".service_locator.YIoBPiR"/>
     <service id=".service_locator.Ue4VWoo" alias=".service_locator.b7fVg6S"/>
     <service id=".service_locator.3n7dShy" alias=".service_locator.BPGibOO"/>
+    <service id=".service_locator.qDVTw47" alias=".service_locator.FNXmt8R"/>
     <service id=".service_locator.wRbPqLM" alias=".service_locator.QyDsvTD"/>
     <service id=".service_locator.CPUJouD" alias=".service_locator.._4ytyw"/>
     <service id=".service_locator.cKiewTa" alias=".service_locator.cGoyxgZ"/>
     <service id=".service_locator.eACT53Z" alias=".service_locator.GxLEY6J"/>
+    <service id=".service_locator.l8NvtI9" alias=".service_locator.ho_fxxt"/>
+    <service id=".service_locator.Uit20qb" alias=".service_locator.fvmPtFf"/>
+    <service id=".service_locator.FRbPJvf" alias=".service_locator.PbvythW"/>
     <service id=".service_locator.X6unl1j" alias=".service_locator.5_3wyDn"/>
     <service id=".service_locator.zeHUEhU" alias=".service_locator.Ky9OCSE"/>
     <service id=".service_locator.SEsIxwm" alias=".service_locator..6S4TIj"/>

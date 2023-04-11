@@ -103,7 +103,7 @@ Découvrez nos badges uniques et les avantages qu'ils offrent.</h2>
   <div>
     <img src=\"";
         // line 31
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/platinum.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/platinum.png"), "html", null, true);
         echo "\" alt=\"Badge 1\" width=\"200\" height=\"200\">
     <h3>Platinium</h3>
     <p>DAttribué à nos clients experts ayant </br>une connaissances approfondie </br>de nos servies. </p>
@@ -176,7 +176,7 @@ Découvrez nos badges uniques et les avantages qu'ils offrent.</h2>
 </br>
 <div style=\"display: flex; justify-content: space-around;\">
   <div>
-    <img src=\"{{asset('assets/images/platinum.jpg')}}\" alt=\"Badge 1\" width=\"200\" height=\"200\">
+    <img src=\"{{asset('assets/images/platinum.png')}}\" alt=\"Badge 1\" width=\"200\" height=\"200\">
     <h3>Platinium</h3>
     <p>DAttribué à nos clients experts ayant </br>une connaissances approfondie </br>de nos servies. </p>
     <p>*Points nécessaires : 400</p>
@@ -189,6 +189,6 @@ Découvrez nos badges uniques et les avantages qu'ils offrent.</h2>
   </div>
 </div>
 
-{% endblock %}", "badges/AfficherBadge.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\badges\\AfficherBadge.html.twig");
+{% endblock %}", "badges/AfficherBadge.html.twig", "C:\\Users\\MSI\\Documents\\GitHub\\Web-Application\\templates\\badges\\AfficherBadge.html.twig");
     }
 }

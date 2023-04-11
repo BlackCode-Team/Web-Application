@@ -28,6 +28,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
         $this->blocks = [
             'css' => [$this, 'block_css'],
+            'page' => [$this, 'block_page'],
             'body' => [$this, 'block_body'],
             'javascript' => [$this, 'block_javascript'],
         ];
@@ -75,8 +76,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"";
+            <a href=\"";
         // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.html"), "html", null, true);
+        echo "\" class=\"\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo2.png"), "html", null, true);
         echo "\" class=\"img-fluid\" alt=\"logo\"></a> ";
         // line 41
@@ -197,7 +200,9 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         <li class=\"menu\">
                             <a href=\"\">   ";
         // line 142
-        echo "                                <div class=\"\">
+        echo "                                <div class=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -206,7 +211,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 151
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_badge_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -215,7 +223,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 160
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -224,7 +235,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 169
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -233,7 +247,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 178
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -242,7 +259,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 187
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -251,7 +271,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 196
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>
@@ -285,7 +308,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <div class=\"container\">
                 <div class=\"page-header\">
                     <div class=\"page-title\">
-                        <h3>Dashboard</h3> <!--  esem el page met3ek  -->
+                        <h3> ";
+        // line 230
+        $this->displayBlock('page', $context, $blocks);
+        echo " </h3> <!--  esem el page met3ek  -->
                     </div>
                 </div>
 
@@ -428,6 +454,25 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
     }
 
+    // line 230
+    public function block_page($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        echo "    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     // line 236
     public function block_body($context, array $blocks = [])
     {
@@ -549,7 +594,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
     public function getDebugInfo()
     {
-        return array (  528 => 705,  524 => 704,  520 => 703,  516 => 702,  512 => 701,  508 => 700,  504 => 699,  497 => 695,  488 => 689,  484 => 688,  480 => 687,  476 => 686,  472 => 685,  468 => 684,  464 => 683,  461 => 682,  451 => 681,  432 => 236,  419 => 23,  415 => 22,  411 => 21,  407 => 20,  400 => 16,  396 => 15,  390 => 13,  380 => 12,  367 => 708,  365 => 681,  336 => 655,  312 => 633,  306 => 628,  299 => 237,  296 => 236,  200 => 142,  175 => 119,  157 => 104,  142 => 92,  127 => 80,  112 => 68,  83 => 41,  80 => 40,  64 => 26,  62 => 12,  57 => 10,  46 => 1,);
+        return array (  573 => 705,  569 => 704,  565 => 703,  561 => 702,  557 => 701,  553 => 700,  549 => 699,  542 => 695,  533 => 689,  529 => 688,  525 => 687,  521 => 686,  517 => 685,  513 => 684,  509 => 683,  506 => 682,  496 => 681,  477 => 236,  458 => 230,  445 => 23,  441 => 22,  437 => 21,  433 => 20,  426 => 16,  422 => 15,  416 => 13,  406 => 12,  393 => 708,  391 => 681,  362 => 655,  338 => 633,  332 => 628,  325 => 237,  322 => 236,  313 => 230,  276 => 196,  264 => 187,  252 => 178,  240 => 169,  228 => 160,  216 => 151,  203 => 142,  178 => 119,  160 => 104,  145 => 92,  130 => 80,  115 => 68,  86 => 41,  81 => 40,  65 => 26,  63 => 12,  58 => 10,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -593,7 +638,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
+            <a href=\"{{asset('index.html')}}\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
         </div>
         <ul class=\"navbar-nav flex-row mr-auto\">
             <li class=\"nav-item ml-4 d-lg-none d-sm-block d-none\">
@@ -695,7 +740,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                      
                         <li class=\"menu\">
                             <a href=\"\">   {# lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} #}
-                                <div class=\"\">
+                                <div class=\"{{path('app_park_indexad')}}\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -704,7 +749,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_badge_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -713,7 +758,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"{{path('app_park_indexad')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -722,7 +767,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_itineraire_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -731,7 +776,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_vehicule_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -740,7 +785,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reservation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -749,7 +794,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reclamation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>
@@ -783,7 +828,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <div class=\"container\">
                 <div class=\"page-header\">
                     <div class=\"page-title\">
-                        <h3>Dashboard</h3> <!--  esem el page met3ek  -->
+                        <h3> {% block page %}    {% endblock %} </h3> <!--  esem el page met3ek  -->
                     </div>
                 </div>
 
@@ -1264,6 +1309,6 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
-</html>", "back.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\back.html.twig");
+</html>", "back.html.twig", "C:\\Users\\MSI\\Documents\\GitHub\\Web-Application\\templates\\back.html.twig");
     }
 }

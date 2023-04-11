@@ -40,7 +40,7 @@ class __TwigTemplate_de2743406421f08bf5a6297ae817649b2cf01da3a27901231180016ba38
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "badge/_form.html.twig"));
 
         // line 1
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 1, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 1, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
         echo "
     ";
         // line 2
@@ -52,8 +52,15 @@ class __TwigTemplate_de2743406421f08bf5a6297ae817649b2cf01da3a27901231180016ba38
         echo "</button>
 ";
         // line 4
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 4, $this->source); })()), 'form_end');
+        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 4, $this->source); })()), [0 => $this->getTemplateName()], true);
+        echo "  
+";
+        // line 5
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 5, $this->source); })()), 'form_end');
         echo "
+
+
+
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -75,15 +82,19 @@ class __TwigTemplate_de2743406421f08bf5a6297ae817649b2cf01da3a27901231180016ba38
 
     public function getDebugInfo()
     {
-        return array (  55 => 4,  51 => 3,  47 => 2,  43 => 1,);
+        return array (  59 => 5,  55 => 4,  51 => 3,  47 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{{ form_start(form) }}
+        return new Source("{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
+{% form_theme form _self %}  
 {{ form_end(form) }}
-", "badge/_form.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\badge\\_form.html.twig");
+
+
+
+", "badge/_form.html.twig", "C:\\Users\\MSI\\Documents\\GitHub\\Web-Application\\templates\\badge\\_form.html.twig");
     }
 }
