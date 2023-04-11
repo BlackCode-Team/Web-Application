@@ -12,40 +12,23 @@ class Offre
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
     private ?int $idoffre=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
-     */
+    #[ORM\Column(length: 255, nullable: true)]
     private $nom;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="tauxderemise", type="integer", nullable=false)
-     */
+    #[ORM\Column(nullable:false)]
     private $tauxderemise;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     */
+    #[ORM\Column(length: 255, nullable: true)]
     private $description;
 
-    /**
-     * @var \Badge
-     *
-     * @ORM\ManyToOne(targetEntity="Badge")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idbadge", referencedColumnName="idbadge")
-     * })
-     */
-    private $idbadge;
+    #[ORM\ManyToOne(targetEntity: "Badge", fetch: "EAGER")]
+    #[ORM\JoinColumn(name: "idbadge", referencedColumnName: "idbadge")]
+    private ?Badge $idbadge;
 
+    
     public function getIdoffre(): ?int
     {
         return $this->idoffre;
