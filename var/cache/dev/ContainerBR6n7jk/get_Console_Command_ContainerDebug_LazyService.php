@@ -1,7 +1,11 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/dev/ContainerBR6n7jk/get_Console_Command_ContainerDebug_LazyService.php
 namespace ContainerBR6n7jk;
 
+========
+namespace ContainerCVw8QWF;
+>>>>>>>> dafaa418e965cb562724709fb7ac21731436e887:var/cache/dev/ContainerCVw8QWF/get_Console_Command_ContainerDebug_LazyService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

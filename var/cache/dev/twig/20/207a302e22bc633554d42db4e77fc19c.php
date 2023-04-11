@@ -74,7 +74,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 \t";
         // line 19
         $this->displayBlock('body', $context, $blocks);
-        // line 73
+        // line 74
         echo "\t</body>
 \t
 </html>
@@ -139,7 +139,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 20
-        echo "\t<section class=\"ftco-section\">
+        echo "\t<section class=\"ftco-section\" style=\"margin-top: 50px;\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row justify-content-center\">
 \t\t\t\t<div class=\"col-md-6 text-center mb-5\">
@@ -172,7 +172,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 \t            <div class=\"form-group\">
 \t            \t<button  type=\"submit\" class=\"form-control btn btn-primary submit px-3\">";
         // line 42
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 42, $this->source); })()), "Enregistrer")) : ("Enregistrer")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 42, $this->source); })()), "Sign In")) : ("Sign In")), "html", null, true);
         echo "</button>
 \t            </div>
 \t            <div class=\"form-group d-md-flex\">
@@ -189,18 +189,22 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 \t          </form>
 \t          <p class=\"w-100 text-center\">Don't have an account ? </p>
 \t          <div class=\"social d-flex text-center\">
-\t          \t<a href=\"#\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Register</a>
+\t          \t<a href=\"";
+        // line 58
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+        echo "\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Register</a>
+
 \t          \t
 \t          </div>
 \t\t      </div>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
-\t</section>
+\t</section
 ";
-        // line 66
+        // line 67
         $this->displayBlock('js', $context, $blocks);
-        // line 72
+        // line 73
         echo "  ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -210,7 +214,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 
     }
 
-    // line 66
+    // line 67
     public function block_js($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -220,20 +224,20 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "js"));
 
-        // line 67
+        // line 68
         echo "<script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Login/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 68
+        // line 69
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Login/js/popper.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 69
+        // line 70
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Login/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 70
+        // line 71
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Login/js/main.js"), "html", null, true);
         echo "\"></script>
 ";
@@ -257,7 +261,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  237 => 70,  233 => 69,  229 => 68,  224 => 67,  214 => 66,  204 => 72,  202 => 66,  175 => 42,  167 => 37,  161 => 34,  156 => 32,  142 => 20,  132 => 19,  111 => 12,  92 => 4,  78 => 73,  76 => 19,  71 => 17,  65 => 13,  63 => 12,  52 => 4,  47 => 1,);
+        return array (  241 => 71,  237 => 70,  233 => 69,  228 => 68,  218 => 67,  208 => 73,  206 => 67,  194 => 58,  175 => 42,  167 => 37,  161 => 34,  156 => 32,  142 => 20,  132 => 19,  111 => 12,  92 => 4,  78 => 74,  76 => 19,  71 => 17,  65 => 13,  63 => 12,  52 => 4,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -281,7 +285,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 <body class=\"img js-fullheight\" style=\"background-image: url({{asset('Login/images/bg.jpg')}});\"> -->
 <body class=\"img js-fullheight\" style=\"background-image: url('https://images.pexels.com/photos/4824424/pexels-photo-4824424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');\">
 \t{%block body%}
-\t<section class=\"ftco-section\">
+\t<section class=\"ftco-section\" style=\"margin-top: 50px;\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row justify-content-center\">
 \t\t\t\t<div class=\"col-md-6 text-center mb-5\">
@@ -303,7 +307,7 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 \t\t\t\t</div>
 
 \t            <div class=\"form-group\">
-\t            \t<button  type=\"submit\" class=\"form-control btn btn-primary submit px-3\">{{ button_label|default('Enregistrer') }}</button>
+\t            \t<button  type=\"submit\" class=\"form-control btn btn-primary submit px-3\">{{ button_label|default('Sign In') }}</button>
 \t            </div>
 \t            <div class=\"form-group d-md-flex\">
 \t            \t<div class=\"w-50\">
@@ -319,14 +323,15 @@ class __TwigTemplate_1bc4c7c00d09c2a9ee250e64fd12e510 extends \Twig\Template
 \t          </form>
 \t          <p class=\"w-100 text-center\">Don't have an account ? </p>
 \t          <div class=\"social d-flex text-center\">
-\t          \t<a href=\"#\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Register</a>
+\t          \t<a href=\"{{ path('app_register') }}\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Register</a>
+
 \t          \t
 \t          </div>
 \t\t      </div>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
-\t</section>
+\t</section
 {%block js%}
 <script src=\"{{asset('Login/js/jquery.min.js')}}\"></script>
   <script src=\"{{asset('Login/js/popper.js')}}\"></script>

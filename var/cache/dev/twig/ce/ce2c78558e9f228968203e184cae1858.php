@@ -203,7 +203,10 @@ class __TwigTemplate_1eef401a484a737a022cea2ab12803a7 extends \Twig\Template
 \t          </form>
 \t          <p class=\"w-100 text-center\">Already have an account ? </p>
 \t          <div class=\"social d-flex text-center\">
-\t          \t<a href=\"#\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span>Sign in</a>
+\t          \t<a href=\"";
+        // line 60
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Login</a>
 \t          \t
 \t          </div>
 \t\t      </div>
@@ -271,7 +274,7 @@ class __TwigTemplate_1eef401a484a737a022cea2ab12803a7 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  251 => 72,  247 => 71,  243 => 70,  238 => 69,  228 => 68,  218 => 74,  216 => 68,  199 => 54,  191 => 49,  185 => 46,  179 => 43,  173 => 40,  167 => 37,  161 => 34,  156 => 32,  142 => 20,  132 => 19,  111 => 12,  92 => 4,  78 => 75,  76 => 19,  71 => 17,  65 => 13,  63 => 12,  52 => 4,  47 => 1,);
+        return array (  254 => 72,  250 => 71,  246 => 70,  241 => 69,  231 => 68,  221 => 74,  219 => 68,  208 => 60,  199 => 54,  191 => 49,  185 => 46,  179 => 43,  173 => 40,  167 => 37,  161 => 34,  156 => 32,  142 => 20,  132 => 19,  111 => 12,  92 => 4,  78 => 75,  76 => 19,  71 => 17,  65 => 13,  63 => 12,  52 => 4,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -335,7 +338,7 @@ class __TwigTemplate_1eef401a484a737a022cea2ab12803a7 extends \Twig\Template
 \t          </form>
 \t          <p class=\"w-100 text-center\">Already have an account ? </p>
 \t          <div class=\"social d-flex text-center\">
-\t          \t<a href=\"#\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span>Sign in</a>
+\t          \t<a href=\"{{ path('app_login') }}\" class=\"px-2 py-2 mr-md-1 rounded\"><span class=\"ion-logo-facebook mr-2\"></span> Login</a>
 \t          \t
 \t          </div>
 \t\t      </div>

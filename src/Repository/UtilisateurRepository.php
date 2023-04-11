@@ -38,6 +38,20 @@ class UtilisateurRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function getUserAuthentication($email, $password)
+{
+    $user = $this->findOneBy(['email' => $email]);
+
+    if (!$user) {
+        return null;
+    }
+
+    if (!password_verify($password, $user->getPassword())) {
+        return null;
+    }
+
+    return $user;
+}
 
 //    /**
 //     * @return Utilisateur[] Returns an array of Utilisateur objects
