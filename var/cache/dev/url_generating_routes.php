@@ -24,6 +24,7 @@ return [
     'app_park_indexad' => [[], ['_controller' => 'App\\Controller\\ParkController::indexad'], [], [['text', '/park/admin']], [], [], []],
     'app_park_new' => [[], ['_controller' => 'App\\Controller\\ParkController::new'], [], [['text', '/park/new']], [], [], []],
     'app_park_show' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::show'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
+    'app_park_showadm' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::showadm'], [], [['text', '/adm'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_edit' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_delete' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::Delete'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_rating' => [[], ['_controller' => 'App\\Controller\\RatingController::index'], [], [['text', '/rating']], [], [], []],

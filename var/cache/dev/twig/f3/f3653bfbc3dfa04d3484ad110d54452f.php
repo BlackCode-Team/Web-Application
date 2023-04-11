@@ -138,7 +138,7 @@ class __TwigTemplate_441df5cb5dd35da423fa922f862b802f extends \Twig\Template
                                     <li class=\"list-inline-item\"><a href=\"";
             // line 47
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_delete", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 47)]), "html", null, true);
-            echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+            echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>
@@ -253,7 +253,7 @@ class __TwigTemplate_441df5cb5dd35da423fa922f862b802f extends \Twig\Template
                                                            
                                     <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
-                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>

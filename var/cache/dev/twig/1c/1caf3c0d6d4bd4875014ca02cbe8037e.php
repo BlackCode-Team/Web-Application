@@ -76,8 +76,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"";
+            <a href=\"";
         // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.html"), "html", null, true);
+        echo "\" class=\"\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo2.png"), "html", null, true);
         echo "\" class=\"img-fluid\" alt=\"logo\"></a> ";
         // line 41
@@ -198,7 +200,9 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                         <li class=\"menu\">
                             <a href=\"\">   ";
         // line 142
-        echo "                                <div class=\"\">
+        echo "                                <div class=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -207,7 +211,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 151
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_badge_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -216,7 +223,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 160
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -225,7 +235,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 169
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -234,7 +247,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 178
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -243,7 +259,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 187
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -252,7 +271,10 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 196
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>
@@ -572,7 +594,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  551 => 705,  547 => 704,  543 => 703,  539 => 702,  535 => 701,  531 => 700,  527 => 699,  520 => 695,  511 => 689,  507 => 688,  503 => 687,  499 => 686,  495 => 685,  491 => 684,  487 => 683,  484 => 682,  474 => 681,  455 => 236,  436 => 230,  423 => 23,  419 => 22,  415 => 21,  411 => 20,  404 => 16,  400 => 15,  394 => 13,  384 => 12,  371 => 708,  369 => 681,  340 => 655,  316 => 633,  310 => 628,  303 => 237,  300 => 236,  291 => 230,  201 => 142,  176 => 119,  158 => 104,  143 => 92,  128 => 80,  113 => 68,  84 => 41,  81 => 40,  65 => 26,  63 => 12,  58 => 10,  47 => 1,);
+        return array (  573 => 705,  569 => 704,  565 => 703,  561 => 702,  557 => 701,  553 => 700,  549 => 699,  542 => 695,  533 => 689,  529 => 688,  525 => 687,  521 => 686,  517 => 685,  513 => 684,  509 => 683,  506 => 682,  496 => 681,  477 => 236,  458 => 230,  445 => 23,  441 => 22,  437 => 21,  433 => 20,  426 => 16,  422 => 15,  416 => 13,  406 => 12,  393 => 708,  391 => 681,  362 => 655,  338 => 633,  332 => 628,  325 => 237,  322 => 236,  313 => 230,  276 => 196,  264 => 187,  252 => 178,  240 => 169,  228 => 160,  216 => 151,  203 => 142,  178 => 119,  160 => 104,  145 => 92,  130 => 80,  115 => 68,  86 => 41,  81 => 40,  65 => 26,  63 => 12,  58 => 10,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -616,7 +638,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
+            <a href=\"{{asset('index.html')}}\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
         </div>
         <ul class=\"navbar-nav flex-row mr-auto\">
             <li class=\"nav-item ml-4 d-lg-none d-sm-block d-none\">
@@ -718,7 +740,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                      
                         <li class=\"menu\">
                             <a href=\"\">   {# lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} #}
-                                <div class=\"\">
+                                <div class=\"{{path('app_park_indexad')}}\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -727,7 +749,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_badge_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -736,7 +758,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"{{path('app_park_indexad')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -745,7 +767,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_itineraire_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -754,7 +776,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_vehicule_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -763,7 +785,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reservation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -772,7 +794,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reclamation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>

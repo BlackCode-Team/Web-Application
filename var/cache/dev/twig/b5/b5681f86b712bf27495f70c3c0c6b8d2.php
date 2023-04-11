@@ -132,8 +132,8 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
                                     </li>
                                     <li class=\"list-inline-item\"><a href=\"";
             // line 45
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_delete", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 45)]), "html", null, true);
-            echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_showadm", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 45)]), "html", null, true);
+            echo "\" class=\"bs-tooltip\" data-original-title=\"view\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>
@@ -246,7 +246,7 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
                                                            
                                     <li class=\"list-inline-item\"><a href=\"{{ path('app_park_edit', {'idpark': park.idpark}) }}\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
-                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_park_delete', {'idpark': park.idpark}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_park_showadm', {'idpark': park.idpark}) }}\" class=\"bs-tooltip\" data-original-title=\"view\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>

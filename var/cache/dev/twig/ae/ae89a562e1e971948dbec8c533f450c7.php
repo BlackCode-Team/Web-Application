@@ -40,7 +40,15 @@ class __TwigTemplate_bae364c15e1969af5bf0c408992fd4d6 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "park/_delete_form.html.twig"));
 
         // line 1
-        echo "
+        echo "<form method=\"post\" action=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_delete", ["idpark" => twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 1, $this->source); })()), "idpark", [], "any", false, false, false, 1)]), "html", null, true);
+        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+    <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 2
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 2, $this->source); })()), "idpark", [], "any", false, false, false, 2))), "html", null, true);
+        echo "\">
+    <button class=\"btn\">Delete</button>
+</form>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -55,14 +63,22 @@ class __TwigTemplate_bae364c15e1969af5bf0c408992fd4d6 extends \Twig\Template
         return "park/_delete_form.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  48 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
+        return new Source("<form method=\"post\" action=\"{{ path('app_park_delete', {'idpark': park.idpark}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ park.idpark) }}\">
+    <button class=\"btn\">Delete</button>
+</form>
 ", "park/_delete_form.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\park\\_delete_form.html.twig");
     }
 }
