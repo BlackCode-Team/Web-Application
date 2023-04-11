@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 use Repository;
@@ -14,35 +15,19 @@ class Reponse
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?inr $idreponse=null;
+    private ?int $idreponse=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     */
-    private $description;
+    #[ORM\Column(length: 255)]
+    private ?string $description=null;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datereponse", type="date", nullable=false)
-     */
-    private $datereponse;
+    
+    #[ORM\Column(type: "date")]
+    private ?\DateTimeInterface $datereponse=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idagent", type="integer", nullable=false)
-     */
-    private $idagent;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idclient", type="integer", nullable=false)
-     */
-    private $idclient;
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reponse')]
+    #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
+    private ?int $iduser=null ;
+    
 
     public function getIdreponse(): ?int
     {
@@ -73,29 +58,20 @@ class Reponse
         return $this;
     }
 
-    public function getIdagent(): ?int
+    public function getIduser(): ?int
     {
-        return $this->idagent;
+        return $this->iduser;
     }
 
-    public function setIdagent(int $idagent): self
+    public function setIduser(?int $iduser): self
     {
-        $this->idagent = $idagent;
+        $this->iduser = $iduser;
 
         return $this;
     }
 
-    public function getIdclient(): ?int
-    {
-        return $this->idclient;
-    }
-
-    public function setIdclient(int $idclient): self
-    {
-        $this->idclient = $idclient;
-
-        return $this;
-    }
+    
+   
 
 
 }
