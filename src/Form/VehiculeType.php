@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 
 use Symfony\Component\Validator\Constraints\File;
 
@@ -35,7 +37,14 @@ class VehiculeType extends AbstractType
                     ],
                     'placeholder' => 'Choisir le type',
                     'required' => true,])
-            ->add('modele',TextType::class)
+            ->add('modele', TextType::class, [
+                    'required' => true,
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Veuillez saisir le modele',
+                        ]),
+                    ],
+                    ])     
             ->add('matricule', TextType::class, [
                     'constraints' => [
                         new Regex([
