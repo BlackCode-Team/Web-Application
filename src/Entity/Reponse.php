@@ -20,13 +20,12 @@ class Reponse
     #[ORM\Column(length: 255)]
     private ?string $description=null;
 
-    
     #[ORM\Column(type: "date")]
     private ?\DateTimeInterface $datereponse=null;
 
     #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reponse')]
     #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
-    private ?int $iduser=null ;
+    private ?Utilisateur $utilisateur=null ;
     
 
     public function getIdreponse(): ?int
@@ -58,17 +57,30 @@ class Reponse
         return $this;
     }
 
-    public function getIduser(): ?int
+    public function getIduser(): ?Utilisateur
     {
         return $this->iduser;
     }
 
-    public function setIduser(?int $iduser): self
+    public function setIduser(?Utilisateur $iduser): self
     {
         $this->iduser = $iduser;
 
         return $this;
     }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
 
     
    
