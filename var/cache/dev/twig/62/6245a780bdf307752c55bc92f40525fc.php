@@ -50,7 +50,7 @@ class __TwigTemplate_e9f61c42c40ad8dde2a6f1ce324f7691 extends \Twig\Template
 
 <head>
       <!-- PAGE TITLE -->
-      <title>Home - Royal Cars :: Car, Bike Any Vehicle Rental HTML Template</title>
+      <title>CARNGO</title>
 
       <!-- META-DATA -->
       <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" >
@@ -160,7 +160,7 @@ class __TwigTemplate_e9f61c42c40ad8dde2a6f1ce324f7691 extends \Twig\Template
                           <li><a href=\"";
         // line 71
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_index");
-        echo "\">PARKS</a></li>
+        echo "\">PARCS</a></li>
                           <li><a href=\"";
         // line 72
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
@@ -437,7 +437,7 @@ class __TwigTemplate_e9f61c42c40ad8dde2a6f1ce324f7691 extends \Twig\Template
 
 <head>
       <!-- PAGE TITLE -->
-      <title>Home - Royal Cars :: Car, Bike Any Vehicle Rental HTML Template</title>
+      <title>CARNGO</title>
 
       <!-- META-DATA -->
       <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" >
@@ -501,7 +501,7 @@ class __TwigTemplate_e9f61c42c40ad8dde2a6f1ce324f7691 extends \Twig\Template
                             <a href=\"{{path('app_vehicule_index')}}\">VEHICLES</a>
                                            {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
                           </li>
-                          <li><a href=\"{{path('app_park_index')}}\">PARKS</a></li>
+                          <li><a href=\"{{path('app_park_index')}}\">PARCS</a></li>
                           <li><a href=\"{{path('app_reclamation_new')}}\">RECLAMATION</a></li>
                         </ul>
                       </nav>

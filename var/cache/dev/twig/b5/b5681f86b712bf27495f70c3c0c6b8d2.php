@@ -25,6 +25,7 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -54,7 +55,54 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
 
     }
 
-    // line 3
+    // line 2
+    public function block_css($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        echo " 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"";
+        // line 4
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 5
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-gradients.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-fill.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-material.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/spinner.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/ladda.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,7 +112,7 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 4
+        // line 14
         echo "      <div class=\"row\">
                                                                
                     <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
@@ -93,32 +141,32 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
         </thead>
         <tbody>
        ";
-        // line 31
+        // line 41
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["parks"]) || array_key_exists("parks", $context) ? $context["parks"] : (function () { throw new RuntimeError('Variable "parks" does not exist.', 31, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["parks"]) || array_key_exists("parks", $context) ? $context["parks"] : (function () { throw new RuntimeError('Variable "parks" does not exist.', 41, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["park"]) {
-            // line 32
+            // line 42
             echo "            <tr>
                 <td>";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 33), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 43), "html", null, true);
             echo "</td>
                 <td>";
-            // line 34
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "ville", [], "any", false, false, false, 34)), "html", null, true);
+            // line 44
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "ville", [], "any", false, false, false, 44)), "html", null, true);
             echo "</td>
                 <td>";
-            // line 35
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nom", [], "any", false, false, false, 35)), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nom", [], "any", false, false, false, 45)), "html", null, true);
             echo "</td>
                 <td>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 36), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 46), "html", null, true);
             echo "</td>
                 <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nbspot", [], "any", false, false, false, 37), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nbspot", [], "any", false, false, false, 47), "html", null, true);
             echo "</td>
                 <td class=\"text-center\">
                       <div class=\"toolbar\">
@@ -126,13 +174,13 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
                                   <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
                                                            
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 43
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_edit", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 43)]), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_edit", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 53)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 45
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_showadm", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 45)]), "html", null, true);
+            // line 55
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_showadm", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 55)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"view\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
@@ -145,7 +193,7 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 54
+            // line 64
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -154,10 +202,10 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['park'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 68
         echo "        </tbody>
     </table>                                              ";
-        // line 60
+        // line 70
         echo "                                </div>
                                 <div class=\"pagination-section\">
                                     <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
@@ -174,7 +222,10 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
                         </div>
                     </div>
                 </div>
-
+                     <a  href=\"";
+        // line 86
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_new");
+        echo "\"><div  class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\" align=\"center\" >Ajouter Parc</div></a>
     
 ";
         
@@ -197,13 +248,23 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  161 => 60,  158 => 58,  149 => 54,  135 => 45,  130 => 43,  121 => 37,  117 => 36,  113 => 35,  109 => 34,  105 => 33,  102 => 32,  97 => 31,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  227 => 86,  209 => 70,  206 => 68,  197 => 64,  183 => 55,  178 => 53,  169 => 47,  165 => 46,  161 => 45,  157 => 44,  153 => 43,  150 => 42,  145 => 41,  116 => 14,  106 => 13,  93 => 10,  89 => 9,  84 => 7,  80 => 6,  76 => 5,  72 => 4,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'back.html.twig' %}
-
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
     {% block body %}
       <div class=\"row\">
                                                                
@@ -277,7 +338,7 @@ class __TwigTemplate_adb07faf92a1509ca76bbe72b1657e1e extends \Twig\Template
                         </div>
                     </div>
                 </div>
-
+                     <a  href=\"{{ path('app_park_new') }}\"><div  class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\" align=\"center\" >Ajouter Parc</div></a>
     
 {% endblock %}
 ", "park/indexadmin.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\park\\indexadmin.html.twig");

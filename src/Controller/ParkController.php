@@ -80,12 +80,14 @@ class ParkController extends AbstractController
         ]);
     }
 
-    #[Route('/{idpark}', name: 'app_park_delete')]
-    function Delete( ManagerRegistry $doctrine,Park $park ){
-        $em=$doctrine->getManager();
-        $em->remove($park);
-        $em->flush();
-        return $this->redirectToRoute('app_park_indexad');
+    #[Route('/{idpark}', name: 'app_park_delete', methods: ['POST'])]
+    public function delete(Request $request, Park $park, ParkRepository $parkRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$park->getIdpark(), $request->request->get('_token'))) {
+            $parkRepository->remove($park, true);
+        }
+
+        return $this->redirectToRoute('app_park_index', [], Response::HTTP_SEE_OTHER);
     }
 }
 

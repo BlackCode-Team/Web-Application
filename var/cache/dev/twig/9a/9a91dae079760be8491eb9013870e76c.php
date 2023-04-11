@@ -42,12 +42,12 @@ class __TwigTemplate_549dc8582e538100aa5b6b0d7d2af3a7 extends \Twig\Template
         // line 1
         echo "<form method=\"post\" action=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_delete", ["iditineraire" => twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 1, $this->source); })()), "iditineraire", [], "any", false, false, false, 1)]), "html", null, true);
-        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        echo "\" onsubmit=\"return confirm('vous etes sur de supprimer ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 2, $this->source); })()), "iditineraire", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn m-auto d-block float-right btn-full\">Delete</button>
+    <button class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-center btn-full\">Supprimer</button>
 </form>
 ";
         
@@ -75,9 +75,9 @@ class __TwigTemplate_549dc8582e538100aa5b6b0d7d2af3a7 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" onsubmit=\"return confirm('vous etes sur de supprimer ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ itineraire.iditineraire) }}\">
-    <button class=\"btn m-auto d-block float-right btn-full\">Delete</button>
+    <button class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-center btn-full\">Supprimer</button>
 </form>
 ", "itineraire/_delete_form.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\itineraire\\_delete_form.html.twig");
     }

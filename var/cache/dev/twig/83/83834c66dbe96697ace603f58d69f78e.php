@@ -188,7 +188,7 @@ class __TwigTemplate_8a2e1e278ca1e4dbb336a9c878efac17 extends \Twig\Template
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 64, $this->source); })()), "statut", [], "any", false, false, false, 64), "html", null, true);
         echo "</span>
                             </div>
-                            <span class=\"r-count-title\"> Dureeestimee </span>
+                            <span class=\"r-count-title\"> status </span>
                         </div>
 
         
@@ -292,7 +292,7 @@ class __TwigTemplate_8a2e1e278ca1e4dbb336a9c878efac17 extends \Twig\Template
                               <!-- 47.250 -->
                               <span class=\"r-count\">{{ park.statut }}</span>
                             </div>
-                            <span class=\"r-count-title\"> Dureeestimee </span>
+                            <span class=\"r-count-title\"> status </span>
                         </div>
 
         

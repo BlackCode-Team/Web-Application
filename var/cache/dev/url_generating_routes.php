@@ -31,7 +31,7 @@ return [
     'app_park_show' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::show'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_showadm' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::showadm'], [], [['text', '/adm'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_edit' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
-    'app_park_delete' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::Delete'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
+    'app_park_delete' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::delete'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_rating_index' => [[], ['_controller' => 'App\\Controller\\RatingController::index'], [], [['text', '/rating/']], [], [], []],
     'app_rating_new' => [[], ['_controller' => 'App\\Controller\\RatingController::new'], [], [['text', '/rating/new']], [], [], []],
     'app_rating_show' => [['idrating'], ['_controller' => 'App\\Controller\\RatingController::show'], [], [['variable', '/', '[^/]++', 'idrating', true], ['text', '/rating']], [], [], []],

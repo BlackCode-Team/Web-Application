@@ -1,5 +1,16 @@
 
     {{ include('itineraire/new.html.twig', {'button_label': 'Update'}) }}
+    {% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Spinner Buttons -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 {% block body %}
     <a href="{{ path('app_itineraire_index') }}">
                       <div class="inner col-12 clearfix">

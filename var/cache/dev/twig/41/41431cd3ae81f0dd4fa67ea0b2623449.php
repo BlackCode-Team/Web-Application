@@ -27,6 +27,7 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'page' => [$this, 'block_page'],
+            'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -94,7 +95,54 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
 
     }
 
-    // line 6
+    // line 5
+    public function block_css($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        echo " 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-gradients.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-fill.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-material.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/spinner.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/ladda.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 17
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -104,7 +152,7 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 18
         echo "
 
 <div class=\"r-counter-section pt-5 pb-5 m-0\">
@@ -120,15 +168,15 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 21
+        // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-cars-count.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"172700\">
                               <!-- 1.172.700 -->
                               <span class=\"r-count\">";
-        // line 25
-        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 25, $this->source); })()), "nom", [], "any", false, false, false, 25)), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 36, $this->source); })()), "nom", [], "any", false, false, false, 36)), "html", null, true);
         echo "</span>
                             </div>
                             <span class=\"r-count-title\"> Nom </span>
@@ -139,15 +187,15 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 34
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-total-km.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"2450\">
                               <!-- 2.450 -->
                               <span class=\"r-count\">";
-        // line 38
-        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 38, $this->source); })()), "ville", [], "any", false, false, false, 38)), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 49, $this->source); })()), "ville", [], "any", false, false, false, 49)), "html", null, true);
         echo "</span>
                             </div>
                             <span class=\"r-count-title\"> ville </span>
@@ -158,15 +206,15 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 47
+        // line 58
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/advantage-icon-3.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"1211100\">
                               <!-- 1.211.100 -->
                               <span class=\"r-count\">";
-        // line 51
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 51, $this->source); })()), "nbspot", [], "any", false, false, false, 51), "html", null, true);
+        // line 62
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 62, $this->source); })()), "nbspot", [], "any", false, false, false, 62), "html", null, true);
         echo " </span>
                             </div>
                             <span class=\"r-count-title\"> Nombre de Spots <b>disponible</b></span>
@@ -177,21 +225,29 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 60
+        // line 71
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/advantage-icon-2.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>s
                             <div class=\"r-counts\" data-count=\"47250\">
                               <!-- 47.250 -->
                               <span class=\"r-count\">";
-        // line 64
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 64, $this->source); })()), "statut", [], "any", false, false, false, 64), "html", null, true);
+        // line 75
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 75, $this->source); })()), "statut", [], "any", false, false, false, 75), "html", null, true);
         echo "</span>
                             </div>
                             <span class=\"r-count-title\"> statut </span>
                         </div>
+                    <br><br><br><br>
+                   
+                  <a  href=\"";
+        // line 81
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\"><div  class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\" align=\"center\" >retour</div></a>   ";
+        echo twig_include($this->env, $context, "park/_delete_form.html.twig");
+        echo "
+          
 
-        
                     </div>
                     
                   
@@ -222,7 +278,7 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  188 => 64,  181 => 60,  169 => 51,  162 => 47,  150 => 38,  143 => 34,  131 => 25,  124 => 21,  108 => 7,  98 => 6,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  245 => 81,  236 => 75,  229 => 71,  217 => 62,  210 => 58,  198 => 49,  191 => 45,  179 => 36,  172 => 32,  156 => 18,  146 => 17,  133 => 13,  129 => 12,  124 => 10,  120 => 9,  116 => 8,  112 => 7,  99 => 5,  80 => 4,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -231,6 +287,17 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
 
 {% block title %}Park{% endblock %}
 {% block page %} Park details {% endblock %} 
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 
 {% block body %}
 
@@ -294,8 +361,11 @@ class __TwigTemplate_4bd1aaa4590dd7de8971c7cbb94e6551 extends \Twig\Template
                             </div>
                             <span class=\"r-count-title\"> statut </span>
                         </div>
+                    <br><br><br><br>
+                   
+                  <a  href=\"{{ path('app_park_indexad') }}\"><div  class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\" align=\"center\" >retour</div></a>   {{ include('park/_delete_form.html.twig') }}
+          
 
-        
                     </div>
                     
                   

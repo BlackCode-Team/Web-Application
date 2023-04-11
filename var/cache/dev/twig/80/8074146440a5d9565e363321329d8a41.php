@@ -109,7 +109,7 @@ class __TwigTemplate_3d5f2f833eb68c1cc57e66f0ef29166a extends \Twig\Template
        
             <div class=\"r-header-inner-banner\" align=\"center\">
               <div class=\"r-header-in-over\">
-                <h1>Les <b>P</b>arks </h1>
+                <h1>Les <b>P</b>arcs </h1>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ class __TwigTemplate_3d5f2f833eb68c1cc57e66f0ef29166a extends \Twig\Template
             echo "</h5>
                           ";
             // line 27
-            if ((twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 27) == "ouvert")) {
+            if ((twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 27) == "Ouvert")) {
                 // line 28
                 echo "                          <div class=\"icon-gallery\"><i class=\"fa fa-location-arrow\" aria-hidden=\"true\"></i></div>
                           ";
@@ -210,7 +210,7 @@ class __TwigTemplate_3d5f2f833eb68c1cc57e66f0ef29166a extends \Twig\Template
        
             <div class=\"r-header-inner-banner\" align=\"center\">
               <div class=\"r-header-in-over\">
-                <h1>Les <b>P</b>arks </h1>
+                <h1>Les <b>P</b>arcs </h1>
               </div>
             </div>
 
@@ -227,7 +227,7 @@ class __TwigTemplate_3d5f2f833eb68c1cc57e66f0ef29166a extends \Twig\Template
                         <span>{{ park.ville |upper }} </span>
                           <h5><b>{{ park.nom |upper }}</b></h5>
                           <h5>   <b>nbSpots </b>  : {{ park.nbspot }}</h5>
-                          {% if park.statut == \"ouvert\" %}
+                          {% if park.statut == \"Ouvert\" %}
                           <div class=\"icon-gallery\"><i class=\"fa fa-location-arrow\" aria-hidden=\"true\"></i></div>
                           {% else %}
                           <div class=\"icon-gallery\"><i class=\"fa fa-close\" aria-hidden=\"true\"></i></div>

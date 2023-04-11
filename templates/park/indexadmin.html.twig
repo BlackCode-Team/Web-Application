@@ -1,5 +1,15 @@
 {% extends 'back.html.twig' %}
-
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Spinner Buttons -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
     {% block body %}
       <div class="row">
                                                                
@@ -73,6 +83,6 @@
                         </div>
                     </div>
                 </div>
-
+                     <a  href="{{ path('app_park_new') }}"><div  class="btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full" align="center" >Ajouter Parc</div></a>
     
 {% endblock %}

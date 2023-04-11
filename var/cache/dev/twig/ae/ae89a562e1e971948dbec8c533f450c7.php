@@ -47,7 +47,7 @@ class __TwigTemplate_bae364c15e1969af5bf0c408992fd4d6 extends \Twig\Template
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["park"]) || array_key_exists("park", $context) ? $context["park"] : (function () { throw new RuntimeError('Variable "park" does not exist.', 2, $this->source); })()), "idpark", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\">Delete</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_bae364c15e1969af5bf0c408992fd4d6 extends \Twig\Template
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_park_delete', {'idpark': park.idpark}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ park.idpark) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\">Delete</button>
 </form>
 ", "park/_delete_form.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\park\\_delete_form.html.twig");
     }

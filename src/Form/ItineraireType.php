@@ -18,6 +18,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
+use Symfony\Component\Validator\Constraints\Regex;
+
 class ItineraireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -28,7 +30,10 @@ class ItineraireType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir le point de depart',
-                    ])
+                    ]),new Regex([
+                        'pattern' => '/^[a-zA-Z]+$/',
+                        'message' => 'pointdepart "{{ value }}" n\'est pas valide',
+                    ]),
                 ],
             ])
             ->add('pointarrivee', TextType::class,[
@@ -36,7 +41,10 @@ class ItineraireType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir le point d arrivé',
-                    ])
+                    ]),new Regex([
+                        'pattern' => '/^[a-zA-Z]+$/',
+                        'message' => 'pointarrivee "{{ value }}" n\'est pas valide',
+                    ]),
                 ],
             ])
             ->add('kilometrage', IntegerType::class,[

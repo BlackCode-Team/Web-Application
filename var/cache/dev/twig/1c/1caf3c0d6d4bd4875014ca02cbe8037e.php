@@ -52,7 +52,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo-4.png"), "html", null, true);
@@ -61,8 +61,41 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
     ";
         // line 12
         $this->displayBlock('css', $context, $blocks);
-        // line 26
-        echo "</head>
+        // line 13
+        echo "    <link href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+   
+    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
+    <link href=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"";
+        // line 22
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/s"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
+    
+</head>
 <body>
     <div id=\"eq-loader\">
       <div class=\"eq-loader-div\">
@@ -412,40 +445,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
 
-        // line 13
-        echo "    <link href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link href=\"";
-        // line 15
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
-    <link href=\"";
-        // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/s"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
-    ";
+        echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -594,7 +594,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  573 => 705,  569 => 704,  565 => 703,  561 => 702,  557 => 701,  553 => 700,  549 => 699,  542 => 695,  533 => 689,  529 => 688,  525 => 687,  521 => 686,  517 => 685,  513 => 684,  509 => 683,  506 => 682,  496 => 681,  477 => 236,  458 => 230,  445 => 23,  441 => 22,  437 => 21,  433 => 20,  426 => 16,  422 => 15,  416 => 13,  406 => 12,  393 => 708,  391 => 681,  362 => 655,  338 => 633,  332 => 628,  325 => 237,  322 => 236,  313 => 230,  276 => 196,  264 => 187,  252 => 178,  240 => 169,  228 => 160,  216 => 151,  203 => 142,  178 => 119,  160 => 104,  145 => 92,  130 => 80,  115 => 68,  86 => 41,  81 => 40,  65 => 26,  63 => 12,  58 => 10,  47 => 1,);
+        return array (  573 => 705,  569 => 704,  565 => 703,  561 => 702,  557 => 701,  553 => 700,  549 => 699,  542 => 695,  533 => 689,  529 => 688,  525 => 687,  521 => 686,  517 => 685,  513 => 684,  509 => 683,  506 => 682,  496 => 681,  477 => 236,  458 => 230,  439 => 12,  426 => 708,  424 => 681,  395 => 655,  371 => 633,  365 => 628,  358 => 237,  355 => 236,  346 => 230,  309 => 196,  297 => 187,  285 => 178,  273 => 169,  261 => 160,  249 => 151,  236 => 142,  211 => 119,  193 => 104,  178 => 92,  163 => 80,  148 => 68,  119 => 41,  114 => 40,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  75 => 16,  71 => 15,  65 => 13,  63 => 12,  58 => 10,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -607,23 +607,23 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    {% block css %}
+    {% block css %} {% endblock %}
     <link href=\"{{asset('back/assets/css/loader.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link href=\"{{asset('back/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/assets/css/plugins.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <!-- END GLOBAL MANDATORY STYLES -->
-
+   
     <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
     <link href=\"{{asset('back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/plugins/charts/chartist/chartist.css')}}\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"{{asset('back/assets/css/default-dashboard/style.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/assets/css/s')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
-    {% endblock %}
+    
 </head>
 <body>
     <div id=\"eq-loader\">

@@ -27,6 +27,7 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
+            'css' => [$this, 'block_css'],
         ];
     }
 
@@ -86,8 +87,11 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
 
         // line 6
         echo "
-
-
+";
+        // line 7
+        $this->displayBlock('css', $context, $blocks);
+        // line 18
+        echo "
 
 <div class=\"r-counter-section pt-5 pb-5 m-0\">
     <div class=\".r-slider-serach.r-slider-serach-down > form .form-title\" align=\"center\">
@@ -102,15 +106,15 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 22
+        // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-cars-count.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"172700\">
                               <!-- 1.172.700 -->
                               <span class=\"r-count\">";
-        // line 26
-        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 26, $this->source); })()), "pointdepart", [], "any", false, false, false, 26)), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 36, $this->source); })()), "pointdepart", [], "any", false, false, false, 36)), "html", null, true);
         echo "</span>
                             </div>
                             <span class=\"r-count-title\"> Point Depart </span>
@@ -121,15 +125,15 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 35
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-total-km.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"2450\">
                               <!-- 2.450 -->
                               <span class=\"r-count\">";
-        // line 39
-        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 39, $this->source); })()), "pointarrivee", [], "any", false, false, false, 39)), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 49, $this->source); })()), "pointarrivee", [], "any", false, false, false, 49)), "html", null, true);
         echo "</span>
                             </div>
                             <span class=\"r-count-title\"> Point Arrivee </span>
@@ -140,15 +144,15 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 48
+        // line 58
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/advantage-icon-3.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"1211100\">
                               <!-- 1.211.100 -->
                               <span class=\"r-count\">";
-        // line 52
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 52, $this->source); })()), "kilometrage", [], "any", false, false, false, 52), "html", null, true);
+        // line 62
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 62, $this->source); })()), "kilometrage", [], "any", false, false, false, 62), "html", null, true);
         echo " KM</span>
                             </div>
                             <span class=\"r-count-title\"> Kilometrage </span>
@@ -159,15 +163,15 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
                         <div class=\"r-counter-box\">
                             <div class=\"r-counter-icon\">
                                 <img src=\"";
-        // line 61
+        // line 71
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/advantage-icon-2.png"), "html", null, true);
         echo "\" alt=\"\" class=\"img-fluid\">
                             </div>
                             <div class=\"r-counts\" data-count=\"47250\">
                               <!-- 47.250 -->
                               <span class=\"r-count\">";
-        // line 65
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 65, $this->source); })()), "dureeestimee", [], "any", false, false, false, 65), "html", null, true);
+        // line 75
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 75, $this->source); })()), "dureeestimee", [], "any", false, false, false, 75), "html", null, true);
         echo "H</span>
                             </div>
                             <span class=\"r-count-title\"> Dureeestimee </span>
@@ -176,38 +180,81 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
         
                     </div>
                     
-                    <div class=\"inner col-12 clearfix\">
-                    
-                    <a href=\"";
-        // line 75
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
-        echo "\" class=\"btn m-auto d-block float-right btn-full\">back to list</a>
-                    </div>
-                    
+            
                    
                      <div class=\"inner col-12 clearfix\">
-                       
+                    <br><br><br><br>
                    <a href=\"";
-        // line 81
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_edit", ["iditineraire" => twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 81, $this->source); })()), "iditineraire", [], "any", false, false, false, 81)]), "html", null, true);
-        echo "\" class=\"btn m-auto d-block float-right btn-full\">edit</a>
-                     </div>
-                    
-                    <div class=\"inner col-12 clearfix\">
-                    
-                         ";
-        // line 86
+        // line 87
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_edit", ["iditineraire" => twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 87, $this->source); })()), "iditineraire", [], "any", false, false, false, 87)]), "html", null, true);
+        echo "\" class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-center btn-full\">Modifier</a>
+                   ";
+        // line 88
         echo twig_include($this->env, $context, "itineraire/_delete_form.html.twig");
         echo "
-                    </div>
+                     </div>
+                    
+                  
+                    
                     
 
 
 
     </div>
     </div>
-        
+    
+        <a href=\"";
+        // line 100
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
+        echo "\" class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\">Retour</a>
 
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 7
+    public function block_css($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        echo " 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-gradients.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-fill.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-material.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/spinner.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/ladda.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -229,7 +276,7 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  200 => 86,  192 => 81,  183 => 75,  170 => 65,  163 => 61,  151 => 52,  144 => 48,  132 => 39,  125 => 35,  113 => 26,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  255 => 15,  251 => 14,  246 => 12,  242 => 11,  238 => 10,  234 => 9,  221 => 7,  208 => 100,  193 => 88,  189 => 87,  174 => 75,  167 => 71,  155 => 62,  148 => 58,  136 => 49,  129 => 45,  117 => 36,  110 => 32,  94 => 18,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -240,7 +287,17 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
 
 {% block body %}
 
-
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 
 
 <div class=\"r-counter-section pt-5 pb-5 m-0\">
@@ -306,28 +363,24 @@ class __TwigTemplate_193ec0031ab216424662a540b1a830a3 extends \Twig\Template
         
                     </div>
                     
-                    <div class=\"inner col-12 clearfix\">
-                    
-                    <a href=\"{{ path('app_itineraire_index') }}\" class=\"btn m-auto d-block float-right btn-full\">back to list</a>
-                    </div>
-                    
+            
                    
                      <div class=\"inner col-12 clearfix\">
-                       
-                   <a href=\"{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}\" class=\"btn m-auto d-block float-right btn-full\">edit</a>
+                    <br><br><br><br>
+                   <a href=\"{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}\" class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-center btn-full\">Modifier</a>
+                   {{ include('itineraire/_delete_form.html.twig') }}
                      </div>
                     
-                    <div class=\"inner col-12 clearfix\">
+                  
                     
-                         {{ include('itineraire/_delete_form.html.twig') }}
-                    </div>
                     
 
 
 
     </div>
     </div>
-        
+    
+        <a href=\"{{ path('app_itineraire_index') }}\" class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\">Retour</a>
 
 {% endblock %}
 ", "itineraire/show.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\itineraire\\show.html.twig");

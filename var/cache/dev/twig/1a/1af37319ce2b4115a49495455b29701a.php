@@ -26,6 +26,7 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -33,7 +34,7 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +46,7 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "park/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "park/edit.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "park/edit.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -75,6 +76,53 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
     }
 
     // line 5
+    public function block_css($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
+
+        echo " 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-gradients.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-fill.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/creative/creative-material.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/spinner.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/ui-kit/buttons/spinner/ladda.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,33 +132,31 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "    <h1>Edit Park</h1>
+        // line 17
+        echo "    <h1 align=\"center\">Modifier Park</h1>
 
   <div class=\"col-lg-6 layout-spacing\">
         <div class=\"statbox widget box box-shadow\">
                             <div class=\"widget-header\">                                
                                 <div class=\"row\">
-                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>Nouveau Park</h4>
-                                    </div>                                                                        
+                                                                     
                                 </div>
                             </div>
                             <div class=\"widget-content widget-content-area\">
                                     ";
-        // line 18
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => true, "id" => "form"]]);
+        // line 27
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => true, "id" => "form"]]);
         echo "
 \t\t\t\t\t\t\t\t\t<div class=\"form-group row mb-4\">
                                         <label for=\"modele\" class=\"col-xl-2 col-sm-3 col-sm-2 col-form-label\">nom</label>
                                         <div class=\"col-xl-10 col-lg-9 col-sm-10\">
             \t\t\t\t\t\t\t\t";
-        // line 22
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "nom", [], "any", false, false, false, 22), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "nom", [], "any", false, false, false, 31), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
 \t\t\t\t\t\t\t\t\t\t\t";
-        // line 23
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "nom", [], "any", false, false, false, 23), 'errors');
+        // line 32
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "nom", [], "any", false, false, false, 32), 'errors');
         echo "
 \t\t\t\t\t\t\t\t\t\t</div>
                                     </div>
@@ -118,12 +164,12 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
                                         <label for=\"modele\" class=\"col-xl-2 col-sm-3 col-sm-2 col-form-label\">Ville</label>
                                         <div class=\"col-xl-10 col-lg-9 col-sm-10\">
             \t\t\t\t\t\t\t\t";
-        // line 29
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), "ville", [], "any", false, false, false, 29), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 38
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), "ville", [], "any", false, false, false, 38), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
 \t\t\t\t\t\t\t\t\t\t\t";
-        // line 30
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "ville", [], "any", false, false, false, 30), 'errors');
+        // line 39
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "ville", [], "any", false, false, false, 39), 'errors');
         echo "
 \t\t\t\t\t\t\t\t\t\t</div>
                                     </div>
@@ -131,12 +177,12 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
                                         <label for=\"matricue\" class=\"col-xl-2 col-sm-3 col-sm-2 col-form-label\">Satuts</label>
                                         <div class=\"col-xl-10 col-lg-9 col-sm-10\">
 \t\t\t\t\t\t\t\t\t\t\t";
-        // line 36
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 36, $this->source); })()), "statut", [], "any", false, false, false, 36), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 45
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 45, $this->source); })()), "statut", [], "any", false, false, false, 45), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
 \t\t\t\t\t\t\t\t\t\t\t";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "statut", [], "any", false, false, false, 37), 'errors');
+        // line 46
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 46, $this->source); })()), "statut", [], "any", false, false, false, 46), 'errors');
         echo "
                                         </div>
                                     </div>
@@ -145,20 +191,20 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
 \t\t\t\t\t\t\t\t\t\t<label for=\"puissance\" class=\"col-xl-2 col-sm-3 col-form-label\">nbSpots</label>
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-xl-4 col-lg-5 col-sm-9\">
             \t\t\t\t\t\t\t\t";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "nbspot", [], "any", false, false, false, 44), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 53
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 53, $this->source); })()), "nbspot", [], "any", false, false, false, 53), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
 \t\t\t\t\t\t\t\t\t\t\t";
-        // line 45
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 45, $this->source); })()), "nbspot", [], "any", false, false, false, 45), 'errors');
+        // line 54
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 54, $this->source); })()), "nbspot", [], "any", false, false, false, 54), 'errors');
         echo "
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t
                                     ";
-        // line 54
+        // line 63
         echo "\t\t\t\t\t\t\t\t       <div class=\"inner col-12 clearfix\">
                       
-                          <button type=\"submit\" class=\"btn m-auto d-block float-right btn-full\">Modifier Park</button>
+                          <button type=\"submit\" class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right\">Modifier Park</button>
         
                       </div>
                             </div>
@@ -166,20 +212,16 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
                     </div>
                 </div>
                 ";
-        // line 63
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 63, $this->source); })()), 'form_end');
+        // line 72
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 72, $this->source); })()), 'form_end');
         echo "
 
 
-    <a href=\"";
-        // line 66
+    <a  href=\"";
+        // line 75
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
-        echo "\">back to list</a>
+        echo "\"><div  class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\" align=\"center\" >back to list</div></a>
 
-    ";
-        // line 68
-        echo twig_include($this->env, $context, "park/_delete_form.html.twig");
-        echo "
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -201,25 +243,34 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  181 => 68,  176 => 66,  170 => 63,  159 => 54,  153 => 45,  149 => 44,  139 => 37,  135 => 36,  126 => 30,  122 => 29,  113 => 23,  109 => 22,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  222 => 75,  216 => 72,  205 => 63,  199 => 54,  195 => 53,  185 => 46,  181 => 45,  172 => 39,  168 => 38,  159 => 32,  155 => 31,  148 => 27,  136 => 17,  126 => 16,  113 => 13,  109 => 12,  104 => 10,  100 => 9,  96 => 8,  92 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
 {% block title %}Edit Park{% endblock %}
 
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- Spinner Buttons -->
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 {% block body %}
-    <h1>Edit Park</h1>
+    <h1 align=\"center\">Modifier Park</h1>
 
   <div class=\"col-lg-6 layout-spacing\">
         <div class=\"statbox widget box box-shadow\">
                             <div class=\"widget-header\">                                
                                 <div class=\"row\">
-                                    <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>Nouveau Park</h4>
-                                    </div>                                                                        
+                                                                     
                                 </div>
                             </div>
                             <div class=\"widget-content widget-content-area\">
@@ -261,7 +312,7 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
                                     </div> #}
 \t\t\t\t\t\t\t\t       <div class=\"inner col-12 clearfix\">
                       
-                          <button type=\"submit\" class=\"btn m-auto d-block float-right btn-full\">Modifier Park</button>
+                          <button type=\"submit\" class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right\">Modifier Park</button>
         
                       </div>
                             </div>
@@ -271,9 +322,8 @@ class __TwigTemplate_0982ab88b3f435308fcc463957784c2b extends \Twig\Template
                 {{ form_end(form) }}
 
 
-    <a href=\"{{ path('app_park_indexad') }}\">back to list</a>
+    <a  href=\"{{ path('app_park_indexad') }}\"><div  class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\" align=\"center\" >back to list</div></a>
 
-    {{ include('park/_delete_form.html.twig') }}
 {% endblock %}
 ", "park/edit.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\park\\edit.html.twig");
     }
