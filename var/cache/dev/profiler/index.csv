@@ -2478,3 +2478,5 @@ f86271,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/css/s,1681209210,,404
 5a0989,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1681209210,0b9f6b,404
 0b9f6b,127.0.0.1,GET,http://127.0.0.1:8000/back/assets/img/profile-7.jpg%22%20alt=%22admin-profile,1681209210,,404
 >>>>>>> Stashed changes
+fd2b43,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1681221940,42e53d,404
+42e53d,127.0.0.1,GET,http://127.0.0.1:8000/assets/images/icon-google-map.png,1681221940,,404
