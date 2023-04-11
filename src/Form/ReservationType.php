@@ -18,13 +18,19 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\GreaterThan;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 class ReservationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('datedebut',DateType::class)
-        ->add('datefin',DateType::class, [
+        ->add('datedebut', DateTimeType::class, [
+            'data' => new \DateTime(),
+            'disabled' => true,
+
+            ])
+        ->add('datefin',DateTimeType::class, [          
+              'data' => new \DateTime(),
             'constraints' => [
                 new GreaterThan([
                     'value' => $builder->getData()->getDatedebut(),
@@ -41,7 +47,7 @@ class ReservationType extends AbstractType
         ])
         ->add('utilisateur',EntityType::class,
         ['class'=>Utilisateur::class,
-        'choice_label'=>'prenom'])
+        'choice_label'=>'cin'])
         ->add('itineraire',EntityType::class,
         ['class'=>Itineraire::class,
         'choice_label'=>'pointarrivee'])

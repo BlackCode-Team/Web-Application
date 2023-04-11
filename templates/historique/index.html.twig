@@ -8,14 +8,28 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idhistorique</th>
+                 <th>Numero réservation</th> 
+                <th>Utilisateur</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>status Reservation</th>
+                <th>Tarification</th>
+                <th>Matricule Voiture</th>
+                <th>Point d'arrivée</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for historique in historiques %}
             <tr>
-                <td>{{ historique.idhistorique }}</td>
+                <td>{{ historique.reservation.idreservation }}</td>       
+               <td>{{ historique.reservation.utilisateur.cin }}</td>
+               <td>{{ historique.reservation.datedebut|date("Y-m-d H:m:s")}}</td>
+               <td>{{ historique.reservation.datefin|date("Y-m-d H:m:s")}}</td>
+               <td>{{ historique.reservation.status }}</td>
+               <td>{{ historique.reservation.prixreservation }}</td>
+               <td>{{ historique.reservation.vehicule.matricule }}</td>
+             <td>{{ historique.reservation.itineraire.pointarrivee }}</td>
                 <td>
                     <a href="{{ path('app_historique_show', {'idhistorique': historique.idhistorique}) }}">show</a>
                     <a href="{{ path('app_historique_edit', {'idhistorique': historique.idhistorique}) }}">edit</a>

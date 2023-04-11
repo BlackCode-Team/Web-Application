@@ -16,29 +16,26 @@ class Historique
     #[ORM\Column]
     private ?int $idhistorique=null;
 
-    /**
-     * @var \Reservation
-     *
-     * @ORM\ManyToOne(targetEntity="Reservation")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreservation", referencedColumnName="idreservation")
-     * })
-     */
-    private $idreservation;
+
+    
+     #[ORM\ManyToOne(targetEntity: Reservation::class, inversedBy: 'Historique')]
+     #[ORM\JoinColumn(name: 'idreservation', referencedColumnName: 'idreservation')]
+     private ?Reservation $reservation = null;
+ 
+
 
     public function getIdhistorique(): ?int
     {
         return $this->idhistorique;
     }
-
-    public function getIdreservation(): ?Reservation
+    public function getReservation(): ?Reservation
     {
-        return $this->idreservation;
+        return $this->reservation;
     }
 
-    public function setIdreservation(?Reservation $idreservation): self
+    public function setReservation(?Reservation $reservation): self
     {
-        $this->idreservation = $idreservation;
+        $this->reservation = $reservation;
 
         return $this;
     }

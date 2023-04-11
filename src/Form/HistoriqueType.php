@@ -12,7 +12,12 @@ class HistoriqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+      
+        ->add('reservation',EntityType::class,
+        ['class'=>Reservation::class,
+        'choice_label'=>'idreservation'])
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

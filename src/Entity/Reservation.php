@@ -27,11 +27,10 @@ class Reservation
          $this->datedebut = new \DateTime();
      }
      #[ORM\Column(type: "date")]
-     private ?\DateTimeInterface $datefin= null;
-
-
+     private ?\DateTimeInterface $datefin;
+   
     #[ORM\Column(length: 255)]
-    private ?string $status ="en_cours";
+    private ?string $status ="En cours";
    
     #[ORM\Column]
     private ?int $prixreservation=null;
