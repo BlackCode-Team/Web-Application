@@ -1,0 +1,34 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Offre{% endblock %}
+
+{% block body %}
+    <h1>Offre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idoffre</th>
+                <td>{{ offre.idoffre }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ offre.nom }}</td>
+            </tr>
+            <tr>
+                <th>Tauxderemise</th>
+                <td>{{ offre.tauxderemise }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offre.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_offre_index') }}">back to list</a>
+
+    <a href="{{ path('app_offre_edit', {'idoffre': offre.idoffre}) }}">edit</a>
+
+    {{ include('offre/_delete_form.html.twig') }}
+{% endblock %}

@@ -15,14 +15,36 @@ use Doctrine\Persistence\ManagerRegistry;
 #[Route('/reservation')]
 class ReservationController extends AbstractController
 {
+    // #[Route('/', name: 'app_reservation_index', methods: ['GET'])]
+    // public function index(ReservationRepository $reservationRepository): Response
+    // {
+    //     return $this->render('reservation/index.html.twig', [
+    //         'reservations' => $reservationRepository->findAll(),
+    //     ]);
+    // }
     #[Route('/', name: 'app_reservation_index', methods: ['GET'])]
     public function index(ReservationRepository $reservationRepository): Response
     {
+        $reservations = $reservationRepository->findAll();
+        
+        foreach ($reservations as $reservation) {
+            $currentDate = date('Y-m-d H:i:s');
+            $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
+            $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+            $currentDate = strtotime($currentDate);
+            if ($currentDate > $endDate) {
+                $reservation->setStatus('Termine');
+            } else {
+                $reservation->setStatus('En cours');
+            }
+            $reservationRepository->save($reservation, true);
+        }
+        
         return $this->render('reservation/index.html.twig', [
-            'reservations' => $reservationRepository->findAll(),
+            'reservations' => $reservations,
         ]);
     }
-
+    
     #[Route('/new', name: 'app_reservation_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ReservationRepository $reservationRepository): Response
     {
@@ -61,7 +83,16 @@ class ReservationController extends AbstractController
 
             return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
         }
-
+       /* $currentDate = date('Y-m-d H:i:s');
+        $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
+        $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+        $currentDate = strtotime($currentDate);
+        if ($currentDate > $endDate) {
+            $reservation->setStatus('Termineeee');
+        } else {
+            $reservation->setStatus('En courss');
+        }
+        $reservationRepository->save($reservation, true);*/
         return $this->renderForm('reservation/edit.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
@@ -77,4 +108,5 @@ class ReservationController extends AbstractController
 
         return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
     }
+  
 }

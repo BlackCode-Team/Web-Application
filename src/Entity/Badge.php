@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Repository;
 use App\Repository\BadgeRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BadgeRepository::class)]
 
@@ -55,5 +56,8 @@ class Badge
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->typebadge; // Assuming that the "name" property represents the string representation of the object
+    }
 }

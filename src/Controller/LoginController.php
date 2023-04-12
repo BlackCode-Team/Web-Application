@@ -11,20 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class LoginController extends AbstractController
 {
     private $managerRegistry;
+    private $session;
 
-    public function __construct(ManagerRegistry $managerRegistry)
+    public function __construct(ManagerRegistry $managerRegistry, SessionInterface $session)
     {
         $this->managerRegistry = $managerRegistry;
+        $this->session = $session;
     }
 
-    #[Route('/login', name: 'app_login')]
-    public function login(Request $request,UserPasswordHasherInterface $passwordHasher): Response
+    #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
+    public function login(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         // Créer une instance de l'entité Utilisateur
         $user = new Utilisateur();
@@ -40,7 +42,7 @@ class LoginController extends AbstractController
             $plainPassword = $user->getPwd();
 
             // Récupérer l'utilisateur à partir de l'email
-            $userRepository = $this->getDoctrine()->getRepository(Utilisateur::class);
+            $userRepository = $this->managerRegistry->getManager()->getRepository(Utilisateur::class);
             $utilisateur = $userRepository->findOneBy(['email' => $email]);
 
             // Vérifier que l'utilisateur existe et que le mot de passe est correct
@@ -53,6 +55,9 @@ class LoginController extends AbstractController
             $token = new UsernamePasswordToken($utilisateur, null, 'main', $utilisateur->getRoles());
             $this->get('security.token_storage')->setToken($token);
 
+            // Créer une session pour l'utilisateur
+            $this->session->set('user_id', $utilisateur->getId());
+
             // Rediriger l'utilisateur vers une autre page
             return $this->redirectToRoute('app_home');
         }
@@ -63,16 +68,23 @@ class LoginController extends AbstractController
         ]);
     }
 
-    private function getUserAuthentication(Utilisateur $user)
-    {
-        // Connexion de l'utilisateur
-        $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
-        $this->get('security.token_storage')->setToken($token);
-    }
-
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        return $this->render('base.html.twig');
+        // Vérifier si l'utilisateur est authentifié
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        // Récupérer l'id de l'utilisateur depuis la session
+        $userId = $this->session->get('user_id');
+
+        // Récupérer l'utilisateur à partir de l'id
+        $userRepository = $this->managerRegistry->getManager()->getRepository(Utilisateur::class);
+        $utilisateur = $userRepository->find($userId);
+
+        return $this->render('base.html.twig', [
+            'utilisateur' => $utilisateur,
+        ]);
     }
 }

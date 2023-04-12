@@ -37,7 +37,7 @@
             <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5" data-placement="bottom">
                 <i class="flaticon-menu-line-3"></i>
             </a>
-            <a href="#" class=""> <img src="{{asset('back/assets/img/logo2.png')}}" class="img-fluid" alt="logo"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
+            <a href="{{asset('index.html')}}" class=""> <img src="{{asset('back/assets/img/logo2.png')}}" class="img-fluid" alt="logo"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
         </div>
         <ul class="navbar-nav flex-row mr-auto">
             <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
@@ -139,7 +139,7 @@
                      
                         <li class="menu">
                             <a href="">   {# lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} #}
-                                <div class="">
+                                <div class="{{path('app_park_indexad')}}">
                                     <i class="flaticon-user-11"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -148,7 +148,7 @@
                         </li>
                     
                         <li class="menu">
-                            <a href="">
+                            <a href="{{path('app_badge_index')}}">
                                 <div class="">
                                     <i class="flaticon-cup"></i>
                                     <span>Gestion Badges</span>
@@ -157,7 +157,7 @@
                           
                         </li>
                         <li class="menu">
-                            <a href="#">
+                            <a href="{{path('app_park_indexad')}}">
                                 <div class="">
                                     <i class="flaticon-car-1"></i>
                                     <span>Gestion des park</span>
@@ -166,7 +166,7 @@
                           
                         </li>
                         <li class="menu">
-                            <a href="">
+                            <a href="{{path('app_itineraire_index')}}">
                                 <div class="">
                                     <i class="flaticon-map-1"></i>
                                     <span>Gestion des itineraires</span>
@@ -175,7 +175,7 @@
                           
                         </li>
                         <li class="menu">
-                            <a href="">
+                            <a href="{{path('app_vehicule_index')}}">
                                 <div class="">
                                     <i class="flaticon-car"></i>
                                     <span>Gestion Vehicule</span>
@@ -184,7 +184,7 @@
                           
                         </li>
                         <li class="menu">
-                            <a href="">
+                            <a href="{{path('app_reservation_index')}}">
                                 <div class="">
                                     <i class="flaticon-notes-1"></i>
                                     <span>Gestion Reservation</span>
@@ -193,7 +193,7 @@
                           
                         </li>
                         <li class="menu">
-                            <a href="">
+                            <a href="{{path('app_reclamation_index')}}">
                                 <div class="">
                                     <i class="flaticon-danger-line"></i>
                                     <span>Gestion Reclamation</span>

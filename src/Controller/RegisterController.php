@@ -3,18 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
+use App\Form\RegisterType;
+use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\UtilisateurRepository;
-use App\Form\RegisterType;
-
 
 class RegisterController extends AbstractController
 {
-    #[Route('/register', name: 'app_register')]
-    
+    #[Route('/register', name: 'app_register', methods: ['GET', 'POST'])]
     public function register(Request $request, UtilisateurRepository $utilisateurRepository): Response
     {
         // Créer une instance de l'entité Utilisateur
@@ -25,23 +23,19 @@ class RegisterController extends AbstractController
 
         // Traiter la soumission du formulaire
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+       
+        if ($form->isSubmitted() ) {
+            
             // Le formulaire est valide, faire quelque chose avec les données
             $utilisateurRepository->save($user, true);
 
-            // Rediriger l'utilisateur vers une autre page
-            return $this->redirectToRoute('accueil', [], Response::HTTP_SEE_OTHER);
+            // Rediriger l'utilisateur vers la page de connexion
+            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+        }else{
+            return $this->render('register/register.html.twig', [
+                'form' => $form->createView(),
+            ]);
         }
-
-        // Afficher le formulaire
-        return $this->render('register/register.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-    public function index(): Response
-    {
-        return $this->render('register/register.html.twig', [
-            'controller_name' => 'RegisterController',
-        ]);
+        
     }
 }

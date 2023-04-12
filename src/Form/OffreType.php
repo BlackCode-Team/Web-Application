@@ -2,28 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Historique;
+use App\Entity\Offre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class HistoriqueType extends AbstractType
+class OffreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-      
-        ->add('reservation',EntityType::class,
-        ['class'=>Reservation::class,
-        'choice_label'=>'idreservation'])
+            ->add('nom')
+            ->add('tauxderemise')
+            ->add('description')
+            ->add('idbadge')
         ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Historique::class,
+            'data_class' => Offre::class,
         ]);
     }
 }

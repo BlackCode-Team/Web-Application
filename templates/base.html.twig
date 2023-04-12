@@ -57,24 +57,19 @@
                     <div class="r-nav-section float-right">
                       <nav>
                         <ul>
-                          <li class="r-has-child">
+                          <li >
                             <a href="{{asset('index.html')}}">HOME</a>  {# hetha fil index bech yetbadel iwali nom ta3 route l'acceuil lzemha bel path ama ena 7atit asset just 5ater mezelet #}    
                           </li>
-                          <li class="r-has-child">
-                            <a href="{{asset('about.html')}}">ABOUT US</a>{# hetha fil index bech yetbadel iwali nom ta3 route lzemha bel path ama ena 7atit asset just 5ater mezelet #}
-                            <ul class="pl-0 ml-0">
-                              <li><a href="{{asset('faq.html')}}">Faq</a></li>{# hetha fil index bech yetbadel iwali nom ta3 route lzemha bel path ama ena 7atit asset just 5ater mezelet #}
-                            </ul>
+                          <li >
+                            <a href="{{path('app_itineraire_new')}}">RESERVATION</a>{# hetha fil index bech yetbadel iwali nom ta3 route lzemha bel path ama ena 7atit asset just 5ater mezelet #}
+                        
                           </li>
-                          <li class="r-has-child">
-                            <a href="{{asset('car-listing.html')}}">VEHICLES</a>
-                            <ul class="pl-0 ml-0">
-                              <li><a href="{{asset('car-list-map.html')}}">Car List Map</a></li>
-                              <li><a href="{{asset('-booking.html')}}">Car Booking</a></li>
-                            </ul>                      {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
+                          <li >
+                            <a href="{{path('app_vehicule_index')}}">VEHICLES</a>
+                                           {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
                           </li>
-                          <li><a href="{{asset('gallery.html')}}">PARK</a></li>
-                          <li><a href="{{asset('contact.html')}}">CONTACT US</a></li>
+                          <li><a href="{{path('app_park_index')}}">PARKS</a></li>
+                          <li><a href="{{path('app_reclamation_new')}}">RECLAMATION</a></li>
                         </ul>
                       </nav>
                     </div>

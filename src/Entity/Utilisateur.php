@@ -19,24 +19,23 @@ class Utilisateur
     private ?int $iduser=null;
 
     #[ORM\Column(length: 255)]
-    private ?string $role=null;
+    private ?string $role='client';
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Regex(
-     *     pattern="/^[a-zA-Z]*$/",
-     *     message="Le nom ne doit contenir que des lettres"
-     * )
-     */
+    
+     #[ORM\Column( length:255)]
+     #[Assert\Regex(
+         pattern:"/^[a-zA-Z]*$/",
+         message:"Le nom ne doit contenir que des lettres"
+         )]
+     
     private ?string $nom = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Regex(
-     *     pattern="/^[a-zA-Z]*$/",
-     *     message="Le prénom ne doit contenir que des lettres"
-     * )
-     */
+    #[ORM\Column( length:255)]
+     #[Assert\Regex(
+         pattern:"/^[a-zA-Z]*$/",
+         message:"Le prénom ne doit contenir que des lettres"
+         )]
+     
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
@@ -50,24 +49,32 @@ class Utilisateur
     #[Assert\Email]
     private ?string $email=null;
 
-    /**
- * @ORM\Column(length=8)
- * @Assert\Length(
- *      min = 8,
- *      exactMessage = "Le numéro de cin doit contenir exactement {{ limit }} chiffres.",
- *      allowEmptyString = false
- * )
- */
+   
+    #[ORM\Column(length: 8)]
+    #[Assert\Regex(
+        pattern: '/^\d+$/',
+        message: 'Le numéro de cin ne doit contenir que des chiffres.',
+        normalizer: 'trim'
+    )]
+    #[Assert\Length(
+        min: 8,
+        max: 8,
+        exactMessage: 'Le numéro de cin doit contenir exactement {{ limit }} chiffres.'
+    )]
+ 
     private ?string $cin = null;
 
-    /**
-     * @ORM\Column(length=9)
-     * @Assert\Length(
-     *       min = 9,
-     *      exactMessage = "Le numéro de permis doit contenir exactement {{ limit }} chiffres.",
-     *      allowEmptyString = false
-     * )
-     */
+    #[ORM\Column(length: 9)]
+    #[Assert\Regex(
+        pattern: '/^\d+$/',
+        message: 'Le numéro de permis ne doit contenir que des chiffres.',
+        normalizer: 'trim'
+    )]
+    #[Assert\Length(
+        min: 9,
+        max: 9,
+        exactMessage: 'Le numéro de permis doit contenir exactement {{ limit }} chiffres.'
+    )]
     private ?string $permis = null;
 
     #[ORM\Column]

@@ -6,6 +6,7 @@ use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegisterType extends AbstractType
 {
@@ -15,7 +16,7 @@ class RegisterType extends AbstractType
             
             ->add('nom')
             ->add('prenom')
-            ->add('pwd')
+            ->add('pwd', PasswordType::class)
             ->add('email')
             ->add('cin')
             ->add('permis')

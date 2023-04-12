@@ -54,6 +54,13 @@ class ParkController extends AbstractController
             'park' => $park,
         ]);
     }
+    #[Route('/{idpark}/adm', name: 'app_park_showadm', methods: ['GET'])]
+    public function showadm(Park $park): Response
+    {
+        return $this->render('park/showadm.html.twig', [
+            'park' => $park,
+        ]);
+    }
 
     #[Route('/{idpark}/edit', name: 'app_park_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Park $park, ParkRepository $parkRepository): Response

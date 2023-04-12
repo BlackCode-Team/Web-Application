@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>{% block title %} Login {% endblock %}</title>
+  	<title> {% block title %} Register {% endblock %} </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,18 +17,19 @@
 <body class="img js-fullheight" style="background-image: url({{asset('Login/images/bg.jpg')}});"> -->
 <body class="img js-fullheight" style="background-image: url('https://images.pexels.com/photos/4824424/pexels-photo-4824424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
 	{%block body%}
-	<section class="ftco-section">
+	<section class="ftco-section"  style="height: 100vh; overflow: hidden; ">
 		<div class="container">
-			<div class="row justify-content-center">
+			<div class="row justify-content-center" style="margin-top: -100px!important;">
 				<div class="col-md-6 text-center mb-5">
-					<h1 class="heading-section">Login </h1>
+					<h1 class="heading-section"><b> Register </b></h1>
+		
 				</div>
 			</div>
-			<div class="row justify-content-center">
+			<div class="row justify-content-center" style="margin-top: -50px!important;">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	
-		      	<form action="#" class="signin-form">
+		      	<form action="{{ path('app_register') }}" method="post"  class="signin-form">
 					{{ form_start(form) }}
 					<div class="form-group">
 						{{ form_widget(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Nom', 'required': 'required'} }) }}
@@ -73,6 +74,5 @@
 {%endblock%}
   {%endblock%}
 	</body>
-	
 </html>
 
