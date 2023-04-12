@@ -1,17 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Edit Park{% endblock %}
 
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Spinner Buttons -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 {% block body %}
-    <h1>Edit Park</h1>
+    <h1 align="center">Modifier Park</h1>
 
   <div class="col-lg-6 layout-spacing">
         <div class="statbox widget box box-shadow">
                             <div class="widget-header">                                
                                 <div class="row">
-                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Nouveau Park</h4>
-                                    </div>                                                                        
+                                                                     
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
@@ -53,7 +62,7 @@
                                     </div> #}
 								       <div class="inner col-12 clearfix">
                       
-                          <button type="submit" class="btn m-auto d-block float-right btn-full">Modifier Park</button>
+                          <button type="submit" class="btn btn-info btn-1 btn-1b mb-4 mr-3 float-right">Modifier Park</button>
         
                       </div>
                             </div>
@@ -63,7 +72,6 @@
                 {{ form_end(form) }}
 
 
-    <a href="{{ path('app_park_indexad') }}">back to list</a>
+    <a  href="{{ path('app_park_indexad') }}"><div  class="btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full" align="center" >back to list</div></a>
 
-    {{ include('park/_delete_form.html.twig') }}
 {% endblock %}

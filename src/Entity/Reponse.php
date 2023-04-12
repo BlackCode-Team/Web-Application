@@ -23,9 +23,13 @@ class Reponse
     #[ORM\Column(type: "date")]
     private ?\DateTimeInterface $datereponse=null;
 
-    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reponse')]
+   /* #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reponse')]
     #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
-    private ?Utilisateur $utilisateur=null ;
+    private ?Utilisateur $utilisateur=null ;*/
+
+    #[ORM\ManyToOne(targetEntity: Reclamation::class, inversedBy: 'Reponse')]
+    #[ORM\JoinColumn(name: 'idreclamation', referencedColumnName: 'idreclamation')]
+    private ?Reclamation $reclamation=null ;
     
 
     public function getIdreponse(): ?int
@@ -56,7 +60,7 @@ class Reponse
 
         return $this;
     }
-
+/*
     public function getIduser(): ?Utilisateur
     {
         return $this->iduser;
@@ -77,6 +81,30 @@ class Reponse
     public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }*/
+
+    public function getIdreclamation(): ?Reclamation
+    {
+        return $this->idreclamation;
+    }
+
+    public function setIdreclamation(?Reclamation $idreclamation): self
+    {
+        $this->idreclamation = $idreclamation;
+
+        return $this;
+    }
+
+    public function getReclamation(): ?Reclamation
+    {
+        return $this->reclamation;
+    }
+
+    public function setReclamation(?Reclamation $reclamation): self
+    {
+        $this->reclamation = $reclamation;
 
         return $this;
     }

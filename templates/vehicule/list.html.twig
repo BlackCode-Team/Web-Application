@@ -1,0 +1,131 @@
+       {% extends 'base.html.twig' %}
+
+{% block title %}Vehicule{% endblock %}
+
+{% block body %}
+ <div class="r-car-search">
+          <div class="container">
+            <form>
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label> Car Brand </label>
+                    <select class="form-control">
+                      <option>Any Brands</option>
+                      <option>Any Brands</option>
+                      <option>Any Brands</option>
+                      <option>Any Brands</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label> Car Type </label>
+                    <select class="form-control">
+                      <option>Any Type</option>
+                      <option>Any Type</option>
+                      <option>Any Type</option>
+                      <option>Any Type</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label> Car Price </label>
+                    <select class="form-control">
+                      <option>Price Low to High</option>
+                      <option>Price High to Low</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <input type="submit" class="form-control btn-primary" value="Search Car Now" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> <!-- /r-car-search -->
+
+        <section class="r-car-showcase-wrapper">
+          <div class="r-best-vehicles">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                  <h2 class="heading"> Car Categories </h2>
+                  <div class="r-best-vehicle-list-outer">
+                    <div class="r-best-leftbar">
+                      <ul class="pl-0 mb-0 r-best-vehicle-types r-best-vehicle-category">
+                        <li><span> <i class="fa fa-star"></i> Popular Cars</span></li>
+                        <li><span> <i class="fa fa-star"></i> Special Offers</span></li>
+                        <li><span> <i class="fa fa-star"></i>Limited Editions</span></li>
+                      </ul>
+                      <ul class="pl-0 mb-0 r-best-vehicle-types">
+                        <li><span>All Manufacturer</span></li>
+                        <li><span>Honda</span></li>
+                        <li class="r-best-vehicle-acitve"><span>Mercedes Benz</span></li>
+                        <li><span>Toyota</span></li>
+                        <li><span>Volkswagen</span></li>
+                        <li><span>Audi</span></li>
+                        <li><span>Ferrari</span></li>
+                        <li><span>Chevrolet</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12">
+                  <div class="r-car-filter-area">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <span class="r-filter-text">20 of 50 Search Results</span>
+                      </div>
+                      <div class=" col-lg-6 col-md-12 col-sm-12">
+                        <div class="r-car-filter-wrapper">
+                          <span class="r-filter-text"> Show Cars : </span>
+                          <select class="r-show-cars-filter">
+                            <option value="6"> 6 Cars </option>
+                            <option value="10"> 10 Cars </option>
+                            <option value="20"> 20 Cars </option>
+                            <option value="30"> 30 Cars </option>
+                          </select>
+                          <ul class="r-change-view">
+                            <li><a href="javaScript:void(0)"> <i class="fa fa-th-large"></i> </a></li>
+                            <li><a href="javaScript:void(0)"> <i class="fa fa-bars"></i> </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="r-car-showcase">
+                    <div class="row clearfix r-best-offer-list">
+                    {% for vehicule in vehicules %}
+                  <div class="col-md-4">
+                      <div class="card mb-4 shadow-sm">
+                          <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" />
+                          <div class="card-body">
+                              <p class="card-text"><a href="#">{{ vehicule.modele }}</a></p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                      <a href="{{ path('app_vehicule_index', {'id': vehicule.idvehicule}) }}" ></a>
+                                  </div>
+                            <div class="r-best-offer-content">
+                            <p>Start at <b>{{ vehicule.prix }} DT</b> per day</p>
+                            <ul class="pl-0 mb-0">
+                              <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
+                              <li><i class="fa fa-beer"></i><span>PETROL</span></li>
+                              <li><i class="fa fa-road"></i><span>{{ vehicule.puissance }}</span></li>
+                            </ul>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+                          </div>
+                              </ul>
+                              </div>
+                          </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                        </div>
+                      </div>
+                      {% endblock %}

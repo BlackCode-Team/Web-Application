@@ -7,7 +7,7 @@
        
             <div class="r-header-inner-banner" align="center">
               <div class="r-header-in-over">
-                <h1>Les <b>P</b>arks </h1>
+                <h1>Les <b>P</b>arcs </h1>
               </div>
             </div>
 
@@ -24,7 +24,7 @@
                         <span>{{ park.ville |upper }} </span>
                           <h5><b>{{ park.nom |upper }}</b></h5>
                           <h5>   <b>nbSpots </b>  : {{ park.nbspot }}</h5>
-                          {% if park.statut == "ouvert" %}
+                          {% if park.statut == "Ouvert" %}
                           <div class="icon-gallery"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
                           {% else %}
                           <div class="icon-gallery"><i class="fa fa-close" aria-hidden="true"></i></div>

@@ -31,7 +31,7 @@ class ItineraireController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $itineraireRepository->save($itineraire, true);
 
-            return $this->redirectToRoute('app_itineraire_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('itineraire/new.html.twig', [

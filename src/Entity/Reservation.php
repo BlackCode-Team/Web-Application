@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 use Repository;
@@ -20,13 +21,13 @@ class Reservation
     private ?int $idreservation=null;
 
  
-    #[ORM\Column(type: "date")]
+    #[ORM\Column(type: "datetime")]
      private ?\DateTimeInterface $datedebut;
      public function __construct()
      {
          $this->datedebut = new \DateTime();
      }
-     #[ORM\Column(type: "date")]
+     #[ORM\Column(type: "datetime")]
      private ?\DateTimeInterface $datefin;
    
     #[ORM\Column(length: 255)]
@@ -99,41 +100,7 @@ class Reservation
         return $this;
     }
 
-   /* public function getIduser(): ?Utilisateur
-    {
-        return $this->iduser;
-    }
-
-    public function setIduser(?Utilisateur $iduser): self
-    {
-        $this->iduser = $iduser;
-
-        return $this;
-    }
-
-    public function getIdvehicule(): ?Vehicule
-    {
-        return $this->idvehicule;
-    }
-
-    public function setIdvehicule(?Vehicule $idvehicule): self
-    {
-        $this->idvehicule = $idvehicule;
-
-        return $this;
-    }
-
-    public function getIditineraire(): ?Itineraire
-    {
-        return $this->iditineraire;
-    }
-
-    public function setIditineraire(?Itineraire $iditineraire): self
-    {
-        $this->iditineraire = $iditineraire;
-
-        return $this;
-    }*/
+  
     public function getUtilisateur(): ?Utilisateur
     {
         return $this->utilisateur;

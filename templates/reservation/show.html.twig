@@ -23,8 +23,8 @@
         </thead>
                       <td>{{ reservation.idreservation }}</td>       
                <td>{{ reservation.utilisateur.prenom }}</td>
-               <td>{{ reservation.datedebut|date("Y-m-d H:m:s") }}</td>
-               <td>{{ reservation.datefin|date("Y-m-d H:m:s") }}</td>
+               <td>{{ reservation.datedebut|date("Y-m-d H:i:s") }}</td>
+               <td>{{ reservation.datefin|date("Y-m-d H:i:s") }}</td>
                <td>{{ reservation.status }}</td>
                <td>{{ reservation.prixreservation }}</td>
                <td>{{ reservation.vehicule.matricule }}</td>

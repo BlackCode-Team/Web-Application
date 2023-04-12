@@ -18,10 +18,19 @@ class VehiculeController extends AbstractController
     #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        return $this->render('vehicule/carlist.html.twig', [
+        return $this->render('vehicule/list.html.twig', [
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
+
+    #[Route('/back', name: 'app_vehicule_indexback', methods: ['GET'])]
+    public function indexback(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/index.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
 
     #[Route('/new', name: 'app_vehicule_new', methods: ['GET', 'POST'])]
     public function new(Request $request, VehiculeRepository $vehiculeRepository): Response
@@ -70,6 +79,20 @@ class VehiculeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form['image']->getData();
+            $imageFile = $form->get('image')->getData();
+            
+            // génération d'un nom de fichier unique
+            $newFilename = uniqid().'.'.$imageFile->guessExtension();
+
+            // déplacement du fichier dans le dossier public/images
+            $imageFile->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+
+            // mise à jour de l'attribut "image" de l'objet véhicule
+            $vehicule->setImage($newFilename);
             $vehiculeRepository->save($vehicule, true);
 
             return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);

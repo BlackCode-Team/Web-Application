@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Validator\Constraints\Length;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -24,7 +25,18 @@ class ReclamationType extends AbstractType
                     'attr' => ['placeholder' => 'Objet']
                     ])
             ->add('contenu', TextareaType::class, [
-                    'attr' => ['placeholder' => 'Contenu de la reclamation']
+                    'attr' => ['placeholder' => 'Contenu de la reclamation'],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Veuillez saisir le contenu',
+                        ]),
+                        new Length([
+                            'min' => 15,
+                            'max' => 500,
+                            'minMessage' => 'Le contenu doit contenir au moins {{ limit }} caractères (sans les espaces).',
+                            'maxMessage' => 'Le contenu ne doit pas dépasser {{ limit }} caractères (sans les espaces).'
+                            ])
+                        ]
                     ])
             
             ->add('date', DateTimeType::class, [
@@ -34,8 +46,8 @@ class ReclamationType extends AbstractType
             ->add('vehicule', EntityType::class, [
                 'class' => Vehicule::class,
                 'choice_label' => 'matricule',
-                'placeholder' => 'Choose a vehicle',
-                ])
+                'placeholder' => 'choisir un vehicule',
+                'required' => true,])
             ->add('submit', SubmitType::class, [
                     'label' => 'Envoyer la reclamation',
                 ])

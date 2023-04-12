@@ -24,7 +24,6 @@
                                     <th>Type</th>
                                     <th>Prix</th>
                                     <th>Batterie</th>
-                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>actions</th>
                                 </tr>
@@ -38,12 +37,22 @@
                                     <td>{{ vehicule.type }}</td>
                                     <td>{{ vehicule.prix }}</td>
                                     <td>{{ vehicule.batterie }}</td>
-                                    <td><img src="{{ asset('images/' ~ vehicule.image) }}"  /></td>
                                     <td>{{ vehicule.status }}</td>
-                                    <td>
-                                        <a href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
-                                        <a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
-                                    </td>
+
+                                    <td class="text-center">
+                                    <div class="toolbar">
+                                    <div class="toolbar-toggle">...</div>
+                                    <ul class="toolbar-dropdown animated fadeInUp table-controls list-inline">
+                                                           
+                                    <li class="list-inline-item"><a href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}" class="bs-tooltip" data-original-title="Show"><i class="flaticon-view-3"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}" class="bs-tooltip" data-original-title="Edit"><i class="flaticon-edit-5"></i></a>
+                                    </li>
+                          </ul>
+                       </div>
+                                       
+               
+                </td>
                                 </tr>
                             {% else %}
                                 <tr>

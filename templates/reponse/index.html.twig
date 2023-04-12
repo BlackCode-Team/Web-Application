@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
-{% block title %}Reponse index{% endblock %}
+{% block title %}Reponse{% endblock %}
 
 {% block body %}
     <h1>Reponse index</h1>
@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idreponse</th>
                 <th>Description</th>
                 <th>Datereponse</th>
                 <th>actions</th>
@@ -21,7 +20,7 @@
                 <td>{{ reponse.description }}</td>
                 <td>{{ reponse.datereponse ? reponse.datereponse|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_reponse_show', {'idreponse': reponse.idreponse}) }}">show</a>
+                    <a href="{{ path('app_reponse_show', {'idreponse': reponse.idreponse}) }}">Afficher</a>
                     <a href="{{ path('app_reponse_edit', {'idreponse': reponse.idreponse}) }}">edit</a>
                 </td>
             </tr>
@@ -33,5 +32,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_reponse_new') }}">Create new</a>
 {% endblock %}

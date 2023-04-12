@@ -18,6 +18,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+use Symfony\Component\Validator\Constraints\Regex;
+
 class ParkType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -28,7 +30,10 @@ class ParkType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir le Nom du Park',
-                    ])
+                    ]),new Regex([
+                        'pattern' => '/^[a-zA-Z]+$/',
+                        'message' => 'Le Statut du Parc "{{ value }}" n\'est pas valide',
+                    ]),
                 ],
             ])
             ->add('ville', TextType::class,[
@@ -36,7 +41,11 @@ class ParkType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir la ville du Park',
-                    ])
+                    ]), new Regex([
+                        'pattern' => '/^[a-zA-Z]+$/',
+                        'message' => 'Le Statut du Parc "{{ value }}" n\'est pas valide',
+                    ]),
+
                 ],
             ])
             ->add('nbspot', IntegerType::class,[
@@ -62,7 +71,7 @@ class ParkType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez saisir Status du Park',
+                        'message' => 'Veuillez saisir Status du Parc',
                     ])
                 ],
             ])

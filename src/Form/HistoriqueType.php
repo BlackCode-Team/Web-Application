@@ -3,9 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Historique;
+use App\Entity\Reservation;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class HistoriqueType extends AbstractType
 {

@@ -1,6 +1,16 @@
 {% extends 'back.html.twig' %}
 
-
+{% block css %} 
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-icon-buttons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-gradients.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-fill.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/creative/creative-material.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Spinner Buttons -->
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/spinner.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('back/assets/css/ui-kit/buttons/spinner/ladda.min.css')}}" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+{% endblock %}
 
  {% block page %} Gestion des Parks   {% endblock %} 
 {% block body %}
@@ -52,7 +62,7 @@
                                     </div> #}
 								       <div class="inner col-12 clearfix">
                       
-                          <button type="submit" class="btn m-auto d-block float-right btn-full">Ajouter Park</button>
+                          <button type="submit" class="btn btn-info btn-1 btn-1b mb-4 mr-3 float-right">Ajouter Park</button>
         
                       </div>
                             </div>
