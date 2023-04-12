@@ -36,7 +36,10 @@ class LoginController extends AbstractController
 
         // Traiter la soumission du formulaire
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
+            $this->addFlash('success', 'Votre message a été envoyé avec succès.');
+
+            
             // Le formulaire est valide, faire quelque chose avec les données
             $email = $user->getEmail();
             $plainPassword = $user->getPwd();
@@ -53,7 +56,7 @@ class LoginController extends AbstractController
 
             // Le mot de passe est correct, l'utilisateur est authentifié
             $token = new UsernamePasswordToken($utilisateur, null, 'main', $utilisateur->getRoles());
-            $this->get('security.token_storage')->setToken($token);
+            $this->session->set('user_id', $utilisateur->getId());
 
             // Créer une session pour l'utilisateur
             $this->session->set('user_id', $utilisateur->getId());
@@ -61,7 +64,7 @@ class LoginController extends AbstractController
             // Rediriger l'utilisateur vers une autre page
             return $this->redirectToRoute('app_home');
         }
-
+       
         // Afficher le formulaire
         return $this->render('login/login.html.twig', [
             'form' => $form->createView(),

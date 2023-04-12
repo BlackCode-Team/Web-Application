@@ -27,15 +27,14 @@ class Utilisateur
          pattern:"/^[a-zA-Z]*$/",
          message:"Le nom ne doit contenir que des lettres"
          )]
-     
     private ?string $nom = null;
+
 
     #[ORM\Column( length:255)]
      #[Assert\Regex(
          pattern:"/^[a-zA-Z]*$/",
          message:"Le prénom ne doit contenir que des lettres"
          )]
-     
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
@@ -61,7 +60,6 @@ class Utilisateur
         max: 8,
         exactMessage: 'Le numéro de cin doit contenir exactement {{ limit }} chiffres.'
     )]
- 
     private ?string $cin = null;
 
     #[ORM\Column(length: 9)]
@@ -83,8 +81,8 @@ class Utilisateur
 
 
     
-    #[ORM\ManyToOne(targetEntity: Affectationbadge::class, inversedBy: 'Utilisateur')]
-    #[ORM\JoinColumn(name: 'idaffectation', referencedColumnName: 'idaffectation')]
+   # #[ORM\ManyToOne(targetEntity: Affectationbadge::class, inversedBy: 'Utilisateur')]
+   # #[ORM\JoinColumn(name: 'idaffectation', referencedColumnName: 'idaffectation')]
     private ?int $idaffectation=null;
 
     public function getIduser(): ?int

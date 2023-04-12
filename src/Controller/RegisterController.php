@@ -24,7 +24,7 @@ class RegisterController extends AbstractController
         // Traiter la soumission du formulaire
         $form->handleRequest($request);
        
-        if ($form->isSubmitted() ) {
+        if ($form->isSubmitted()) {
             
             // Le formulaire est valide, faire quelque chose avec les données
             $utilisateurRepository->save($user, true);

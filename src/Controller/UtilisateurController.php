@@ -26,6 +26,7 @@ class UtilisateurController extends AbstractController
     {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(Utilisateur1Type::class, $utilisateur);
+        $form->get('role')->setData('agent');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
