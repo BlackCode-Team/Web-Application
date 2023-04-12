@@ -1208,6 +1208,10 @@ div.sf-toolbar .sf-toolbar-block a:hover {
         display: none !important;
     }
 }
+<<<<<<< Updated upstream
 ", "@WebProfiler/Profiler/toolbar.css.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.css.twig");
+=======
+", "@WebProfiler/Profiler/toolbar.css.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.css.twig");
+>>>>>>> Stashed changes
     }
 }

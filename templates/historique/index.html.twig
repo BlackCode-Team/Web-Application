@@ -3,9 +3,21 @@
 {% block title %}Historique index{% endblock %}
 
 {% block body %}
-    <h1>Historique index</h1>
+        <div class="row" id="cancel-row">
+            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Mon historique de Réservation </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <div class="table-responsive mb-4">
+                            <table id="zero-config" class="table table-striped table-hover table-bordered" style="width:100%">
 
-    <table class="table">
+
         <thead>
             <tr>
                  <th>Numero réservation</th> 
@@ -24,15 +36,15 @@
             <tr>
                 <td>{{ historique.reservation.idreservation }}</td>       
                <td>{{ historique.reservation.utilisateur.cin }}</td>
-               <td>{{ historique.reservation.datedebut|date("Y-m-d H:m:s")}}</td>
-               <td>{{ historique.reservation.datefin|date("Y-m-d H:m:s")}}</td>
+               <td>{{ historique.reservation.datedebut|date("Y-m-d H:i:s")}}</td>
+               <td>{{ historique.reservation.datefin|date("Y-m-d H:i:s")}}</td>
                <td>{{ historique.reservation.status }}</td>
                <td>{{ historique.reservation.prixreservation }}</td>
                <td>{{ historique.reservation.vehicule.matricule }}</td>
              <td>{{ historique.reservation.itineraire.pointarrivee }}</td>
                 <td>
                     <a href="{{ path('app_historique_show', {'idhistorique': historique.idhistorique}) }}">show</a>
-                    <a href="{{ path('app_historique_edit', {'idhistorique': historique.idhistorique}) }}">edit</a>
+
                 </td>
             </tr>
         {% else %}
@@ -42,6 +54,21 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_historique_new') }}">Create new</a>
+           </div>
+                                  <div class="pagination-section">
+                                        <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                                            <li><a href="javascript:void(0);">«</a></li>
+                                            <li><a href="javascript:void(0);">1</a></li>
+                                            <li><a href="javascript:void(0);">2</a></li>
+                                            <li><a href="javascript:void(0);">3</a></li>
+                                            <li><a href="javascript:void(0);">4</a></li>
+                                            <li><a href="javascript:void(0);">5</a></li>
+                                            <li><a href="javascript:void(0);">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    {# <a href="{{ path('app_historique_new') }}">Create new</a> #}
 {% endblock %}

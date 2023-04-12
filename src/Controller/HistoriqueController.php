@@ -9,7 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use  App\Entity\Reservation;
+use App\Repository\ReservationRepository;
 #[Route('/historique')]
 class HistoriqueController extends AbstractController
 {
@@ -47,6 +48,17 @@ class HistoriqueController extends AbstractController
             'historique' => $historique,
         ]);
     }
+    
+    #[Route('/user/{iduser}', name: 'app_historique_index2', methods: ['GET'])]
+    public function index2(ReservationRepository $reservationRepository,HistoriqueRepository $historiqueRepository, int $iduser=1): Response
+    {
+    $reservations = $reservationRepository->findBy(['utilisateur' => $iduser]);
+    $historique = $historiqueRepository->findBy(['reservation' => array_map(function($reservation) { return $reservation->getIdreservation(); }, $reservations)]);
+    
+    return $this->render('historique/index.html.twig', [
+        'historiques' => $historique,
+    ]);
+}
 
     #[Route('/{idhistorique}/edit', name: 'app_historique_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Historique $historique, HistoriqueRepository $historiqueRepository): Response

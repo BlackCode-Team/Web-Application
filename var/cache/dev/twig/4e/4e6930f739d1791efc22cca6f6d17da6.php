@@ -149,6 +149,10 @@ class __TwigTemplate_8af9fd552119c200e7d537d1dd179499 extends \Twig\Template
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url }) }}
 {% endblock %}
+<<<<<<< Updated upstream
 ", "@WebProfiler/Profiler/cancel.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\cancel.html.twig");
+=======
+", "@WebProfiler/Profiler/cancel.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\cancel.html.twig");
+>>>>>>> Stashed changes
     }
 }

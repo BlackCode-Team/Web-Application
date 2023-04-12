@@ -38,13 +38,15 @@ class ReservationType extends AbstractType
                 ])
             ]
         ])
-        ->add('prixreservation')
-        ->add('status', ChoiceType::class, [
-            'choices' => [
-             'En cours' => 'En cours',
-            'Terminé' => 'Terminé',
+        ->add('prixreservation', null, [
+            'constraints' => [
+                new GreaterThan([
+                    'value' => 0,
+                    'message' => 'Le prix doit être supérieur à zéro.'
+                ])
             ]
         ])
+        
         ->add('utilisateur',EntityType::class,
         ['class'=>Utilisateur::class,
         'choice_label'=>'cin'])

@@ -6,17 +6,36 @@
     <h1>Historique</h1>
 
     <table class="table">
-        <tbody>
-            <tr>
-                <th>Idhistorique</th>
-                <td>{{ historique.idhistorique }}</td>
+        <tbody>  
+                   <tr>
+
+                <th>Numero réservation</th> 
+                <th>Utilisateur</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>status Reservation</th>
+                <th>Tarification</th>
+                <th>Matricule Voiture</th>
+                <th>Point d'arrivée</th>
+
+            </tr>
+        </thead>           
+                      <td>{{historique.reservation.idreservation }}</td>       
+               <td>{{ historique.reservation.utilisateur.prenom }}</td>
+               <td>{{ historique.reservation.datedebut|date("Y-m-d H:i:s") }}</td>
+               <td>{{ historique.reservation.datefin|date("Y-m-d H:i:s") }}</td>
+               <td>{{ historique.reservation.status }}</td>
+               <td>{{ historique.reservation.prixreservation }}</td>
+               <td>{{ historique.reservation.vehicule.matricule }}</td>
+             <td>{{ historique.reservation.itineraire.pointarrivee }}</td>
+
             </tr>
         </tbody>
     </table>
 
     <a href="{{ path('app_historique_index') }}">back to list</a>
 
-    <a href="{{ path('app_historique_edit', {'idhistorique': historique.idhistorique}) }}">edit</a>
+    {# <a href="{{ path('app_historique_edit', {'idhistorique': historique.idhistorique}) }}">edit</a> #}
 
     {{ include('historique/_delete_form.html.twig') }}
 {% endblock %}

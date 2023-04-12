@@ -46,15 +46,18 @@ return [
                     .'|/edit(*:37)'
                     .'|(*:44)'
                 .')'
-                .'|/historique/([^/]++)(?'
-                    .'|(*:75)'
-                    .'|/edit(*:87)'
-                    .'|(*:94)'
+                .'|/historique/(?'
+                    .'|([^/]++)(*:75)'
+                    .'|user(?:/([^/]++))?(*:100)'
+                    .'|([^/]++)(?'
+                        .'|/edit(*:124)'
+                        .'|(*:132)'
+                    .')'
                 .')'
                 .'|/itineraire/([^/]++)(?'
-                    .'|(*:125)'
-                    .'|/edit(*:138)'
-                    .'|(*:146)'
+                    .'|(*:165)'
+                    .'|/edit(*:178)'
+                    .'|(*:186)'
                 .')'
                 .'|/offre/([^/]++)(?'
                     .'|(*:173)'
@@ -62,6 +65,7 @@ return [
                     .'|(*:194)'
                 .')'
                 .'|/park/([^/]++)(?'
+<<<<<<< Updated upstream
                     .'|(*:220)'
                     .'|/(?'
                         .'|adm(*:235)'
@@ -93,10 +97,41 @@ return [
                             .'|(*:464)'
                             .'|/edit(*:477)'
                             .'|(*:485)'
+=======
+                    .'|(*:212)'
+                    .'|/(?'
+                        .'|adm(*:227)'
+                        .'|edit(*:239)'
+                    .')'
+                    .'|(*:248)'
+                .')'
+                .'|/r(?'
+                    .'|ating/([^/]++)(?'
+                        .'|(*:279)'
+                        .'|/edit(*:292)'
+                        .'|(*:300)'
+                    .')'
+                    .'|e(?'
+                        .'|clamation/([^/]++)(?'
+                            .'|(*:334)'
+                            .'|/edit(*:347)'
+                            .'|(*:355)'
+                        .')'
+                        .'|ponse/([^/]++)(?'
+                            .'|(*:381)'
+                            .'|/edit(*:394)'
+                            .'|(*:402)'
+                        .')'
+                        .'|servation/([^/]++)(?'
+                            .'|(*:432)'
+                            .'|/edit(*:445)'
+                            .'|(*:453)'
+>>>>>>> Stashed changes
                         .')'
                     .')'
                 .')'
                 .'|/utilisateur/([^/]++)(?'
+<<<<<<< Updated upstream
                     .'|(*:520)'
                     .'|/edit(*:533)'
                     .'|(*:541)'
@@ -119,6 +154,30 @@ return [
                             .')'
                         .')'
                         .'|(*:755)'
+=======
+                    .'|(*:488)'
+                    .'|/edit(*:501)'
+                    .'|(*:509)'
+                .')'
+                .'|/vehicule/([^/]++)(?'
+                    .'|(*:539)'
+                    .'|/edit(*:552)'
+                    .'|(*:560)'
+                .')'
+                .'|/_(?'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:600)'
+                    .'|wdt/([^/]++)(*:620)'
+                    .'|profiler/([^/]++)(?'
+                        .'|/(?'
+                            .'|search/results(*:666)'
+                            .'|router(*:680)'
+                            .'|exception(?'
+                                .'|(*:700)'
+                                .'|\\.css(*:713)'
+                            .')'
+                        .')'
+                        .'|(*:723)'
+>>>>>>> Stashed changes
                     .')'
                 .')'
             .')/?$}sDu',
@@ -128,6 +187,7 @@ return [
         37 => [[['_route' => 'app_badge_edit', '_controller' => 'App\\Controller\\BadgeController::edit'], ['idbadge'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         44 => [[['_route' => 'app_badge_delete', '_controller' => 'App\\Controller\\BadgeController::delete'], ['idbadge'], ['POST' => 0], null, false, true, null]],
         75 => [[['_route' => 'app_historique_show', '_controller' => 'App\\Controller\\HistoriqueController::show'], ['idhistorique'], ['GET' => 0], null, false, true, null]],
+<<<<<<< Updated upstream
         87 => [[['_route' => 'app_historique_edit', '_controller' => 'App\\Controller\\HistoriqueController::edit'], ['idhistorique'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         94 => [[['_route' => 'app_historique_delete', '_controller' => 'App\\Controller\\HistoriqueController::delete'], ['idhistorique'], ['POST' => 0], null, false, true, null]],
         125 => [[['_route' => 'app_itineraire_show', '_controller' => 'App\\Controller\\ItineraireController::show'], ['iditineraire'], ['GET' => 0], null, false, true, null]],
@@ -166,6 +226,43 @@ return [
         732 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         745 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         755 => [
+=======
+        100 => [[['_route' => 'app_historique_index2', 'iduser' => 1, '_controller' => 'App\\Controller\\HistoriqueController::index2'], ['iduser'], ['GET' => 0], null, false, true, null]],
+        124 => [[['_route' => 'app_historique_edit', '_controller' => 'App\\Controller\\HistoriqueController::edit'], ['idhistorique'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        132 => [[['_route' => 'app_historique_delete', '_controller' => 'App\\Controller\\HistoriqueController::delete'], ['idhistorique'], ['POST' => 0], null, false, true, null]],
+        165 => [[['_route' => 'app_itineraire_show', '_controller' => 'App\\Controller\\ItineraireController::show'], ['iditineraire'], ['GET' => 0], null, false, true, null]],
+        178 => [[['_route' => 'app_itineraire_edit', '_controller' => 'App\\Controller\\ItineraireController::edit'], ['iditineraire'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        186 => [[['_route' => 'app_itineraire_delete', '_controller' => 'App\\Controller\\ItineraireController::delete'], ['iditineraire'], ['POST' => 0], null, false, true, null]],
+        212 => [[['_route' => 'app_park_show', '_controller' => 'App\\Controller\\ParkController::show'], ['idpark'], ['GET' => 0], null, false, true, null]],
+        227 => [[['_route' => 'app_park_showadm', '_controller' => 'App\\Controller\\ParkController::showadm'], ['idpark'], ['GET' => 0], null, false, false, null]],
+        239 => [[['_route' => 'app_park_edit', '_controller' => 'App\\Controller\\ParkController::edit'], ['idpark'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        248 => [[['_route' => 'app_park_delete', '_controller' => 'App\\Controller\\ParkController::Delete'], ['idpark'], null, null, false, true, null]],
+        279 => [[['_route' => 'app_rating_show', '_controller' => 'App\\Controller\\RatingController::show'], ['idrating'], ['GET' => 0], null, false, true, null]],
+        292 => [[['_route' => 'app_rating_edit', '_controller' => 'App\\Controller\\RatingController::edit'], ['idrating'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        300 => [[['_route' => 'app_rating_delete', '_controller' => 'App\\Controller\\RatingController::delete'], ['idrating'], ['POST' => 0], null, false, true, null]],
+        334 => [[['_route' => 'app_reclamation_show', '_controller' => 'App\\Controller\\ReclamationController::show'], ['idreclamation'], ['GET' => 0], null, false, true, null]],
+        347 => [[['_route' => 'app_reclamation_edit', '_controller' => 'App\\Controller\\ReclamationController::edit'], ['idreclamation'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        355 => [[['_route' => 'app_reclamation_delete', '_controller' => 'App\\Controller\\ReclamationController::delete'], ['idreclamation'], ['POST' => 0], null, false, true, null]],
+        381 => [[['_route' => 'app_reponse_show', '_controller' => 'App\\Controller\\ReponseController::show'], ['idreponse'], ['GET' => 0], null, false, true, null]],
+        394 => [[['_route' => 'app_reponse_edit', '_controller' => 'App\\Controller\\ReponseController::edit'], ['idreponse'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        402 => [[['_route' => 'app_reponse_delete', '_controller' => 'App\\Controller\\ReponseController::delete'], ['idreponse'], ['POST' => 0], null, false, true, null]],
+        432 => [[['_route' => 'app_reservation_show', '_controller' => 'App\\Controller\\ReservationController::show'], ['idreservation'], ['GET' => 0], null, false, true, null]],
+        445 => [[['_route' => 'app_reservation_edit', '_controller' => 'App\\Controller\\ReservationController::edit'], ['idreservation'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        453 => [[['_route' => 'app_reservation_delete', '_controller' => 'App\\Controller\\ReservationController::delete'], ['idreservation'], ['POST' => 0], null, false, true, null]],
+        488 => [[['_route' => 'app_utilisateur_show', '_controller' => 'App\\Controller\\UtilisateurController::show'], ['iduser'], ['GET' => 0], null, false, true, null]],
+        501 => [[['_route' => 'app_utilisateur_edit', '_controller' => 'App\\Controller\\UtilisateurController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        509 => [[['_route' => 'app_utilisateur_delete', '_controller' => 'App\\Controller\\UtilisateurController::delete'], ['iduser'], ['POST' => 0], null, false, true, null]],
+        539 => [[['_route' => 'app_vehicule_show', '_controller' => 'App\\Controller\\VehiculeController::show'], ['idvehicule'], ['GET' => 0], null, false, true, null]],
+        552 => [[['_route' => 'app_vehicule_edit', '_controller' => 'App\\Controller\\VehiculeController::edit'], ['idvehicule'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        560 => [[['_route' => 'app_vehicule_delete', '_controller' => 'App\\Controller\\VehiculeController::delete'], ['idvehicule'], ['POST' => 0], null, false, true, null]],
+        600 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        620 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        666 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        680 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        700 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        713 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        723 => [
+>>>>>>> Stashed changes
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

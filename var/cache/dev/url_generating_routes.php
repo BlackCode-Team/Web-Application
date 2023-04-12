@@ -13,6 +13,7 @@ return [
     'app_historique_index' => [[], ['_controller' => 'App\\Controller\\HistoriqueController::index'], [], [['text', '/historique/']], [], [], []],
     'app_historique_new' => [[], ['_controller' => 'App\\Controller\\HistoriqueController::new'], [], [['text', '/historique/new']], [], [], []],
     'app_historique_show' => [['idhistorique'], ['_controller' => 'App\\Controller\\HistoriqueController::show'], [], [['variable', '/', '[^/]++', 'idhistorique', true], ['text', '/historique']], [], [], []],
+    'app_historique_index2' => [['iduser'], ['iduser' => 1, '_controller' => 'App\\Controller\\HistoriqueController::index2'], [], [['variable', '/', '[^/]++', 'iduser', true], ['text', '/historique/user']], [], [], []],
     'app_historique_edit' => [['idhistorique'], ['_controller' => 'App\\Controller\\HistoriqueController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idhistorique', true], ['text', '/historique']], [], [], []],
     'app_historique_delete' => [['idhistorique'], ['_controller' => 'App\\Controller\\HistoriqueController::delete'], [], [['variable', '/', '[^/]++', 'idhistorique', true], ['text', '/historique']], [], [], []],
     'app_itineraire_index' => [[], ['_controller' => 'App\\Controller\\ItineraireController::index'], [], [['text', '/itineraire/']], [], [], []],
@@ -31,7 +32,11 @@ return [
     'app_park_show' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::show'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_showadm' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::showadm'], [], [['text', '/adm'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
     'app_park_edit' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
+<<<<<<< Updated upstream
     'app_park_delete' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::delete'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
+=======
+    'app_park_delete' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::Delete'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],
+>>>>>>> Stashed changes
     'app_rating_index' => [[], ['_controller' => 'App\\Controller\\RatingController::index'], [], [['text', '/rating/']], [], [], []],
     'app_rating_new' => [[], ['_controller' => 'App\\Controller\\RatingController::new'], [], [['text', '/rating/new']], [], [], []],
     'app_rating_show' => [['idrating'], ['_controller' => 'App\\Controller\\RatingController::show'], [], [['variable', '/', '[^/]++', 'idrating', true], ['text', '/rating']], [], [], []],

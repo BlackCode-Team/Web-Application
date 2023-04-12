@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Historique;
+use App\Repository\HistoriqueRepository;
 
 #[Route('/reservation')]
 class ReservationController extends AbstractController
@@ -27,11 +29,14 @@ class ReservationController extends AbstractController
     {
         $reservations = $reservationRepository->findAll();
         
-        foreach ($reservations as $reservation) {
+        foreach ($reservations as $reservation) 
+        {
             $currentDate = date('Y-m-d H:i:s');
             $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
             $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+
             $currentDate = strtotime($currentDate);
+            
             if ($currentDate > $endDate) {
                 $reservation->setStatus('Termine');
             } else {
@@ -46,7 +51,7 @@ class ReservationController extends AbstractController
     }
     
     #[Route('/new', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReservationRepository $reservationRepository): Response
+    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -54,9 +59,12 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
+        $historique = new Historique();
+        $historique->setReservation($reservation);
+        $historiqueRepository->save($historique, true);
 
-            return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
-        }
+        return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
+    }
 
         return $this->renderForm('reservation/new.html.twig', [
             'reservation' => $reservation,
