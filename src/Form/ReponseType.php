@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\Length;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,7 +20,7 @@ class ReponseType extends AbstractType
                 'attr' => ['placeholder' => 'description'],
                 'constraints' => [
                     new Length([
-                        'min' => 15,
+                        'min' => 5,
                         'max' => 500,
                         'minMessage' => 'Le contenu doit contenir au moins {{ limit }} caractères (sans les espaces).',
                         'maxMessage' => 'Le contenu ne doit pas dépasser {{ limit }} caractères (sans les espaces).'

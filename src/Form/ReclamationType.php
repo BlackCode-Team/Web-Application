@@ -27,6 +27,9 @@ class ReclamationType extends AbstractType
             ->add('contenu', TextareaType::class, [
                     'attr' => ['placeholder' => 'Contenu de la reclamation'],
                     'constraints' => [
+                        new NotBlank([
+                            'message' => 'Veuillez saisir le contenu',
+                        ]),
                         new Length([
                             'min' => 15,
                             'max' => 500,
@@ -43,8 +46,8 @@ class ReclamationType extends AbstractType
             ->add('vehicule', EntityType::class, [
                 'class' => Vehicule::class,
                 'choice_label' => 'matricule',
-                'placeholder' => 'Choose a vehicle',
-                ])
+                'placeholder' => 'choisir un vehicule',
+                'required' => true,])
             ->add('submit', SubmitType::class, [
                     'label' => 'Envoyer la reclamation',
                 ])
