@@ -54,7 +54,7 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
 
     }
 
-    // line 3
+    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,7 +64,7 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 4
+        // line 5
         echo "      <div class=\"row\">
                                                                
                     <div class=\"col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing\">
@@ -94,36 +94,36 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
         </thead>
         <tbody>
         ";
-        // line 32
+        // line 33
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["itineraires"]) || array_key_exists("itineraires", $context) ? $context["itineraires"] : (function () { throw new RuntimeError('Variable "itineraires" does not exist.', 32, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["itineraires"]) || array_key_exists("itineraires", $context) ? $context["itineraires"] : (function () { throw new RuntimeError('Variable "itineraires" does not exist.', 33, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["itineraire"]) {
-            // line 33
+            // line 34
             echo "            <tr>
                 <td>";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 34), "html", null, true);
-            echo "</td>
-                <td>";
             // line 35
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointdepart", [], "any", false, false, false, 35)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 35), "html", null, true);
             echo "</td>
                 <td>";
             // line 36
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointarrivee", [], "any", false, false, false, 36)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointdepart", [], "any", false, false, false, 36)), "html", null, true);
             echo "</td>
                 <td>";
             // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "kilometrage", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "pointarrivee", [], "any", false, false, false, 37)), "html", null, true);
             echo "</td>
                 <td>";
             // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "dureeestimee", [], "any", false, false, false, 38), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "kilometrage", [], "any", false, false, false, 38), "html", null, true);
             echo "</td>
                 <td>";
             // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "nbUsage", [], "any", false, false, false, 39), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "dureeestimee", [], "any", false, false, false, 39), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["itineraire"], "nbUsage", [], "any", false, false, false, 40), "html", null, true);
             echo "</td>
                 <td class=\"text-center\">
                       <div class=\"toolbar\">
@@ -131,14 +131,14 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
                                   <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
                                                            
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 45
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_edit", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 45)]), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_edit", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 46)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 47
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_delete", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 47)]), "html", null, true);
-            echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+            // line 48
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_delete", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 48)]), "html", null, true);
+            echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>
@@ -150,7 +150,7 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 56
+            // line 57
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -159,10 +159,10 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['itineraire'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 60
+        // line 61
         echo "        </tbody>
     </table>                                              ";
-        // line 62
+        // line 63
         echo "                                </div>
                                 <div class=\"pagination-section\">
                                     <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
@@ -202,12 +202,13 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
 
     public function getDebugInfo()
     {
-        return array (  166 => 62,  163 => 60,  154 => 56,  140 => 47,  135 => 45,  126 => 39,  122 => 38,  118 => 37,  114 => 36,  110 => 35,  106 => 34,  103 => 33,  98 => 32,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  166 => 63,  163 => 61,  154 => 57,  140 => 48,  135 => 46,  126 => 40,  122 => 39,  118 => 38,  114 => 37,  110 => 36,  106 => 35,  103 => 34,  98 => 33,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'back.html.twig' %}
+
 
     {% block body %}
       <div class=\"row\">
@@ -253,7 +254,7 @@ class __TwigTemplate_7ed864ee92469b87ec62dbcbf232d47ace07dee34a63cab0ed2b009e90a
                                                            
                                     <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_edit', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
-                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-delete-6\"></i></a>
+                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                           </ul>
                        </div>

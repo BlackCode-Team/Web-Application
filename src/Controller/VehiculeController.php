@@ -18,10 +18,19 @@ class VehiculeController extends AbstractController
     #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        return $this->render('vehicule/carlist.html.twig', [
+        return $this->render('vehicule/list.html.twig', [
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
+
+    #[Route('/back', name: 'app_vehicule_indexback', methods: ['GET'])]
+    public function indexback(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/index.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
 
     #[Route('/new', name: 'app_vehicule_new', methods: ['GET', 'POST'])]
     public function new(Request $request, VehiculeRepository $vehiculeRepository): Response

@@ -59,15 +59,11 @@
 									</div>
                                     <div class="form-group row mb-4">
                                         <div class="col-xl-10 col-lg-9 col-sm-10">
-                                            {{ form_widget(form.image, {'attr': {'class': 'form-control', 'value': form.image.vars.value}}) }}
+                                            {{ form_widget(form.image, {'attr': {'class': 'form-control', 'value': asset('images/' ~ vehicule.image) }}) }}
                                             {{ form_errors(form.image) }}
                                         </div>
                                     </div>
-									 <div class="form-group row">
-										<div class="col-sm-10">
-											{{ form_widget(form.submit, {'attr': {'class': 'btn btn-button-7 mb-4 mt-3 float-right'}}) }}
-										</div>
-									</div>
+									
                                      </div>
                         </div>
                     </div>

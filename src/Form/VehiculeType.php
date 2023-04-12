@@ -13,8 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\NotBlank;
-
-
+use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\File;
 
 use Symfony\Component\Validator\Constraints\Range;
@@ -58,8 +57,15 @@ class VehiculeType extends AbstractType
                     ]])
             ->add('batterie',IntegerType::class, [
                     'data' => 100,
-                    'attr' => ['readonly' => true],])
-            ->add('prix',IntegerType::class)
+                    'attr' => ['readonly' => true],
+                    ])
+            ->add('prix', IntegerType::class, [
+                    'constraints' => [
+                    new GreaterThan([
+                        'value' => 0,
+                        'message' => 'Le prix doit être supérieur à zéro.'
+                        ])]
+                    ])
             ->add('image', FileType::class, [
                 'data_class' => null,
                 'constraints' => [

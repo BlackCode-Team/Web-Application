@@ -178,25 +178,22 @@ class __TwigTemplate_f5d2f81330dac943b16963632c16d37fc995fba8467466d9789009a2905
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
                                     <div class=\"form-group row mb-4\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-9 col-sm-10\">
-\t\t\t\t\t\t\t\t\t\t\t";
+                                        <div class=\"col-xl-10 col-lg-9 col-sm-10\">
+                                            ";
         // line 62
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 62, $this->source); })()), "image", [], "any", false, false, false, 62), 'widget', ["attr" => ["class" => "form-control"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 62, $this->source); })()), "image", [], "any", false, false, false, 62), 'widget', ["attr" => ["class" => "form-control", "value" => $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, (isset($context["vehicule"]) || array_key_exists("vehicule", $context) ? $context["vehicule"] : (function () { throw new RuntimeError('Variable "vehicule" does not exist.', 62, $this->source); })()), "image", [], "any", false, false, false, 62)))]]);
         echo "
-\t\t\t\t\t\t\t\t\t\t\t";
+                                            ";
         // line 63
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 63, $this->source); })()), "image", [], "any", false, false, false, 63), 'errors');
         echo "
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t <div class=\"form-group row\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">
-\t\t\t\t\t\t\t\t\t\t\t";
-        // line 68
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 68, $this->source); })()), "submit", [], "any", false, false, false, 68), 'widget', ["attr" => ["class" => "btn btn-button-7 mb-4 mt-3 float-right"]]);
-        echo "
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>
+                                        </div>
+                                    </div>
+\t\t\t\t\t\t\t\t\t
+                                     </div>
+                        </div>
+                    </div>
+                </div>
  ";
         // line 71
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 71, $this->source); })()), 'form_end');
@@ -231,7 +228,7 @@ class __TwigTemplate_f5d2f81330dac943b16963632c16d37fc995fba8467466d9789009a2905
 
     public function getDebugInfo()
     {
-        return array (  210 => 73,  206 => 72,  202 => 71,  196 => 68,  188 => 63,  184 => 62,  176 => 57,  172 => 56,  164 => 51,  160 => 50,  150 => 43,  146 => 42,  139 => 38,  135 => 37,  126 => 31,  122 => 30,  109 => 22,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  207 => 73,  203 => 72,  199 => 71,  188 => 63,  184 => 62,  176 => 57,  172 => 56,  164 => 51,  160 => 50,  150 => 43,  146 => 42,  139 => 38,  135 => 37,  126 => 31,  122 => 30,  109 => 22,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -296,16 +293,16 @@ class __TwigTemplate_f5d2f81330dac943b16963632c16d37fc995fba8467466d9789009a2905
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
                                     <div class=\"form-group row mb-4\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-9 col-sm-10\">
-\t\t\t\t\t\t\t\t\t\t\t{{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
-\t\t\t\t\t\t\t\t\t\t\t{{ form_errors(form.image) }}
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t <div class=\"form-group row\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">
-\t\t\t\t\t\t\t\t\t\t\t{{ form_widget(form.submit, {'attr': {'class': 'btn btn-button-7 mb-4 mt-3 float-right'}}) }}
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>
+                                        <div class=\"col-xl-10 col-lg-9 col-sm-10\">
+                                            {{ form_widget(form.image, {'attr': {'class': 'form-control', 'value': asset('images/' ~ vehicule.image) }}) }}
+                                            {{ form_errors(form.image) }}
+                                        </div>
+                                    </div>
+\t\t\t\t\t\t\t\t\t
+                                     </div>
+                        </div>
+                    </div>
+                </div>
  {{ form_end(form) }}
     <a href=\"{{ path('app_vehicule_index') }}\">back to list</a>
     {{ include('vehicule/_delete_form.html.twig') }}

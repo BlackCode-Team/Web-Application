@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Reclamation index{% endblock %}
 
@@ -23,8 +23,9 @@
                 <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
                 <td>{{ reclamation.statut }}</td>
                 <td>
-                    <a href="{{ path('app_reclamation_show', {'idreclamation': reclamation.idreclamation}) }}">show</a>
-                    <a href="{{ path('app_reclamation_edit', {'idreclamation': reclamation.idreclamation}) }}">edit</a>
+                    <a href="{{ path('app_reclamation_show', {'idreclamation': reclamation.idreclamation}) }}">Afficher</a>
+                    <a href="{{ path('app_reponse_new', {'id': reclamation.idreclamation}) }}">Repondre</a>
+
                 </td>
             </tr>
         {% else %}

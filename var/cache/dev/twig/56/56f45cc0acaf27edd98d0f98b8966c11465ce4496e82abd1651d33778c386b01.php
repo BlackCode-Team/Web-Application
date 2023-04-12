@@ -28,6 +28,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
         $this->blocks = [
             'css' => [$this, 'block_css'],
+            'page' => [$this, 'block_page'],
             'body' => [$this, 'block_body'],
             'javascript' => [$this, 'block_javascript'],
         ];
@@ -51,7 +52,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo-4.png"), "html", null, true);
@@ -60,8 +61,41 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
     ";
         // line 12
         $this->displayBlock('css', $context, $blocks);
-        // line 26
-        echo "</head>
+        // line 13
+        echo "    <link href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+   
+    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
+    <link href=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"";
+        // line 22
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <link href=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/s"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
+    
+</head>
 <body>
     <div id=\"eq-loader\">
       <div class=\"eq-loader-div\">
@@ -75,8 +109,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"";
+            <a href=\"";
         // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.html"), "html", null, true);
+        echo "\" class=\"\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo2.png"), "html", null, true);
         echo "\" class=\"img-fluid\" alt=\"logo\"></a> ";
         // line 41
@@ -197,7 +233,9 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         <li class=\"menu\">
                             <a href=\"\">   ";
         // line 142
-        echo "                                <div class=\"\">
+        echo "                                <div class=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -206,7 +244,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 151
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_badge_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -215,7 +256,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 160
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_indexad");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -224,7 +268,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 169
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -233,7 +280,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 178
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_indexback");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -242,7 +292,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 187
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -251,7 +304,10 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"";
+        // line 196
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+        echo "\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>
@@ -259,11 +315,6 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                             </a>
                           
                         </li>
-                    
-
-
-  
-
                         <li class=\"menu\">
                             <a href=\"\" class=\"dropdown-toggle collapsed\">
                                 <div class=\"\">
@@ -285,30 +336,33 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <div class=\"container\">
                 <div class=\"page-header\">
                     <div class=\"page-title\">
-                        <h3>Dashboard</h3> <!--  esem el page met3ek  -->
+                        <h3> ";
+        // line 225
+        $this->displayBlock('page', $context, $blocks);
+        echo " </h3> <!--  esem el page met3ek  -->
                     </div>
                 </div>
 
 
                 
                 ";
-        // line 236
+        // line 231
         $this->displayBlock('body', $context, $blocks);
         echo "                            ";
-        // line 237
+        // line 232
         echo " 
                
 
                
 
                 ";
-        // line 628
+        // line 623
         echo "
             
 
                
                 ";
-        // line 633
+        // line 628
         echo "
             </div>
         </div>
@@ -332,7 +386,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
         <div class=\"profile-content profile-content-scroll\">
             <div class=\"usr-profile\">
                 <img src=\"";
-        // line 655
+        // line 650
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/profile-7.jpg"), "html", null, true);
         echo "\" alt=\"admin-profile\" class=\"img-fluid\">
             </div>
@@ -361,9 +415,9 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
     </aside>
     <!--  BEGIN PROFILE SIDEBAR  -->
 ";
-        // line 681
+        // line 676
         $this->displayBlock('javascript', $context, $blocks);
-        // line 708
+        // line 703
         echo "</body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
@@ -386,40 +440,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "css"));
 
-        // line 13
-        echo "    <link href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/loader.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link href=\"";
-        // line 15
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/plugins.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
-    <link href=\"";
-        // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/default-dashboard/style.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <link href=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/css/s"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
-    <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
-    ";
+        echo " ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -428,7 +449,26 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
     }
 
-    // line 236
+    // line 225
+    public function block_page($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        echo "    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 231
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -447,7 +487,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
     }
 
-    // line 681
+    // line 676
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -457,34 +497,34 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 682
+        // line 677
         echo "    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src=\"";
-        // line 683
+        // line 678
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/libs/jquery-3.1.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 684
+        // line 679
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/loader.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 685
+        // line 680
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/popper.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 686
+        // line 681
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 687
+        // line 682
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 688
+        // line 683
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/blockui/jquery.blockUI.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 689
+        // line 684
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/app.js"), "html", null, true);
         echo "\"></script>
     <script>
@@ -493,38 +533,38 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
         });
     </script>
     <script src=\"";
-        // line 695
+        // line 690
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/custom.js"), "html", null, true);
         echo "\"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
     <script src=\"";
-        // line 699
+        // line 694
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/charts/chartist/chartist.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 700
+        // line 695
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 701
+        // line 696
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 702
+        // line 697
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/moment.latest.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 703
+        // line 698
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/calendar/pignose/pignose.calendar.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 704
+        // line 699
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/plugins/progressbar/progressbar.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 705
+        // line 700
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/js/default-dashboard/default-custom.js"), "html", null, true);
         echo "\"></script>
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
@@ -549,7 +589,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
 
     public function getDebugInfo()
     {
-        return array (  528 => 705,  524 => 704,  520 => 703,  516 => 702,  512 => 701,  508 => 700,  504 => 699,  497 => 695,  488 => 689,  484 => 688,  480 => 687,  476 => 686,  472 => 685,  468 => 684,  464 => 683,  461 => 682,  451 => 681,  432 => 236,  419 => 23,  415 => 22,  411 => 21,  407 => 20,  400 => 16,  396 => 15,  390 => 13,  380 => 12,  367 => 708,  365 => 681,  336 => 655,  312 => 633,  306 => 628,  299 => 237,  296 => 236,  200 => 142,  175 => 119,  157 => 104,  142 => 92,  127 => 80,  112 => 68,  83 => 41,  80 => 40,  64 => 26,  62 => 12,  57 => 10,  46 => 1,);
+        return array (  568 => 700,  564 => 699,  560 => 698,  556 => 697,  552 => 696,  548 => 695,  544 => 694,  537 => 690,  528 => 684,  524 => 683,  520 => 682,  516 => 681,  512 => 680,  508 => 679,  504 => 678,  501 => 677,  491 => 676,  472 => 231,  453 => 225,  434 => 12,  421 => 703,  419 => 676,  390 => 650,  366 => 628,  360 => 623,  353 => 232,  350 => 231,  341 => 225,  309 => 196,  297 => 187,  285 => 178,  273 => 169,  261 => 160,  249 => 151,  236 => 142,  211 => 119,  193 => 104,  178 => 92,  163 => 80,  148 => 68,  119 => 41,  114 => 40,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  75 => 16,  71 => 15,  65 => 13,  63 => 12,  58 => 10,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -562,23 +602,23 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    {% block css %}
+    {% block css %} {% endblock %}
     <link href=\"{{asset('back/assets/css/loader.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link href=\"{{asset('back/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/assets/css/plugins.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <!-- END GLOBAL MANDATORY STYLES -->
-
+   
     <!-- BEGIN PAGE LEVEL plugins/CUSTOM STYLES -->
     <link href=\"{{asset('back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/plugins/charts/chartist/chartist.css')}}\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"{{asset('back/assets/css/default-dashboard/style.css')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"{{asset('back/assets/css/s')}}\" rel=\"stylesheet\" type=\"text/css\" />
     <!-- END PAGE LEVEL plugins/CUSTOM STYLES -->
-    {% endblock %}
+    
 </head>
 <body>
     <div id=\"eq-loader\">
@@ -593,7 +633,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"#\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
+            <a href=\"{{asset('index.html')}}\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
         </div>
         <ul class=\"navbar-nav flex-row mr-auto\">
             <li class=\"nav-item ml-4 d-lg-none d-sm-block d-none\">
@@ -695,7 +735,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                      
                         <li class=\"menu\">
                             <a href=\"\">   {# lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} #}
-                                <div class=\"\">
+                                <div class=\"{{path('app_park_indexad')}}\">
                                     <i class=\"flaticon-user-11\"></i>
                                     <span>Gestion Agents</span>
                                 </div>
@@ -704,7 +744,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                         </li>
                     
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_badge_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-cup\"></i>
                                     <span>Gestion Badges</span>
@@ -713,7 +753,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"#\">
+                            <a href=\"{{path('app_park_indexad')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car-1\"></i>
                                     <span>Gestion des park</span>
@@ -722,7 +762,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_itineraire_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-map-1\"></i>
                                     <span>Gestion des itineraires</span>
@@ -731,7 +771,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_vehicule_indexback')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-car\"></i>
                                     <span>Gestion Vehicule</span>
@@ -740,7 +780,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reservation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-notes-1\"></i>
                                     <span>Gestion Reservation</span>
@@ -749,7 +789,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                           
                         </li>
                         <li class=\"menu\">
-                            <a href=\"\">
+                            <a href=\"{{path('app_reclamation_index')}}\">
                                 <div class=\"\">
                                     <i class=\"flaticon-danger-line\"></i>
                                     <span>Gestion Reclamation</span>
@@ -757,11 +797,6 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
                             </a>
                           
                         </li>
-                    
-
-
-  
-
                         <li class=\"menu\">
                             <a href=\"\" class=\"dropdown-toggle collapsed\">
                                 <div class=\"\">
@@ -783,7 +818,7 @@ class __TwigTemplate_49f8db2adf628299101d8c5979e427cd1bbf2d39bd2e1a593652931cc2d
             <div class=\"container\">
                 <div class=\"page-header\">
                     <div class=\"page-title\">
-                        <h3>Dashboard</h3> <!--  esem el page met3ek  -->
+                        <h3> {% block page %}    {% endblock %} </h3> <!--  esem el page met3ek  -->
                     </div>
                 </div>
 

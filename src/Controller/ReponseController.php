@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Reponse;
 use App\Form\ReponseType;
 use App\Repository\ResponseRepository;
+use App\Repository\ReclamationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,14 +22,18 @@ class ReponseController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_reponse_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ResponseRepository $responseRepository): Response
+    #[Route('/new/{id}', name: 'app_reponse_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, ResponseRepository $responseRepository, ReclamationRepository $reclamationRepository, int $id): Response
     {
-        $reponse = new Reponse();
+        $reclamation = $reclamationRepository->find($id);
+
+            $reponse = new Reponse();
+        $reponse->setReclamation($reclamation);
         $form = $this->createForm(ReponseType::class, $reponse);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $reponse->setDatereponse(new \DateTime());
             $responseRepository->save($reponse, true);
 
             return $this->redirectToRoute('app_reponse_index', [], Response::HTTP_SEE_OTHER);

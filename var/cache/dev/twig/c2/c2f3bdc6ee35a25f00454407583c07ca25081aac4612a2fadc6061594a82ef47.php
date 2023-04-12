@@ -33,7 +33,7 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "reclamation/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "reclamation/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -126,18 +126,19 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
                     <a href=\"";
             // line 26
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["idreclamation" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idreclamation", [], "any", false, false, false, 26)]), "html", null, true);
-            echo "\">show</a>
+            echo "\">Afficher</a>
                     <a href=\"";
             // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["idreclamation" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idreclamation", [], "any", false, false, false, 27)]), "html", null, true);
-            echo "\">edit</a>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_new", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idreclamation", [], "any", false, false, false, 27)]), "html", null, true);
+            echo "\">Repondre</a>
+
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 31
+            // line 32
             echo "            <tr>
                 <td colspan=\"6\">no records found</td>
             </tr>
@@ -146,12 +147,12 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 36
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 38
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">Create new</a>
 ";
@@ -175,12 +176,12 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
 
     public function getDebugInfo()
     {
-        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  156 => 39,  151 => 36,  142 => 32,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
 {% block title %}Reclamation index{% endblock %}
 
@@ -205,8 +206,9 @@ class __TwigTemplate_1544ad838be63aacbe70382e0008293114bc2755a2f2eefc4eba6b611a2
                 <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
                 <td>{{ reclamation.statut }}</td>
                 <td>
-                    <a href=\"{{ path('app_reclamation_show', {'idreclamation': reclamation.idreclamation}) }}\">show</a>
-                    <a href=\"{{ path('app_reclamation_edit', {'idreclamation': reclamation.idreclamation}) }}\">edit</a>
+                    <a href=\"{{ path('app_reclamation_show', {'idreclamation': reclamation.idreclamation}) }}\">Afficher</a>
+                    <a href=\"{{ path('app_reponse_new', {'id': reclamation.idreclamation}) }}\">Repondre</a>
+
                 </td>
             </tr>
         {% else %}

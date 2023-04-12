@@ -27,6 +27,7 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'stylesheet' => [$this, 'block_stylesheet'],
+            'page' => [$this, 'block_page'],
             'body' => [$this, 'block_body'],
             'javascript' => [$this, 'block_javascript'],
         ];
@@ -104,7 +105,28 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
 
     }
 
-    // line 14
+    // line 12
+    public function block_page($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
+
+        // line 13
+        echo "Reservation 
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -114,12 +136,12 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 15
+        // line 17
         echo "       <div class=\"r-form-strip\">
               <div class=\"r-slider-serach r-slider-serach-down form-search dark\">
                 ";
-        // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => true, "id" => "form"]]);
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => true, "id" => "form"]]);
         echo "
                     <div class=\"form-title\">
                         <h2>Ajouter Vos<b> Itineraires</b></h2>
@@ -129,13 +151,13 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
                           <div class=\"form-group has-icon has-label\">
                               <label for=\"validationCustom01\">Picking Up Location</label>
                               ";
-        // line 25
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "pointdepart", [], "any", false, false, false, 25), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Airport or Anywhere", "id" => "validationCustom01", "required" => true]]);
+        // line 27
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "pointdepart", [], "any", false, false, false, 27), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Airport or Anywhere", "id" => "validationCustom01", "required" => true]]);
         echo "
                                  <div class=\"invalid-feedback\">
                               ";
-        // line 27
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "pointdepart", [], "any", false, false, false, 27), 'errors');
+        // line 29
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), "pointdepart", [], "any", false, false, false, 29), 'errors');
         echo "
                                                 </div>
                               <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
@@ -145,13 +167,13 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
                           <div class=\"form-group has-icon has-label\">
                               <label for=\"validationCustom02\">Dropping Off Location</label>
                                ";
-        // line 35
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "pointarrivee", [], "any", false, false, false, 35), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Airport or Anywhere", "id" => "validationCustom02", "required" => true]]);
+        // line 37
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "pointarrivee", [], "any", false, false, false, 37), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Airport or Anywhere", "id" => "validationCustom02", "required" => true]]);
         echo "
                                             <div class=\"invalid-feedback\">
                                ";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "pointarrivee", [], "any", false, false, false, 37), 'errors');
+        // line 39
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "pointarrivee", [], "any", false, false, false, 39), 'errors');
         echo "
                                                 </div>                    
                               <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
@@ -161,13 +183,13 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
                           <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
                               <label for=\"validationCustom03\">Kilometrage de location</label>
                                 ";
-        // line 45
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 45, $this->source); })()), "kilometrage", [], "any", false, false, false, 45), 'widget', ["attr" => ["class" => "form-control", "placeholder" => ".... KM", "type" => "number", "id" => "validationCustom03", "required" => true]]);
+        // line 47
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "kilometrage", [], "any", false, false, false, 47), 'widget', ["attr" => ["class" => "form-control", "placeholder" => ".... KM", "type" => "number", "id" => "validationCustom03", "required" => true]]);
         echo "
                                              <div class=\"invalid-feedback\">
                                   ";
-        // line 47
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "kilometrage", [], "any", false, false, false, 47), 'errors');
+        // line 49
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "kilometrage", [], "any", false, false, false, 49), 'errors');
         echo "
                                                 </div>                    
                               <span class=\"form-control-icon\"><i class=\"fa fa-calendar\"></i></span>
@@ -177,13 +199,13 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
                           <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
                               <label for=\"validationCustom04\">Nombre d'heures de Location</label>
                                  ";
-        // line 55
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 55, $this->source); })()), "dureeestimee", [], "any", false, false, false, 55), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "0000", "type" => "number", "id" => "validationCustom04", "required" => true]]);
+        // line 57
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 57, $this->source); })()), "dureeestimee", [], "any", false, false, false, 57), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "0000", "type" => "number", "id" => "validationCustom04", "required" => true]]);
         echo "
                                              <div class=\"invalid-feedback\" color=\"red\">
                                         ";
-        // line 57
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 57, $this->source); })()), "dureeestimee", [], "any", false, false, false, 57), 'errors');
+        // line 59
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 59, $this->source); })()), "dureeestimee", [], "any", false, false, false, 59), 'errors');
         echo "
                                                 </div>   
                               <span class=\"form-control-icon\"><i class=\"fa fa-clock-o\"></i></span>
@@ -199,8 +221,8 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
                       </div>
                     </div>
                 ";
-        // line 71
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 71, $this->source); })()), 'form_end');
+        // line 73
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 73, $this->source); })()), 'form_end');
         echo "
               </div>
             </div>
@@ -213,7 +235,7 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
 
     }
 
-    // line 76
+    // line 78
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -223,7 +245,7 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 77
+        // line 79
         echo "
    
             ";
@@ -247,7 +269,7 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
 
     public function getDebugInfo()
     {
-        return array (  227 => 77,  217 => 76,  203 => 71,  186 => 57,  181 => 55,  170 => 47,  165 => 45,  154 => 37,  149 => 35,  138 => 27,  133 => 25,  122 => 17,  118 => 15,  108 => 14,  93 => 7,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  249 => 79,  239 => 78,  225 => 73,  208 => 59,  203 => 57,  192 => 49,  187 => 47,  176 => 39,  171 => 37,  160 => 29,  155 => 27,  144 => 19,  140 => 17,  130 => 16,  119 => 13,  109 => 12,  94 => 7,  91 => 6,  81 => 5,  62 => 3,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -263,7 +285,9 @@ class __TwigTemplate_28a9d86983d42cd112b0df2f64a9f1542eb9b6629243b49de4e18477a63
      
 
 {% endblock %}
-
+{% block page %}
+Reservation 
+{% endblock %}
 
 {% block body %}
        <div class=\"r-form-strip\">
