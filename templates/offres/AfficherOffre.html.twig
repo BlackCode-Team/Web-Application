@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div style="display: flex; justify-content: space-around;">
+<div >
+<h2> Nous sommes ravis de vous présenter nos offres exclusives !
+Nos offres sont régulièrement mises à jour, alors assurez-vous de 
+les vérifier régulièrement pour ne rien manquer.
+ Profitez de nos offres exceptionnelles dès maintenant et économisez sur vos locations en ligne !"</h2>
+ </div>
+ <div>
+    <img src="{{asset('assets/images/offre.png')}}" alt="offre" width="200" height="200">
+ </div>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Taux de remise % </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for offre in cc %}
+      <tr>
+        <td>{{ offre.nom }}</td>
+        <td>{{ offre.description }}</td>
+        <td>{{ offre.tauxderemise }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
