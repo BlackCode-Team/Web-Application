@@ -13,7 +13,7 @@ class RatingType extends AbstractType
     {
         $builder
             ->add('nbetoile')
-            ->add('idvehicule')
+           
         ;
     }
 
