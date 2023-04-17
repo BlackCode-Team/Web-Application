@@ -15,12 +15,12 @@ class Utilisateur1Type extends AbstractType
             ->add('role')
             ->add('nom')
             ->add('prenom')
-            ->add('pwd')
+            ->add('pwd', PasswordType::class)
             ->add('email')
             ->add('cin')
             ->add('permis')
-            ->add('nbpoint')
-            ->add('idaffectation')
+            
+        
         ;
     }
 

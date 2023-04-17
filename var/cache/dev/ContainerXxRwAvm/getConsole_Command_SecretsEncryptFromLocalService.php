@@ -1,6 +1,11 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/dev/ContainerDWdRG4Z/getConsole_Command_SecretsEncryptFromLocalService.php
+namespace ContainerDWdRG4Z;
+
+========
 namespace ContainerXxRwAvm;
+>>>>>>>> dafaa418e965cb562724709fb7ac21731436e887:var/cache/dev/ContainerXxRwAvm/getConsole_Command_SecretsEncryptFromLocalService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

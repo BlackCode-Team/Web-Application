@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/utilisateur')]
+#[Route('/utilisateur', name: 'app_utilisateur')]
 class UtilisateurController extends AbstractController
 {
     #[Route('/', name: 'app_utilisateur_index', methods: ['GET'])]
@@ -26,6 +26,7 @@ class UtilisateurController extends AbstractController
     {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(Utilisateur1Type::class, $utilisateur);
+        $form->get('role')->setData('agent');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

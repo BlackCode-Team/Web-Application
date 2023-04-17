@@ -1,3 +1,30 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+app_home:
+    path: /
+    controller: App\Controller\LoginController::index
+
+app_utilisateur_new:
+    path: '/new'
+    controller: App\Controller\UtilisateurController::new
+
+app_utilisateur_show:
+    path: '/utilisateur/{iduser}'
+    controller: App\Controller\UtilisateurController::show
+
+app_utilisateur_index:
+    path: /utilisateur
+    controller: App\Controller\UtilisateurController::index
+    methods: GET
+
+app_utilisateur_edit:
+    path: '/{iduser}/edit'
+    controller: App\Controller\UtilisateurController::edit
+    methods: [GET, POST]
+
+app_utilisateur_delete:
+    path: '/{iduser}'
+    controller: App\Controller\UtilisateurController::delete
+    methods: POST
