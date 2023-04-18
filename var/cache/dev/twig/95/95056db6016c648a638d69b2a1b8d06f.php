@@ -33,7 +33,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reponse/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "reponse/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "reponse/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -65,7 +65,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Reponse index";
+        echo "Reponse";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -90,7 +90,6 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Idreponse</th>
                 <th>Description</th>
                 <th>Datereponse</th>
                 <th>actions</th>
@@ -98,33 +97,33 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
         </thead>
         <tbody>
         ";
-        // line 18
+        // line 17
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reponses"]) || array_key_exists("reponses", $context) ? $context["reponses"] : (function () { throw new RuntimeError('Variable "reponses" does not exist.', 18, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reponses"]) || array_key_exists("reponses", $context) ? $context["reponses"] : (function () { throw new RuntimeError('Variable "reponses" does not exist.', 17, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["reponse"]) {
-            // line 19
+            // line 18
             echo "            <tr>
                 <td>";
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 19), "html", null, true);
+            echo "</td>
+                <td>";
             // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 20), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "description", [], "any", false, false, false, 20), "html", null, true);
             echo "</td>
                 <td>";
             // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "description", [], "any", false, false, false, 21), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 22
-            ((twig_get_attribute($this->env, $this->source, $context["reponse"], "datereponse", [], "any", false, false, false, 22)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "datereponse", [], "any", false, false, false, 22), "Y-m-d"), "html", null, true))) : (print ("")));
+            ((twig_get_attribute($this->env, $this->source, $context["reponse"], "datereponse", [], "any", false, false, false, 21)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "datereponse", [], "any", false, false, false, 21), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 24
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_show", ["idreponse" => twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 24)]), "html", null, true);
-            echo "\">show</a>
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_show", ["idreponse" => twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 23)]), "html", null, true);
+            echo "\">Afficher</a>
                     <a href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_edit", ["idreponse" => twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_edit", ["idreponse" => twig_get_attribute($this->env, $this->source, $context["reponse"], "idreponse", [], "any", false, false, false, 24)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -132,7 +131,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 29
+            // line 28
             echo "            <tr>
                 <td colspan=\"4\">no records found</td>
             </tr>
@@ -141,14 +140,10 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reponse'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 32
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 36
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_new");
-        echo "\">Create new</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -170,14 +165,14 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  150 => 36,  145 => 33,  136 => 29,  127 => 25,  123 => 24,  118 => 22,  114 => 21,  110 => 20,  107 => 19,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  144 => 32,  135 => 28,  126 => 24,  122 => 23,  117 => 21,  113 => 20,  109 => 19,  106 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
-{% block title %}Reponse index{% endblock %}
+{% block title %}Reponse{% endblock %}
 
 {% block body %}
     <h1>Reponse index</h1>
@@ -185,7 +180,6 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Idreponse</th>
                 <th>Description</th>
                 <th>Datereponse</th>
                 <th>actions</th>
@@ -198,7 +192,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
                 <td>{{ reponse.description }}</td>
                 <td>{{ reponse.datereponse ? reponse.datereponse|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href=\"{{ path('app_reponse_show', {'idreponse': reponse.idreponse}) }}\">show</a>
+                    <a href=\"{{ path('app_reponse_show', {'idreponse': reponse.idreponse}) }}\">Afficher</a>
                     <a href=\"{{ path('app_reponse_edit', {'idreponse': reponse.idreponse}) }}\">edit</a>
                 </td>
             </tr>
@@ -210,8 +204,7 @@ class __TwigTemplate_1a26221502394747c3ca21215451e6f1 extends \Twig\Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_reponse_new') }}\">Create new</a>
 {% endblock %}
-", "reponse/index.html.twig", "C:\\Users\\msi\\Documents\\GitHub\\Web-Application\\templates\\reponse\\index.html.twig");
+", "reponse/index.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\reponse\\index.html.twig");
     }
 }
