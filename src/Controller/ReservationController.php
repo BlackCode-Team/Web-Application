@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Reservation;
+use App\Entity\Offre;
+
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,19 +58,20 @@ class ReservationController extends AbstractController
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
-
+        $totalPrice = 0;
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
         $historique = new Historique();
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
-
+     //   $totalPrice = $this->calculateTotalPrice($reservation);
+     //   $form->get('prixreservation')->setData($totalPrice);
         return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
     }
-
         return $this->renderForm('reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
+            'totalPrice' => $totalPrice
         ]);
     }
 
@@ -116,5 +119,43 @@ class ReservationController extends AbstractController
 
         return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/tarif/{idreservation}', methods: ['GET'])]
+    public function calculateTotalPrice(Reservation $reservation ): Response
+
+    {
+        // Get the base price from the reservation object
+        $basePrice = 5;
+    
+        // Calculate the price based on the time of rental
+        $datedebut = ($reservation->getDatedebut());
+$datefin = ($reservation->getDatefin());
+
+// Difference en jours
+$diffDays = $datedebut->diff($datefin)->days;
+
+// Difference en minutes
+$diffMinutes = $datedebut->diff($datefin)->format('%i');
+
+// Calcul du prix
+$timePrice = ($diffDays * 24 * $reservation->getVehicule()->getPrix()) + ($diffMinutes * $reservation->getVehicule()->getPrix() / 60)+$reservation->getDatedebut()->diff($reservation->getDatefin())->h * $reservation->getVehicule()->getPrix();
+
+        // Calculate the price based on the distance traveled
+        $distancePrice = $reservation->getItineraire()->getkilometrage() * $reservation->getVehicule()->getPrix();
+    
+        // Get the discount from the reservation object
+        //$id=$reservation->getIduser();
+     //   $offre = $this->getDoctrine()->getRepository(Offre::class)->find($idoffre);
+      //  $discount = $offre ? $offre->getTauxderemise() : 0;
+    
+        // Calculate the total price
+        $totalPrice = $basePrice + $timePrice + $distancePrice;
+        // - ($discount / 100 * $basePrice);
+      //  $response = new Response("Prix total : " . $totalPrice . "-----timePrice  ". $timePrice . "distancePrice ". $distancePrice . " euros" );
+      $response = new Response($totalPrice);
+       return $response;
+        //return $totalPrice;
+    }
+    
+
   
 }

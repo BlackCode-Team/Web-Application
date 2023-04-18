@@ -38,13 +38,14 @@ class ReservationType extends AbstractType
                 ])
             ]
         ])
-        ->add('prixreservation', null, [
-            'constraints' => [
-                new GreaterThan([
-                    'value' => 0,
-                    'message' => 'Le prix doit être supérieur à zéro.'
-                ])
-            ]
+        ->add('prixreservation', null, [      'disabled' => false
+            // 'constraints' => [
+            //     new GreaterThan([
+            //         'value' => 0,
+            //         'message' => 'Le prix doit être supérieur à zéro.',
+            //         'disabled' => true
+            //     ])
+            // ]
         ])
         
         ->add('utilisateur',EntityType::class,

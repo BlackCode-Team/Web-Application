@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amende{% endblock %}
+
+{% block body %}
+    <h1>Amende</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numero amende</th>
+                <td>{{ amende.idamende }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ amende.date ? amende.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ amende.montant }}</td>
+            </tr>
+            <tr>
+                <th>Cause</th>
+                <td>{{ amende.cause }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ amende.description }}</td>
+            </tr>
+            <tr>
+                <th>Statusamende</th>
+                <td>{{ amende.statusamende }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_amende_index') }}">back to list</a>
+
+    <a href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">edit</a>
+
+    {{ include('amende/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amende index{% endblock %}
+
+{% block body %}
+    <h1>Amende index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numero amende</th>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Cause</th>
+                <th>Description</th>
+                <th>Status Amende</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for amende in amendes %}
+            <tr>
+                <td>{{ amende.idamende }}</td>
+                <td>{{ amende.date ? amende.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ amende.montant }}</td>
+                <td>{{ amende.cause }}</td>
+                <td>{{ amende.description }}</td>
+                <td>{{ amende.statusamende }}</td>
+                <td>
+                    <a href="{{ path('app_amende_show', {'idamende': amende.idamende}) }}">show</a>
+                    <a href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_amende_new') }}">Create new</a>
+{% endblock %}

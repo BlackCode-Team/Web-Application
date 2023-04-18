@@ -2,69 +2,118 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AmendeRepository;
+use Repository;
 
-/**
- * Amende
- *
- * @ORM\Table(name="amende", indexes={@ORM\Index(name="idreservation", columns={"idreservation"})})
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: AmendeRepository::class)]
+
 class Amende
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idamende", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idamende;
+   
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idamende=null;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime", nullable=false)
-     */
-    private $date;
+    #[ORM\Column(type: "datetime")]
+     private ?\DateTimeInterface $date;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="montant", type="integer", nullable=false)
-     */
-    private $montant;
+     #[ORM\Column]
+     private ?int $montant=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cause", type="string", length=255, nullable=false)
-     */
-    private $cause;
+     #[ORM\Column(length: 255)]
+     private ?string $cause=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     */
-    private $description;
+     #[ORM\Column(length: 255)]
+     private ?string $description=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="statusamende", type="string", length=255, nullable=false)
-     */
-    private $statusamende;
+     #[ORM\Column(length: 255)]
+    private ?string $statusamende;
 
-    /**
-     * @var \Reservation
-     *
-     * @ORM\ManyToOne(targetEntity="Reservation")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreservation", referencedColumnName="idreservation")
-     * })
-     */
-    private $idreservation;
+    #[ORM\ManyToOne(targetEntity: Reservation::class, inversedBy: 'Amende')]
+    #[ORM\JoinColumn(name: 'idreservation', referencedColumnName: 'idreservation')]
+    private ?Reservation $idreservation=null ;
+
+    public function getIdamende(): ?int
+    {
+        return $this->idamende;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getMontant(): ?int
+    {
+        return $this->montant;
+    }
+
+    public function setMontant(int $montant): self
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    public function getCause(): ?string
+    {
+        return $this->cause;
+    }
+
+    public function setCause(string $cause): self
+    {
+        $this->cause = $cause;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getStatusamende(): ?string
+    {
+        return $this->statusamende;
+    }
+
+    public function setStatusamende(string $statusamende): self
+    {
+        $this->statusamende = $statusamende;
+
+        return $this;
+    }
+
+    public function getIdReservation(): ?Reservation
+    {
+        return $this->idreservation;
+    }
+
+    public function setIdReservation(?Reservation $idreservation): self
+    {
+        $this->idreservation = $idreservation;
+
+        return $this;
+    }
+
+  
 
 
 }
