@@ -17,8 +17,8 @@ class Rating
     private ?int $idrating=null;
 
     #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Rating')]
-    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idVehicule')]
-    private ?int $idvehicule=null;
+    #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
+    private ?Vehicule $vehicule=null;
 
     #[ORM\Column]
     private ?int $nbetoile=null;
@@ -48,6 +48,18 @@ class Rating
     public function setNbetoile(int $nbetoile): self
     {
         $this->nbetoile = $nbetoile;
+
+        return $this;
+    }
+
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): self
+    {
+        $this->vehicule = $vehicule;
 
         return $this;
     }
