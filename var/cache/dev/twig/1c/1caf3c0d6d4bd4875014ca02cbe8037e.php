@@ -52,7 +52,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo-4.png"), "html", null, true);
@@ -607,7 +607,7 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no\">
-    <title>Default | Equation - Multipurpose bootstrap Dashboard Template </title>
+    <title>CARNGO </title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('back/assets/img/logo-4.png')}}\"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     {% block css %}  {% endblock %}
@@ -1309,6 +1309,6 @@ class __TwigTemplate_a230905eedb7e2ed94fc5783a1688ff8 extends \Twig\Template
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
-</html>", "back.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\back.html.twig");
+</html>", "back.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\back.html.twig");
     }
 }

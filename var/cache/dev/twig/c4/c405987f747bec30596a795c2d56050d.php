@@ -219,6 +219,6 @@ class __TwigTemplate_b71d5f2d6bf556711587f2a2211a1794 extends \Twig\Template
 
     <a href=\"{{ path('app_offre_new') }}\">Create new</a>
 {% endblock %}
-", "offre/index.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\offre\\index.html.twig");
+", "offre/index.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\offre\\index.html.twig");
     }
 }

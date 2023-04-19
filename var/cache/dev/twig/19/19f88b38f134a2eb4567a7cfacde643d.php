@@ -154,6 +154,6 @@ class __TwigTemplate_c573fc705372951d5ac31f8b539eaa15 extends \Twig\Template
     </ul>
 </div>
 {% endblock %}
-", "badges/index.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\badges\\index.html.twig");
+", "badges/index.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\badges\\index.html.twig");
     }
 }

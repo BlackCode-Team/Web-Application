@@ -1,0 +1,55 @@
+
+name: "Dev dependencies stability check"
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  phpunit:
+    name: "PHPUnit"
+    runs-on: "ubuntu-20.04"
+    env:
+      SYMFONY_REQUIRE: ${{matrix.symfony-require}}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "8.1"
+        dependencies:
+          - "highest"
+        stability:
+          - "dev"
+        symfony-require:
+          - ""
+          - "6.*"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+        with:
+          fetch-depth: 2
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          ini-values: "zend.assertions=1"
+          extensions: "pdo_sqlite"
+
+      - name: "Globally install symfony/flex"
+        run: "composer require --no-progress --no-scripts --no-plugins symfony/flex"
+
+      - name: "Require symfony/messenger"
+        run: "composer require --dev symfony/messenger --no-update"
+        if: "${{ startsWith(matrix.symfony-require, '4.') }}"
+
+      - name: "Install dependencies with Composer"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
+          composer-options: "--prefer-dist"
+
+      - name: "Run PHPUnit"
+        run: "SYMFONY_DEPRECATIONS_HELPER=${{env.GITHUB_WORKSPACE}}/tests/baseline-ignore vendor/bin/phpunit"

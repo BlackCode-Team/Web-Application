@@ -79,6 +79,6 @@ class __TwigTemplate_2f0790cac02d030ec9e96bddde757c3d extends \Twig\Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ badge.idbadge) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "badge/_delete_form.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\badge\\_delete_form.html.twig");
+", "badge/_delete_form.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\badge\\_delete_form.html.twig");
     }
 }

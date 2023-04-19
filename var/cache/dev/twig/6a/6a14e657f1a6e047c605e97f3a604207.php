@@ -189,6 +189,6 @@ Découvrez nos badges uniques et les avantages qu'ils offrent.</h2>
   </div>
 </div>
 
-{% endblock %}", "badges/AfficherBadge.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\badges\\AfficherBadge.html.twig");
+{% endblock %}", "badges/AfficherBadge.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\badges\\AfficherBadge.html.twig");
     }
 }

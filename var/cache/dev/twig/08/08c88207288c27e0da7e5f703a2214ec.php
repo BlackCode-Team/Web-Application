@@ -86,14 +86,18 @@ class __TwigTemplate_4d4339441842514167789346a048f7bf extends \Twig\Template
 
         // line 6
         echo "    <h1>Create new Reservation</h1>
+    ";
+        // line 7
+        echo twig_escape_filter($this->env, (isset($context["totalPrice"]) || array_key_exists("totalPrice", $context) ? $context["totalPrice"] : (function () { throw new RuntimeError('Variable "totalPrice" does not exist.', 7, $this->source); })()), "html", null, true);
+        echo "
 
     ";
-        // line 8
+        // line 9
         echo twig_include($this->env, $context, "reservation/_form.html.twig");
         echo "
 
     <a href=\"";
-        // line 10
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_index");
         echo "\">back to list</a>
 ";
@@ -117,7 +121,7 @@ class __TwigTemplate_4d4339441842514167789346a048f7bf extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  97 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  101 => 11,  96 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -128,11 +132,12 @@ class __TwigTemplate_4d4339441842514167789346a048f7bf extends \Twig\Template
 
 {% block body %}
     <h1>Create new Reservation</h1>
+    {{ totalPrice }}
 
     {{ include('reservation/_form.html.twig') }}
 
     <a href=\"{{ path('app_reservation_index') }}\">back to list</a>
 {% endblock %}
-", "reservation/new.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\reservation\\new.html.twig");
+", "reservation/new.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\reservation\\new.html.twig");
     }
 }

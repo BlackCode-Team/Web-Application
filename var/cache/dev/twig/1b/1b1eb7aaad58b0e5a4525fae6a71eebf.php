@@ -173,6 +173,6 @@ les vérifier régulièrement pour ne rien manquer.
     {% endfor %}
   </tbody>
 </table>
-{% endblock %}", "offres/AfficherOffre.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\offres\\AfficherOffre.html.twig");
+{% endblock %}", "offres/AfficherOffre.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\offres\\AfficherOffre.html.twig");
     }
 }
