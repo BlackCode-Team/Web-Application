@@ -28,7 +28,6 @@ return [
     'app_itineraire_edit' => [['iditineraire'], ['_controller' => 'App\\Controller\\ItineraireController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'iditineraire', true], ['text', '/itineraire']], [], [], []],
     'app_itineraire_delete' => [['iditineraire'], ['_controller' => 'App\\Controller\\ItineraireController::delete'], [], [['variable', '/', '[^/]++', 'iditineraire', true], ['text', '/itineraire']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::login'], [], [['text', '/login']], [], [], []],
-    'app_home' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/']], [], [], []],
     'app_offre_index' => [[], ['_controller' => 'App\\Controller\\OffreController::index'], [], [['text', '/offre/']], [], [], []],
     'app_offre_new' => [[], ['_controller' => 'App\\Controller\\OffreController::new'], [], [['text', '/offre/new']], [], [], []],
     'app_offre_show' => [['idoffre'], ['_controller' => 'App\\Controller\\OffreController::show'], [], [['variable', '/', '[^/]++', 'idoffre', true], ['text', '/offre']], [], [], []],
@@ -88,4 +87,10 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
+    'app_home' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/']], [], [], []],
+    'app_utilisateur_new' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::new'], [], [['text', '/new']], [], [], []],
+    'app_utilisateur_show' => [['iduser'], ['_controller' => 'App\\Controller\\UtilisateurController::show'], [], [['variable', '/', '[^/]++', 'iduser', true], ['text', '/utilisateur']], [], [], []],
+    'app_utilisateur_index' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::index'], [], [['text', '/utilisateur']], [], [], []],
+    'app_utilisateur_edit' => [['iduser'], ['_controller' => 'App\\Controller\\UtilisateurController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'iduser', true]], [], [], []],
+    'app_utilisateur_delete' => [['iduser'], ['_controller' => 'App\\Controller\\UtilisateurController::delete'], [], [['variable', '/', '[^/]++', 'iduser', true]], [], [], []],
 ];
