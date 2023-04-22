@@ -168,6 +168,8 @@ return [[
 '[C]App%5CController%5CParkController%23edit' => 1,
 'App%5CController%5CParkController%23delete' => 0,
 '[C]App%5CController%5CParkController%23delete' => 1,
+'App%5CController%5CParkController%23chart' => 0,
+'[C]App%5CController%5CParkController%23chart' => 1,
 'App%5CController%5CRatingController' => 0,
 '[C]App%5CController%5CRatingController' => 1,
 'App%5CController%5CRatingController%23index' => 0,
@@ -1302,7 +1304,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1681996336,
+1 => 1682079188,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [

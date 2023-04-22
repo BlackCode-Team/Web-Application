@@ -54,6 +54,8 @@
                                     </li>
                                     <li class="list-inline-item"><a href="{{ path('app_park_showadm', {'idpark': park.idpark}) }}" class="bs-tooltip" data-original-title="view"><i class="flaticon-view-3"></i></a>
                                     </li>
+                                     <li class="list-inline-item"><a href="{{ path('app_chart_park', {'idpark': park.idpark}) }}" class="bs-tooltip" data-original-title="view"><i class="flaticon-view-3"></i></a>
+                                    </li>
                           </ul>
                        </div>
                                        
@@ -70,19 +72,36 @@
                                 </div>
                                 <div class="pagination-section">
                                     <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                        <li><a href="javascript:void(0);">«</a></li>
-                                        <li><a href="javascript:void(0);">1</a></li>
-                                        <li><a href="javascript:void(0);">2</a></li>
-                                        <li><a href="javascript:void(0);">3</a></li>
-                                        <li><a href="javascript:void(0);">4</a></li>
-                                        <li><a href="javascript:void(0);">5</a></li>
-                                        <li><a href="javascript:void(0);">»</a></li>
+                                         <a  href="{{ path('app_park_new') }}"><div  class="btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full" align="center" >Ajouter Parc</div></a>   
                                     </ul>
                                 </div>
+                                    <div class="pagination-section">
+                                    <ul class="pagination pagination-style-1 pagination-rounded justify-content-end ">
+
+                                           {{ knp_pagination_render(parks) }}
+                                    </ul>
+                                </div>
+                          
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-                     <a  href="{{ path('app_park_new') }}"><div  class="btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full" align="center" >Ajouter Parc</div></a>
+             
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Statistique des Parcs</h4>
+                                    </div>                 
+                                </div>
+                            </div>
+     {#  {{ render_chart(chart) }}  #}
+   
+                </div>
+
+
     
 {% endblock %}

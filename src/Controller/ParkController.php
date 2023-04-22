@@ -9,6 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\UX\Chartjs\Model\Chart;
 
 #[Route('/park')]
 class ParkController extends AbstractController
@@ -20,11 +26,20 @@ class ParkController extends AbstractController
             'parks' => $parkRepository->findAll(),
         ]);
     }
+
+    //zedt el pagination 
     #[Route('/admin', name: 'app_park_indexad', methods: ['GET'])]
-    public function indexad(ParkRepository $parkRepository): Response
-    {
+    public function indexad(Request $request,ParkRepository $parkRepository,PaginatorInterface $paginator): Response
+    {   
+        $parks = $parkRepository->findAll();
+        $parks = $paginator->paginate(
+            $parks, /* query NOT result */
+            $request->query->getInt('page', 1),
+            4
+        );
+
         return $this->render('park/indexadmin.html.twig', [
-            'parks' => $parkRepository->findAll(),
+            'parks' => $parks,
         ]);
     }
 
@@ -57,9 +72,11 @@ class ParkController extends AbstractController
     #[Route('/{idpark}/adm', name: 'app_park_showadm', methods: ['GET'])]
     public function showadm(Park $park): Response
     {
+
         return $this->render('park/showadm.html.twig', [
             'park' => $park,
         ]);
+        
     }
 
     #[Route('/{idpark}/edit', name: 'app_park_edit', methods: ['GET', 'POST'])]
@@ -89,5 +106,37 @@ class ParkController extends AbstractController
 
         return $this->redirectToRoute('app_park_index', [], Response::HTTP_SEE_OTHER);
     }
+
+       ////////////////////////////////////////////////////////////////
+       #[Route('/{idpark}/chart/test', name: 'app_chart_park')]
+       public function chart(Park $park,int $idpark, ParkRepository $parkRepository): Response
+       {
+           $park = $parkRepository->find($idpark);
+           $chartData = [
+               'labels' => [],
+               'datasets' => [
+               
+                   [
+                       'label' => 'nbSpots',
+                       'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
+                       'borderColor' => 'rgba(54, 162, 235, 1)',
+                       'borderWidth' => 1,
+                       'data' => [],
+                   ],
+               ],
+           ];
+        $chartData['labels'][0]['data'][] = $park->getNom(); // Add wins to first dataset
+        $chartData['datasets'][0]['data'][] = $park->getNbspot(); // Add losses to second dataset
+           return $this->render('chart_park/index.html.twig', [
+               'chartData' => json_encode($chartData),
+           ]);
+        }
+    /////////////////////////////////////////////////////////////////////
+
+
+
+   
+
+
 }
 

@@ -42,6 +42,7 @@ class ComposerStaticInit233ca153693863399a7db6343c01ce0a
         ),
         'S' => 
         array (
+            'Symfony\\UX\\Chartjs\\' => 19,
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -187,6 +188,10 @@ class ComposerStaticInit233ca153693863399a7db6343c01ce0a
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\UX\\Chartjs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/ux-chartjs/src',
         ),
         'Symfony\\Runtime\\Symfony\\Component\\' => 
         array (
@@ -6213,6 +6218,12 @@ class ComposerStaticInit233ca153693863399a7db6343c01ce0a
         'Symfony\\Runtime\\Symfony\\Component\\HttpFoundation\\RequestRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpFoundation/RequestRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\HttpFoundation\\ResponseRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpFoundation/ResponseRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\HttpKernel\\HttpKernelInterfaceRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpKernel/HttpKernelInterfaceRuntime.php',
+        'Symfony\\UX\\Chartjs\\Builder\\ChartBuilder' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/Builder/ChartBuilder.php',
+        'Symfony\\UX\\Chartjs\\Builder\\ChartBuilderInterface' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/Builder/ChartBuilderInterface.php',
+        'Symfony\\UX\\Chartjs\\ChartjsBundle' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/ChartjsBundle.php',
+        'Symfony\\UX\\Chartjs\\DependencyInjection\\ChartjsExtension' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/DependencyInjection/ChartjsExtension.php',
+        'Symfony\\UX\\Chartjs\\Model\\Chart' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/Model/Chart.php',
+        'Symfony\\UX\\Chartjs\\Twig\\ChartExtension' => __DIR__ . '/..' . '/symfony/ux-chartjs/src/Twig/ChartExtension.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
