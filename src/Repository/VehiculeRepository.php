@@ -39,6 +39,24 @@ class VehiculeRepository extends ServiceEntityRepository
         }
     }
 
+
+    /*public function findByLocationOrderByPrix(string $parkName,ManagerRegistry $doctrine)
+    {
+        $repository = $this->$doctrine->getRepository(Vehicule::class);
+        $queryBuilder = $repository->createQueryBuilder('v')
+            ->join('v.idpark', 'p')
+            ->where('p.nom = :nom')
+            ->andWhere('v.status = :status')
+            ->setParameter('nom', $parkName)
+            ->setParameter('status', 'disponible')
+            ->orderBy('v.prix', 'ASC');
+        
+        $vehicules = $queryBuilder->getQuery()->getResult();
+
+        return $vehicules;
+    }*/
+
+
 //    /**
 //     * @return Vehicule[] Returns an array of Vehicule objects
 //     */
