@@ -16,10 +16,8 @@ class UtilisateurController extends AbstractController
     #[Route('/', name: 'app_utilisateur_index', methods: ['GET'])]
     public function index(UtilisateurRepository $utilisateurRepository): Response
     {
-        $utilisateurs = $utilisateurRepository->findBy(['role' => 'agent']);
-
         return $this->render('utilisateur/index.html.twig', [
-            'utilisateurs' => $utilisateurs,
+            'utilisateurs' => $utilisateurRepository->findAll(),
         ]);
     }
 
@@ -28,7 +26,7 @@ class UtilisateurController extends AbstractController
     {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(Utilisateur1Type::class, $utilisateur);
-        #$form->get('role')->setData('agent');
+        $form->get('role')->setData('agent');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,7 +43,7 @@ class UtilisateurController extends AbstractController
 
     #[Route('/{iduser}', name: 'app_utilisateur_show', methods: ['GET'])]
     public function show(Utilisateur $utilisateur): Response
-    {   
+    {
         return $this->render('utilisateur/show.html.twig', [
             'utilisateur' => $utilisateur,
         ]);
@@ -56,7 +54,6 @@ class UtilisateurController extends AbstractController
     {
         $form = $this->createForm(Utilisateur1Type::class, $utilisateur);
         $form->handleRequest($request);
-        #$form->get('role')->setData('agent');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $utilisateurRepository->save($utilisateur, true);

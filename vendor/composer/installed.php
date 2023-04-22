@@ -1220,6 +1220,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/ux-chartjs' => array(
+            'pretty_version' => 'v2.7.1',
+            'version' => '2.7.1.0',
+            'reference' => '1dc192838f6bfbc30236cc971652ee049263274a',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../symfony/ux-chartjs',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/validator' => array(
             'pretty_version' => 'v5.4.22',
             'version' => '5.4.22.0',

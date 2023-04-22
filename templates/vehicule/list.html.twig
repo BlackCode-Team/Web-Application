@@ -1,4 +1,4 @@
-       {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Vehicule{% endblock %}
 
@@ -126,6 +126,11 @@
                     </div>
                   </div>
                   {% endfor %}
-                        </div>
-                      </div>
-                      {% endblock %}
+                 
+                </div>
+                <div class="pagination-section">
+                  {{ knp_pagination_render(vehicules) }}
+                </div>
+              </div>
+                      
+{% endblock %}
