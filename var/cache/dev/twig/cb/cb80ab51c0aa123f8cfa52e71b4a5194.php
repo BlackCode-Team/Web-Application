@@ -1309,6 +1309,6 @@ class __TwigTemplate_22126450c0f37a7bb0a5f9d8f68a146c extends \Twig\Template
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
-</html>", "back.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\back.html.twig");
+</html>", "back.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\back.html.twig");
     }
 }

@@ -15,20 +15,17 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class LoginController extends AbstractController
-{
-    private $managerRegistry;
-    private $session;
+{   private $session;
 
-    public function __construct(ManagerRegistry $managerRegistry, SessionInterface $session)
+    public function __construct(SessionInterface $session)
     {
-        $this->managerRegistry = $managerRegistry;
         $this->session = $session;
     }
 
     #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
     public function login(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        // Créer une instance de l'entité Utilisateur
+        // Créer une instance de l'entité User
         $user = new Utilisateur();
 
         // Créer le formulaire à partir de la classe LoginType
@@ -36,35 +33,28 @@ class LoginController extends AbstractController
 
         // Traiter la soumission du formulaire
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            $this->addFlash('success', 'Votre message a été envoyé avec succès.');
-
-            
+        if ($form->isSubmitted() && $form->isValid()) {
             // Le formulaire est valide, faire quelque chose avec les données
             $email = $user->getEmail();
             $plainPassword = $user->getPwd();
 
-            // Récupérer l'utilisateur à partir de l'email
-            $userRepository = $this->managerRegistry->getManager()->getRepository(Utilisateur::class);
-            $utilisateur = $userRepository->findOneBy(['email' => $email]);
-
             // Vérifier que l'utilisateur existe et que le mot de passe est correct
-            if (!$utilisateur || !$passwordHasher->isPasswordValid($utilisateur, $plainPassword)) {
+            if ($email !== 'user@example.com' || !$passwordHasher->isPasswordValid($user, $plainPassword)) {
                 // Les informations de connexion sont invalides
-                throw $this->createNotFoundException('Email ou mot de passe incorrect');
+                $this->addFlash('error', 'Email ou mot de passe incorrect');
+                return $this->redirectToRoute('app_login');
             }
 
             // Le mot de passe est correct, l'utilisateur est authentifié
-            $token = new UsernamePasswordToken($utilisateur, null, 'main', $utilisateur->getRoles());
-            $this->session->set('user_id', $utilisateur->getId());
+            $token = new UsernamePasswordToken($user, null, 'main', $user->getRole());
 
             // Créer une session pour l'utilisateur
-            $this->session->set('user_id', $utilisateur->getId());
+            $this->session->set('user_id', $user->getIduser());
 
             // Rediriger l'utilisateur vers une autre page
             return $this->redirectToRoute('app_home');
         }
-       
+
         // Afficher le formulaire
         return $this->render('login/login.html.twig', [
             'form' => $form->createView(),
@@ -83,11 +73,11 @@ class LoginController extends AbstractController
         $userId = $this->session->get('user_id');
 
         // Récupérer l'utilisateur à partir de l'id
-        $userRepository = $this->managerRegistry->getManager()->getRepository(Utilisateur::class);
-        $utilisateur = $userRepository->find($userId);
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+        $user = $userRepository->find($userId);
 
         return $this->render('base.html.twig', [
-            'utilisateur' => $utilisateur,
+            'user' => $user,
         ]);
     }
-}
+    }

@@ -53,13 +53,13 @@ class Utilisateur1Type extends AbstractType
                     'message' => 'Veuillez saisir votre mot de passe',
                 ]),
                 new Length([
-                    'min' => 6,
+                    'min' => 8,
                     'minMessage' => 'Le mot de passe doit contenir au moins {{ limit }} caractères',
                     // vous pouvez ajouter plus de contraintes ici si nécessaire
                 ]),
             ],
         ])
-            ->add('email', TextType::class, [
+        ->add('email', TextType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir votre adresse email',
@@ -70,7 +70,7 @@ class Utilisateur1Type extends AbstractType
                     ]),
                 ],
             ])
-            ->add('cin', TextType::class, [
+        ->add('cin', TextType::class, [
                 'required' => true,
                 'constraints' => [
                     new NotBlank([
@@ -84,7 +84,7 @@ class Utilisateur1Type extends AbstractType
                     ]),
                 ],
             ])
-            ->add('permis', TextType::class, [
+        ->add('permis', TextType::class, [
                 'required' => true,
                 'constraints' => [
                     new NotBlank([

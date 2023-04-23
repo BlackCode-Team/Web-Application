@@ -659,6 +659,6 @@ class __TwigTemplate_52e94d488fec5c4315518805138a383b extends \Twig\Template
   </body>
 
 
-</html>", "base.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\base.html.twig");
     }
 }

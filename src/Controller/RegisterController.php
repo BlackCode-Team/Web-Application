@@ -19,12 +19,14 @@ class RegisterController extends AbstractController
         $user = new Utilisateur();
 
         // Créer le formulaire à partir de la classe RegisterType
-        $form = $this->createForm(RegisterType::class, $user);
+        $form = $this->createForm(RegisterType::class, $user, [
+            'csrf_protection' => false,
+        ]);
 
         // Traiter la soumission du formulaire
         $form->handleRequest($request);
        
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted()&& $form->isValid()) {
             
             // Le formulaire est valide, faire quelque chose avec les données
             $utilisateurRepository->save($user, true);
