@@ -246,7 +246,7 @@
                             <div class="widget-header ">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>New Products</h4>
+                                        
                                     </div>                 
                                 </div>
                             </div>
@@ -678,7 +678,7 @@
         </div>
     </aside>
     <!--  BEGIN PROFILE SIDEBAR  -->
-
+{% block javascript %}
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{asset('back/assets/js/libs/jquery-3.1.1.min.js')}}"></script>
     <script src="{{asset('back/assets/js/loader.js')}}"></script>
@@ -696,7 +696,6 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
-
     <script src="{{asset('back/plugins/charts/chartist/chartist.js')}}"></script>
     <script src="{{asset('back/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js')}}"></script>
     <script src="{{asset('back/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js')}}"></script>
@@ -705,7 +704,7 @@
     <script src="{{asset('back/plugins/progressbar/progressbar.min.js')}}"></script>
     <script src="{{asset('back/assets/js/default-dashboard/default-custom.js')}}"></script>
     <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
-    {% block javascript %} {% endblock %}
+    {% endblock %}
 </body>
 
 <!-- Mirrored from designreset.com/preview-equation/demo3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Mar 2023 16:49:47 GMT -->
