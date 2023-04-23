@@ -216,6 +216,6 @@ class __TwigTemplate_d88c4b0b41ba77c33fe9633e55c3ea1d extends \Twig\Template
 
     {{ include('amende/_delete_form.html.twig') }}
 {% endblock %}
-", "amende/show.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\amende\\show.html.twig");
+", "amende/show.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\amende\\show.html.twig");
     }
 }

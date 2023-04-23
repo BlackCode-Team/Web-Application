@@ -133,6 +133,6 @@ class __TwigTemplate_3a803518cf27d924099a29acd47d6a8c extends \Twig\Template
 
     <a href=\"{{ path('app_amende_index') }}\">back to list</a>
 {% endblock %}
-", "amende/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\amende\\new.html.twig");
+", "amende/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\amende\\new.html.twig");
     }
 }

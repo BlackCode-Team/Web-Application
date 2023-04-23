@@ -154,6 +154,6 @@ class __TwigTemplate_7e25504fff6f6d73f6f85c5c64c98716 extends \Twig\Template
     </ul>
 </div>
 {% endblock %}
-", "offres/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\offres\\index.html.twig");
+", "offres/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\offres\\index.html.twig");
     }
 }

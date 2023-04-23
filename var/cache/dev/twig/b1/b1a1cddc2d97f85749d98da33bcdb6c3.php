@@ -341,6 +341,6 @@ class __TwigTemplate_8cd7740d889a095f4d4b0b93aef2e134 extends \Twig\Template
                      <a  href=\"{{ path('app_park_new') }}\"><div  class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\" align=\"center\" >Ajouter Parc</div></a>
     
 {% endblock %}
-", "park/indexadmin.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\park\\indexadmin.html.twig");
+", "park/indexadmin.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\park\\indexadmin.html.twig");
     }
 }

@@ -84,6 +84,6 @@ class __TwigTemplate_9c06023a0c15f689e89f23239cec0cb1 extends \Twig\Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "rating/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\rating\\_form.html.twig");
+", "rating/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\rating\\_form.html.twig");
     }
 }

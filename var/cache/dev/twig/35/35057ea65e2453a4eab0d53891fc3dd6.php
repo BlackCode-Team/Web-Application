@@ -95,6 +95,6 @@ class __TwigTemplate_079cc908945aff8b5cccd2906ecbd76c extends \Twig\Template
 
 
 
-", "badge/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\badge\\_form.html.twig");
+", "badge/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\badge\\_form.html.twig");
     }
 }

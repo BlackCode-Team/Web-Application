@@ -214,6 +214,6 @@ class __TwigTemplate_3278604f48911845540a71708d9a5ac1 extends \Twig\Template
 
     <a href=\"{{ path('app_reclamation_new') }}\">Create new</a>
 {% endblock %}
-", "reclamation/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\reclamation\\index.html.twig");
+", "reclamation/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\reclamation\\index.html.twig");
     }
 }

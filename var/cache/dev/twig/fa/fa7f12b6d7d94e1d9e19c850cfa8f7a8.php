@@ -73,6 +73,6 @@ class __TwigTemplate_86d6fc14ff41125cd9fcec6ebcfc9b45 extends \Twig\Template
     <path d=\"M4 6v6a8 3 0 0 0 16 0v-6\"></path>
     <path d=\"M4 12v6a8 3 0 0 0 16 0v-6\"></path>
 </svg>
-", "@Doctrine/Collector/database.svg", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\database.svg");
+", "@Doctrine/Collector/database.svg", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\database.svg");
     }
 }

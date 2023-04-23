@@ -79,6 +79,6 @@ class __TwigTemplate_dba8300d5793ca2e92aa1b2ea6dcf091 extends \Twig\Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ amende.idamende) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "amende/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\amende\\_delete_form.html.twig");
+", "amende/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\amende\\_delete_form.html.twig");
     }
 }

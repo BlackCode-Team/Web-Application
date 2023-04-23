@@ -133,6 +133,6 @@ class __TwigTemplate_18eeb00490a7d318e6abac675a423acf extends \Twig\Template
 
     <a href=\"{{ path('app_badge_index') }}\">back to list</a>
 {% endblock %}
-", "badge/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\badge\\new.html.twig");
+", "badge/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\badge\\new.html.twig");
     }
 }

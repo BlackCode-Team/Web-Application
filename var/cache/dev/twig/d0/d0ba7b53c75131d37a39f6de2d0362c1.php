@@ -140,6 +140,6 @@ class __TwigTemplate_941eef74bcb941ef9ede2f084891cbf0 extends \Twig\Template
 
     {{ include('offre/_delete_form.html.twig') }}
 {% endblock %}
-", "offre/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\offre\\edit.html.twig");
+", "offre/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\offre\\edit.html.twig");
     }
 }

@@ -173,6 +173,6 @@ les vérifier régulièrement pour ne rien manquer.
     {% endfor %}
   </tbody>
 </table>
-{% endblock %}", "offres/AfficherOffre.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\offres\\AfficherOffre.html.twig");
+{% endblock %}", "offres/AfficherOffre.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\offres\\AfficherOffre.html.twig");
     }
 }

@@ -79,6 +79,6 @@ class __TwigTemplate_a6d2525b41d5847d7a88f0dd86483907 extends \Twig\Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ historique.idhistorique) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "historique/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\historique\\_delete_form.html.twig");
+", "historique/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\historique\\_delete_form.html.twig");
     }
 }

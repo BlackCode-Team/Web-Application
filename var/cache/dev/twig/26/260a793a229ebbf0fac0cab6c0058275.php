@@ -79,6 +79,6 @@ class __TwigTemplate_819a5024d89e180e9058c9d7440a05ee extends \Twig\Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ park.idpark) }}\">
     <button class=\"btn btn-info btn-1 btn-1b mb-4 mr-3 float-right btn-full\">Delete</button>
 </form>
-", "park/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\park\\_delete_form.html.twig");
+", "park/_delete_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\park\\_delete_form.html.twig");
     }
 }

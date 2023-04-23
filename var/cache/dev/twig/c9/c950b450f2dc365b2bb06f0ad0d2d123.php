@@ -325,6 +325,6 @@ class __TwigTemplate_a43fd72b8faa6f040d5283ef2094b23f extends \Twig\Template
     <a  href=\"{{ path('app_park_indexad') }}\"><div  class=\"btn btn-success btn-1 btn-1c mb-4 mr-3 float-right btn-full\" align=\"center\" >back to list</div></a>
 
 {% endblock %}
-", "park/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\park\\edit.html.twig");
+", "park/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\park\\edit.html.twig");
     }
 }

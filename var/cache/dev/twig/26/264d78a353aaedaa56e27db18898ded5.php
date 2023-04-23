@@ -133,6 +133,6 @@ class __TwigTemplate_64c0cb01b5fc56927a9e7feaaf5eeb82 extends \Twig\Template
 
     <a href=\"{{ path('app_rating_index') }}\">back to list</a>
 {% endblock %}
-", "rating/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\rating\\new.html.twig");
+", "rating/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\rating\\new.html.twig");
     }
 }

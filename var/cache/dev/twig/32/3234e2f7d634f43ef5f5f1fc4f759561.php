@@ -140,6 +140,6 @@ class __TwigTemplate_e423ef4c8d9c12482e81ea6c2b76085a extends \Twig\Template
 
     {{ include('reservation/_delete_form.html.twig') }}
 {% endblock %}
-", "reservation/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\reservation\\edit.html.twig");
+", "reservation/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\reservation\\edit.html.twig");
     }
 }

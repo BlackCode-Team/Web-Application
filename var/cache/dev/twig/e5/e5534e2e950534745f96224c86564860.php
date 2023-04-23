@@ -140,6 +140,6 @@ class __TwigTemplate_8e14c3b1ae9a0dabbc44b1e29ece40df extends \Twig\Template
 
     {{ include('amende/_delete_form.html.twig') }}
 {% endblock %}
-", "amende/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\amende\\edit.html.twig");
+", "amende/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\amende\\edit.html.twig");
     }
 }

@@ -411,6 +411,13 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ParkController"/>
       </call>
     </service>
+    <service id="App\Controller\ProfilController" class="App\Controller\ProfilController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ProfilController"/>
+      </call>
+    </service>
     <service id="App\Controller\RatingController" class="App\Controller\RatingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -479,6 +486,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ParkType" class="App\Form\ParkType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RatingType" class="App\Form\RatingType" autowire="true" autoconfigure="true">
@@ -1346,6 +1356,7 @@
         <argument>App\Form\LoginType</argument>
         <argument>App\Form\OffreType</argument>
         <argument>App\Form\ParkType</argument>
+        <argument>App\Form\ProfilType</argument>
         <argument>App\Form\RatingType</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\RegisterType</argument>
@@ -3580,7 +3591,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.Wi6EOJV"/>
+      <argument type="service" id=".service_locator.nk3tqgl"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6504,6 +6515,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ParkController" class="App\Controller\ParkController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RatingController" class="App\Controller\RatingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RatingController" class="App\Controller\RatingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RatingController" class="App\Controller\RatingController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6539,6 +6553,8 @@
     <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParkType" class="App\Form\ParkType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ParkType" class="App\Form\ParkType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RatingType" class="App\Form\RatingType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RatingType" class="App\Form\RatingType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
@@ -7057,6 +7073,19 @@
         <argument key="parkRepository" type="service_closure" id="App\Repository\ParkRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.KzL3gdR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="utilisateur" type="service_closure" id=".errored..service_locator.KzL3gdR.App\Entity\Utilisateur"/>
+        <argument key="utilisateurRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.r5W7ygF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="utilisateur" type="service_closure" id=".errored..service_locator.r5W7ygF.App\Entity\Utilisateur"/>
+      </argument>
+    </service>
     <service id=".service_locator.hn0UC2A" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7146,19 +7175,6 @@
         <argument key="reservationRepository" type="service_closure" id="App\Repository\ReservationRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.r5W7ygF" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="utilisateur" type="service_closure" id=".errored..service_locator.r5W7ygF.App\Entity\Utilisateur"/>
-      </argument>
-    </service>
-    <service id=".service_locator.KzL3gdR" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="utilisateur" type="service_closure" id=".errored..service_locator.KzL3gdR.App\Entity\Utilisateur"/>
-        <argument key="utilisateurRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.y1420Rl" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7178,7 +7194,7 @@
         <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.u_e0m_c" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Y.0afEM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AmendeController::delete" type="service_closure" id=".service_locator.ICjB1ut"/>
@@ -7217,6 +7233,8 @@
         <argument key="App\Controller\ParkController::new" type="service_closure" id=".service_locator.xwfY7a4"/>
         <argument key="App\Controller\ParkController::show" type="service_closure" id=".service_locator.tUog_7F"/>
         <argument key="App\Controller\ParkController::showadm" type="service_closure" id=".service_locator.tUog_7F"/>
+        <argument key="App\Controller\ProfilController::edit" type="service_closure" id=".service_locator.KzL3gdR"/>
+        <argument key="App\Controller\ProfilController::show" type="service_closure" id=".service_locator.r5W7ygF"/>
         <argument key="App\Controller\RatingController::delete" type="service_closure" id=".service_locator.RA9EiuF"/>
         <argument key="App\Controller\RatingController::edit" type="service_closure" id=".service_locator.RA9EiuF"/>
         <argument key="App\Controller\RatingController::index" type="service_closure" id=".service_locator.hn0UC2A"/>
@@ -7291,6 +7309,8 @@
         <argument key="App\Controller\ParkController:new" type="service_closure" id=".service_locator.xwfY7a4"/>
         <argument key="App\Controller\ParkController:show" type="service_closure" id=".service_locator.tUog_7F"/>
         <argument key="App\Controller\ParkController:showadm" type="service_closure" id=".service_locator.tUog_7F"/>
+        <argument key="App\Controller\ProfilController:edit" type="service_closure" id=".service_locator.KzL3gdR"/>
+        <argument key="App\Controller\ProfilController:show" type="service_closure" id=".service_locator.r5W7ygF"/>
         <argument key="App\Controller\RatingController:delete" type="service_closure" id=".service_locator.RA9EiuF"/>
         <argument key="App\Controller\RatingController:edit" type="service_closure" id=".service_locator.RA9EiuF"/>
         <argument key="App\Controller\RatingController:index" type="service_closure" id=".service_locator.hn0UC2A"/>
@@ -7388,7 +7408,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Wi6EOJV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.nk3tqgl" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AmendeType" type="service_closure" id="App\Form\AmendeType"/>
@@ -7398,6 +7418,7 @@
         <argument key="App\Form\LoginType" type="service_closure" id="App\Form\LoginType"/>
         <argument key="App\Form\OffreType" type="service_closure" id="App\Form\OffreType"/>
         <argument key="App\Form\ParkType" type="service_closure" id="App\Form\ParkType"/>
+        <argument key="App\Form\ProfilType" type="service_closure" id="App\Form\ProfilType"/>
         <argument key="App\Form\RatingType" type="service_closure" id="App\Form\RatingType"/>
         <argument key="App\Form\ReclamationType" type="service_closure" id="App\Form\ReclamationType"/>
         <argument key="App\Form\RegisterType" type="service_closure" id="App\Form\RegisterType"/>
@@ -7836,6 +7857,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\ProfilController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ProfilController"/>
+      <argument>App\Controller\ProfilController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\RatingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\RatingController"/>
       <argument>App\Controller\RatingController</argument>
@@ -8060,12 +8087,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.u_e0m_c"/>
+      <argument type="service" id=".service_locator.Y.0afEM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.u_e0m_c"/>
+      <argument type="service" id=".service_locator.Y.0afEM"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8097,6 +8124,8 @@
     <service id=".errored..service_locator.uQRUBkf.App\Entity\Offre" class="App\Entity\Offre"/>
     <service id=".errored..service_locator.tUog_7F.App\Entity\Park" class="App\Entity\Park"/>
     <service id=".errored..service_locator.ZNVBNHv.App\Entity\Park" class="App\Entity\Park"/>
+    <service id=".errored..service_locator.KzL3gdR.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
+    <service id=".errored..service_locator.r5W7ygF.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.4C83FMe.App\Entity\Rating" class="App\Entity\Rating"/>
     <service id=".errored..service_locator.RA9EiuF.App\Entity\Rating" class="App\Entity\Rating"/>
     <service id=".errored..service_locator.iq_16Ky.App\Entity\Reclamation" class="App\Entity\Reclamation"/>
@@ -8105,8 +8134,6 @@
     <service id=".errored..service_locator.wdRBG_e.App\Entity\Reponse" class="App\Entity\Reponse"/>
     <service id=".errored..service_locator.jtI7Unb.App\Entity\Reservation" class="App\Entity\Reservation"/>
     <service id=".errored..service_locator.mxLQRmV.App\Entity\Reservation" class="App\Entity\Reservation"/>
-    <service id=".errored..service_locator.r5W7ygF.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
-    <service id=".errored..service_locator.KzL3gdR.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.pB20uqv.App\Entity\Vehicule" class="App\Entity\Vehicule"/>
     <service id=".errored..service_locator.YdyC4xD.App\Entity\Vehicule" class="App\Entity\Vehicule"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
@@ -9054,7 +9081,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.u_e0m_c"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Y.0afEM"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9080,9 +9107,9 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.bogptl8" alias=".service_locator.OF7rQSL"/>
     <service id=".service_locator.4KgR7kv" alias=".service_locator.VVLqQPI"/>
-    <service id=".service_locator.JYog.Q7" alias=".service_locator.u_e0m_c"/>
+    <service id=".service_locator.cRGavGk" alias=".service_locator.Y.0afEM"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.WUNc_uF" alias=".service_locator.Wi6EOJV"/>
+    <service id=".service_locator.GbyO6EC" alias=".service_locator.nk3tqgl"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
@@ -9130,6 +9157,8 @@
     <service id=".service_locator._LQCSeL" alias=".service_locator.xwfY7a4"/>
     <service id=".service_locator.8dqWfHy" alias=".service_locator.tUog_7F"/>
     <service id=".service_locator.cR4s8aR" alias=".service_locator.ZNVBNHv"/>
+    <service id=".service_locator.7qMQ8j_" alias=".service_locator.KzL3gdR"/>
+    <service id=".service_locator.hCNOtTs" alias=".service_locator.r5W7ygF"/>
     <service id=".service_locator._XLYFNn" alias=".service_locator.hn0UC2A"/>
     <service id=".service_locator.SEIRRMh" alias=".service_locator.4C83FMe"/>
     <service id=".service_locator.eqiRiQV" alias=".service_locator.RA9EiuF"/>
@@ -9144,8 +9173,6 @@
     <service id=".service_locator.W5YGkuw" alias=".service_locator.VddRp04"/>
     <service id=".service_locator.UKRTTGm" alias=".service_locator.jtI7Unb"/>
     <service id=".service_locator.IUVlptD" alias=".service_locator.mxLQRmV"/>
-    <service id=".service_locator.hCNOtTs" alias=".service_locator.r5W7ygF"/>
-    <service id=".service_locator.7qMQ8j_" alias=".service_locator.KzL3gdR"/>
     <service id=".service_locator.2CdSnge" alias=".service_locator.y1420Rl"/>
     <service id=".service_locator.9bJ6zHz" alias=".service_locator.pB20uqv"/>
     <service id=".service_locator.TO2JAeo" alias=".service_locator.YdyC4xD"/>

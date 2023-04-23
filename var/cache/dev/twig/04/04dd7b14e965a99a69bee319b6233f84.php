@@ -133,6 +133,6 @@ class __TwigTemplate_ae06c15bacc110d56e01a4e7966afdc2 extends \Twig\Template
 
     <a href=\"{{ path('app_offre_index') }}\">back to list</a>
 {% endblock %}
-", "offre/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\offre\\new.html.twig");
+", "offre/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\offre\\new.html.twig");
     }
 }

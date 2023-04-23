@@ -233,6 +233,6 @@ class __TwigTemplate_024d8e84c72e9c3a1b9f429874f84316 extends \Twig\Template
 
     <a href=\"{{ path('app_amende_new') }}\">Create new</a>
 {% endblock %}
-", "amende/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\amende\\index.html.twig");
+", "amende/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\amende\\index.html.twig");
     }
 }

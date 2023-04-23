@@ -175,6 +175,6 @@ class __TwigTemplate_a4182e73e572a13d7d95083ec2a44f20 extends \Twig\Template
     });
   </script>
 {% endblock %}
-", "rating/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\rating\\index.html.twig");
+", "rating/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\rating\\index.html.twig");
     }
 }

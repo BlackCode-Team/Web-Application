@@ -84,6 +84,6 @@ class __TwigTemplate_7777567e06cc8a0929b7ef3a480f3d41 extends \Twig\Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "reservation/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\reservation\\_form.html.twig");
+", "reservation/_form.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\reservation\\_form.html.twig");
     }
 }

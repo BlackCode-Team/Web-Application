@@ -138,6 +138,6 @@ class __TwigTemplate_ce9e0e57a93f7040f156c9bd48b6a9f7 extends \Twig\Template
 
     <a href=\"{{ path('app_reservation_index') }}\">back to list</a>
 {% endblock %}
-", "reservation/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\reservation\\new.html.twig");
+", "reservation/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\reservation\\new.html.twig");
     }
 }

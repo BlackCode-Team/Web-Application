@@ -318,6 +318,6 @@ class __TwigTemplate_758d5ab2ade4e7e0a1ab670b5781ca7b extends \Twig\Template
     {% endif %}
     </ul>
 {% endif %}
-", "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\vendor\\knplabs\\knp-paginator-bundle\\templates\\Pagination\\twitter_bootstrap_v3_pagination.html.twig");
+", "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\vendor\\knplabs\\knp-paginator-bundle\\templates\\Pagination\\twitter_bootstrap_v3_pagination.html.twig");
     }
 }

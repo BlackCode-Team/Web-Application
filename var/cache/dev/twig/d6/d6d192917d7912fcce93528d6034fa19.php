@@ -212,6 +212,6 @@ class __TwigTemplate_cb2c0a451bf262c0d024d830f55d7f39 extends \Twig\Template
 
     <a href=\"{{ path('app_badge_new') }}\">Create new</a>
 {% endblock %}
-", "badge/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\badge\\index.html.twig");
+", "badge/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\badge\\index.html.twig");
     }
 }

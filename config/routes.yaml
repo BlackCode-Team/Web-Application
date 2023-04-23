@@ -29,3 +29,22 @@ app_utilisateur_delete:
     path: '/{iduser}'
     controller: App\Controller\UtilisateurController::delete
     methods: POST
+
+app_profil_index:
+    path: /profil
+    controller: App\Controller\ProfilController::index
+    methods: GET
+
+profil_show:
+    path: /profil/{iduser}
+    controller: App\Controller\ProfilController::show
+    methods: GET
+    requirements:
+        iduser: '\d+'
+
+profil_edit:
+    path: /profil/{iduser}/edit
+    controller: App\Controller\ProfilController::edit
+    methods: ['GET', 'POST']
+    requirements:
+        iduser: '\d+'

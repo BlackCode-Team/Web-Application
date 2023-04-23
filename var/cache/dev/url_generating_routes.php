@@ -93,4 +93,7 @@ return [
     'app_utilisateur_index' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::index'], [], [['text', '/utilisateur']], [], [], []],
     'app_utilisateur_edit' => [['iduser'], ['_controller' => 'App\\Controller\\UtilisateurController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'iduser', true]], [], [], []],
     'app_utilisateur_delete' => [['iduser'], ['_controller' => 'App\\Controller\\UtilisateurController::delete'], [], [['variable', '/', '[^/]++', 'iduser', true]], [], [], []],
+    'app_profil_index' => [[], ['_controller' => 'App\\Controller\\ProfilController::index'], [], [['text', '/profil']], [], [], []],
+    'profil_show' => [['iduser'], ['_controller' => 'App\\Controller\\ProfilController::show'], ['iduser' => '\\d+'], [['variable', '/', '\\d+', 'iduser', true], ['text', '/profil']], [], [], []],
+    'profil_edit' => [['iduser'], ['_controller' => 'App\\Controller\\ProfilController::edit'], ['iduser' => '\\d+'], [['text', '/edit'], ['variable', '/', '\\d+', 'iduser', true], ['text', '/profil']], [], [], []],
 ];

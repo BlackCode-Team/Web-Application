@@ -245,6 +245,6 @@ class __TwigTemplate_4b122e59315bb83a30dc58b4f5a42127 extends \Twig\Template
 
 
 {% endblock %}
-", "park/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\park\\index.html.twig");
+", "park/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\park\\index.html.twig");
     }
 }

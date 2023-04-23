@@ -316,6 +316,6 @@ class __TwigTemplate_368c65bc855341543d9d21f2a137624f extends \Twig\Template
                 {{ form_end(form) }}
 
 {% endblock %}
-", "park/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\park\\new.html.twig");
+", "park/new.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\park\\new.html.twig");
     }
 }

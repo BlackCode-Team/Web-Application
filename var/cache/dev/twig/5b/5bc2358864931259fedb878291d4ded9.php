@@ -140,6 +140,6 @@ class __TwigTemplate_74e7d20ff9c34090f77a1402a140b774 extends \Twig\Template
 
     {{ include('badge/_delete_form.html.twig') }}
 {% endblock %}
-", "badge/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\badge\\edit.html.twig");
+", "badge/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\badge\\edit.html.twig");
     }
 }

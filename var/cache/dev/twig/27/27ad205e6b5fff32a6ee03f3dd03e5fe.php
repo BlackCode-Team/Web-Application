@@ -309,6 +309,6 @@ class __TwigTemplate_ff5cabe39ff4f5eec8cd34caeff6cf51 extends \Twig\Template
                     </div>
     <a href=\"{{ path('app_reservation_new') }}\">Create new</a>
 {% endblock %}
-", "reservation/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\reservation\\index.html.twig");
+", "reservation/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\reservation\\index.html.twig");
     }
 }

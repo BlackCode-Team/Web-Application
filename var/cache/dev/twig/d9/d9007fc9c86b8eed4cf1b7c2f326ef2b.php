@@ -219,6 +219,6 @@ class __TwigTemplate_3cf0cd29d3e8fc6fb597a086c563a940 extends \Twig\Template
 
     <a href=\"{{ path('app_offre_new') }}\">Create new</a>
 {% endblock %}
-", "offre/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\offre\\index.html.twig");
+", "offre/index.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\offre\\index.html.twig");
     }
 }

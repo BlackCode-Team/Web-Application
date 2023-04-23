@@ -140,6 +140,6 @@ class __TwigTemplate_a7ba1aae0b31326032571b5624fc99b8 extends \Twig\Template
 
     {{ include('rating/_delete_form.html.twig') }}
 {% endblock %}
-", "rating/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\templates\\rating\\edit.html.twig");
+", "rating/edit.html.twig", "C:\\Users\\Jokser\\Documents\\GitHub\\Web-Application\\Web-Application\\templates\\rating\\edit.html.twig");
     }
 }
