@@ -25,7 +25,7 @@ class Utilisateur
      #[ORM\Column( length:255)]
      #[Assert\Regex(
          pattern:"/^[a-zA-Z]*$/",
-         
+         message:"Le nom ne doit contenir que des lettres"
          )]
     private ?string $nom = null;
 
@@ -33,15 +33,14 @@ class Utilisateur
     #[ORM\Column( length:255)]
      #[Assert\Regex(
          pattern:"/^[a-zA-Z]*$/",
-         
+         message:"Le prénom ne doit contenir que des lettres"
          )]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Length(
-        min: 8,
-        max: 32,
-       
+    #[Assert\Regex(
+        pattern: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+        message: 'Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un symbole spécial'
     )]
     private ?string $pwd = null;
 
@@ -53,25 +52,26 @@ class Utilisateur
     #[ORM\Column(length: 8)]
     #[Assert\Regex(
         pattern: '/^\d+$/',
+        message: 'Le numéro de cin ne doit contenir que des chiffres.',
         normalizer: 'trim'
     )]
     #[Assert\Length(
         min: 8,
         max: 8,
-       
+        exactMessage: 'Le numéro de cin doit contenir exactement {{ limit }} chiffres.'
     )]
     private ?string $cin = null;
 
     #[ORM\Column(length: 9)]
     #[Assert\Regex(
         pattern: '/^\d+$/',
-       
+        message: 'Le numéro de permis ne doit contenir que des chiffres.',
         normalizer: 'trim'
     )]
     #[Assert\Length(
         min: 9,
         max: 9,
-        
+        exactMessage: 'Le numéro de permis doit contenir exactement {{ limit }} chiffres.'
     )]
     private ?string $permis = null;
 
