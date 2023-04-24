@@ -28,6 +28,7 @@ return [
     'app_itineraire_edit' => [['iditineraire'], ['_controller' => 'App\\Controller\\ItineraireController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'iditineraire', true], ['text', '/itineraire']], [], [], []],
     'app_itineraire_delete' => [['iditineraire'], ['_controller' => 'App\\Controller\\ItineraireController::delete'], [], [['variable', '/', '[^/]++', 'iditineraire', true], ['text', '/itineraire']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::login'], [], [['text', '/login']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\LoginController::logout'], [], [['text', '/logout']], [], [], []],
     'app_offre_index' => [[], ['_controller' => 'App\\Controller\\OffreController::index'], [], [['text', '/offre/']], [], [], []],
     'app_offre_new' => [[], ['_controller' => 'App\\Controller\\OffreController::new'], [], [['text', '/offre/new']], [], [], []],
     'app_offre_show' => [['idoffre'], ['_controller' => 'App\\Controller\\OffreController::show'], [], [['variable', '/', '[^/]++', 'idoffre', true], ['text', '/offre']], [], [], []],

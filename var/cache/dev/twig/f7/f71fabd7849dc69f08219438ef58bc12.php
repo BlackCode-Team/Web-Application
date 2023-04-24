@@ -109,10 +109,10 @@ class __TwigTemplate_52e94d488fec5c4315518805138a383b extends \Twig\Template
                     <div class=\"r-header-action float-right\">
                       <a href=\"";
         // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("login-register.html"), "html", null, true);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\"> <img src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-lock.png"), "html", null, true);
-        echo "\" alt='' /> <span>Login</span></a>";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-unlock.png"), "html", null, true);
+        echo "\" alt='' /> <span>Logout</span></a>";
         // line 44
         echo "                      <a href=\"\" class=\"r-search\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-search.png"), "html", null, true);
@@ -473,7 +473,7 @@ class __TwigTemplate_52e94d488fec5c4315518805138a383b extends \Twig\Template
                   </div>
                   <div class=\"col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-12\">
                     <div class=\"r-header-action float-right\">
-                      <a href=\"{{asset('login-register.html')}}\"> <img src=\"{{asset('assets/images/icon-lock.png')}}\" alt='' /> <span>Login</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route login #}
+                      <a href=\"{{path('app_logout')}}\"> <img src=\"{{asset('assets/images/icon-unlock.png')}}\" alt='' /> <span>Logout</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route login #}
                       <a href=\"\" class=\"r-search\"> <img src=\"{{asset('assets/images/icon-search.png')}}\" alt='' /> <span>Search</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route rech #}
 
                       <div class=\"r-search-wrapper\">

@@ -124,12 +124,14 @@ return [[
 '[C]App%5CController%5CItineraireController%23delete' => 1,
 'App%5CController%5CLoginController' => 0,
 '[C]App%5CController%5CLoginController' => 1,
-'App%5CController%5CLoginController%23__construct' => 0,
-'[C]App%5CController%5CLoginController%23__construct' => 1,
 'App%5CController%5CLoginController%23login' => 0,
 '[C]App%5CController%5CLoginController%23login' => 1,
-'App%5CController%5CLoginController%23index' => 0,
-'[C]App%5CController%5CLoginController%23index' => 1,
+'App%5CController%5CLoginController%23__construct' => 0,
+'[C]App%5CController%5CLoginController%23__construct' => 1,
+'App%5CController%5CLoginController%23SessionSet' => 0,
+'[C]App%5CController%5CLoginController%23SessionSet' => 1,
+'App%5CController%5CLoginController%23logout' => 0,
+'[C]App%5CController%5CLoginController%23logout' => 1,
 'App%5CController%5CLoginController%24session' => 0,
 '[C]App%5CController%5CLoginController%24session' => 1,
 'App%5CController%5COffreController' => 0,
@@ -1300,7 +1302,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1682290467,
+1 => 1682293880,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
