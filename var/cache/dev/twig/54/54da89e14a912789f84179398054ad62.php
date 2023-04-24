@@ -55,8 +55,9 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
       ";
         // line 7
         $this->displayBlock('css', $context, $blocks);
-        // line 11
-        echo "
+        // line 10
+        echo "      <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css\">
+
       
 <body> 
 <div class=\"container rounded bg-white mt-5 mb-5\">
@@ -69,12 +70,12 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
                 <div class=\"d-flex justify-content-between align-items-center mb-3\">
                     <h4 class=\"text-right\">Profile Settings</h4>
                 </div>
-                <div class=\"row mt-2\">
+                <div class=\"row mt-2\" >
                 ";
         // line 25
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => "novalidate", "id" => "form"]]);
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation form", "novalidate" => "novalidate", "id" => "form"]]);
         echo "
-                    <div class=\"col-md-6\">
+                    <div class=\"col-md-6 form-group\">
                    ";
         // line 27
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "nom", [], "any", false, false, false, 27), 'label', ["label" => "Nom"]);
@@ -88,7 +89,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), "nom", [], "any", false, false, false, 29), 'errors');
         echo "
                     </div>
-                    <div class=\"col-md-6\">
+                    <div class=\"col-md-6 form-group\">
                     ";
         // line 32
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "prenom", [], "any", false, false, false, 32), 'label', ["label" => "Prenom"]);
@@ -104,7 +105,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
                     </div>
                 </div>
                 <div class=\"row mt-3\">
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     ";
         // line 39
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "email", [], "any", false, false, false, 39), 'label', ["label" => "Email"]);
@@ -118,7 +119,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), "email", [], "any", false, false, false, 41), 'errors');
         echo "
                     </div>
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     ";
         // line 44
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "cin", [], "any", false, false, false, 44), 'label', ["label" => "CIN"]);
@@ -132,7 +133,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 46, $this->source); })()), "cin", [], "any", false, false, false, 46), 'errors');
         echo "
                     </div>
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     ";
         // line 49
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "permis", [], "any", false, false, false, 49), 'label', ["label" => "Permis"]);
@@ -147,7 +148,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
         echo "
                     </div>
                     
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     ";
         // line 55
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 55, $this->source); })()), "pwd", [], "any", false, false, false, 55), 'label', ["label" => "Password"]);
@@ -221,9 +222,8 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
         echo " 
       <link rel=\"stylesheet\" href=\"";
         // line 8
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("profil.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Login/css/profil.css"), "html", null, true);
         echo "\"> 
-      <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css\">
       ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -276,7 +276,7 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  247 => 71,  237 => 70,  224 => 8,  212 => 7,  193 => 5,  182 => 83,  180 => 70,  168 => 61,  161 => 57,  157 => 56,  153 => 55,  146 => 51,  142 => 50,  138 => 49,  132 => 46,  128 => 45,  124 => 44,  118 => 41,  114 => 40,  110 => 39,  102 => 34,  98 => 33,  94 => 32,  88 => 29,  84 => 28,  80 => 27,  75 => 25,  59 => 11,  57 => 7,  54 => 6,  52 => 5,  46 => 1,);
+        return array (  247 => 71,  237 => 70,  225 => 8,  213 => 7,  194 => 5,  183 => 83,  181 => 70,  169 => 61,  162 => 57,  158 => 56,  154 => 55,  147 => 51,  143 => 50,  139 => 49,  133 => 46,  129 => 45,  125 => 44,  119 => 41,  115 => 40,  111 => 39,  103 => 34,  99 => 33,  95 => 32,  89 => 29,  85 => 28,  81 => 27,  76 => 25,  59 => 10,  57 => 7,  54 => 6,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -288,9 +288,9 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
      {%block title %} <title>Profil</title> {%endblock%}
 
       {%block css%} 
-      <link rel=\"stylesheet\" href=\"{{asset('profil.css')}}\"> 
-      <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css\">
+      <link rel=\"stylesheet\" href=\"{{asset('Login/css/profil.css')}}\"> 
       {%endblock%}
+      <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css\">
 
       
 <body> 
@@ -304,37 +304,37 @@ class __TwigTemplate_42fe749f27bb2bd1466eeaf6cc82f3e2 extends \Twig\Template
                 <div class=\"d-flex justify-content-between align-items-center mb-3\">
                     <h4 class=\"text-right\">Profile Settings</h4>
                 </div>
-                <div class=\"row mt-2\">
-                {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate', 'id': 'form'}}) }}
-                    <div class=\"col-md-6\">
+                <div class=\"row mt-2\" >
+                {{ form_start(form, {'attr': {'class': 'needs-validation form',  'novalidate': 'novalidate', 'id': 'form'}}) }}
+                    <div class=\"col-md-6 form-group\">
                    {{form_label(form.nom,\"Nom\")}}
                    {{form_widget(form.nom)}}
                    {{form_errors(form.nom)}}
                     </div>
-                    <div class=\"col-md-6\">
+                    <div class=\"col-md-6 form-group\">
                     {{form_label(form.prenom,\"Prenom\")}}
                     {{form_widget(form.prenom)}}
                     {{form_errors(form.prenom)}}
                     </div>
                 </div>
                 <div class=\"row mt-3\">
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     {{form_label(form.email,\"Email\")}}
                     {{form_widget(form.email)}}
                     {{form_errors(form.email)}}
                     </div>
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     {{form_label(form.cin,\"CIN\")}}
                     {{form_widget(form.cin)}}
                     {{form_errors(form.cin)}}
                     </div>
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     {{form_label(form.permis,\"Permis\")}}
                     {{form_widget(form.permis)}}
                     {{form_errors(form.permis)}}
                     </div>
                     
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 form-group\">
                     {{form_label(form.pwd,\"Password\")}}
                     {{form_widget(form.pwd)}}
                     {{form_errors(form.pwd)}}

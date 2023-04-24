@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\FormView;
 
 class ProfilController extends AbstractController
 {
@@ -31,14 +32,16 @@ class ProfilController extends AbstractController
     }
 
     #[Route('/profil/{iduser}', name: 'profil_show', methods: ['GET'])]
-    public function show(Utilisateur $utilisateur): Response
-    {
-        return $this->render('profil/show.html.twig', [
+    public function show(Request $request,Utilisateur $utilisateur): Response
+    {   $form = $this->createForm(ProfilType::class, $utilisateur);
+        $formView = $form->createView();
+        return $this->render('profil/profile.html.twig', [
             'utilisateur' => $utilisateur,
+            'form' => $formView,
         ]);
     }
 
-    #[Route('/', name: 'app_profil_index')]
+    #[Route('/profil', name: 'app_profil_index')]
     public function index(): Response
     {
         return $this->render('profil/profile.html.twig', [

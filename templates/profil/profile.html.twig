@@ -5,9 +5,9 @@
      {%block title %} <title>Profil</title> {%endblock%}
 
       {%block css%} 
-      <link rel="stylesheet" href="{{asset('profil.css')}}"> 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{asset('Login/css/profil.css')}}"> 
       {%endblock%}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
 
       
 <body> 
@@ -21,37 +21,37 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
-                <div class="row mt-2">
-                {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate', 'id': 'form'}}) }}
-                    <div class="col-md-6">
+                <div class="row mt-2" >
+                {{ form_start(form, {'attr': {'class': 'needs-validation form',  'novalidate': 'novalidate', 'id': 'form'}}) }}
+                    <div class="col-md-6 form-group">
                    {{form_label(form.nom,"Nom")}}
                    {{form_widget(form.nom)}}
                    {{form_errors(form.nom)}}
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 form-group">
                     {{form_label(form.prenom,"Prenom")}}
                     {{form_widget(form.prenom)}}
                     {{form_errors(form.prenom)}}
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12">
+                    <div class="col-md-12 form-group">
                     {{form_label(form.email,"Email")}}
                     {{form_widget(form.email)}}
                     {{form_errors(form.email)}}
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 form-group">
                     {{form_label(form.cin,"CIN")}}
                     {{form_widget(form.cin)}}
                     {{form_errors(form.cin)}}
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 form-group">
                     {{form_label(form.permis,"Permis")}}
                     {{form_widget(form.permis)}}
                     {{form_errors(form.permis)}}
                     </div>
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12 form-group">
                     {{form_label(form.pwd,"Password")}}
                     {{form_widget(form.pwd)}}
                     {{form_errors(form.pwd)}}

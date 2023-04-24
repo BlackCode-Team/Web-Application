@@ -7183,6 +7183,13 @@
         <argument key="reservationRepository" type="service_closure" id="App\Repository\ReservationRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.fZJuHge" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service_closure" id=".errored..service_locator.fZJuHge.App\Entity\Utilisateur"/>
+        <argument key="utilisateurRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.1acpYi7" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7209,7 +7216,7 @@
         <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.VMD2hiF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.HHwQokh" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AmendeController::delete" type="service_closure" id=".service_locator.ICjB1ut"/>
@@ -7274,7 +7281,7 @@
         <argument key="App\Controller\ReservationController::index" type="service_closure" id=".service_locator.VddRp04"/>
         <argument key="App\Controller\ReservationController::new" type="service_closure" id=".service_locator.OF7rQSL"/>
         <argument key="App\Controller\ReservationController::show" type="service_closure" id=".service_locator.jtI7Unb"/>
-        <argument key="App\Controller\UtilisateurController::blockUser" type="service_closure" id=".service_locator.1acpYi7"/>
+        <argument key="App\Controller\UtilisateurController::blockUser" type="service_closure" id=".service_locator.fZJuHge"/>
         <argument key="App\Controller\UtilisateurController::delete" type="service_closure" id=".service_locator.KzL3gdR"/>
         <argument key="App\Controller\UtilisateurController::edit" type="service_closure" id=".service_locator.KzL3gdR"/>
         <argument key="App\Controller\UtilisateurController::index" type="service_closure" id=".service_locator.JMejbpE"/>
@@ -7354,7 +7361,7 @@
         <argument key="App\Controller\ReservationController:index" type="service_closure" id=".service_locator.VddRp04"/>
         <argument key="App\Controller\ReservationController:new" type="service_closure" id=".service_locator.OF7rQSL"/>
         <argument key="App\Controller\ReservationController:show" type="service_closure" id=".service_locator.jtI7Unb"/>
-        <argument key="App\Controller\UtilisateurController:blockUser" type="service_closure" id=".service_locator.1acpYi7"/>
+        <argument key="App\Controller\UtilisateurController:blockUser" type="service_closure" id=".service_locator.fZJuHge"/>
         <argument key="App\Controller\UtilisateurController:delete" type="service_closure" id=".service_locator.KzL3gdR"/>
         <argument key="App\Controller\UtilisateurController:edit" type="service_closure" id=".service_locator.KzL3gdR"/>
         <argument key="App\Controller\UtilisateurController:index" type="service_closure" id=".service_locator.JMejbpE"/>
@@ -8110,12 +8117,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.VMD2hiF"/>
+      <argument type="service" id=".service_locator.HHwQokh"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.VMD2hiF"/>
+      <argument type="service" id=".service_locator.HHwQokh"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8157,6 +8164,7 @@
     <service id=".errored..service_locator.wdRBG_e.App\Entity\Reponse" class="App\Entity\Reponse"/>
     <service id=".errored..service_locator.jtI7Unb.App\Entity\Reservation" class="App\Entity\Reservation"/>
     <service id=".errored..service_locator.mxLQRmV.App\Entity\Reservation" class="App\Entity\Reservation"/>
+    <service id=".errored..service_locator.fZJuHge.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.1acpYi7.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.pB20uqv.App\Entity\Vehicule" class="App\Entity\Vehicule"/>
     <service id=".errored..service_locator.YdyC4xD.App\Entity\Vehicule" class="App\Entity\Vehicule"/>
@@ -9105,7 +9113,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.VMD2hiF"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.HHwQokh"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9132,8 +9140,9 @@
     <service id=".service_locator.bogptl8" alias=".service_locator.OF7rQSL"/>
     <service id=".service_locator.tM9HEfN" alias=".service_locator.lqcp2J4"/>
     <service id=".service_locator.4KgR7kv" alias=".service_locator.VVLqQPI"/>
+    <service id=".service_locator.xXaH2Gj" alias=".service_locator.fZJuHge"/>
     <service id=".service_locator.3wy2NyO" alias=".service_locator.1acpYi7"/>
-    <service id=".service_locator.bQIPLw7" alias=".service_locator.VMD2hiF"/>
+    <service id=".service_locator.SR2oHLa" alias=".service_locator.HHwQokh"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.GbyO6EC" alias=".service_locator.nk3tqgl"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -9200,6 +9209,7 @@
     <service id=".service_locator.W5YGkuw" alias=".service_locator.VddRp04"/>
     <service id=".service_locator.UKRTTGm" alias=".service_locator.jtI7Unb"/>
     <service id=".service_locator.IUVlptD" alias=".service_locator.mxLQRmV"/>
+    <service id=".service_locator.TMdHId4" alias=".service_locator.fZJuHge"/>
     <service id=".service_locator.iwulDuo" alias=".service_locator.1acpYi7"/>
     <service id=".service_locator.2CdSnge" alias=".service_locator.y1420Rl"/>
     <service id=".service_locator.9bJ6zHz" alias=".service_locator.pB20uqv"/>

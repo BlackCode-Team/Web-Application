@@ -32,6 +32,7 @@
       <th class="text-center">Cin</th>
       <th class="text-center">Permis</th>
       <th class="text-center">Nbpoint</th>
+      <th class="text-center">Etat</th>
       <th class="text-center">Actions</th>
     </tr>
   </thead>
@@ -47,17 +48,20 @@
       <td class="text-center">{{ utilisateur.cin }}</td>
       <td class="text-center">{{ utilisateur.permis }}</td>
       <td class="text-center">{{ utilisateur.nbpoint }}</td>
+      <td class="text-center">{{ utilisateur.isBlocked }}</td>
       <td class="text-center">
         <a class="btn btn-primary btn-sm" href="{{ path('app_utilisateur_show', {'iduser': utilisateur.iduser}) }}">Afficher</a>
-        {% if user.isBlocked %}
-            <form action="{{ path('unblock_user', {'iduser': utilisateur.iduser}) }}" method="post">
-                 <a class="btn btn-grey btn-sm" href="{{ path('block_user', {'iduser': utilisateur.iduser}) }}">Débloquer</a>
-            </form>
-        {% else %}
-            <form action="{{ path('block_user', {iduser': utilisateur.iduser}) }}" method="post">
-                 <a class="btn btn-danger btn-sm" href="{{ path('unblock_user', {'iduser': utilisateur.iduser}) }}">Block</a>
-            </form>
-        {% endif %}
+        
+        
+        <form action="{{ path('block_user', {'iduser': utilisateur.iduser}) }}" method="POST">
+            <input type="hidden" name="_method" value="PUT" />
+            {% if utilisateur.isBlocked %}
+                <button type="submit" class="btn btn-warning">Débloquer</button>
+            {% else %}
+                <button type="submit" class="btn btn-danger">Bloquer</button>
+            {% endif %}
+        </form>
+
 
       </td>
     </tr>
