@@ -23,6 +23,16 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
+    #[Route('/block', name: 'app_utilisateur_block', methods: ['GET'])]
+    public function showBlock(UtilisateurRepository $utilisateurRepository): Response
+    {
+        $utilisateurs = $utilisateurRepository->findBy(['role' => 'client']);
+
+        return $this->render('utilisateur/block.html.twig', [
+            'utilisateurs' => $utilisateurs,
+        ]);
+    }
+
     #[Route('/new', name: 'app_utilisateur_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UtilisateurRepository $utilisateurRepository): Response
     {
@@ -78,5 +88,25 @@ class UtilisateurController extends AbstractController
         }
 
         return $this->redirectToRoute('app_utilisateur_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/block/{iduser}", name="block_user")
+     */
+    public function blockUser(Request $request, UtilisateurRepository $userRepository, Utilisateur $user): Response
+    {
+        $userRepository->updateIsBlocked($user, true);
+
+        return $this->redirectToRoute('app_utilisateur_block');
+    }
+
+     /**
+     * @Route("/unblock/{iduser}", name="unblock_user")
+     */
+    public function unblockUser(Request $request, UtilisateurRepository $userRepository, Utilisateur $user): Response
+    {
+        $userRepository->updateIsBlocked($user, false);
+
+        return $this->redirectToRoute('app_utilisateur_block');
     }
 }

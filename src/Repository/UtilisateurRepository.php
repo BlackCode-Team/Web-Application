@@ -38,6 +38,13 @@ class UtilisateurRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function updateIsBlocked(Utilisateur $user, bool $isBlocked): void
+    {
+        $user->setIsBlocked($isBlocked);
+        $this->_em->persist($user);
+        $this->_em->flush();
+    }
     public function getUserAuthentication($email, $password)
 {
     $user = $this->findOneBy(['email' => $email]);

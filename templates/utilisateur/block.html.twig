@@ -1,0 +1,100 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Utilisateur index{% endblock %}
+
+{% block body %}
+    <h1>Gestion des Clients</h1>
+
+    <div class="row">
+                                                               
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                      
+                                    </div>                 
+                                </div>
+                            </div>
+
+                            <div class="widget-content-area ">
+
+                                <div class="table-responsive new-products">
+                 <table class="table">
+  <thead>
+    <tr>
+      <th class="text-center">Iduser</th>
+      <th class="text-center">Role</th>
+      <th class="text-center">Nom</th>
+      <th class="text-center">Prenom</th>
+      <th class="text-center">Pwd</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Cin</th>
+      <th class="text-center">Permis</th>
+      <th class="text-center">Nbpoint</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for utilisateur in utilisateurs %}
+    <tr>
+      <td class="text-center">{{ utilisateur.iduser }}</td>
+      <td class="text-center">{{ utilisateur.role }}</td>
+      <td class="text-center">{{ utilisateur.nom }}</td>
+      <td class="text-center">{{ utilisateur.prenom }}</td>
+      <td class="text-center">{{ utilisateur.pwd }}</td>
+      <td class="text-center">{{ utilisateur.email }}</td>
+      <td class="text-center">{{ utilisateur.cin }}</td>
+      <td class="text-center">{{ utilisateur.permis }}</td>
+      <td class="text-center">{{ utilisateur.nbpoint }}</td>
+      <td class="text-center">
+        <a class="btn btn-primary btn-sm" href="{{ path('app_utilisateur_show', {'iduser': utilisateur.iduser}) }}">Afficher</a>
+        {% if user.isBlocked %}
+            <form action="{{ path('unblock_user', {'iduser': utilisateur.iduser}) }}" method="post">
+                 <a class="btn btn-grey btn-sm" href="{{ path('block_user', {'iduser': utilisateur.iduser}) }}">Débloquer</a>
+            </form>
+        {% else %}
+            <form action="{{ path('block_user', {iduser': utilisateur.iduser}) }}" method="post">
+                 <a class="btn btn-danger btn-sm" href="{{ path('unblock_user', {'iduser': utilisateur.iduser}) }}">Block</a>
+            </form>
+        {% endif %}
+
+      </td>
+    </tr>
+    {% else %}
+    <tr>
+      <td colspan="10">Aucun enregistrement trouvé</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+   
+{% endblock %}
+{% block stylesheets %}
+    .table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  color: #212529;
+  border-collapse: collapse;
+}
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+.table tbody+tbody {
+  border-top: 2px solid #dee2e6;
+}
+.table .table {
+  background-color: #fff;
+}
+
+{% endblock %}

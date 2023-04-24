@@ -20,6 +20,11 @@ app_utilisateur_index:
     controller: App\Controller\UtilisateurController::index
     methods: GET
 
+app_utilisateur_block:
+    path: /utilisateur/block
+    controller: App\Controller\UtilisateurController::showBlock
+    methods: GET
+
 app_utilisateur_edit:
     path: '/{iduser}/edit'
     controller: App\Controller\UtilisateurController::edit

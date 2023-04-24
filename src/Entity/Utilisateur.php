@@ -21,6 +21,11 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $role='client';
 
+     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBlocked = false;
+
     
      #[ORM\Column( length:255)]
      #[Assert\Regex(
@@ -197,6 +202,17 @@ class Utilisateur
 
         return $this;
     }
+    
+    public function getIsBlocked(): ?bool
+    {
+        return $this->isBlocked;
+    }
 
+    public function setIsBlocked(bool $isBlocked): self
+    {
+        $this->isBlocked = $isBlocked;
+
+        return $this;
+    }
 
 }
