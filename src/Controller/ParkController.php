@@ -9,6 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\UX\Chartjs\Model\Chart;
 
 #[Route('/park')]
 class ParkController extends AbstractController
@@ -20,11 +26,88 @@ class ParkController extends AbstractController
             'parks' => $parkRepository->findAll(),
         ]);
     }
+
+    //zedt el pagination 
     #[Route('/admin', name: 'app_park_indexad', methods: ['GET'])]
-    public function indexad(ParkRepository $parkRepository): Response
-    {
+    public function indexad(Request $request,ParkRepository $parkRepository,PaginatorInterface $paginator): Response
+    {   
+        $parks = $parkRepository->findAll();
+        $parks = $paginator->paginate(
+            $parks, /* query NOT result */
+            $request->query->getInt('page', 1),
+            4
+        );
+        $totalSpots = $parkRepository->getTotalSpots();
+        $allParks = $parkRepository->findAll();
+        $parkData = [];
+        
+        foreach ($allParks as $p) {
+            $parkSpots = $p->getNbspot();
+            $parkPercentage = $parkSpots;
+            $parkData[] = [
+                'label' => $p->getNom(),
+                'data' => $parkSpots,
+                'percentage' => $parkPercentage,
+            ];
+        }
+        ////// pie chart 
+        $chartData = [
+            'labels' => array_column($parkData, 'label'),
+            'datasets' => [
+                [
+                    'data' => array_column($parkData, 'percentage'),
+                    'backgroundColor' => [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(231, 233, 237, 0.2)',
+                        'rgba(149, 165, 166, 0.2)',
+                        'rgba(241, 196, 15, 0.2)',
+                        'rgba(243, 156, 18, 0.2)',
+                    ],
+                    'borderColor' => [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(231, 233, 237, 1)',
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(241, 196, 15, 1)',
+                        'rgba(243, 156, 18, 1)',
+                    ],
+                    'borderWidth' => 1,
+                ],
+            ],
+        ];
+        /////////////////////////////////////////
+        ////////////////////bar chart 
+        $labels = array();
+        $data = array();
+        foreach ($parks as $park) {
+            array_push($labels, $park->getNom());
+            array_push($data, $park->getNbspot());
+        }
+        $chartData2 = [
+            'labels' => $labels,
+            'datasets' => [
+                [
+                    'label' => 'Number of spots',
+                    'data' => $data,
+                    'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
+                    'borderColor' => 'rgba(54, 162, 235, 1)',
+                    'borderWidth' => 1,
+                ],
+            ],
+        ];
         return $this->render('park/indexadmin.html.twig', [
-            'parks' => $parkRepository->findAll(),
+            'parks' => $parks,
+            'chartData' => json_encode($chartData),
+            'chartData2' => json_encode($chartData2),
         ]);
     }
 
@@ -50,6 +133,7 @@ class ParkController extends AbstractController
     #[Route('/{idpark}', name: 'app_park_show', methods: ['GET'])]
     public function show(Park $park): Response
     {
+        
         return $this->render('park/show.html.twig', [
             'park' => $park,
         ]);
@@ -57,9 +141,11 @@ class ParkController extends AbstractController
     #[Route('/{idpark}/adm', name: 'app_park_showadm', methods: ['GET'])]
     public function showadm(Park $park): Response
     {
+
         return $this->render('park/showadm.html.twig', [
             'park' => $park,
         ]);
+        
     }
 
     #[Route('/{idpark}/edit', name: 'app_park_edit', methods: ['GET', 'POST'])]
@@ -89,5 +175,27 @@ class ParkController extends AbstractController
 
         return $this->redirectToRoute('app_park_index', [], Response::HTTP_SEE_OTHER);
     }
+
+       ////////////////////////////////////////////////////////////////TEST
+       #[Route('/{idpark}/chart/test', name: 'app_chart_park')]
+       public function chart(Park $park,int $idpark, ParkRepository $parkRepository): Response
+       {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get('https://nominatim.openstreetmap.org/search?q=' . urlencode($park->getVille()) . '&format=jsonv2');
+        $data = json_decode($response->getBody(), true);
+        $position = [$data[0]['lat'], $data[0]['lon']];
+            
+        return $this->render('chart_park/index.html.twig', [
+            'position' => $position,
+            'park' =>$park,
+        ]);
+        }
+    /////////////////////////////////////////////////////////////////////
+
+
+
+   
+
+
 }
 

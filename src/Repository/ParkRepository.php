@@ -39,6 +39,15 @@ class ParkRepository extends ServiceEntityRepository
         }
     }
 
+    public function getTotalSpots(): int
+{
+    $queryBuilder = $this->createQueryBuilder('p')
+        ->select('SUM(p.nbspot) as total_spots');
+
+    $result = $queryBuilder->getQuery()->getSingleScalarResult();
+
+    return $result ? (int) $result : 0;
+}
 //    /**
 //     * @return Park[] Returns an array of Park objects
 //     */
