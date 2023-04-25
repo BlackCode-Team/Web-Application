@@ -78,4 +78,77 @@
         </div>
     </div>
     <a href="{{ path('app_vehicule_new') }}">Create new</a>
+
+            <div class="row">
+
+                    <div class="col-xl-8 col-lg-12 col-md-12 col-12 layout-spacing">
+                        <div class="widget-content-area monthly-chart  br-4">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-2 col-12  align-self-center">
+                                    <h3>nombres de spots de chaque parc</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12 mt-3">
+                                    <div class="tab-content" id="monthly-chartContent">                                                                            
+                                        <div style="max-width: 1400px; margin: 0 auto;">
+  <canvas id="myChart2" style="height: 500px;"></canvas>
+</div>
+
+{# <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx = document.getElementById('myChart2').getContext('2d');
+  var chartData2 = JSON.parse('{{ chartData2|raw }}');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: chartData2,
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script> #}
+                                                                              
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-xl-4 col-lg-12 col-sm-12 col-12 layout-spacing">
+                        <div class="statbox widget box">
+                            <div class="widget-header ">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>nombre de spots de chaque parc par rapport au total de spots </h4>
+                                    </div>                 
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area  monthly-profit-chart">
+<div style="max-width: 500px; margin: 0 auto;">
+  <canvas id="myChart" style="height: 300px;"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chartData = JSON.parse('{{ chartData|raw }}');
+  var myChart = new Chart(ctx, {
+    type: 'pie', // Changed chart type to pie
+    data: chartData,
+    options: {
+      // Removed x-axis scales options
+    }
+  });
+</script>
+
+
+
+                            </div>
+                        </div>
+                    </div>
 {% endblock %}

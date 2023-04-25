@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Vehicule{% endblock %}
 
@@ -17,33 +17,25 @@
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="form-group">
-                          <label> Car Brand </label>
-                          <select class="form-control">
-                            <option>Any Brands</option>
-                            <option>Any Brands</option>
-                            <option>Any Brands</option>
-                            <option>Any Brands</option>
-                          </select>
-                        </div>
+                        <form action="{{ path('vehicule_filter') }}" method="get">
+                          <div class="form-group">
+                            <label for="type">Type de vehicule</label>
+                            <select class="form-control" name="type" id="type">
+                              <option value="">Tous</option>
+                              <option value="Voiture">Voiture</option>
+                              <option value="Trottinette">Trottinette</option>
+                            </select>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Filter</button>
+                        </form>
                       </div>
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="form-group">
-                          <label> Car Type </label>
-                          <select class="form-control">
-                            <option>Any Type</option>
-                            <option>Any Type</option>
-                            <option>Any Type</option>
-                            <option>Any Type</option>
-                          </select>
-                        </div>
-                      </div>
+
                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group">
                           <label> Car Price </label>
                           <select class="form-control">
-                            <option>Price Low to High</option>
-                            <option>Price High to Low</option>
+                            <option>Prix croissant</option>
+                            <option>Prix décroissant</option>
                           </select>
                         </div>
                       </div>
@@ -58,18 +50,17 @@
               </div>
               <div class="clearfix r-sort-val">
                 <div class="pull-left">
-                  <span>Sort by : </span>
+                  <span>Trier par : </span>
                   <select class="r-show-cars-filter">
-                    <option value="6"> Name </option>
-                    <option value="10"> Price </option>
-                    <option value="20"> Age </option>
+                    <option value="6"> Nom </option>
+                    <option value="10"> Prix </option>
                   </select>
                 </div>
-                <div class="pull-right"><span class="r-total-result">6 Search results</span></div>
+                <div class="pull-right"><span class="r-total-result">11 Search results</span></div>
               </div>
-              <div class="r-best-offer-list r-car-list-map mCustomScrollbar">
-                <div class="row">
-                  {% for vehicule in vehicules %}
+              <div class="r-car-showcase">
+                    <div class="row clearfix r-best-offer-list">
+                    {% for vehicule in vehicules %}
                   <div class="col-md-4">
                       <div class="card mb-4 shadow-sm">
                           <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" />
@@ -98,16 +89,7 @@
                 </div>
               </div>
         </div>
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-12 p-0 r-map-area">
-              <div class="r-hide-car-list r-flip-map">
-                <span>HIDE CAR LIST</span>
-                <i class="fa fa-angle-up"></i>
-              </div>
-              <div class="google-map r-google-map-list">
-                <div id="map-canvas"></div>
-              </div>
-            </div>
-          </div>
+            
        
 
 {% endblock %}

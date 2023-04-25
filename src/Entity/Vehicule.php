@@ -39,6 +39,9 @@ class Vehicule
     #[ORM\Column(length: 255)]
     private ?string $image=null;
 
+    #[ORM\ManyToOne(targetEntity: Park::class, inversedBy: 'Vehicule')]
+    #[ORM\JoinColumn(name: 'idpark', referencedColumnName: 'idpark')]
+    private ?Park $park=null;
 
     public function getModele(): ?string
     {
@@ -137,6 +140,29 @@ class Vehicule
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getPark(): ?Park
+    {
+        return $this->park;
+    }
+
+    public function setPark(?Park $park): self
+    {
+        $this->park = $park;
+
+        return $this;
+    }
+    public function getIdpark(): ?int
+    {
+        return $this->idpark;
+    }
+
+    public function setIdpark(int $idpark): self
+    {
+        $this->idpark = $idpark;
 
         return $this;
     }

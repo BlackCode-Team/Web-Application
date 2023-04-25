@@ -48,7 +48,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
-     
+        
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "php-http/discovery": true,

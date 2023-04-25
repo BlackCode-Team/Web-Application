@@ -1,40 +1,20 @@
-       {% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Vehicule{% endblock %}
 
 {% block body %}
  <div class="r-car-search">
+          <a href="{{ path('pdf_catalogue') }}">Télécharger le catalogue des voitures</a>
+
           <div class="container">
             <form>
               <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group">
-                    <label> Car Brand </label>
-                    <select class="form-control">
-                      <option>Any Brands</option>
-                      <option>Any Brands</option>
-                      <option>Any Brands</option>
-                      <option>Any Brands</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="form-group">
-                    <label> Car Type </label>
-                    <select class="form-control">
-                      <option>Any Type</option>
-                      <option>Any Type</option>
-                      <option>Any Type</option>
-                      <option>Any Type</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="form-group">
                     <label> Car Price </label>
                     <select class="form-control">
-                      <option>Price Low to High</option>
-                      <option>Price High to Low</option>
+                      <option>Prix croissant</option>
+                      <option>Prix decroissant</option>
                     </select>
                   </div>
                 </div>
@@ -55,24 +35,17 @@
                 <div class="col-lg-3 col-md-4 col-sm-12">
                   <h2 class="heading"> Car Categories </h2>
                   <div class="r-best-vehicle-list-outer">
-                    <div class="r-best-leftbar">
-                      <ul class="pl-0 mb-0 r-best-vehicle-types r-best-vehicle-category">
-                        <li><span> <i class="fa fa-star"></i> Popular Cars</span></li>
-                        <li><span> <i class="fa fa-star"></i> Special Offers</span></li>
-                        <li><span> <i class="fa fa-star"></i>Limited Editions</span></li>
-                      </ul>
-                      <ul class="pl-0 mb-0 r-best-vehicle-types">
-                        <li><span>All Manufacturer</span></li>
-                        <li><span>Honda</span></li>
-                        <li class="r-best-vehicle-acitve"><span>Mercedes Benz</span></li>
-                        <li><span>Toyota</span></li>
-                        <li><span>Volkswagen</span></li>
-                        <li><span>Audi</span></li>
-                        <li><span>Ferrari</span></li>
-                        <li><span>Chevrolet</span></li>
-                      </ul>
-                    </div>
+                    <form action="{{ path('vehicule_filter') }}" method="get">
+                    <label for="type">Type:</label>
+                    <select name="type" id="type">
+                        <option value="">Tous</option>
+                        <option value="Voiture">Voiture</option>
+                        <option value="Trottinette">Trottinette</option>
+                    </select>
+                    <button type="submit">Filtrer</button>
+                </form>
                   </div>
+                  
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-12">
                   <div class="r-car-filter-area">
@@ -100,7 +73,7 @@
 
                   <div class="r-car-showcase">
                     <div class="row clearfix r-best-offer-list">
-                    {% for vehicule in vehicules %}
+                    {% for vehicule in vehiculesvehicules.items %}
                   <div class="col-md-4">
                       <div class="card mb-4 shadow-sm">
                           <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" />
@@ -126,6 +99,12 @@
                     </div>
                   </div>
                   {% endfor %}
-                        </div>
-                      </div>
-                      {% endblock %}
+                 
+                </div>
+                <div class="pagination-section">
+                  {{ knp_pagination_render(vehicules) }}
+                </div>
+
+              </div>
+                      
+{% endblock %}

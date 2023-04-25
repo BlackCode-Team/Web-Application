@@ -38,6 +38,51 @@ class VehiculeRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function getTotalTypeVoiture(): int
+    {
+        $queryBuilder = $this->createQueryBuilder('v')
+            ->select('SUM(v.type) as total_cars')
+            ->where('v.type = :voiture')
+            ->setParameter('voiture', 'voiture');
+    
+        $result = $queryBuilder->getQuery()->getSingleScalarResult();
+    
+        return $result ? (int) $result : 0;
+    }
+
+    public function getTotalTypeTrottinette(): int
+{
+    $queryBuilder = $this->createQueryBuilder('v')
+        ->select('SUM(v.type) as total_trottinettes')
+        ->where('v.type = :trottinette')
+        ->setParameter('trottinette', 'trottinette');
+
+    $result = $queryBuilder->getQuery()->getSingleScalarResult();
+
+    return $result ? (int) $result : 0;
+}
+
+
+
+ /*   public function findByLocationOrderByPrix(string $parkName)
+    {
+        $entitymanager = $this->getEntityManager();
+        $queryBuilder = $entitymanager->createQueryBuilder();
+    
+        $queryBuilder->from(Vehicule::class, 'v')
+            ->join('v.idpark', 'p')
+            ->where('p.nom = :nom')
+            ->andWhere('v.status = :status')
+            ->setParameter('nom', $parkName)
+            ->setParameter('status', 'disponible')
+            ->orderBy('v.prix', 'ASC');
+        
+        $vehicules = $queryBuilder->getQuery()->getResult();
+    
+        return $vehicules;
+    }*/
+
+
 
 //    /**
 //     * @return Vehicule[] Returns an array of Vehicule objects

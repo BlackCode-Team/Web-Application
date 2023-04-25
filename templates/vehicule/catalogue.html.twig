@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Catalogue</title>
+    <style>
+        /* Ajouter des styles CSS pour le PDF ici */
+    </style>
+</head>
+<body>
+    <h1>Catalogue de voitures</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Matricule</th>
+                <th>Modèle</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.matricule }}</td>
+                <td>{{ vehicule.modele }}</td>
+                <td>{{ vehicule.prix }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
