@@ -63,19 +63,23 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
         $totalCars = $vehiculeRepository->getTotalTypeVoiture();
         $totalTrottinette = $vehiculeRepository->getTotalTypeTrottinette();
     
-        // Pie chart 
+        ////// pie chart 
         $chartData = [
-            'labels' => ["Total Cars", "Total Trottinettes"],
+            'labels' => ["test", "123"],
             'datasets' => [
                 [
-                    'data' => [$totalCars, $totalTrottinette],
+                    'data' =>$totalCars,
                     'backgroundColor' => [
                         'rgba(54, 162, 235, 0.2)',
+                    ],
+                    'data' =>$totalTrottinette,
+                    'backgroundColor' => [
                         'rgba(149, 165, 166, 0.2)',
                     ],
                     'borderColor' => [
                         'rgba(54, 162, 235, 1)',       
                         'rgba(149, 165, 166, 1)',
+                      
                     ],
                     'borderWidth' => 1,
                 ],
@@ -85,7 +89,8 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
         return $this->render('vehicule/index.html.twig', [
             'vehicules' =>  $vehicules,
             'chartData' => json_encode($chartData),
-        ]);  
+        ]);
+      
     }
 
     #[Route('/search', name: 'search_vehicule', methods: ['GET'])]
