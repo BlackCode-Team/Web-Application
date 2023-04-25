@@ -760,6 +760,6 @@ class __TwigTemplate_55db01dc7d21db692adce9bf8531b438 extends \Twig\Template
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/mailer.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\mailer.html.twig");
+", "@WebProfiler/Collector/mailer.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\mailer.html.twig");
     }
 }

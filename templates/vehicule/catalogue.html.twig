@@ -2,9 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PDF Catalogue</title>
+    <title>Catalogue de voitures</title>
     <style>
         /* Ajouter des styles CSS pour le PDF ici */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        h1 {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #ddd;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +49,7 @@
         <tbody>
             {% for vehicule in vehicules %}
             <tr>
+                <td><img src="{{imageSrc}}" style="width:200px;"></td>
                 <td>{{ vehicule.matricule }}</td>
                 <td>{{ vehicule.modele }}</td>
                 <td>{{ vehicule.prix }}</td>

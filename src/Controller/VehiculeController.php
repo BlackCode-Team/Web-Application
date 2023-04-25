@@ -30,7 +30,7 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
     );
     
 
-    return $this->render('vehicule/carlist.html.twig', [
+    return $this->render('vehicule/list.html.twig', [
         'vehicules' => $vehicules,
     ]);
 }
@@ -193,53 +193,6 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
         return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    /*public function generatePdfCatalogueAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $vehicules = $em->getRepository(Vehicule::class)->findAll();
-
-        $html = $this->renderView('vehicule/catalogue.html.twig', [
-            'vehicules' => $vehicules,
-        ]);
-
-        $snappy = new Pdf('/usr/local/bin/wkhtmltopdf'); // ou utiliser l'injection de dépendances pour récupérer le service
-        $filename = 'catalogue_vehicules.pdf';
-
-        return new Response(
-            $snappy->getOutputFromHtml($html),
-            200,
-            [
-                'Content-Type' => 'application/pdf',
-                'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
-            ]
-        );
-    }*/
-
-   /*public function vehiculesPdf(Pdf $pdf): Response
-   {
-       // Récupération de la liste des véhicules depuis la base de données
-       $vehicules = $this->getDoctrine()->getRepository(Vehicule::class)->findAll();
-
-       $pdf = new Pdf();
-
-       // Création du contenu HTML pour le PDF
-       $html = $this->renderView('vehicule/catalogue.html.twig', [
-           'vehicules' => $vehicules,
-       ]);
-
-       // Génération du PDF
-       $pdf->setOption('encoding', 'UTF-8');
-
-       return new Response(
-           $pdf->getOutputFromHtml($html),
-           200,
-           [
-               'Content-Type' => 'application/pdf',
-               'Content-Disposition' => 'attachment; filename="liste_vehicules.pdf"',
-           ]
-       );
-   }*/
-
   
    #[Route('/filtre/type', name: 'vehicule_filter' ,methods: ['GET'])]
     public function filter(Request $request)
@@ -255,40 +208,51 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
     }
 
     private VehiculeRepository $vehiculeRepository;
-    // private Pdf $pdfGenerator;
+    private Pdf $pdfGenerator;
  
-    public function __construct(VehiculeRepository $vehiculeRepository/*, Pdf $pdfGenerator*/)
+    public function __construct(VehiculeRepository $vehiculeRepository, Pdf $pdfGenerator)
     {
         $this->vehiculeRepository = $vehiculeRepository;
-        // $this->pdfGenerator = $pdfGenerator;
+        $this->pdfGenerator = $pdfGenerator;
     }
  
-//    #[Route('/pdf/catalogue', name: 'pdf_catalogue', methods: ['GET'])]
-//    public function cataloguePdf(): Response
-//    {
-//        $vehicules = $this->vehiculeRepository->findAll();
-//        $html = $this->renderView('vehicule/catalogue.html.twig', [
-//            'vehicules' => $vehicules,
-//        ]);
+    #[Route('/pdf/catalogue', name: 'pdf_catalogue', methods: ['GET'])]
+    public function cataloguePdf(): Response
+    {
+        $imageSrc = $this->imageToBase64($this->getParameter('kernel.project_dir') . '/public/images/6431874652f40.jpg');
+        $vehicules = $this->vehiculeRepository->findAll();
+        $html = $this->renderView('vehicule/catalogue.html.twig', [
+            'vehicules' => $vehicules,
+            'imageSrc' => $imageSrc,
 
-//        $pdfOptions = [
-//            'margin-top' => 10,
-//            'margin-right' => 10,
-//            'margin-bottom' => 10,
-//            'margin-left' => 10,
-//            'encoding' => 'UTF-8',
-//            'footer-right' => '[page]',
-//            'footer-font-size' => 8,
-//        ];
+        ]);
 
-//        return new Response(
-//            $this->pdfGenerator->getOutputFromHtml($html, $pdfOptions),
-//            200,
-//            [
-//                'Content-Type' => 'application/pdf',
-//                'Content-Disposition' => 'inline; filename="catalogue.pdf"',
-//            ]
-//        );
-//    }
+        $pdfOptions = [
+            'margin-top' => 10,
+           'margin-right' => 10,
+            'margin-bottom' => 10,
+            'margin-left' => 10,
+            'encoding' => 'UTF-8',
+            'footer-right' => '[page]',
+            'footer-font-size' => 8,
+        ];
+
+        return new Response(
+            $this->pdfGenerator->getOutputFromHtml($html, $pdfOptions),
+            200,
+            [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="catalogue.pdf"',
+            ]
+        );
+    }
+
+    private function imageToBase64($path) {
+        $path = $path;
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $base64;
+    }
 
 }

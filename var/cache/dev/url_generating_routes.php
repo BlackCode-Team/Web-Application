@@ -84,6 +84,7 @@ return [
     'app_vehicule_edit' => [['idvehicule'], ['_controller' => 'App\\Controller\\VehiculeController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idvehicule', true], ['text', '/vehicule']], [], [], []],
     'app_vehicule_delete' => [['idvehicule'], ['_controller' => 'App\\Controller\\VehiculeController::delete'], [], [['variable', '/', '[^/]++', 'idvehicule', true], ['text', '/vehicule']], [], [], []],
     'vehicule_filter' => [[], ['_controller' => 'App\\Controller\\VehiculeController::filter'], [], [['text', '/vehicule/filtre/type']], [], [], []],
+    'pdf_catalogue' => [[], ['_controller' => 'App\\Controller\\VehiculeController::cataloguePdf'], [], [['text', '/vehicule/pdf/catalogue']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], [], []],
     '_profiler_home' => [[], ['_controller' => 'web_profiler.controller.profiler::homeAction'], [], [['text', '/_profiler/']], [], [], []],

@@ -1803,6 +1803,6 @@ class __TwigTemplate_01e9c3a23c18db940bb276ddd304d838 extends \Twig\Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
     }
 }
