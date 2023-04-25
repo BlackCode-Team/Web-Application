@@ -96,6 +96,12 @@ return [[
 '[C]App%5CController%5CBaseController' => 1,
 'App%5CController%5CBaseController%23index' => 0,
 '[C]App%5CController%5CBaseController%23index' => 1,
+'App%5CController%5CChartParkController' => 0,
+'[C]App%5CController%5CChartParkController' => 1,
+'App%5CController%5CChartParkController%23index' => 0,
+'[C]App%5CController%5CChartParkController%23index' => 1,
+'App%5CController%5CChartParkController%23chart' => 0,
+'[C]App%5CController%5CChartParkController%23chart' => 1,
 'App%5CController%5CHistoriqueController' => 0,
 '[C]App%5CController%5CHistoriqueController' => 1,
 'App%5CController%5CHistoriqueController%23index' => 0,
@@ -122,6 +128,8 @@ return [[
 '[C]App%5CController%5CItineraireController%23edit' => 1,
 'App%5CController%5CItineraireController%23delete' => 0,
 '[C]App%5CController%5CItineraireController%23delete' => 1,
+'App%5CController%5CItineraireController%23route' => 0,
+'[C]App%5CController%5CItineraireController%23route' => 1,
 'App%5CController%5CLoginController' => 0,
 '[C]App%5CController%5CLoginController' => 1,
 'App%5CController%5CLoginController%23login' => 0,
@@ -168,6 +176,16 @@ return [[
 '[C]App%5CController%5CParkController%23edit' => 1,
 'App%5CController%5CParkController%23delete' => 0,
 '[C]App%5CController%5CParkController%23delete' => 1,
+'App%5CController%5CParkController%23chart' => 0,
+'[C]App%5CController%5CParkController%23chart' => 1,
+'App%5CController%5CProfilController' => 0,
+'[C]App%5CController%5CProfilController' => 1,
+'App%5CController%5CProfilController%23edit' => 0,
+'[C]App%5CController%5CProfilController%23edit' => 1,
+'App%5CController%5CProfilController%23show' => 0,
+'[C]App%5CController%5CProfilController%23show' => 1,
+'App%5CController%5CProfilController%23index' => 0,
+'[C]App%5CController%5CProfilController%23index' => 1,
 'App%5CController%5CRatingController' => 0,
 '[C]App%5CController%5CRatingController' => 1,
 'App%5CController%5CRatingController%23index' => 0,
@@ -1314,7 +1332,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1682369975,
+1 => 1682448261,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [

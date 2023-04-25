@@ -32,7 +32,7 @@ class ParkType extends AbstractType
                         'message' => 'Veuillez saisir le Nom du Park',
                     ]),new Regex([
                         'pattern' => '/^[a-zA-Z]+$/',
-                        'message' => 'Le Statut du Parc "{{ value }}" n\'est pas valide',
+                        'message' => 'Le nom du Parc "{{ value }}" n\'est pas valide',
                     ]),
                 ],
             ])
@@ -43,7 +43,7 @@ class ParkType extends AbstractType
                         'message' => 'Veuillez saisir la ville du Park',
                     ]), new Regex([
                         'pattern' => '/^[a-zA-Z]+$/',
-                        'message' => 'Le Statut du Parc "{{ value }}" n\'est pas valide',
+                        'message' => 'La ville du Parc "{{ value }}" n\'est pas valide',
                     ]),
 
                 ],

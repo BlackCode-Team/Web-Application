@@ -1,0 +1,56 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+    <h2><b>Geolocalisation du Reservation entre <b>{{ itineraire.pointdepart | upper}}</b> et <b>{{ itineraire.pointarrivee | upper}} </b></h2>
+    <div id="map" style="height: 500px"></div>
+
+    <script>
+        function initMap() {
+            var startLat = {{ startLat }};
+            var startLng = {{ startLng }};
+            var endLat = {{ endLat }};
+            var endLng = {{ endLng }};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: {lat: startLat, lng: startLng},
+            });
+
+            var startMarker = new google.maps.Marker({
+                position: {lat: startLat, lng: startLng},
+                map: map,
+                title: 'Start'
+            });
+
+            var endMarker = new google.maps.Marker({
+                position: {lat: endLat, lng: endLng},
+                map: map,
+                title: 'End'
+            });
+
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer({
+                polylineOptions: {
+                    strokeColor: "#FF0000",
+                    strokeWeight: 4
+                }
+            });
+
+            directionsRenderer.setMap(map);
+
+            var request = {
+                origin: new google.maps.LatLng(startLat, startLng),
+                destination: new google.maps.LatLng(endLat, endLng),
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsRenderer.setDirections(result);
+                }
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3RpFvEYkmeZF7Wj7CM5j05TtDizkGpe0&callback=initMap" async defer></script>
+{% endblock %}

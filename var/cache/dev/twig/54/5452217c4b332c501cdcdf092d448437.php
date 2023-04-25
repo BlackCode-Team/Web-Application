@@ -140,6 +140,11 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_delete", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 48)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
+                                    <li class=\"list-inline-item\"><a href=\"";
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_route", ["iditineraire" => twig_get_attribute($this->env, $this->source, $context["itineraire"], "iditineraire", [], "any", false, false, false, 50)]), "html", null, true);
+            echo "\" class=\"bs-tooltip\" data-original-title=\"View in map\"><i class=\"flaticon-view-3\"></i></a>
+                                    </li>
                           </ul>
                        </div>
                                        
@@ -150,7 +155,7 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 57
+            // line 59
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -159,20 +164,17 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['itineraire'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 61
+        // line 63
         echo "        </tbody>
     </table>                                              ";
-        // line 63
+        // line 65
         echo "                                </div>
                                 <div class=\"pagination-section\">
                                     <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
-                                        <li><a href=\"javascript:void(0);\">«</a></li>
-                                        <li><a href=\"javascript:void(0);\">1</a></li>
-                                        <li><a href=\"javascript:void(0);\">2</a></li>
-                                        <li><a href=\"javascript:void(0);\">3</a></li>
-                                        <li><a href=\"javascript:void(0);\">4</a></li>
-                                        <li><a href=\"javascript:void(0);\">5</a></li>
-                                        <li><a href=\"javascript:void(0);\">»</a></li>
+                                       ";
+        // line 68
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["itineraires"]) || array_key_exists("itineraires", $context) ? $context["itineraires"] : (function () { throw new RuntimeError('Variable "itineraires" does not exist.', 68, $this->source); })()));
+        echo "
                                     </ul>
                                 </div>
                             </div>
@@ -202,7 +204,7 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  166 => 63,  163 => 61,  154 => 57,  140 => 48,  135 => 46,  126 => 40,  122 => 39,  118 => 38,  114 => 37,  110 => 36,  106 => 35,  103 => 34,  98 => 33,  68 => 5,  58 => 4,  35 => 1,);
+        return array (  176 => 68,  171 => 65,  168 => 63,  159 => 59,  145 => 50,  140 => 48,  135 => 46,  126 => 40,  122 => 39,  118 => 38,  114 => 37,  110 => 36,  106 => 35,  103 => 34,  98 => 33,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -256,6 +258,8 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
                                     </li>
                                     <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_delete', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"Remove\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
+                                    <li class=\"list-inline-item\"><a href=\"{{ path('app_itineraire_route', {'iditineraire': itineraire.iditineraire}) }}\" class=\"bs-tooltip\" data-original-title=\"View in map\"><i class=\"flaticon-view-3\"></i></a>
+                                    </li>
                           </ul>
                        </div>
                                        
@@ -272,13 +276,7 @@ class __TwigTemplate_5d559aa4153fc2dae78fb5b16ca7d7d9 extends \Twig\Template
                                 </div>
                                 <div class=\"pagination-section\">
                                     <ul class=\"pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3\">
-                                        <li><a href=\"javascript:void(0);\">«</a></li>
-                                        <li><a href=\"javascript:void(0);\">1</a></li>
-                                        <li><a href=\"javascript:void(0);\">2</a></li>
-                                        <li><a href=\"javascript:void(0);\">3</a></li>
-                                        <li><a href=\"javascript:void(0);\">4</a></li>
-                                        <li><a href=\"javascript:void(0);\">5</a></li>
-                                        <li><a href=\"javascript:void(0);\">»</a></li>
+                                       {{ knp_pagination_render(itineraires) }}
                                     </ul>
                                 </div>
                             </div>
