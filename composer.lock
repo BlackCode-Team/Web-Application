@@ -4,11 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
     "content-hash": "1d4e685da8870c5e72f71eb1a2723351",
-=======
-    "content-hash": "b7b9cae5aa62c220ac7226f4f2c81260",
->>>>>>> Stashed changes
+
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1654,10 +1651,8 @@
             "time": "2023-04-17T16:30:08+00:00"
         },
         {
-<<<<<<< Updated upstream
             "name": "guzzlehttp/promises",
             "version": "1.5.2",
-=======
             "name": "knplabs/knp-components",
             "version": "v3.6.0",
             "source": {
@@ -1819,7 +1814,6 @@
         {
             "name": "laminas/laminas-code",
             "version": "4.7.1",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
