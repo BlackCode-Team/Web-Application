@@ -218,13 +218,35 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                             <div class=\"row\">
                                 <div class=\"col-lg-12 col-md-12 col-12 mt-3\">
                                     <div class=\"tab-content\" id=\"monthly-chartContent\">                                                                            
-                                        <div style=\"max-width: 1400px; margin: 0 auto;\">
-  <canvas id=\"myChart2\" style=\"height: 500px;\"></canvas>
+                                        <div style=\"max-width: 600px; margin: 0 auto;\">
+  <canvas id=\"availabilityChart\" width=\"1000\" height=\"900\"></canvas>
+
 </div>
 
-";
-        // line 116
-        echo "                                                                              
+<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
+<script>
+    var availabilityChart = new Chart(document.getElementById('availabilityChart'), {
+        type: 'line',
+        data: ";
+        // line 103
+        echo (isset($context["availabilityData"]) || array_key_exists("availabilityData", $context) ? $context["availabilityData"] : (function () { throw new RuntimeError('Variable "availabilityData" does not exist.', 103, $this->source); })());
+        echo ",
+        options: {
+            title: {
+                display: true,
+                text: 'Disponibilité des véhicules'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+                                                                              
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +257,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                             <div class=\"widget-header \">
                                 <div class=\"row\">
                                     <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>nombre de spots de chaque parc par rapport au total de spots </h4>
+                                        <h4>Nombre des Voitures et Trotinettes Disponibles </h4>
                                     </div>                 
                                 </div>
                             </div>
@@ -248,8 +270,8 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var chartData = JSON.parse('";
-        // line 139
-        echo (isset($context["chartData"]) || array_key_exists("chartData", $context) ? $context["chartData"] : (function () { throw new RuntimeError('Variable "chartData" does not exist.', 139, $this->source); })());
+        // line 142
+        echo (isset($context["chartData"]) || array_key_exists("chartData", $context) ? $context["chartData"] : (function () { throw new RuntimeError('Variable "chartData" does not exist.', 142, $this->source); })());
         echo "');
   var myChart = new Chart(ctx, {
     type: 'pie', // Changed chart type to pie
@@ -286,7 +308,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  252 => 139,  227 => 116,  206 => 80,  186 => 62,  177 => 58,  163 => 49,  158 => 47,  148 => 40,  144 => 39,  140 => 38,  136 => 37,  132 => 36,  128 => 35,  124 => 34,  121 => 33,  116 => 32,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  274 => 142,  232 => 103,  206 => 80,  186 => 62,  177 => 58,  163 => 49,  158 => 47,  148 => 40,  144 => 39,  140 => 38,  136 => 37,  132 => 36,  128 => 35,  124 => 34,  121 => 33,  116 => 32,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -384,28 +406,31 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                             <div class=\"row\">
                                 <div class=\"col-lg-12 col-md-12 col-12 mt-3\">
                                     <div class=\"tab-content\" id=\"monthly-chartContent\">                                                                            
-                                        <div style=\"max-width: 1400px; margin: 0 auto;\">
-  <canvas id=\"myChart2\" style=\"height: 500px;\"></canvas>
+                                        <div style=\"max-width: 600px; margin: 0 auto;\">
+  <canvas id=\"availabilityChart\" width=\"1000\" height=\"900\"></canvas>
+
 </div>
 
-{# <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
+<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 <script>
-  var ctx = document.getElementById('myChart2').getContext('2d');
-  var chartData2 = JSON.parse('{{ chartData2|raw }}');
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: chartData2,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-</script> #}
+    var availabilityChart = new Chart(document.getElementById('availabilityChart'), {
+        type: 'line',
+        data: {{ availabilityData|raw }},
+        options: {
+            title: {
+                display: true,
+                text: 'Disponibilité des véhicules'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
                                                                               
                                     </div>
                                 </div>
@@ -417,7 +442,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                             <div class=\"widget-header \">
                                 <div class=\"row\">
                                     <div class=\"col-xl-12 col-md-12 col-sm-12 col-12\">
-                                        <h4>nombre de spots de chaque parc par rapport au total de spots </h4>
+                                        <h4>Nombre des Voitures et Trotinettes Disponibles </h4>
                                     </div>                 
                                 </div>
                             </div>
@@ -445,6 +470,6 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                         </div>
                     </div>
 {% endblock %}
-", "vehicule/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\vehicule\\index.html.twig");
+", "vehicule/index.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\vehicule\\index.html.twig");
     }
 }
