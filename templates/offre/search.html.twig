@@ -1,0 +1,40 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+    <h1>Résultats de la recherche pour "{{ searchValue }}"</h1>
+
+    {% if util %}
+       <table class="table table-striped table-hover table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Idoffre</th>
+                <th>Nom</th>
+                <th>Tauxderemise</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody> 
+            {% for f in util %}
+               <tr>
+                <td>{{ f.idoffre }}</td>
+                <td>{{ f.nom }}</td>
+                <td>{{ f.tauxderemise }}</td>
+                <td>{{ f.description }}</td>
+                <td>
+                    <a href="{{ path('app_offre_show', {'idoffre': f.idoffre}) }}">show</a>
+                    <a href="{{ path('app_offre_edit', {'idoffre': f.idoffre}) }}">edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+        <a href="{{ path('app_offre_index') }}">back to list</a>
+    {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+    {% endif %}
+
+{% endblock %}
+
+   

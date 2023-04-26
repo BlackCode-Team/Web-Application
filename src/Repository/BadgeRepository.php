@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Badge;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 /**
  * @extends ServiceEntityRepository<Badge>
@@ -39,20 +41,18 @@ class BadgeRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Badge[] Returns an array of Badge objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Badge[] Returns an array of Badge objects
+    */
+   public function findBadgeByNom($searchValue): array
+   {
+       return $this->createQueryBuilder('b')
+           ->andWhere('b.typebadge like :val')
+           ->setParameter('val', '%'.$searchValue.'%')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Badge
 //    {
@@ -63,4 +63,30 @@ class BadgeRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function OrderByNbpointDESC(){
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.nbpoint', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function OrderByNbpointASC(){
+        return $this->createQueryBuilder('x')
+            ->orderBy('x.nbpoint', 'ASC')
+            ->getQuery()->getResult();
+    }
+
+//     /**
+//      * @return Badge[]
+//      */
+//     public function findBadgeByNom($sujet){
+//         return $this->createQueryBuilder('ex')
+//             ->andWhere('ex.typebadge LIKE :sujet ')
+//             ->setParameter('sujet', '%'.$sujet.'%')
+//             ->getQuery()
+//             ->getResult();
+//     }
 }
+
+
+

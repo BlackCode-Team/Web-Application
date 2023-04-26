@@ -24,10 +24,8 @@ class OffreType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez saisir le nom de l\'offre',
-                    ]),
-                    new UniqueEntity([
-                        'message' => 'Le nom de l\'offre existe deja',
-                        'fields' => 'nom']),
+                    ])
+                    
                     ],
                     ])
             ->add('tauxderemise', IntegerType::class, [
@@ -35,11 +33,8 @@ class OffreType extends AbstractType
                 'constraints' => [
                     new Positive([
                         'message' => 'Le taux de remise doit être un entier positif',
-                    ]),
-                    new Regex([
-                        'pattern' => '/^\d+[%]{1}$/',
-                        'message' => 'Le taux de remise doit être suivi de "%"',
-                    ]),
+                    ])
+                    
                 ],
             ])
             ->add('description',TextType::class)

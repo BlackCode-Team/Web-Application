@@ -63,4 +63,16 @@ class OffreRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+public function findOffre($searchValue): array
+   {
+       return $this->createQueryBuilder('b')
+           ->where('b.nom like :val')
+           ->orWhere('b.description LIKE :val')
+           ->orWhere('b.tauxderemise LIKE :val')
+           ->setParameter('val', '%'.$searchValue.'%')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 }

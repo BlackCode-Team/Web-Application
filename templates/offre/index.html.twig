@@ -1,11 +1,24 @@
 {% extends 'back.html.twig' %}
 
+
 {% block title %}Offre index{% endblock %}
 
 {% block body %}
-    <h1>Offre index</h1>
-
-    <table class="table">
+    <h1>Gestion des Offres ({{offres.getTotalItemCount}})</h1>
+    {% for message in app.flashes('info') %}
+    <div class="alert alert-success text-center mb-3">
+    {{message}}
+    </div>
+    {% endfor %}
+<div class="table-responsive mb-4">
+    <div>
+        <form action="{{ path('searchO') }}" method="GET">
+                <label for="searchValue">Rechercher :</label>
+                <input type="text" name="searchValue" id="searchValue">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+    <table class="table table-striped table-hover table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Idoffre</th>
@@ -34,6 +47,13 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
+    <div class="pagination-section">
+                        <ul class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                            <li><a href="javascript:void(0);">{{ knp_pagination_render(offres)}}</a></li>                          
+                        </ul>
+                    </div>
     <a href="{{ path('app_offre_new') }}">Create new</a>
+    
 {% endblock %}
+
