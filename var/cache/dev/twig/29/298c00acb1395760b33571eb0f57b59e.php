@@ -146,23 +146,24 @@ class __TwigTemplate_917524e92ef8feb0ef58784293ebfdaa extends \Twig\Template
         echo "\" alt=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["vehicule"]) || array_key_exists("vehicule", $context) ? $context["vehicule"] : (function () { throw new RuntimeError('Variable "vehicule" does not exist.', 40, $this->source); })()), "modele", [], "any", false, false, false, 40), "html", null, true);
         echo "\" /></td>
+    
 </tr>
 
         </tbody>
     </table>
 
     <a href=\"";
-        // line 46
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 48
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, (isset($context["vehicule"]) || array_key_exists("vehicule", $context) ? $context["vehicule"] : (function () { throw new RuntimeError('Variable "vehicule" does not exist.', 48, $this->source); })()), "idvehicule", [], "any", false, false, false, 48)]), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, (isset($context["vehicule"]) || array_key_exists("vehicule", $context) ? $context["vehicule"] : (function () { throw new RuntimeError('Variable "vehicule" does not exist.', 49, $this->source); })()), "idvehicule", [], "any", false, false, false, 49)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 50
+        // line 51
         echo twig_include($this->env, $context, "vehicule/_delete_form.html.twig");
         echo "
 ";
@@ -186,7 +187,7 @@ class __TwigTemplate_917524e92ef8feb0ef58784293ebfdaa extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  166 => 50,  161 => 48,  156 => 46,  145 => 40,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  167 => 51,  162 => 49,  157 => 47,  145 => 40,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -231,6 +232,7 @@ class __TwigTemplate_917524e92ef8feb0ef58784293ebfdaa extends \Twig\Template
             <tr>
     <th>Image</th>
     <td><img src=\"{{ asset('images/' ~ vehicule.image) }}\" alt=\"{{ vehicule.modele }}\" /></td>
+    
 </tr>
 
         </tbody>

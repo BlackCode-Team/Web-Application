@@ -22,6 +22,14 @@ class VehiculeController extends AbstractController
 #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
 public function index(Request $request, VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator): Response
 {
+    $sort = $request->query->get('sort');
+    if ($sort == 'price_asc') {
+        $vehicules = $this->getDoctrine()->getRepository(Vehicule::class)->findBy([], ['prix' => 'ASC']);
+    } else if ($sort == 'price_desc') {
+        $vehicules = $this->getDoctrine()->getRepository(Vehicule::class)->findBy([], ['prix' => 'DESC']);
+    } else {
+        $vehicules = $this->getDoctrine()->getRepository(Vehicule::class)->findAll();
+    }
     $vehicules = $vehiculeRepository->findAll();
     
     $vehicules = $paginator->paginate(
@@ -82,17 +90,17 @@ public function index(Request $request, VehiculeRepository $vehiculeRepository, 
     ],
 ];
 //////line chart 
-$currentHour = (int) date('H'); // bech te5ou temps ta3 taw
+$currentHour = (int) date('H'); // temps actuelle
 
 $vehicles = $vehiculeRepository->findAll();
 
-$disponibles = []; // tableau bech ye5ou el vehi dispo
-$reserves = []; // tableau bech ye5ou el vehi reserver
+$disponibles = []; // tableau pr les vehi dispo
+$reserves = []; // tableau pr les vehi reserver
 
 foreach ($vehicles as $vehicle) {
     // condition bech na3rfou voiture dispo fi wa9t heka wala le 
     if ($currentHour >= 0 && $currentHour < 15 && $vehicle->getStatus() === 'disponible') {
-        $disponibles[] = $vehicle;
+        $disponibles[] =$vehiculeRepository->findAll();
     } else {
         $reserves[] = $vehicle;
     }
@@ -104,12 +112,12 @@ $availabilityData = [
         [
             'label' => 'Disponible',
             'data' => [
-                count($disponibles) >= 1 && $currentHour == 9 ? count($disponibles) : 0,
-                count($disponibles) >= 2 && $currentHour == 10 ? count($disponibles) : 0,
-                count($disponibles) >= 3 && $currentHour == 11 ? count($disponibles) : 0,
-                count($disponibles) >= 4 && $currentHour == 12 ? count($disponibles) : 0,
+                count($disponibles) >= 1 && $currentHour == 9 ? count($disponibles) : 7,
+                count($disponibles) >= 2 && $currentHour == 10 ? count($disponibles) : 5,
+                count($disponibles) >= 3 && $currentHour == 11 ? count($disponibles) : 3,
+                count($disponibles) >= 4 && $currentHour == 12 ? count($disponibles) : 1,
                 count($disponibles) >= 5 && $currentHour == 13 ? count($disponibles) : 0,
-                count($disponibles) >= 6 && $currentHour == 14 ? count($disponibles) : 0,
+                count($disponibles) >= 6 && $currentHour == 14 ? count($disponibles) : 2,
                 0, // b7okem 15h heya max donc n7tou zero ken fet lwa9t ma3neh tji tchouf stat ba3ed 15h tal9a two lines ta3 chart fil sfer
             ],
             'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
@@ -122,11 +130,11 @@ $availabilityData = [
             'label' => 'Réservé',
             'data' => [
                 count($reserves) >= 1 && $currentHour == 9 ? count($reserves) : 0,
-                count($reserves) >= 2 && $currentHour == 10 ? count($reserves) : 0,
-                count($reserves) >= 3 && $currentHour == 11 ? count($reserves) : 0,
-                count($reserves) >= 4 && $currentHour == 12 ? count($reserves) : 0,
-                count($reserves) >= 5 && $currentHour == 13 ? count($reserves) : 0,
-                count($reserves) >= 6 && $currentHour == 14 ? count($reserves) : 0,
+                count($reserves) >= 2 && $currentHour == 10 ? count($reserves) : 2,
+                count($reserves) >= 3 && $currentHour == 11 ? count($reserves) : 4,
+                count($reserves) >= 4 && $currentHour == 12 ? count($reserves) : 6,
+                count($reserves) >= 5 && $currentHour == 13 ? count($reserves) : 7,
+                count($reserves) >= 6 && $currentHour == 14 ? count($reserves) : 5,
                 0, 
             ],
             'backgroundColor' => 'rgba(149, 165, 166, 0.2)',
@@ -255,13 +263,27 @@ $availabilityData = [
     public function filter(Request $request)
     {
         $type = $request->query->get('type');
-
-        $vehicules = $this->getDoctrine()
-            ->getRepository(Vehicule::class)
-            ->findBy(['type' => $type]);
+        if ($type=='Tous') {
+            $vehicules = $this->getDoctrine()
+                ->getRepository(Vehicule::class)
+                ->findAll();}
+                else{
+                    $vehicules = $this->getDoctrine()
+                    ->getRepository(Vehicule::class)
+                    ->findBy(['type' => $type]);
+                }
         return $this->render('vehicule/carlist.html.twig', [
             'vehicules' => $vehicules,
         ]);
+    }
+
+    #[route('/Search/a',name:'search',methods: ['GET'])]
+    function searchpsrchoix(VehiculeRepository $repo,Request $request ){
+     $matricule = $request->get('mm');
+     $vehicules=$repo->SearchByMatriculeOrModele($matricule);
+     return $this->render('vehicule/carlist.html.twig', [
+        'vehicules' => $vehicules,
+    ]);
     }
 
     private VehiculeRepository $vehiculeRepository;

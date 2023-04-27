@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maintenance index{% endblock %}
+
+{% block body %}
+    <h1>Maintenance index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for maintenance in maintenances %}
+            <tr>
+                <td>{{ maintenance.vehicule.matricule }}</td>
+                <td>{{ maintenance.date ? maintenance.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_maintenance_show', {'idmaintenance': maintenance.idmaintenance}) }}">show</a>
+                    <a href="{{ path('app_maintenance_edit', {'idmaintenance': maintenance.idmaintenance}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<div class="pagination-section">
+                  {{ knp_pagination_render(maintenances) }}
+                </div>
+
+    <a href="{{ path('app_maintenance_new') }}">Ajouter une nouvelle maintenance</a>
+{% endblock %}

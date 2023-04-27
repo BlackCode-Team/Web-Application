@@ -54,6 +54,13 @@ class VehiculeRepository extends ServiceEntityRepository
         return $result ? (int) $result : 0;
     }
 
+    function SearchByMatriculeOrModele($matricule){
+        $req = $this->createQueryBuilder('v')
+         ->where('v.matricule LIKE :mm')
+         ->orwhere('v.modele LIKE :mm')
+         ->setParameter('mm', '%'.$matricule.'%'); 
+        return $req->getQuery()->getResult();
+    }
 
 
  /*   public function findByLocationOrderByPrix(string $parkName)

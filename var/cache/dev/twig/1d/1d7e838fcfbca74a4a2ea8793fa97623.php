@@ -99,6 +99,28 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                     <div class=\"table-responsive mb-4\">
                         <table id=\"zero-config\" class=\"table table-striped table-hover table-bordered\" style=\"width:100%\">
                             <thead>
+                                <form method =\"get\" action=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search");
+        echo "\">
+<input type=\"text\" name=\"mm\" placeholder=\"Entrez le modele ou la matricule\">
+<input type=\"submit\" value=\"search\">
+</form> 
+
+ <form action=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("vehicule_filter");
+        echo "\" method=\"get\">
+                          <div class=\"form-group\">
+                            <label for=\"type\">Type de vehicule</label>
+                            <select class=\"form-control\" name=\"type\" id=\"type\">
+                              <option value=\"Tous\">Tous</option>
+                              <option value=\"Voiture\">Voiture</option>
+                              <option value=\"Trottinette\">Trottinette</option>
+                            </select>
+                          </div>
+                          <button type=\"submit\" class=\"btn btn-primary\">Filter</button>
+                        </form>
                                 <tr>
                                     <th>Modele</th>
                                     <th>Matricule</th>
@@ -112,40 +134,40 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                             </thead>
                             <tbody>
                             ";
-        // line 32
+        // line 48
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 32, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 48, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["vehicule"]) {
-            // line 33
+            // line 49
             echo "                                <tr>
                                     <td>";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 34), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 50), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "matricule", [], "any", false, false, false, 35), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "matricule", [], "any", false, false, false, 51), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "puissance", [], "any", false, false, false, 36), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "puissance", [], "any", false, false, false, 52), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "type", [], "any", false, false, false, 37), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "type", [], "any", false, false, false, 53), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 38), "html", null, true);
+            // line 54
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 54), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "batterie", [], "any", false, false, false, 39), "html", null, true);
+            // line 55
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "batterie", [], "any", false, false, false, 55), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "status", [], "any", false, false, false, 40), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "status", [], "any", false, false, false, 56), "html", null, true);
             echo "</td>
 
                                     <td class=\"text-center\">
@@ -154,13 +176,13 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                                     <ul class=\"toolbar-dropdown animated fadeInUp table-controls list-inline\">
                                                            
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 47
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 47)]), "html", null, true);
+            // line 63
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 63)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"Show\"><i class=\"flaticon-view-3\"></i></a>
                                     </li>
                                     <li class=\"list-inline-item\"><a href=\"";
-            // line 49
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 49)]), "html", null, true);
+            // line 65
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 65)]), "html", null, true);
             echo "\" class=\"bs-tooltip\" data-original-title=\"Edit\"><i class=\"flaticon-edit-5\"></i></a>
                                     </li>
                           </ul>
@@ -173,7 +195,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 58
+            // line 74
             echo "                                <tr>
                                     <td colspan=\"10\">no records found</td>
                                 </tr>
@@ -182,7 +204,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['vehicule'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 78
         echo "                            </tbody>
                         </table>
                     </div>
@@ -202,7 +224,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
         </div>
     </div>
     <a href=\"";
-        // line 80
+        // line 96
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_new");
         echo "\">Create new</a>
 
@@ -212,7 +234,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                         <div class=\"widget-content-area monthly-chart  br-4\">
                             <div class=\"row\">
                                 <div class=\"col-lg-4 col-md-6 col-sm-2 col-12  align-self-center\">
-                                    <h3>nombres de spots de chaque parc</h3>
+                                    <h3>type des vehicules</h3>
                                 </div>
                             </div>
                             <div class=\"row\">
@@ -228,8 +250,8 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
     var availabilityChart = new Chart(document.getElementById('availabilityChart'), {
         type: 'line',
         data: ";
-        // line 103
-        echo (isset($context["availabilityData"]) || array_key_exists("availabilityData", $context) ? $context["availabilityData"] : (function () { throw new RuntimeError('Variable "availabilityData" does not exist.', 103, $this->source); })());
+        // line 119
+        echo (isset($context["availabilityData"]) || array_key_exists("availabilityData", $context) ? $context["availabilityData"] : (function () { throw new RuntimeError('Variable "availabilityData" does not exist.', 119, $this->source); })());
         echo ",
         options: {
             title: {
@@ -270,8 +292,8 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var chartData = JSON.parse('";
-        // line 142
-        echo (isset($context["chartData"]) || array_key_exists("chartData", $context) ? $context["chartData"] : (function () { throw new RuntimeError('Variable "chartData" does not exist.', 142, $this->source); })());
+        // line 158
+        echo (isset($context["chartData"]) || array_key_exists("chartData", $context) ? $context["chartData"] : (function () { throw new RuntimeError('Variable "chartData" does not exist.', 158, $this->source); })());
         echo "');
   var myChart = new Chart(ctx, {
     type: 'pie', // Changed chart type to pie
@@ -308,7 +330,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  274 => 142,  232 => 103,  206 => 80,  186 => 62,  177 => 58,  163 => 49,  158 => 47,  148 => 40,  144 => 39,  140 => 38,  136 => 37,  132 => 36,  128 => 35,  124 => 34,  121 => 33,  116 => 32,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  296 => 158,  254 => 119,  228 => 96,  208 => 78,  199 => 74,  185 => 65,  180 => 63,  170 => 56,  166 => 55,  162 => 54,  158 => 53,  154 => 52,  150 => 51,  146 => 50,  143 => 49,  138 => 48,  112 => 25,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -332,6 +354,22 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                     <div class=\"table-responsive mb-4\">
                         <table id=\"zero-config\" class=\"table table-striped table-hover table-bordered\" style=\"width:100%\">
                             <thead>
+                                <form method =\"get\" action=\"{{path('search')}}\">
+<input type=\"text\" name=\"mm\" placeholder=\"Entrez le modele ou la matricule\">
+<input type=\"submit\" value=\"search\">
+</form> 
+
+ <form action=\"{{ path('vehicule_filter') }}\" method=\"get\">
+                          <div class=\"form-group\">
+                            <label for=\"type\">Type de vehicule</label>
+                            <select class=\"form-control\" name=\"type\" id=\"type\">
+                              <option value=\"Tous\">Tous</option>
+                              <option value=\"Voiture\">Voiture</option>
+                              <option value=\"Trottinette\">Trottinette</option>
+                            </select>
+                          </div>
+                          <button type=\"submit\" class=\"btn btn-primary\">Filter</button>
+                        </form>
                                 <tr>
                                     <th>Modele</th>
                                     <th>Matricule</th>
@@ -400,7 +438,7 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                         <div class=\"widget-content-area monthly-chart  br-4\">
                             <div class=\"row\">
                                 <div class=\"col-lg-4 col-md-6 col-sm-2 col-12  align-self-center\">
-                                    <h3>nombres de spots de chaque parc</h3>
+                                    <h3>type des vehicules</h3>
                                 </div>
                             </div>
                             <div class=\"row\">
@@ -470,6 +508,6 @@ class __TwigTemplate_27d931e53fb0ff54fd6368130f02c0f1 extends \Twig\Template
                         </div>
                     </div>
 {% endblock %}
-", "vehicule/index.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\vehicule\\index.html.twig");
+", "vehicule/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\vehicule\\index.html.twig");
     }
 }

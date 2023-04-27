@@ -29,6 +29,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
         $this->blocks = [
             'stylesheet' => [$this, 'block_stylesheet'],
             'page' => [$this, 'block_page'],
+            'test' => [$this, 'block_test'],
             'body' => [$this, 'block_body'],
             'javascript' => [$this, 'block_javascript'],
         ];
@@ -191,12 +192,16 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
         <section id=\"r-drivers-part\" class=\"r-drivers-part\">
         ";
         // line 94
+        $this->displayBlock('test', $context, $blocks);
+        echo " 
+        ";
+        // line 95
         $this->displayBlock('body', $context, $blocks);
         echo " ";
-        // line 95
+        // line 96
         echo "        </section>
         ";
-        // line 121
+        // line 122
         echo "        <footer>
           <div class=\"r-footer\">
             <div class=\"container\">
@@ -204,7 +209,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
                   <div class=\"r-footer-block\">
                     <img src=\"";
-        // line 127
+        // line 128
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/carngo.png"), "html", null, true);
         echo "\" class=\"d-block img-fluid\" alt=\"\">
                     <p>
@@ -257,7 +262,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
                   <div class=\"r-footer-block\">
                     <div class=\"r-footer-widget r-footer-map\">
                       <a href=\"#\"> <img src=\"";
-        // line 177
+        // line 178
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-footer-map.png"), "html", null, true);
         echo "\" class=\"icon\" alt=''/> RoyalCars on Map</a>
                     </div>
@@ -296,35 +301,35 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
       <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src=\"";
-        // line 213
+        // line 214
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: BOOTSTRAP.JS -->
       <script src=\"";
-        // line 216
+        // line 217
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/tether.min.js"), "html", null, true);
         echo "\"></script>
       <script src=\"";
-        // line 217
+        // line 218
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: PLUGINS -->
       <script src=\"";
-        // line 220
+        // line 221
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/plugins/owl/owl.carousel.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: CUSTOM -->
       <script src=\"";
-        // line 223
+        // line 224
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/custom.js"), "html", null, true);
         echo "\"></script>
       ";
-        // line 224
-        $this->displayBlock('javascript', $context, $blocks);
         // line 225
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 226
         echo "
   </body>
 
@@ -377,6 +382,25 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
     }
 
     // line 94
+    public function block_test($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "test"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "test"));
+
+        echo "    ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 95
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -395,7 +419,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
 
     }
 
-    // line 224
+    // line 225
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -426,7 +450,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  399 => 224,  380 => 94,  361 => 86,  342 => 17,  328 => 225,  326 => 224,  322 => 223,  316 => 220,  310 => 217,  306 => 216,  300 => 213,  261 => 177,  208 => 127,  200 => 121,  197 => 95,  194 => 94,  182 => 86,  166 => 72,  162 => 71,  158 => 69,  154 => 68,  149 => 65,  146 => 64,  139 => 61,  121 => 45,  117 => 44,  112 => 43,  105 => 39,  102 => 38,  97 => 37,  80 => 23,  76 => 22,  70 => 18,  68 => 17,  64 => 16,  47 => 1,);
+        return array (  423 => 225,  404 => 95,  385 => 94,  366 => 86,  347 => 17,  333 => 226,  331 => 225,  327 => 224,  321 => 221,  315 => 218,  311 => 217,  305 => 214,  266 => 178,  213 => 128,  205 => 122,  202 => 96,  199 => 95,  195 => 94,  183 => 86,  167 => 72,  163 => 71,  159 => 69,  155 => 68,  150 => 65,  147 => 64,  140 => 61,  122 => 45,  118 => 44,  113 => 43,  106 => 39,  103 => 38,  98 => 37,  81 => 23,  77 => 22,  71 => 18,  69 => 17,  65 => 16,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -524,6 +548,7 @@ class __TwigTemplate_80b1c087d0c85bca6973fc7256662f96 extends \Twig\Template
           </div>
         </header> 
         <section id=\"r-drivers-part\" class=\"r-drivers-part\">
+        {% block test %}    {% endblock %} 
         {% block body %}    {% endblock %} {# lehne bech tsir ay 5edma que ce soit ajout wala 7keya #}
         </section>
         {# <section id=\"r-get-in-touch\">

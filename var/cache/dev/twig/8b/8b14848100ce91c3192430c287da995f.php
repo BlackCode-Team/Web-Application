@@ -92,21 +92,16 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                 <div class=\"container\">
                   <form>
                     <div class=\"row\">
-                      <div class=\"r-search-full col-md-12\">
-                       <div class=\"form-group\">
-                         <input type=\"text\" class=\"form-control\" placeholder=\"Search car by name or location\">
-                         <button class=\"fa fa-search\"></button>
-                        </div>
-                      </div>
+                      
                       <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
                         <form action=\"";
-        // line 20
+        // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("vehicule_filter");
         echo "\" method=\"get\">
                           <div class=\"form-group\">
                             <label for=\"type\">Type de vehicule</label>
                             <select class=\"form-control\" name=\"type\" id=\"type\">
-                              <option value=\"\">Tous</option>
+                              <option value=\"Tous\">Tous</option>
                               <option value=\"Voiture\">Voiture</option>
                               <option value=\"Trottinette\">Trottinette</option>
                             </select>
@@ -114,15 +109,29 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                           <button type=\"submit\" class=\"btn btn-primary\">Filter</button>
                         </form>
                       </div>
+             <form method =\"get\" action=\"";
+        // line 27
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search");
+        echo "\">
+<input type=\"text\" name=\"mm\" placeholder=\"Entrez le modele ou la matricule\">
+<input type=\"submit\" value=\"search\">
+</form> 
 
                       <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
-                        <div class=\"form-group\">
+                         <form action=\"";
+        // line 33
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
+        echo "\" method=\"get\">
+                          <div class=\"form-group\">
                           <label> Car Price </label>
-                          <select class=\"form-control\">
-                            <option>Prix croissant</option>
-                            <option>Prix décroissant</option>
+                          <select class=\"form-control\" name=\"sort\" id=\"sort\">
+                            <option value=\"\">Trier par</option>
+                            <option value=\"price_asc\">Prix croissant</option>
+                            <option value=\"price_desc\">Prix décroissant</option>
                           </select>
                         </div>
+                        <button type=\"submit\" class=\"btn btn-primary\">Trier</button>
+                        </form>
                       </div>
                       <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                         <div class=\"form-group mb-0\">
@@ -141,56 +150,56 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                     <option value=\"10\"> Prix </option>
                   </select>
                 </div>
-                <div class=\"pull-right\"><span class=\"r-total-result\">11 Search results</span></div>
+                <div class=\"pull-right\"><span class=\"r-total-result\">12 Search results</span></div>
               </div>
               <div class=\"r-car-showcase\">
                     <div class=\"row clearfix r-best-offer-list\">
                     ";
-        // line 63
+        // line 66
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 63, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 66, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["vehicule"]) {
-            // line 64
+            // line 67
             echo "                  <div class=\"col-md-4\">
                       <div class=\"card mb-4 shadow-sm\">
                           <img src=\"";
-            // line 66
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 66))), "html", null, true);
+            // line 69
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 69))), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 66), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 69), "html", null, true);
             echo "\" />
                           <div class=\"card-body\">
                               <p class=\"card-text\"><a href=\"#\">";
-            // line 68
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 68), "html", null, true);
+            // line 71
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 71), "html", null, true);
             echo "</a></p>
                               <div class=\"d-flex justify-content-between align-items-center\">
                                   <div class=\"btn-group\">
                                       <a href=\"";
-            // line 71
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index", ["id" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 71)]), "html", null, true);
+            // line 74
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index", ["id" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 74)]), "html", null, true);
             echo "\" ></a>
                                   </div>
                             <div class=\"r-best-offer-content\">
                             <p>Start at <b>";
-            // line 74
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 74), "html", null, true);
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 77), "html", null, true);
             echo " DT</b> per day</p>
                             <ul class=\"pl-0 mb-0\">
                               <li><i class=\"fa fa-cogs\"></i><span>MANUAL</span></li>
                               <li><i class=\"fa fa-beer\"></i><span>PETROL</span></li>
                               <li><i class=\"fa fa-road\"></i><span>";
-            // line 78
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "puissance", [], "any", false, false, false, 78), "html", null, true);
+            // line 81
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "puissance", [], "any", false, false, false, 81), "html", null, true);
             echo "</span></li>
                             </ul>
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"";
-            // line 80
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 80)]), "html", null, true);
+            // line 83
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 83)]), "html", null, true);
             echo "\">show</a>
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"";
-            // line 81
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 81)]), "html", null, true);
+            // line 84
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 84)]), "html", null, true);
             echo "\">edit</a>
                           </div>
                               </ul>
@@ -203,7 +212,7 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['vehicule'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 89
+        // line 92
         echo "                </div>
               </div>
         </div>
@@ -231,7 +240,7 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  207 => 89,  193 => 81,  189 => 80,  184 => 78,  177 => 74,  171 => 71,  165 => 68,  158 => 66,  154 => 64,  150 => 63,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  216 => 92,  202 => 84,  198 => 83,  193 => 81,  186 => 77,  180 => 74,  174 => 71,  167 => 69,  163 => 67,  159 => 66,  123 => 33,  114 => 27,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -248,18 +257,13 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                 <div class=\"container\">
                   <form>
                     <div class=\"row\">
-                      <div class=\"r-search-full col-md-12\">
-                       <div class=\"form-group\">
-                         <input type=\"text\" class=\"form-control\" placeholder=\"Search car by name or location\">
-                         <button class=\"fa fa-search\"></button>
-                        </div>
-                      </div>
+                      
                       <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
                         <form action=\"{{ path('vehicule_filter') }}\" method=\"get\">
                           <div class=\"form-group\">
                             <label for=\"type\">Type de vehicule</label>
                             <select class=\"form-control\" name=\"type\" id=\"type\">
-                              <option value=\"\">Tous</option>
+                              <option value=\"Tous\">Tous</option>
                               <option value=\"Voiture\">Voiture</option>
                               <option value=\"Trottinette\">Trottinette</option>
                             </select>
@@ -267,15 +271,23 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                           <button type=\"submit\" class=\"btn btn-primary\">Filter</button>
                         </form>
                       </div>
+             <form method =\"get\" action=\"{{path('search')}}\">
+<input type=\"text\" name=\"mm\" placeholder=\"Entrez le modele ou la matricule\">
+<input type=\"submit\" value=\"search\">
+</form> 
 
                       <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
-                        <div class=\"form-group\">
+                         <form action=\"{{ path('app_vehicule_index') }}\" method=\"get\">
+                          <div class=\"form-group\">
                           <label> Car Price </label>
-                          <select class=\"form-control\">
-                            <option>Prix croissant</option>
-                            <option>Prix décroissant</option>
+                          <select class=\"form-control\" name=\"sort\" id=\"sort\">
+                            <option value=\"\">Trier par</option>
+                            <option value=\"price_asc\">Prix croissant</option>
+                            <option value=\"price_desc\">Prix décroissant</option>
                           </select>
                         </div>
+                        <button type=\"submit\" class=\"btn btn-primary\">Trier</button>
+                        </form>
                       </div>
                       <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                         <div class=\"form-group mb-0\">
@@ -294,7 +306,7 @@ class __TwigTemplate_79cc5b55cf4224244f4f585eb08a0ce0 extends \Twig\Template
                     <option value=\"10\"> Prix </option>
                   </select>
                 </div>
-                <div class=\"pull-right\"><span class=\"r-total-result\">11 Search results</span></div>
+                <div class=\"pull-right\"><span class=\"r-total-result\">12 Search results</span></div>
               </div>
               <div class=\"r-car-showcase\">
                     <div class=\"row clearfix r-best-offer-list\">

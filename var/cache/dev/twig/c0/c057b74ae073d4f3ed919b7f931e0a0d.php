@@ -91,9 +91,79 @@ class __TwigTemplate_94debf86e9457bb236f52fada9a9468a extends \Twig\Template
         // line 8
         echo twig_include($this->env, $context, "rating/_form.html.twig");
         echo "
+    <i class=\"star\" data-note=\"1\">&#9733;</i>
+    <i class=\"star\" data-note=\"2\">&#9733;</i>
+    <i class=\"star\" data-note=\"3\">&#9733;</i>
+    <i class=\"star\" data-note=\"4\">&#9733;</i>
+    <i class=\"star\" data-note=\"5\">&#9733;</i>
+    <style>
+    .star {
+    font-size: 50px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star.hover, .star.active {
+    color: yellow;
+}
+    </style>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        let check = false;
+        stars.forEach(star => {
+            star.addEventListener('mouseover', selectStars);
+            star.addEventListener('mouseleave', unselectStars);
+            star.addEventListener('click', activeSelect);
+        })
+
+        function selectStars(e) {
+            const data = e.target;
+            const etoiles = priviousSiblings(data);
+            if (!check) {
+                etoiles.forEach(etoile => {
+                    etoile.classList.add('hover');
+                })
+            }
+
+        }
+
+        function unselectStars(e) {
+            const data = e.target;
+            const etoiles = priviousSiblings(data);
+            if (!check) {
+                etoiles.forEach(etoile => {
+                    etoile.classList.remove('hover');
+                })
+            }
+        }
+
+        function activeSelect(e) {
+       if (!check) {
+        check = true;
+        const ratingField = document.getElementById('nbpoints');
+        const selectedNote = e.target.dataset.note;
+        ratingField.value = selectedNote;
+        document.querySelector('.note').innerHTML = 'Note ' + selectedNote;
+        const etoiles = priviousSiblings(e.target);
+        etoiles.forEach(etoile => {
+            etoile.classList.add('active');
+        })
+       }
+      }
+
+        function priviousSiblings(data) {
+            let values = [data];
+            while (data = data.previousSibling) {
+                if (data.nodeName === 'I') {
+                    values.push(data);
+                }
+            }
+            return values;
+        }
+    </script>
 
     <a href=\"";
-        // line 10
+        // line 80
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_rating_index");
         echo "\">back to list</a>
 ";
@@ -117,7 +187,7 @@ class __TwigTemplate_94debf86e9457bb236f52fada9a9468a extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  97 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  167 => 80,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -130,6 +200,76 @@ class __TwigTemplate_94debf86e9457bb236f52fada9a9468a extends \Twig\Template
     <h1>Create new Rating</h1>
 
     {{ include('rating/_form.html.twig') }}
+    <i class=\"star\" data-note=\"1\">&#9733;</i>
+    <i class=\"star\" data-note=\"2\">&#9733;</i>
+    <i class=\"star\" data-note=\"3\">&#9733;</i>
+    <i class=\"star\" data-note=\"4\">&#9733;</i>
+    <i class=\"star\" data-note=\"5\">&#9733;</i>
+    <style>
+    .star {
+    font-size: 50px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star.hover, .star.active {
+    color: yellow;
+}
+    </style>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        let check = false;
+        stars.forEach(star => {
+            star.addEventListener('mouseover', selectStars);
+            star.addEventListener('mouseleave', unselectStars);
+            star.addEventListener('click', activeSelect);
+        })
+
+        function selectStars(e) {
+            const data = e.target;
+            const etoiles = priviousSiblings(data);
+            if (!check) {
+                etoiles.forEach(etoile => {
+                    etoile.classList.add('hover');
+                })
+            }
+
+        }
+
+        function unselectStars(e) {
+            const data = e.target;
+            const etoiles = priviousSiblings(data);
+            if (!check) {
+                etoiles.forEach(etoile => {
+                    etoile.classList.remove('hover');
+                })
+            }
+        }
+
+        function activeSelect(e) {
+       if (!check) {
+        check = true;
+        const ratingField = document.getElementById('nbpoints');
+        const selectedNote = e.target.dataset.note;
+        ratingField.value = selectedNote;
+        document.querySelector('.note').innerHTML = 'Note ' + selectedNote;
+        const etoiles = priviousSiblings(e.target);
+        etoiles.forEach(etoile => {
+            etoile.classList.add('active');
+        })
+       }
+      }
+
+        function priviousSiblings(data) {
+            let values = [data];
+            while (data = data.previousSibling) {
+                if (data.nodeName === 'I') {
+                    values.push(data);
+                }
+            }
+            return values;
+        }
+    </script>
 
     <a href=\"{{ path('app_rating_index') }}\">back to list</a>
 {% endblock %}
