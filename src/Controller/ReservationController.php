@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Reservation;
 use App\Entity\Offre;
+use App\Entity\Utilisateur;
 
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
@@ -15,6 +16,16 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Historique;
 use App\Repository\HistoriqueRepository;
+use App\Repository\UtilisateurRepository;
+use App\Controller\PdfService;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Label\Font\NotoSans;
 
 #[Route('/reservation')]
 class ReservationController extends AbstractController
@@ -58,20 +69,19 @@ class ReservationController extends AbstractController
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
-        $totalPrice = 0;
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
         $historique = new Historique();
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
-     //   $totalPrice = $this->calculateTotalPrice($reservation);
+     
      //   $form->get('prixreservation')->setData($totalPrice);
-        return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
+     
+        return $this->redirectToRoute('app_reservation_editPrix', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
     }
         return $this->renderForm('reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
-            'totalPrice' => $totalPrice
         ]);
     }
 
@@ -82,33 +92,43 @@ class ReservationController extends AbstractController
             'reservation' => $reservation,
         ]);
     }
-
-    #[Route('/{idreservation}/edit', name: 'app_reservation_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
+    #[Route('/{idreservation}/editPrix', name: 'app_reservation_editPrix', methods: ['GET', 'POST'])]
+    public function editPrix(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
     {
+        $totalPrice = $this->calculateTotalPrice($reservation);
+        $a=intval($totalPrice);
+        $reservation->setPrixreservation($a);
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
 
             return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
         }
-       /* $currentDate = date('Y-m-d H:i:s');
-        $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
-        $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
-        $currentDate = strtotime($currentDate);
-        if ($currentDate > $endDate) {
-            $reservation->setStatus('Termineeee');
-        } else {
-            $reservation->setStatus('En courss');
+            return $this->renderForm('reservation/confirmation.html.twig', [
+                'reservation' => $reservation,
+                'form' => $form,
+            ]);
+        } 
+    
+
+    #[Route('/{idreservation}/edit', name: 'app_reservation_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
+    {
+      
+        $form = $this->createForm(ReservationType::class, $reservation);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $reservationRepository->save($reservation, true);
+
+            return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
         }
-        $reservationRepository->save($reservation, true);*/
-        return $this->renderForm('reservation/edit.html.twig', [
-            'reservation' => $reservation,
-            'form' => $form,
-        ]);
-    }
+            return $this->renderForm('reservation/edit.html.twig', [
+                'reservation' => $reservation,
+                'form' => $form,
+            ]);
+        }
+    
 
     #[Route('/{idreservation}', name: 'app_reservation_delete', methods: ['POST'])]
     public function delete(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
@@ -120,8 +140,7 @@ class ReservationController extends AbstractController
         return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
     }
     #[Route('/tarif/{idreservation}', methods: ['GET'])]
-    public function calculateTotalPrice(Reservation $reservation ): Response
-
+    public function calculateTotalPrice(Reservation $reservation )
     {
         // Get the base price from the reservation object
         $basePrice = 5;
@@ -151,11 +170,113 @@ $timePrice = ($diffDays * 24 * $reservation->getVehicule()->getPrix()) + ($diffM
         $totalPrice = $basePrice + $timePrice + $distancePrice;
         // - ($discount / 100 * $basePrice);
       //  $response = new Response("Prix total : " . $totalPrice . "-----timePrice  ". $timePrice . "distancePrice ". $distancePrice . " euros" );
-      $response = new Response($totalPrice);
-       return $response;
-        //return $totalPrice;
+      $response = new Response((int)$totalPrice);
+       // return $totalPrice;
+       return ((int)$totalPrice);
     }
     
+    // public function RechercherParStatus(Reservation $reservation ){
+    //         $reservations = $reservationRepository->findAll();
+        
+    // foreach ($reservations as $reservation) 
+    // {if ($reservation->getStatus()='Termine'){
 
-  
+    // }else 
+    
+
+    // }
+
+    #[Route('/filtre/status', name: 'reservation_filter' ,methods: ['GET'])]
+    public function filter(Request $request)
+    {
+        $status = $request->query->get('status');
+        if ($status=='Tous') {
+            $reservations = $this->getDoctrine()
+                ->getRepository(Reservation::class)
+                ->findAll();}
+                else{
+        $reservations = $this->getDoctrine()
+            ->getRepository(Reservation::class)
+            ->findBy(['status' => $status]);
+                }
+        return $this->render('reservation/index.html.twig', [
+            'reservations' => $reservations,
+        ]);
+    }
+
+    #[route('/Search/a',name:'search',methods: ['GET'])]
+    function search(ReservationRepository $repo,Request $request ){
+     $cinUtilisateur = $request->get('mm');
+     $reservations=$repo->SearchBy($cinUtilisateur);
+     return $this->render('reservation/index.html.twig', [
+        'reservations' => $reservations,
+    ]);
+}
+
+#[Route('/pdf/{idreservation}', name: 'reservation_pdf')]
+public function generatePdfa(Reservation $reservation = null, PdfService $pdf) {
+    $writer = new PngWriter();
+    $randomCode = uniqid(); // generate a random code
+    $qrCode = QrCode::create($randomCode)
+        ->setEncoding(new Encoding('UTF-8'))
+        ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+        ->setSize(120)
+        ->setMargin(0)
+        ->setForegroundColor(new Color(0, 0, 0))
+        ->setBackgroundColor(new Color(255, 255, 255));
+        // $logo = Logo::create($this->getParameter('kernel.project_dir').'/public/img/qr.jpg')
+        //             ->setResizeToWidth(60);
+    $label = Label::create('')->setFont(new NotoSans(8));
+
+    $qrCodes = [];
+    $qrCodes['img'] = $writer->write($qrCode)->getDataUri();
+    $qrCodes['simple'] = $writer->write(
+                            $qrCode,
+                            null,
+                        )->getDataUri();
+    $stringqrCodes = implode(', ', $qrCodes);
+
+    $imageSrc = $this->imageToBase64($this->getParameter('kernel.project_dir') . '/public/assets/images/logo.png');
+    $html = $this->render('reservation/detail.html.twig', [
+        'reservation' => $reservation,
+'stringqrCodes' => $stringqrCodes ,
+'imageSrc'=>$imageSrc   ]);
+
+    $response = $pdf->generatePdf($html);
+    $response->headers->set('Content-Disposition', 'attachment; filename="detail_Reservation.pdf"');
+    return $response;}
+    
+    private function imageToBase64($path) {
+        $path = $path;
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $base64;
+    }
+
+    // #[Route('/QR/{idreservation}', name: 'reservation_QR')]
+    // public function generateQR(): Response
+    // {
+    //     $writer = new PngWriter();
+    //     $qrCode = QrCode::create('alooo')
+    //         ->setEncoding(new Encoding('UTF-8'))
+    //         ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+    //         ->setSize(120)
+    //         ->setMargin(0)
+    //         ->setForegroundColor(new Color(0, 0, 0))
+    //         ->setBackgroundColor(new Color(255, 255, 255));
+    //         $logo = Logo::create($this->getParameter('kernel.project_dir').'/public/img/qr.jpg')
+    //                     ->setResizeToWidth(60);
+    //     $label = Label::create('')->setFont(new NotoSans(8));
+ 
+    //     $qrCodes = [];
+    //     $qrCodes['img'] = $writer->write($qrCode, $logo)->getDataUri();
+    //     $qrCodes['simple'] = $writer->write(
+    //                             $qrCode,
+    //                             null,
+    //                         )->getDataUri();
+    
+   
+    //     return $this->render('reservation/qr.html.twig', $qrCodes);
+    // }
 }

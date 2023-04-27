@@ -1,0 +1,40 @@
+.form-control {
+
+    align-items: center;
+    margin: 50px auto;
+    max-width: 500px;
+  }
+  
+  .form-control label {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 500px;
+  }
+  
+  .form-control input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    text-align: center;
+  }
+  

@@ -18,6 +18,20 @@
                             <table id="zero-config" class="table table-striped table-hover table-bordered" style="width:100%">
 
         <thead>
+          
+    <form method ="get" action="{{path('search')}}">
+<input type="text" name="mm" placeholder="Entrez le cin ou la matricule">
+<input type="submit" value="search">
+</form> 
+<form action="{{ path('reservation_filter') }}" method="get">
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="Tous">Tous</option>
+            <option value="En cours">En cours</option>
+            <option value="Termine">Termine</option>
+        </select>
+        <button type="submit">Filtrer</button>
+    </form>
             <tr>
                 <th>Numero réservation</th> 
                 <th>Utilisateur</th>
@@ -75,4 +89,5 @@
                         </div>
                     </div>
     <a href="{{ path('app_reservation_new') }}">Create new</a>
+    
 {% endblock %}

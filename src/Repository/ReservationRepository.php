@@ -63,4 +63,14 @@ class ReservationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+function SearchBy($cin){
+    $req = $this->createQueryBuilder('s')
+     ->join('s.utilisateur', 'u')
+     ->where('u.cin LIKE :mm')
+     ->join('s.vehicule', 'v')
+     ->orwhere('v.matricule LIKE :mm')
+     ->setParameter('mm', '%'.$cin.'%'); 
+    return $req->getQuery()->getResult();
+    //tjm taamel return $this->create lillokher maghir $req
+}    
 }

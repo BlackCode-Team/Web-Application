@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{{ form_start(form) }}
+
+<div >
+    {{ form_label(form.prixreservation) }}
+    {{ form_widget(form.prixreservation) }}
+</div>
+<div style="display:none;">
+{{ form_widget(form.datedebut) }}
+{{ form_widget(form.datefin) }}
+{{ form_widget(form.utilisateur) }}
+{{ form_widget(form.itineraire) }}
+{{ form_widget(form.vehicule) }}
+</div>
+
+    <button class="btn">{{ button_label|default('Réservez') }}</button>
+ 
+{{ form_end(form) }}
+{% endblock %}

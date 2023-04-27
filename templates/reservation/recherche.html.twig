@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des réservations{% endblock %}
+
+{% block body %}
+    <h1>Liste des réservations</h1>
+
+    <form action="{{ path('reservation_filter') }}" method="get">
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="">Tous</option>
+            <option value="En cours">En cours</option>
+            <option value="Termine">Termine</option>
+        </select>
+        <button type="submit">Filtrer</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.idreservation }}</td>
+                    <td>{{ reservation.dateDebut|date('d/m/Y H:i') }}</td>
+                    <td>{{ reservation.dateFin|date('d/m/Y H:i') }}</td>
+                    <td>{{ reservation.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

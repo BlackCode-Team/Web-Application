@@ -76,4 +76,21 @@ class AmendeController extends AbstractController
 
         return $this->redirectToRoute('app_amende_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/filtre/status', name: 'amende_filter' ,methods: ['GET'])]
+    public function filter(Request $request)
+    {
+        $statusamende = $request->query->get('statusamende');
+        if ($statusamende=='Tous') {
+            $amendes = $this->getDoctrine()
+                ->getRepository(Amende::class)
+                ->findAll();}
+                else{
+        $amendes = $this->getDoctrine()
+            ->getRepository(Amende::class)
+            ->findBy(['statusamende' => $statusamende]);
+                }
+        return $this->render('amende/index.html.twig', [
+            'amendes' => $amendes,
+        ]);
+}
 }

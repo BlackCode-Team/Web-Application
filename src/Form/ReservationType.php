@@ -15,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\GreaterThan;
@@ -25,12 +27,12 @@ class ReservationType extends AbstractType
     {
         $builder
         ->add('datedebut', DateTimeType::class, [
-            'data' => new \DateTime(),
+           // 'data' => new \DateTime(),
             'disabled' => true,
 
             ])
         ->add('datefin',DateTimeType::class, [          
-              'data' => new \DateTime(),
+          //    'data' => new \DateTime(),
             'constraints' => [
                 new GreaterThan([
                     'value' => $builder->getData()->getDatedebut(),
@@ -38,15 +40,21 @@ class ReservationType extends AbstractType
                 ])
             ]
         ])
-        ->add('prixreservation', null, [      'disabled' => false
-            // 'constraints' => [
+        
+        ->add('prixreservation',IntegerType::class, [
+           // 'data' => 0,
+            'attr' => ['readonly' => true],
+            ])
+           // 'data' => 0,
+        
+                      // 'constraints' => [
             //     new GreaterThan([
             //         'value' => 0,
             //         'message' => 'Le prix doit être supérieur à zéro.',
             //         'disabled' => true
             //     ])
             // ]
-        ])
+        //])
         
         ->add('utilisateur',EntityType::class,
         ['class'=>Utilisateur::class,
