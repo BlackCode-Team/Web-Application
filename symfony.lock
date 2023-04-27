@@ -38,10 +38,12 @@
             "./migrations/.gitignore"
         ]
     },
+    "endroid/qr-code-bundle": {
+        "version": "4.3.1"
+    },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.9.0"
     },
-<<<<<<< Updated upstream
     "knplabs/knp-snappy-bundle": {
         "version": "1.9",
         "recipe": {
@@ -50,10 +52,9 @@
             "version": "1.5",
             "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
         }
-=======
+    },
     "mercuryseries/flashy-bundle": {
         "version": "v5.1.0"
->>>>>>> Stashed changes
     },
     "phpunit/phpunit": {
         "version": "9.6",
@@ -306,10 +307,7 @@
             "branch": "main",
             "version": "1.1",
             "ref": "0c643e17b5340747b35c2c75e11727fa31bfa9bb"
-        },
-        "files": [
-            "./config/routes/calendar.yaml"
-        ]
+        }
     },
     "twig/extensions": {
         "version": "1.5",

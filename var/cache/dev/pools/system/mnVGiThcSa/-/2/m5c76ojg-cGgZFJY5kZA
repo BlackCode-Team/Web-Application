@@ -1,0 +1,3 @@
+<?php //App%255CController%255CPdfService%2523generateBinaryPDF
+
+return [PHP_INT_MAX, []];
