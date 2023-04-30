@@ -3,53 +3,69 @@
 {% block title %}New Reservation{% endblock %}
 
 {% block body %}
-    <h1>Create new Reservation</h1>
-    {# {{ include('reservation/_form.html.twig') }} #}
-   {{ form_start(form) }}
-
-<div>
-    {{ form_label(form.datedebut) }}
-    {{ form_widget(form.datedebut) }}
+ <div class="r-slider-serach form-search dark">
+              <form action="#">
+                  <div class="form-title form-title-large">
+                      <span class="r-form-icon"><img src="assets/images/footer-form-icon.png" alt=""></span>
+                      <h2>Search Your <b>Best Cars</b></h2>
+                      <small> 120+ CARS TYPE &amp; BRANDS </small>
+                  </div>
+                  <div class="row row-inputs">
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label>Picking Up Location</label>
+                            <input type="text" class="form-control" id="formSearchUpLocation" placeholder="Airport or Anywhere">
+                            <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row row-inputs">
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label>Dropping Off Location</label>
+                            <input type="text" class="form-control" id="formSearchOffLocation" placeholder="Airport or Anywhere">
+                            <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                 <div class="row row-inputs">
+  <div class="col-sm-6">
+    <div class="form-group has-icon has-label label" id="datetimepicker2" data-target-input="nearest">
+      <label for="formSearchUpDate">Picking Up Date</label>
+      <input type="date" class="form-control" id="formSearchUpDate" name="datedebut_date" >
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group has-icon has-label date" id="datetimepicker3" data-target-input="nearest">
+      <label for="formSearchUpTime">Picking Up Time</label>
+      <input type="time" class="form-control" id="formSearchUpTime" name="datedebut_time">
+    </div>
+  </div>
 </div>
 
-<div>
-    {{ form_label(form.datefin) }}
-    {{ form_widget(form.datefin) }}
+                 <div class="row row-inputs">
+  <div class="col-sm-6">
+    <div class="form-group has-icon has-label label" id="datetimepicker2" data-target-input="nearest">
+      <label for="formSearchUpDate">Dropping Off Date</label>
+      <input type="date" class="form-control" id="formSearchUpDate" name="datefin_date">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group has-icon has-label date" id="datetimepicker3" data-target-input="nearest">
+      <label for="formSearchUpTime">Dropping Off Time</label>
+      <input type="time" class="form-control" id="formSearchUpTime" name="datefin_time">
+    </div>
+  </div>
 </div>
 
-<div>
-    {{ form_label(form.utilisateur) }}
-    {{ form_widget(form.utilisateur) }}
-</div>
-
-<div>
-    {{ form_label(form.itineraire) }}
-    {{ form_widget(form.itineraire) }}
-</div>
-
-<div>
-    {{ form_label(form.vehicule) }}
-    {{ form_widget(form.vehicule) }}
-</div>
-
-<div style="display:none;">
-    {{ form_label(form.prixreservation) }}
-    {{ form_widget(form.prixreservation) }}
-</div>
-
-<button class="btn">{{ button_label|default('Continuez') }}</button>
-
-{{ form_end(form) }}
-
-
-{% for reservation in reservation %}
-    <tr>
-        <td>{{ reservation.idreservation }}</td>
-        
-        
-        <td><a href="{{ path('app_reservation_edit', {'idreservation': reservation.idreservation}) }}">edit</a></td>
-    </tr>
-{% endfor %}
-
-     <a href="{{ path('app_reservation_index') }}">back to list</a> 
-{% endblock %}
+                  <div class="form-footer">
+                    <div class="inner clearfix">
+                        <a href="#" class="float-left"><i class="fa fa-plus-circle"></i>Advanced Search</a>
+                        {# <button type="submit" class="btn m-auto d-block btn-full" >Find Car</button> #}
+  <a href="{{ path('app_vehicule_index') }}" class="btn m-auto d-block btn-full" >Find Car</a>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          {% endblock %}

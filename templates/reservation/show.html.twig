@@ -1,43 +1,63 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Reservation{% endblock %}
 
 {% block body %}
-    <h1>Reservation</h1>
+    <div class="container">
+    <h1 class="mb-5">Reservation details</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-             <thead>
-            <tr>
-                <th>Numero réservation</th> 
-                <th>Utilisateur</th>
-                <th>Date Debut</th>
-                <th>Date Fin</th>
-                <th>status Reservation</th>
-                <th>Tarification</th>
-                <th>Matricule Voiture</th>
-                <th>Point d'arrivée</th>
+        <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Numero de reservation:</th>
+                        <td>{{ reservation.idreservation }}</td>
+                    </tr>
+                    <tr>
+                        <th>Utilisateur:</th>
+                        <td>{{ reservation.utilisateur.prenom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date debut:</th>
+                        <td>{{ reservation.datedebut|date("Y-m-d H:i:s") }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date Fin:</th>
+                        <td>{{ reservation.datefin|date("Y-m-d H:i:s") }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status:</th>
+                        <td>{{ reservation.status }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix:</th>
+                        <td>{{ reservation.prixreservation }} DT</td>
+                    </tr>
+                    <tr>
+                        <th>Matricule:</th>
+                        <td>{{ reservation.vehicule.matricule }}</td>
+                    </tr>
+                    <tr>
+                        <th>Destination:</th>
+                        <td>{{ reservation.itineraire.pointarrivee }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            </tr>
-        </thead>
-                      <td>{{ reservation.idreservation }}</td>       
-               <td>{{ reservation.utilisateur.prenom }}</td>
-               <td>{{ reservation.datedebut|date("Y-m-d H:i:s") }}</td>
-               <td>{{ reservation.datefin|date("Y-m-d H:i:s") }}</td>
-               <td>{{ reservation.status }}</td>
-               <td>{{ reservation.prixreservation }}</td>
-               <td>{{ reservation.vehicule.matricule }}</td>
-             <td>{{ reservation.itineraire.pointarrivee }}</td>
+            <div class="my-5">
+                <a class="btn btn-secondary" href="{{ path('app_reservation_index') }}">
+                    Back to list
+                </a>
+                <a class="btn btn-primary" href="{{ path('reservation_pdf', { 'idreservation': reservation.idreservation }) }}">
+                    Download PDF
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ include('reservation/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_reservation_index') }}">back to list</a>
-    <a href="{{ path('reservation_pdf', { 'idreservation': reservation.idreservation }) }}">Download PDF</a>
-
-
-
-    {{ include('reservation/_delete_form.html.twig') }}
 {% endblock %}

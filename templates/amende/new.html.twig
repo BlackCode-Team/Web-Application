@@ -1,11 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}New Amende{% endblock %}
 
 {% block body %}
-    <h1>Create new Amende</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center mb-5">Create new Amende</h1>
 
-    {{ include('amende/_form.html.twig') }}
+                <form method="post">
+                    {{ form_start(form) }}
 
-    <a href="{{ path('app_amende_index') }}">back to list</a>
+                    <div class="form-group">
+                        {{ form_label(form.idreservation, 'Reservation') }}
+                        {{ form_widget(form.idreservation, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.date, 'Date') }}
+                        {{ form_widget(form.date, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.montant, 'Montant') }}
+                        {{ form_widget(form.montant, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.cause, 'Cause') }}
+                        {{ form_widget(form.cause, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.description, 'Description') }}
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.statusamende, 'Status Amende') }}
+                        {{ form_widget(form.statusamende, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Create') }}</button>
+
+                    {{ form_end(form) }}
+                </form>
+
+                <a href="{{ path('app_amende_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

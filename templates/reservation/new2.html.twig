@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <h1>Create new Reservation</h1>
+    {# {{ include('reservation/_form.html.twig') }} #}
+   {{ form_start(form) }}
+
+<div>
+    {{ form_label(form.datedebut) }}
+    {{ form_widget(form.datedebut) }}
+</div>
+
+<div>
+    {{ form_label(form.datefin) }}
+    {{ form_widget(form.datefin) }}
+</div>
+
+<div>
+    {{ form_label(form.utilisateur) }}
+    {{ form_widget(form.utilisateur) }}
+</div>
+
+<div>
+    {{ form_label(form.itineraire) }}
+    {{ form_widget(form.itineraire) }}
+</div>
+
+<div>
+    {{ form_label(form.vehicule) }}
+    {{ form_widget(form.vehicule) }}
+</div>
+
+<div style="display:none;">
+    {{ form_label(form.prixreservation) }}
+    {{ form_widget(form.prixreservation) }}
+</div>
+
+<button class="btn">{{ button_label|default('Continuez') }}</button>
+
+{{ form_end(form) }}
+
+
+{% for reservation in reservation %}
+    <tr>
+        <td>{{ reservation.idreservation }}</td>
+        
+        
+        <td><a href="{{ path('app_reservation_edit', {'idreservation': reservation.idreservation}) }}">edit</a></td>
+    </tr>
+{% endfor %}
+
+     <a href="{{ path('app_reservation_index') }}">back to list</a> 
+{% endblock %}

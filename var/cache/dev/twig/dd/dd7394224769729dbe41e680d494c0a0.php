@@ -213,6 +213,6 @@ class __TwigTemplate_f8ab816cce7f6a608e6cdbb715dfcb26 extends \Twig\Template
     <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js\"></script>
-{% endblock %}", "offres/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\offres\\index.html.twig");
+{% endblock %}", "offres/index.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\offres\\index.html.twig");
     }
 }

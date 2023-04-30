@@ -278,6 +278,6 @@ class __TwigTemplate_3251425bfe4ee2656c6c18d4aabfd591 extends \Twig\Template
     
 {% endblock %}
 
-", "offre/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\offre\\index.html.twig");
+", "offre/index.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\offre\\index.html.twig");
     }
 }

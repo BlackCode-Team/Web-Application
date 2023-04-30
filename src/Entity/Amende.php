@@ -30,7 +30,7 @@ class Amende
      private ?string $description=null;
 
      #[ORM\Column(length: 255)]
-    private ?string $statusamende;
+    private ?string $statusamende=null;
 
     #[ORM\ManyToOne(targetEntity: Reservation::class, inversedBy: 'Amende')]
     #[ORM\JoinColumn(name: 'idreservation', referencedColumnName: 'idreservation')]

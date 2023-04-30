@@ -74,7 +74,10 @@ class ReservationController extends AbstractController
         $historique = new Historique();
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
-     
+        $date_fin = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
+     $reservation->setdateFin($date_fin);   
+     $date_debut = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
+     $reservation->setdateDebut($date_debut);   
      //   $form->get('prixreservation')->setData($totalPrice);
      
         return $this->redirectToRoute('app_reservation_editPrix', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);

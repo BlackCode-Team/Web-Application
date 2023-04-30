@@ -85,120 +85,75 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Create new Reservation</h1>
-    ";
-        // line 8
-        echo "   ";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
-        echo "
-
-<div>
-    ";
-        // line 11
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "datedebut", [], "any", false, false, false, 11), 'label');
-        echo "
-    ";
-        // line 12
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), "datedebut", [], "any", false, false, false, 12), 'widget');
-        echo "
+        echo " <div class=\"r-slider-serach form-search dark\">
+              <form action=\"#\">
+                  <div class=\"form-title form-title-large\">
+                      <span class=\"r-form-icon\"><img src=\"assets/images/footer-form-icon.png\" alt=\"\"></span>
+                      <h2>Search Your <b>Best Cars</b></h2>
+                      <small> 120+ CARS TYPE &amp; BRANDS </small>
+                  </div>
+                  <div class=\"row row-inputs\">
+                    <div class=\"col-sm-12\">
+                        <div class=\"form-group has-icon has-label\">
+                            <label>Picking Up Location</label>
+                            <input type=\"text\" class=\"form-control\" id=\"formSearchUpLocation\" placeholder=\"Airport or Anywhere\">
+                            <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class=\"row row-inputs\">
+                    <div class=\"col-sm-12\">
+                        <div class=\"form-group has-icon has-label\">
+                            <label>Dropping Off Location</label>
+                            <input type=\"text\" class=\"form-control\" id=\"formSearchOffLocation\" placeholder=\"Airport or Anywhere\">
+                            <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                 <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Picking Up Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datedebut_date\" >
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Picking Up Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datedebut_time\">
+    </div>
+  </div>
 </div>
 
-<div>
-    ";
-        // line 16
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "datefin", [], "any", false, false, false, 16), 'label');
-        echo "
-    ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "datefin", [], "any", false, false, false, 17), 'widget');
-        echo "
+                 <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Dropping Off Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datefin_date\">
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Dropping Off Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datefin_time\">
+    </div>
+  </div>
 </div>
 
-<div>
-    ";
-        // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), "utilisateur", [], "any", false, false, false, 21), 'label');
-        echo "
-    ";
-        // line 22
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "utilisateur", [], "any", false, false, false, 22), 'widget');
-        echo "
-</div>
-
-<div>
-    ";
-        // line 26
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "itineraire", [], "any", false, false, false, 26), 'label');
-        echo "
-    ";
-        // line 27
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "itineraire", [], "any", false, false, false, 27), 'widget');
-        echo "
-</div>
-
-<div>
-    ";
-        // line 31
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "vehicule", [], "any", false, false, false, 31), 'label');
-        echo "
-    ";
-        // line 32
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "vehicule", [], "any", false, false, false, 32), 'widget');
-        echo "
-</div>
-
-<div style=\"display:none;\">
-    ";
-        // line 36
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 36, $this->source); })()), "prixreservation", [], "any", false, false, false, 36), 'label');
-        echo "
-    ";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "prixreservation", [], "any", false, false, false, 37), 'widget');
-        echo "
-</div>
-
-<button class=\"btn\">";
-        // line 40
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 40, $this->source); })()), "Continuez")) : ("Continuez")), "html", null, true);
-        echo "</button>
-
-";
-        // line 42
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 42, $this->source); })()), 'form_end');
-        echo "
-
-
-";
-        // line 45
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($context["reservation"]);
-        foreach ($context['_seq'] as $context["_key"] => $context["reservation"]) {
-            // line 46
-            echo "    <tr>
-        <td>";
-            // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reservation"], "idreservation", [], "any", false, false, false, 47), "html", null, true);
-            echo "</td>
-        
-        
-        <td><a href=\"";
-            // line 50
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_edit", ["idreservation" => twig_get_attribute($this->env, $this->source, $context["reservation"], "idreservation", [], "any", false, false, false, 50)]), "html", null, true);
-            echo "\">edit</a></td>
-    </tr>
-";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reservation'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
-        echo "
-     <a href=\"";
-        // line 54
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_index");
-        echo "\">back to list</a> 
-";
+                  <div class=\"form-footer\">
+                    <div class=\"inner clearfix\">
+                        <a href=\"#\" class=\"float-left\"><i class=\"fa fa-plus-circle\"></i>Advanced Search</a>
+                        ";
+        // line 65
+        echo "  <a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
+        echo "\" class=\"btn m-auto d-block btn-full\" >Find Car</a>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -219,7 +174,7 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  199 => 54,  196 => 53,  187 => 50,  181 => 47,  178 => 46,  174 => 45,  168 => 42,  163 => 40,  157 => 37,  153 => 36,  146 => 32,  142 => 31,  135 => 27,  131 => 26,  124 => 22,  120 => 21,  113 => 17,  109 => 16,  102 => 12,  98 => 11,  91 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  148 => 65,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -229,56 +184,71 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
 {% block title %}New Reservation{% endblock %}
 
 {% block body %}
-    <h1>Create new Reservation</h1>
-    {# {{ include('reservation/_form.html.twig') }} #}
-   {{ form_start(form) }}
-
-<div>
-    {{ form_label(form.datedebut) }}
-    {{ form_widget(form.datedebut) }}
+ <div class=\"r-slider-serach form-search dark\">
+              <form action=\"#\">
+                  <div class=\"form-title form-title-large\">
+                      <span class=\"r-form-icon\"><img src=\"assets/images/footer-form-icon.png\" alt=\"\"></span>
+                      <h2>Search Your <b>Best Cars</b></h2>
+                      <small> 120+ CARS TYPE &amp; BRANDS </small>
+                  </div>
+                  <div class=\"row row-inputs\">
+                    <div class=\"col-sm-12\">
+                        <div class=\"form-group has-icon has-label\">
+                            <label>Picking Up Location</label>
+                            <input type=\"text\" class=\"form-control\" id=\"formSearchUpLocation\" placeholder=\"Airport or Anywhere\">
+                            <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class=\"row row-inputs\">
+                    <div class=\"col-sm-12\">
+                        <div class=\"form-group has-icon has-label\">
+                            <label>Dropping Off Location</label>
+                            <input type=\"text\" class=\"form-control\" id=\"formSearchOffLocation\" placeholder=\"Airport or Anywhere\">
+                            <span class=\"form-control-icon\"><i class=\"fa fa-map-marker\"></i></span>
+                        </div>
+                    </div>
+                  </div>
+                 <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Picking Up Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datedebut_date\" >
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Picking Up Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datedebut_time\">
+    </div>
+  </div>
 </div>
 
-<div>
-    {{ form_label(form.datefin) }}
-    {{ form_widget(form.datefin) }}
+                 <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Dropping Off Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datefin_date\">
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Dropping Off Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datefin_time\">
+    </div>
+  </div>
 </div>
 
-<div>
-    {{ form_label(form.utilisateur) }}
-    {{ form_widget(form.utilisateur) }}
-</div>
-
-<div>
-    {{ form_label(form.itineraire) }}
-    {{ form_widget(form.itineraire) }}
-</div>
-
-<div>
-    {{ form_label(form.vehicule) }}
-    {{ form_widget(form.vehicule) }}
-</div>
-
-<div style=\"display:none;\">
-    {{ form_label(form.prixreservation) }}
-    {{ form_widget(form.prixreservation) }}
-</div>
-
-<button class=\"btn\">{{ button_label|default('Continuez') }}</button>
-
-{{ form_end(form) }}
-
-
-{% for reservation in reservation %}
-    <tr>
-        <td>{{ reservation.idreservation }}</td>
-        
-        
-        <td><a href=\"{{ path('app_reservation_edit', {'idreservation': reservation.idreservation}) }}\">edit</a></td>
-    </tr>
-{% endfor %}
-
-     <a href=\"{{ path('app_reservation_index') }}\">back to list</a> 
-{% endblock %}
-", "reservation/new.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\reservation\\new.html.twig");
+                  <div class=\"form-footer\">
+                    <div class=\"inner clearfix\">
+                        <a href=\"#\" class=\"float-left\"><i class=\"fa fa-plus-circle\"></i>Advanced Search</a>
+                        {# <button type=\"submit\" class=\"btn m-auto d-block btn-full\" >Find Car</button> #}
+  <a href=\"{{ path('app_vehicule_index') }}\" class=\"btn m-auto d-block btn-full\" >Find Car</a>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          {% endblock %}", "reservation/new.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\reservation\\new.html.twig");
     }
 }

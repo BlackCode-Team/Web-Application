@@ -23,9 +23,12 @@ class AmendeType extends AbstractType
             ->add('description',TextareaType::class)
             ->add('statusamende', ChoiceType::class, [
                 'choices' => [
-                    'paye' => 'Paye',
-                    'Non Paye' => 'Non paye',
-                ]])  
+                    'Pas encore' => 'Non paye',
+                    'Deja payé' => 'Paye',
+                ],
+                'disabled' => true,
+                'data' => 'Non paye',
+            ])   
             ->add('idreservation',EntityType::class,
         ['class'=>Reservation::class,
         'choice_label'=>'idreservation'])

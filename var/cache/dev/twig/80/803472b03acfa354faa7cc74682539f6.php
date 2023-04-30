@@ -33,7 +33,7 @@ class __TwigTemplate_dbff05134f2d9d9253a1f369711668d0 extends \Twig\Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_dbff05134f2d9d9253a1f369711668d0 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "amende/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "amende/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "amende/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -213,7 +213,7 @@ class __TwigTemplate_dbff05134f2d9d9253a1f369711668d0 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
 {% block title %}Amende index{% endblock %}
 
@@ -276,6 +276,6 @@ class __TwigTemplate_dbff05134f2d9d9253a1f369711668d0 extends \Twig\Template
 
     <a href=\"{{ path('app_amende_new') }}\">Create new</a>
 {% endblock %}
-", "amende/index.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\amende\\index.html.twig");
+", "amende/index.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\amende\\index.html.twig");
     }
 }
