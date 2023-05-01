@@ -115,49 +115,59 @@ class __TwigTemplate_f6bb3946dca80dd8eb69763da7f5765d extends \Twig\Template
 
         <section id=\"r-gallery-part\" class=\"r-gallery-part\">
           <div class=\"container clearfix\">
-        
+          ";
+        // line 16
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16)) {
+            // line 17
+            echo "        <p>The ID of the current user is: ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "iduser", [], "any", false, false, false, 17), "html", null, true);
+            echo "</p>
+        ";
+        }
+        // line 19
+        echo "        
             <ul>
              ";
-        // line 18
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["parks"]) || array_key_exists("parks", $context) ? $context["parks"] : (function () { throw new RuntimeError('Variable "parks" does not exist.', 18, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["parks"]) || array_key_exists("parks", $context) ? $context["parks"] : (function () { throw new RuntimeError('Variable "parks" does not exist.', 21, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["park"]) {
-            // line 19
+            // line 22
             echo "              <li>
                   <a href=\"";
-            // line 20
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_show", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 20)]), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_show", ["idpark" => twig_get_attribute($this->env, $this->source, $context["park"], "idpark", [], "any", false, false, false, 23)]), "html", null, true);
             echo "\" >
                       <img src=\"";
-            // line 21
+            // line 24
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/gallery-img01.jpg"), "html", null, true);
             echo "\" class=\"d-block img-fluid\" alt=\"\">
                       <div class=\"gallery-hover\">
                         <div class=\"gallery-text\">
                         <span>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "ville", [], "any", false, false, false, 24)), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "ville", [], "any", false, false, false, 27)), "html", null, true);
             echo " </span>
                           <h5><b>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nom", [], "any", false, false, false, 25)), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nom", [], "any", false, false, false, 28)), "html", null, true);
             echo "</b></h5>
                           <h5>   <b>nbSpots </b>  : ";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nbspot", [], "any", false, false, false, 26), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["park"], "nbspot", [], "any", false, false, false, 29), "html", null, true);
             echo "</h5>
                           ";
-            // line 27
-            if ((twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 27) == "Ouvert")) {
-                // line 28
+            // line 30
+            if ((twig_get_attribute($this->env, $this->source, $context["park"], "statut", [], "any", false, false, false, 30) == "Ouvert")) {
+                // line 31
                 echo "                          <div class=\"icon-gallery\"><i class=\"fa fa-location-arrow\" aria-hidden=\"true\"></i></div>
                           ";
             } else {
-                // line 30
+                // line 33
                 echo "                          <div class=\"icon-gallery\"><i class=\"fa fa-close\" aria-hidden=\"true\"></i></div>
                           ";
             }
-            // line 32
+            // line 35
             echo "                          
                         </div>
                       </div>
@@ -168,7 +178,7 @@ class __TwigTemplate_f6bb3946dca80dd8eb69763da7f5765d extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['park'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
+        // line 41
         echo "
           </div>
         </section>
@@ -196,7 +206,7 @@ class __TwigTemplate_f6bb3946dca80dd8eb69763da7f5765d extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  172 => 38,  161 => 32,  157 => 30,  153 => 28,  151 => 27,  147 => 26,  143 => 25,  139 => 24,  133 => 21,  129 => 20,  126 => 19,  122 => 18,  108 => 6,  98 => 5,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  182 => 41,  171 => 35,  167 => 33,  163 => 31,  161 => 30,  157 => 29,  153 => 28,  149 => 27,  143 => 24,  139 => 23,  136 => 22,  132 => 21,  128 => 19,  122 => 17,  120 => 16,  108 => 6,  98 => 5,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -216,6 +226,9 @@ class __TwigTemplate_f6bb3946dca80dd8eb69763da7f5765d extends \Twig\Template
 
         <section id=\"r-gallery-part\" class=\"r-gallery-part\">
           <div class=\"container clearfix\">
+          {% if app.user %}
+        <p>The ID of the current user is: {{ app.user.iduser}}</p>
+        {% endif %}
         
             <ul>
              {% for park in parks %}

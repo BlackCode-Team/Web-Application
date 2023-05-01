@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Park index{% endblock %}
+{% block page %} Park  {% endblock %} 
+{% block body %}
+   
+       
+            <div class="r-header-inner-banner" align="center">
+              <div class="r-header-in-over">
+                <h1>Les <b>P</b>arcs </h1>
+              </div>
+            </div>
+
+        <section id="r-gallery-part" class="r-gallery-part">
+          <div class="container clearfix">
+        
+            <ul>
+             {% for park in parks %}
+              <li>
+                  <a href="{{ path('app_park_show', {'idpark': park.idpark}) }}" >
+                      <img src="{{asset('assets/images/gallery-img01.jpg')}}" class="d-block img-fluid" alt="">
+                      <div class="gallery-hover">
+                        <div class="gallery-text">
+                        <span>{{ park.ville |upper }} </span>
+                          <h5><b>{{ park.nom |upper }}</b></h5>
+                          <h5>   <b>nbSpots </b>  : {{ park.nbspot }}</h5>
+                          {% if park.statut == "Ouvert" %}
+                          <div class="icon-gallery"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                          {% else %}
+                          <div class="icon-gallery"><i class="fa fa-close" aria-hidden="true"></i></div>
+                          {% endif %}
+                          
+                        </div>
+                      </div>
+                  </a>
+              </li>
+              {% endfor %}
+
+          </div>
+        </section>
+        
+
+
+{% endblock %}
