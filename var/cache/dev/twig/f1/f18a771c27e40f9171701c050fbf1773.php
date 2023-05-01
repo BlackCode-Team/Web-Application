@@ -119,7 +119,7 @@ class __TwigTemplate_3dc9e71f705009e8d43b833553ddd1a4 extends \Twig\Template
                       <nav>
                         <ul>
                           <li >
-                            <a href=\"/reservation/new\">RESERVATION</a>
+                            <a href=\"/itineraire/new\">RESERVATION</a>
                        
                           </li>
                           <li class=>
@@ -1177,7 +1177,7 @@ class __TwigTemplate_3dc9e71f705009e8d43b833553ddd1a4 extends \Twig\Template
                       <nav>
                         <ul>
                           <li >
-                            <a href=\"/reservation/new\">RESERVATION</a>
+                            <a href=\"/itineraire/new\">RESERVATION</a>
                        
                           </li>
                           <li class=>

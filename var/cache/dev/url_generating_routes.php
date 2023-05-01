@@ -6,6 +6,7 @@ return [
     'app_amende_index' => [[], ['_controller' => 'App\\Controller\\AmendeController::index'], [], [['text', '/amende/']], [], [], []],
     'app_amende_new' => [[], ['_controller' => 'App\\Controller\\AmendeController::new'], [], [['text', '/amende/new']], [], [], []],
     'app_amende_show' => [['idamende'], ['_controller' => 'App\\Controller\\AmendeController::show'], [], [['variable', '/', '[^/]++', 'idamende', true], ['text', '/amende']], [], [], []],
+    'app_amende_showback' => [['idamende'], ['_controller' => 'App\\Controller\\AmendeController::showAdmin'], [], [['variable', '/', '[^/]++', 'idamende', true], ['text', '/amende/back']], [], [], []],
     'app_amende_edit' => [['idamende'], ['_controller' => 'App\\Controller\\AmendeController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idamende', true], ['text', '/amende']], [], [], []],
     'app_amende_delete' => [['idamende'], ['_controller' => 'App\\Controller\\AmendeController::delete'], [], [['variable', '/', '[^/]++', 'idamende', true], ['text', '/amende']], [], [], []],
     'amende_filter' => [[], ['_controller' => 'App\\Controller\\AmendeController::filter'], [], [['text', '/amende/filtre/status']], [], [], []],

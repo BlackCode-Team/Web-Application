@@ -7617,16 +7617,16 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.y1420Rl" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.GXqe6NR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="paginator" type="service_closure" id="knp_paginator"/>
+        <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.y1420Rl" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
         <argument key="vehiculeRepository" type="service_closure" id="App\Repository\VehiculeRepository"/>
       </argument>
     </service>
@@ -7656,7 +7656,7 @@
         <argument key="vehicule" type="service_closure" id=".errored..service_locator.iVJ8gI9.App\Entity\Vehicule"/>
       </argument>
     </service>
-    <service id=".service_locator.oWxmhKa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.y.BvrrL" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AmendeController::delete" type="service_closure" id=".service_locator.ICjB1ut"/>
@@ -7664,6 +7664,7 @@
         <argument key="App\Controller\AmendeController::index" type="service_closure" id=".service_locator.t3m0jzp"/>
         <argument key="App\Controller\AmendeController::new" type="service_closure" id=".service_locator.t3m0jzp"/>
         <argument key="App\Controller\AmendeController::show" type="service_closure" id=".service_locator.Yeu7ARv"/>
+        <argument key="App\Controller\AmendeController::showAdmin" type="service_closure" id=".service_locator.Yeu7ARv"/>
         <argument key="App\Controller\BadgeController::TrieNbpointASC" type="service_closure" id=".service_locator.tgHS_13"/>
         <argument key="App\Controller\BadgeController::TrieNbpointDESC" type="service_closure" id=".service_locator.tgHS_13"/>
         <argument key="App\Controller\BadgeController::delete" type="service_closure" id=".service_locator.20cMmfJ"/>
@@ -7745,7 +7746,7 @@
         <argument key="App\Controller\VehiculeController::delete" type="service_closure" id=".service_locator.YdyC4xD"/>
         <argument key="App\Controller\VehiculeController::edit" type="service_closure" id=".service_locator.YdyC4xD"/>
         <argument key="App\Controller\VehiculeController::getRatings" type="service_closure" id=".service_locator.iVJ8gI9"/>
-        <argument key="App\Controller\VehiculeController::index" type="service_closure" id=".service_locator.y1420Rl"/>
+        <argument key="App\Controller\VehiculeController::index" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController::indexback" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController::indexbackkk" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController::new" type="service_closure" id=".service_locator.y1420Rl"/>
@@ -7760,6 +7761,7 @@
         <argument key="App\Controller\AmendeController:index" type="service_closure" id=".service_locator.t3m0jzp"/>
         <argument key="App\Controller\AmendeController:new" type="service_closure" id=".service_locator.t3m0jzp"/>
         <argument key="App\Controller\AmendeController:show" type="service_closure" id=".service_locator.Yeu7ARv"/>
+        <argument key="App\Controller\AmendeController:showAdmin" type="service_closure" id=".service_locator.Yeu7ARv"/>
         <argument key="App\Controller\BadgeController:TrieNbpointASC" type="service_closure" id=".service_locator.tgHS_13"/>
         <argument key="App\Controller\BadgeController:TrieNbpointDESC" type="service_closure" id=".service_locator.tgHS_13"/>
         <argument key="App\Controller\BadgeController:delete" type="service_closure" id=".service_locator.20cMmfJ"/>
@@ -7841,7 +7843,7 @@
         <argument key="App\Controller\VehiculeController:delete" type="service_closure" id=".service_locator.YdyC4xD"/>
         <argument key="App\Controller\VehiculeController:edit" type="service_closure" id=".service_locator.YdyC4xD"/>
         <argument key="App\Controller\VehiculeController:getRatings" type="service_closure" id=".service_locator.iVJ8gI9"/>
-        <argument key="App\Controller\VehiculeController:index" type="service_closure" id=".service_locator.y1420Rl"/>
+        <argument key="App\Controller\VehiculeController:index" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController:indexback" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController:indexbackkk" type="service_closure" id=".service_locator.GXqe6NR"/>
         <argument key="App\Controller\VehiculeController:new" type="service_closure" id=".service_locator.y1420Rl"/>
@@ -8634,12 +8636,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.oWxmhKa"/>
+      <argument type="service" id=".service_locator.y.BvrrL"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.oWxmhKa"/>
+      <argument type="service" id=".service_locator.y.BvrrL"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9648,7 +9650,7 @@
     <service id="Endroid\QrCode\Builder\BuilderInterface $defaultQrCodeBuilder" alias="endroid_qr_code.default_builder"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.oWxmhKa"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.y.BvrrL"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9685,7 +9687,7 @@
     <service id=".service_locator.3wy2NyO" alias=".service_locator.1acpYi7"/>
     <service id=".service_locator.svXZJpF" alias=".service_locator.GXqe6NR"/>
     <service id=".service_locator.gPjNq68" alias=".service_locator.iVJ8gI9"/>
-    <service id=".service_locator.ZH.a9GL" alias=".service_locator.oWxmhKa"/>
+    <service id=".service_locator.YQCkb9y" alias=".service_locator.y.BvrrL"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.t3Umvj6" alias=".service_locator.xyoh5cg"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -9769,8 +9771,8 @@
     <service id=".service_locator.wQ0wqZZ" alias=".service_locator.uG.iX4V"/>
     <service id=".service_locator.TMdHId4" alias=".service_locator.fZJuHge"/>
     <service id=".service_locator.iwulDuo" alias=".service_locator.1acpYi7"/>
-    <service id=".service_locator.2CdSnge" alias=".service_locator.y1420Rl"/>
     <service id=".service_locator.318aBTH" alias=".service_locator.GXqe6NR"/>
+    <service id=".service_locator.2CdSnge" alias=".service_locator.y1420Rl"/>
     <service id=".service_locator.9bJ6zHz" alias=".service_locator.pB20uqv"/>
     <service id=".service_locator.TO2JAeo" alias=".service_locator.YdyC4xD"/>
     <service id=".service_locator.f5qfR4Y" alias=".service_locator.CjN7d5V"/>
