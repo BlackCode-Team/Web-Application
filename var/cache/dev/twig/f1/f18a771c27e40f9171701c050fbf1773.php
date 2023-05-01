@@ -118,14 +118,8 @@ class __TwigTemplate_3dc9e71f705009e8d43b833553ddd1a4 extends \Twig\Template
                     <div class=\"r-nav-section float-right\">
                       <nav>
                         <ul>
-                          <li class=\"r-has-child\">
-                            <a href=\"index.html\">Acceuil</a>
-                            <ul class=\"pl-0 ml-0\">
-                     
-                            </ul>
-                          </li>
                           <li >
-                            <a href=\"/itineraire/new\">RESERVATION</a>
+                            <a href=\"/reservation/new\">RESERVATION</a>
                        
                           </li>
                           <li class=>
@@ -1182,14 +1176,8 @@ class __TwigTemplate_3dc9e71f705009e8d43b833553ddd1a4 extends \Twig\Template
                     <div class=\"r-nav-section float-right\">
                       <nav>
                         <ul>
-                          <li class=\"r-has-child\">
-                            <a href=\"index.html\">Acceuil</a>
-                            <ul class=\"pl-0 ml-0\">
-                     
-                            </ul>
-                          </li>
                           <li >
-                            <a href=\"/itineraire/new\">RESERVATION</a>
+                            <a href=\"/reservation/new\">RESERVATION</a>
                        
                           </li>
                           <li class=>
