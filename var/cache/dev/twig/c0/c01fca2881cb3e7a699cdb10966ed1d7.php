@@ -85,128 +85,100 @@ class __TwigTemplate_5921e6886a02bda31db28fe19b678061 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo " <div class=\"r-car-search\">
-          <a href=\"";
-        // line 7
+        echo "<div class=\"container\">
+  <div class=\"row justify-content-between align-items-center mb-4\">
+    <div class=\"col-md-auto\">
+      <h2 class=\"heading mb-0\">La Liste Des Vehicules</h2>
+    </div>
+    <div class=\"col-md-auto\">
+      <a href=\"";
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("pdf_catalogue");
-        echo "\">Télécharger le catalogue des voitures</a>
+        echo "\" class=\"btn btn-primary\">Télécharger le catalogue des voitures</a>
+    </div>
+  </div>
 
-          <div class=\"container\">
-            <form>
-              <div class=\"row\">
-                <div class=\"col-lg-3 col-md-6 col-sm-6 col-xs-12\">
-                  <div class=\"form-group\">
-                    <label> Car Price </label>
-                    <select class=\"form-control\">
-                      <option>Prix croissant</option>
-                      <option>Prix decroissant</option>
-                    </select>
-                  </div>
-                </div>
-                <div class=\"col-lg-3 col-md-6 col-sm-6 col-xs-12\">
-                  <div class=\"form-group\">
-                    <input type=\"submit\" class=\"form-control btn-primary\" value=\"Search Car Now\" />
-                  </div>
-                </div>
-              </div>
-            </form>
+  <div class=\"row mb-4\">
+    <div class=\"col-md-6\">
+      <div class=\"card p-4\">
+        <form method=\"get\">
+          <div class=\"form-group\">
+            <label for=\"sort\">Trier par prix:</label>
+            <select id=\"sort\" name=\"sort\" class=\"form-control\" onchange=\"this.form.submit()\">
+              <option value=\"price_asc\" ";
+        // line 23
+        if (((isset($context["sort"]) || array_key_exists("sort", $context) ? $context["sort"] : (function () { throw new RuntimeError('Variable "sort" does not exist.', 23, $this->source); })()) == "price_asc")) {
+            echo " selected ";
+        }
+        echo ">Croissant</option>
+              <option value=\"price_desc\" ";
+        // line 24
+        if (((isset($context["sort"]) || array_key_exists("sort", $context) ? $context["sort"] : (function () { throw new RuntimeError('Variable "sort" does not exist.', 24, $this->source); })()) == "price_desc")) {
+            echo " selected ";
+        }
+        echo ">Décroissant</option>
+            </select>
           </div>
-        </div> <!-- /r-car-search -->
-
-        <section class=\"r-car-showcase-wrapper\">
-          <div class=\"r-best-vehicles\">
-            <div class=\"container\">
-              <div class=\"row\">
-                <div class=\"col-lg-3 col-md-4 col-sm-12\">
-                  <h2 class=\"heading\"> Car Categories </h2>
-                  <div class=\"r-best-vehicle-list-outer\">
-                    <form action=\"";
-        // line 38
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("vehicule_filter");
+        </form>
+      </div>
+    </div>
+    <div class=\"col-md-6\">
+      <div class=\"card p-4\">
+        <form action=\"";
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_indexback");
         echo "\" method=\"get\">
-                    <label for=\"type\">Type:</label>
-                    <select name=\"type\" id=\"type\">
-                        <option value=\"\">Tous</option>
-                        <option value=\"Voiture\">Voiture</option>
-                        <option value=\"Trottinette\">Trottinette</option>
-                    </select>
-                    <button type=\"submit\">Filtrer</button>
-                </form>
-                  </div>
-                  
-                </div>
-                <div class=\"col-lg-9 col-md-8 col-sm-12\">
-                  <div class=\"r-car-filter-area\">
-                    <div class=\"row\">
-                      <div class=\"col-lg-6 col-md-12 col-sm-12\">
-                        <span class=\"r-filter-text\">20 of 50 Search Results</span>
-                      </div>
-                      <div class=\" col-lg-6 col-md-12 col-sm-12\">
-                        <div class=\"r-car-filter-wrapper\">
-                          <span class=\"r-filter-text\"> Show Cars : </span>
-                          <select class=\"r-show-cars-filter\">
-                            <option value=\"6\"> 6 Cars </option>
-                            <option value=\"10\"> 10 Cars </option>
-                            <option value=\"20\"> 20 Cars </option>
-                            <option value=\"30\"> 30 Cars </option>
-                          </select>
-                          <ul class=\"r-change-view\">
-                            <li><a href=\"javaScript:void(0)\"> <i class=\"fa fa-th-large\"></i> </a></li>
-                            <li><a href=\"javaScript:void(0)\"> <i class=\"fa fa-bars\"></i> </a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div class=\"form-group\">
+            <label for=\"type\">Type:</label>
+            <select name=\"type\" id=\"type\" class=\"form-control\" onchange=\"this.form.submit()\">
+              <option value=\"Tous\">Tous</option>
+              <option value=\"Voiture\">Voiture</option>
+              <option value=\"Trottinette\">Trottinette</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-                  <div class=\"r-car-showcase\">
-                    <div class=\"row clearfix r-best-offer-list\">
-                    ";
-        // line 76
+  <div class=\"row\">
+    ";
+        // line 47
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 76, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 47, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["vehicule"]) {
-            // line 77
-            echo "                  <div class=\"col-md-4\">
-                      <div class=\"card mb-4 shadow-sm\">
-                          <img src=\"";
-            // line 79
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 79))), "html", null, true);
+            // line 48
+            echo "    <div class=\"col-md-4 mb-4\">
+      <div class=\"card\">
+        <img src=\"";
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["vehicule"], "image", [], "any", false, false, false, 50))), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 79), "html", null, true);
-            echo "\" />
-                          <div class=\"card-body\">
-                              <p class=\"card-text\"><a href=\"#\">";
-            // line 81
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 81), "html", null, true);
-            echo "</a></p>
-                              <div class=\"d-flex justify-content-between align-items-center\">
-                                  <div class=\"btn-group\">
-                                      <a href=\"";
-            // line 84
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index", ["id" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 84)]), "html", null, true);
-            echo "\" ></a>
-                                  </div>
-                            <div class=\"r-best-offer-content\">
-                            <p>Start at <b>";
-            // line 87
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 87), "html", null, true);
-            echo " DT</b> per day</p>
-                            <ul class=\"pl-0 mb-0\">
-                              <li><i class=\"fa fa-cogs\"></i><span>MANUAL</span></li>
-                              <li><i class=\"fa fa-beer\"></i><span>PETROL</span></li>
-                              <li><i class=\"fa fa-road\"></i><span>";
-            // line 91
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "puissance", [], "any", false, false, false, 91), "html", null, true);
-            echo "</span></li>
-                            </ul>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 50), "html", null, true);
+            echo "\" class=\"card-img-top\">
+        <div class=\"card-body\">
+          <h5 class=\"card-title mb-2\">";
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "modele", [], "any", false, false, false, 52), "html", null, true);
+            echo "</h5>
+          <ul class=\"list-unstyled mb-3\">
+            <li><i class=\"fa fa-cogs\"></i> Automatique</li>
+            <li><i class=\"fa fa-beer\"></i>Electrique</li>
+          </ul>
+          <p class=\"card-text mb-2\">À partir de <b>";
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["vehicule"], "prix", [], "any", false, false, false, 57), "html", null, true);
+            echo " DT</b> par jour</p>
+          <div class=\"d-flex justify-content-between\">
+            <div class=\"dropdown\">
+              
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"";
-            // line 93
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 93)]), "html", null, true);
+            // line 61
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_show", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 61)]), "html", null, true);
             echo "\">show</a>
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"";
-            // line 94
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 94)]), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_edit", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 62)]), "html", null, true);
             echo "\">edit</a>
                           </div>
                               </ul>
@@ -219,13 +191,13 @@ class __TwigTemplate_5921e6886a02bda31db28fe19b678061 extends \Twig\Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['vehicule'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 102
+        // line 70
         echo "                 
                 </div>
                 <div class=\"pagination-section\">
                   ";
-        // line 105
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 105, $this->source); })()));
+        // line 73
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["vehicules"]) || array_key_exists("vehicules", $context) ? $context["vehicules"] : (function () { throw new RuntimeError('Variable "vehicules" does not exist.', 73, $this->source); })()));
         echo "
                 </div>
 
@@ -252,7 +224,7 @@ class __TwigTemplate_5921e6886a02bda31db28fe19b678061 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  228 => 105,  223 => 102,  209 => 94,  205 => 93,  200 => 91,  193 => 87,  187 => 84,  181 => 81,  174 => 79,  170 => 77,  166 => 76,  125 => 38,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  200 => 73,  195 => 70,  181 => 62,  177 => 61,  170 => 57,  162 => 52,  155 => 50,  151 => 48,  147 => 47,  129 => 32,  116 => 24,  110 => 23,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -262,93 +234,61 @@ class __TwigTemplate_5921e6886a02bda31db28fe19b678061 extends \Twig\Template
 {% block title %}Vehicule{% endblock %}
 
 {% block body %}
- <div class=\"r-car-search\">
-          <a href=\"{{ path('pdf_catalogue') }}\">Télécharger le catalogue des voitures</a>
+<div class=\"container\">
+  <div class=\"row justify-content-between align-items-center mb-4\">
+    <div class=\"col-md-auto\">
+      <h2 class=\"heading mb-0\">La Liste Des Vehicules</h2>
+    </div>
+    <div class=\"col-md-auto\">
+      <a href=\"{{ path('pdf_catalogue') }}\" class=\"btn btn-primary\">Télécharger le catalogue des voitures</a>
+    </div>
+  </div>
 
-          <div class=\"container\">
-            <form>
-              <div class=\"row\">
-                <div class=\"col-lg-3 col-md-6 col-sm-6 col-xs-12\">
-                  <div class=\"form-group\">
-                    <label> Car Price </label>
-                    <select class=\"form-control\">
-                      <option>Prix croissant</option>
-                      <option>Prix decroissant</option>
-                    </select>
-                  </div>
-                </div>
-                <div class=\"col-lg-3 col-md-6 col-sm-6 col-xs-12\">
-                  <div class=\"form-group\">
-                    <input type=\"submit\" class=\"form-control btn-primary\" value=\"Search Car Now\" />
-                  </div>
-                </div>
-              </div>
-            </form>
+  <div class=\"row mb-4\">
+    <div class=\"col-md-6\">
+      <div class=\"card p-4\">
+        <form method=\"get\">
+          <div class=\"form-group\">
+            <label for=\"sort\">Trier par prix:</label>
+            <select id=\"sort\" name=\"sort\" class=\"form-control\" onchange=\"this.form.submit()\">
+              <option value=\"price_asc\" {% if sort == 'price_asc' %} selected {% endif %}>Croissant</option>
+              <option value=\"price_desc\" {% if sort == 'price_desc' %} selected {% endif %}>Décroissant</option>
+            </select>
           </div>
-        </div> <!-- /r-car-search -->
+        </form>
+      </div>
+    </div>
+    <div class=\"col-md-6\">
+      <div class=\"card p-4\">
+        <form action=\"{{ path('app_vehicule_indexback') }}\" method=\"get\">
+          <div class=\"form-group\">
+            <label for=\"type\">Type:</label>
+            <select name=\"type\" id=\"type\" class=\"form-control\" onchange=\"this.form.submit()\">
+              <option value=\"Tous\">Tous</option>
+              <option value=\"Voiture\">Voiture</option>
+              <option value=\"Trottinette\">Trottinette</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-        <section class=\"r-car-showcase-wrapper\">
-          <div class=\"r-best-vehicles\">
-            <div class=\"container\">
-              <div class=\"row\">
-                <div class=\"col-lg-3 col-md-4 col-sm-12\">
-                  <h2 class=\"heading\"> Car Categories </h2>
-                  <div class=\"r-best-vehicle-list-outer\">
-                    <form action=\"{{ path('vehicule_filter') }}\" method=\"get\">
-                    <label for=\"type\">Type:</label>
-                    <select name=\"type\" id=\"type\">
-                        <option value=\"\">Tous</option>
-                        <option value=\"Voiture\">Voiture</option>
-                        <option value=\"Trottinette\">Trottinette</option>
-                    </select>
-                    <button type=\"submit\">Filtrer</button>
-                </form>
-                  </div>
-                  
-                </div>
-                <div class=\"col-lg-9 col-md-8 col-sm-12\">
-                  <div class=\"r-car-filter-area\">
-                    <div class=\"row\">
-                      <div class=\"col-lg-6 col-md-12 col-sm-12\">
-                        <span class=\"r-filter-text\">20 of 50 Search Results</span>
-                      </div>
-                      <div class=\" col-lg-6 col-md-12 col-sm-12\">
-                        <div class=\"r-car-filter-wrapper\">
-                          <span class=\"r-filter-text\"> Show Cars : </span>
-                          <select class=\"r-show-cars-filter\">
-                            <option value=\"6\"> 6 Cars </option>
-                            <option value=\"10\"> 10 Cars </option>
-                            <option value=\"20\"> 20 Cars </option>
-                            <option value=\"30\"> 30 Cars </option>
-                          </select>
-                          <ul class=\"r-change-view\">
-                            <li><a href=\"javaScript:void(0)\"> <i class=\"fa fa-th-large\"></i> </a></li>
-                            <li><a href=\"javaScript:void(0)\"> <i class=\"fa fa-bars\"></i> </a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class=\"r-car-showcase\">
-                    <div class=\"row clearfix r-best-offer-list\">
-                    {% for vehicule in vehicules %}
-                  <div class=\"col-md-4\">
-                      <div class=\"card mb-4 shadow-sm\">
-                          <img src=\"{{ asset('images/' ~ vehicule.image) }}\" alt=\"{{ vehicule.modele }}\" />
-                          <div class=\"card-body\">
-                              <p class=\"card-text\"><a href=\"#\">{{ vehicule.modele }}</a></p>
-                              <div class=\"d-flex justify-content-between align-items-center\">
-                                  <div class=\"btn-group\">
-                                      <a href=\"{{ path('app_vehicule_index', {'id': vehicule.idvehicule}) }}\" ></a>
-                                  </div>
-                            <div class=\"r-best-offer-content\">
-                            <p>Start at <b>{{ vehicule.prix }} DT</b> per day</p>
-                            <ul class=\"pl-0 mb-0\">
-                              <li><i class=\"fa fa-cogs\"></i><span>MANUAL</span></li>
-                              <li><i class=\"fa fa-beer\"></i><span>PETROL</span></li>
-                              <li><i class=\"fa fa-road\"></i><span>{{ vehicule.puissance }}</span></li>
-                            </ul>
+  <div class=\"row\">
+    {% for vehicule in vehicules %}
+    <div class=\"col-md-4 mb-4\">
+      <div class=\"card\">
+        <img src=\"{{ asset('images/' ~ vehicule.image) }}\" alt=\"{{ vehicule.modele }}\" class=\"card-img-top\">
+        <div class=\"card-body\">
+          <h5 class=\"card-title mb-2\">{{ vehicule.modele }}</h5>
+          <ul class=\"list-unstyled mb-3\">
+            <li><i class=\"fa fa-cogs\"></i> Automatique</li>
+            <li><i class=\"fa fa-beer\"></i>Electrique</li>
+          </ul>
+          <p class=\"card-text mb-2\">À partir de <b>{{ vehicule.prix }} DT</b> par jour</p>
+          <div class=\"d-flex justify-content-between\">
+            <div class=\"dropdown\">
+              
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}\">show</a>
                             <a class=\"btn btn-sm btn-outline-primary\" href=\"{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}\">edit</a>
                           </div>
@@ -366,6 +306,6 @@ class __TwigTemplate_5921e6886a02bda31db28fe19b678061 extends \Twig\Template
 
               </div>
                       
-{% endblock %}", "vehicule/list.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\vehicule\\list.html.twig");
+{% endblock %}", "vehicule/list.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\vehicule\\list.html.twig");
     }
 }

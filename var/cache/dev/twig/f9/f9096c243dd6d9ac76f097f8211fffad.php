@@ -112,7 +112,7 @@ class __TwigTemplate_91ac686dd61faa1b818237607d18e679 extends \Twig\Template
             </a>
             <a href=\"";
         // line 41
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.html"), "html", null, true);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\" class=\"\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back/assets/img/logo2.png"), "html", null, true);
         echo "\" class=\"img-fluid\" alt=\"logo\"></a> ";
@@ -480,7 +480,7 @@ class __TwigTemplate_91ac686dd61faa1b818237607d18e679 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page"));
 
-        echo "    ";
+        echo "   ADMIN Dashboard  ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -655,7 +655,7 @@ class __TwigTemplate_91ac686dd61faa1b818237607d18e679 extends \Twig\Template
             <a href=\"javascript:void(0);\" class=\"nav-link sidebarCollapse d-inline-block mr-sm-5\" data-placement=\"bottom\">
                 <i class=\"flaticon-menu-line-3\"></i>
             </a>
-            <a href=\"{{asset('index.html')}}\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
+            <a href=\"{{path('app_homepage')}}\" class=\"\"> <img src=\"{{asset('back/assets/img/logo2.png')}}\" class=\"img-fluid\" alt=\"logo\"></a> {# lehne el logo mte3na ili mel fou9 nensewech n7otou link ta3 el page d'acceuil#}
         </div>
         <ul class=\"navbar-nav flex-row mr-auto\">
             <li class=\"nav-item ml-4 d-lg-none d-sm-block d-none\">
@@ -855,7 +855,7 @@ class __TwigTemplate_91ac686dd61faa1b818237607d18e679 extends \Twig\Template
             <div class=\"container\">
                 <div class=\"page-header\">
                     <div class=\"page-title\">
-                        <h3> {% block page %}    {% endblock %} </h3> <!--  esem el page met3ek  -->
+                        <h3> {% block page %}   ADMIN Dashboard  {% endblock %} </h3> <!--  esem el page met3ek  -->
                     </div>
                 </div>
 

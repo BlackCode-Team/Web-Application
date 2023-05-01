@@ -67,10 +67,10 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
     }
 
     /**
@@ -261,12 +261,12 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getPwd(): ?string
+    public function getpwd(): ?string
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPwd', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getpwd', []);
 
-        return parent::getPwd();
+        return parent::getpwd();
     }
 
     /**
@@ -410,6 +410,160 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBlocked', [$isBlocked]);
 
         return parent::setIsBlocked($isBlocked);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserIdentifier(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserIdentifier', []);
+
+        return parent::getUserIdentifier();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUsername(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', []);
+
+        return parent::getUsername();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRoles(): array
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoles', []);
+
+        return parent::getRoles();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRoles($roles)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', [$roles]);
+
+        return parent::setRoles($roles);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPassword(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
+
+        return parent::getPassword();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPassword(string $password): \App\Entity\Utilisateur
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
+
+        return parent::setPassword($password);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSalt(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', []);
+
+        return parent::getSalt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function eraseCredentials()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);
+
+        return parent::eraseCredentials();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getResetToken(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getResetToken', []);
+
+        return parent::getResetToken();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setResetToken(?string $resetToken): \App\Entity\Utilisateur
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setResetToken', [$resetToken]);
+
+        return parent::setResetToken($resetToken);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isEmailAuthEnabled(): bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isEmailAuthEnabled', []);
+
+        return parent::isEmailAuthEnabled();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmailAuthRecipient(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailAuthRecipient', []);
+
+        return parent::getEmailAuthRecipient();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmailAuthCode(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailAuthCode', []);
+
+        return parent::getEmailAuthCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEmailAuthCode(string $authCode): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailAuthCode', [$authCode]);
+
+        parent::setEmailAuthCode($authCode);
     }
 
 }
