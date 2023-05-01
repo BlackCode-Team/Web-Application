@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Véhicules {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Liste des véhicules</h1>
+            <form method="get" action="{{ path('search') }}">
+                <div class="form-group">
+                    <label for="query">Rechercher</label>
+                    <input type="text" class="form-control" name="query" id="query" placeholder="Modèle ou matricule">
+                </div>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        {% for vehicule in vehicules %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ asset('images/' ~ vehicule.image) }}" class="card-img-top" alt="{{ vehicule.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicule.modele }}</h5>
+                        <p class="card-text">{{ vehicule.puissance }}</p>
+                        <p class="card-text">{{ vehicule.prix }} dt/jour</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{ vehicule.matricule }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Itineraire{% endblock %}
+
+{% block stylesheet %}
+
+   <link href="{{asset('back/assets/css/forms/form-validation.css')}}" rel="stylesheet" type="text/css" />
+   
+     
+
+{% endblock %}
+{% block page %}
+Reservation 
+{% endblock %}
+
+{% block body %}
+       <div class="r-form-strip">
+              <div class="r-slider-serach r-slider-serach-down form-search dark">
+                {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
+                    <div class="form-title">
+                        <h2>Ajouter Vos<b> Itineraires</b></h2>
+                    </div>
+                    <div class="row row-inputs">
+                      <div class="col-sm-6">
+                          <div class="form-group has-icon has-label">
+                              <label for="validationCustom01">Picking Up Location</label>
+                              {{ form_widget(form.pointdepart, {'attr': {'class': 'form-control', 'placeholder': 'Airport or Anywhere','id':'validationCustom01','required' : true}}) }}
+                                 <div class="invalid-feedback">
+                              {{ form_errors(form.pointdepart) }}
+                                                </div>
+                              <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
+                          </div>
+                      </div> 
+                      <div class="col-sm-6">
+                          <div class="form-group has-icon has-label">
+                              <label for="validationCustom02">Dropping Off Location</label>
+                               {{ form_widget(form.pointarrivee, {'attr': {'class': 'form-control', 'placeholder': 'Airport or Anywhere','id':'validationCustom02','required' : true}}) }}
+                                            <div class="invalid-feedback">
+                               {{ form_errors(form.pointarrivee) }}
+                                                </div>                    
+                              <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
+                          </div>
+                      </div> 
+                      <div class="col-sm-3">
+                          <div class="form-group has-icon has-label label" id="datetimepicker2" data-target-input="nearest">
+                              <label for="validationCustom03">Kilometrage de location</label>
+                                {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control', 'placeholder': '.... KM','type' : "number",'id':'validationCustom03','required' : true}}) }}
+                                             <div class="invalid-feedback">
+                                  {{ form_errors(form.kilometrage,) }}
+                                                </div>                    
+                              <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
+                          </div>
+                      </div>
+                      <div class="col-sm-3">
+                          <div class="form-group has-icon has-label date" id="datetimepicker3" data-target-input="nearest">
+                              <label for="validationCustom04">Nombre d'heures de Location</label>
+                                 {{ form_widget(form.dureeestimee, {'attr': {'class': 'form-control', 'placeholder': '0000','type' : "number",'id':'validationCustom04','required' : true}}) }}
+                                             <div class="invalid-feedback" color="red">
+                                        {{ form_errors(form.dureeestimee) }}
+                                                </div>   
+                              <span class="form-control-icon"><i class="fa fa-clock-o"></i></span>
+                          </div>
+                      </div> 
+                      <div class="col-12 mb-3">
+                        <hr>
+                      </div>
+                      <div class="inner col-12 clearfix">
+                      
+                          <button type="submit" class="btn m-auto d-block float-right btn-full">Ajouter itineraire</button>
+        
+                      </div>
+                    </div>
+                {{ form_end(form) }}
+              </div>
+            </div>
+            {% endblock %}
+
+            {% block javascript %}
+
+   
+            {% endblock %}
