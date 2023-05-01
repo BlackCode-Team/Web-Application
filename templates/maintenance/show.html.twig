@@ -1,26 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Maintenance{% endblock %}
 
 {% block body %}
-    <h1>Maintenance</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Idmaintenance</th>
-                <td>{{ maintenance.idmaintenance }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ maintenance.date ? maintenance.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_maintenance_index') }}">back to list</a>
-
-    <a href="{{ path('app_maintenance_edit', {'idmaintenance': maintenance.idmaintenance}) }}">edit</a>
-
-    {{ include('maintenance/_delete_form.html.twig') }}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><b>Fiche de maintenance de {{ maintenance.vehicule.matricule }}</b></div>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Type de maintenance:</th>
+                                    <td>{{ maintenance.objet }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date début</th>
+                                    <td>{{ maintenance.datedebut|date('Y-m-d H:i:s') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date fin</th>
+                                    <td>{{ maintenance.datefin|date('Y-m-d H:i:s') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Véhicule</th>
+                                    <td>{{ maintenance.vehicule.matricule }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_maintenance_index') }}" class="btn btn-primary">Retour à la liste</a>
+                        <a href="{{ path('app_maintenance_edit', {'idmaintenance': maintenance.idmaintenance}) }}" class="btn btn-secondary">Modifier</a>
+                        {{ include('maintenance/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -20,8 +20,8 @@ class MaintenanceController extends AbstractController
     {
         $maintenances=$maintenanceRepository->findAll();
         $maintenances = $paginator->paginate(
-            $maintenances, // Requête à paginer
-            $request->query->getInt('page', 1), 2 
+            $maintenances,
+            $request->query->getInt('page', 1), 3
         );
         return $this->render('maintenance/index.html.twig', [
             'maintenances' => $maintenances,
@@ -42,7 +42,7 @@ class MaintenanceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $maintenance->setDate(new \DateTime());
+            $maintenance->setDatedebut(new \DateTime());
 
             $idvehicule = $maintenance->getVehicule();
             $idvehicule->setStatus('non disponible');

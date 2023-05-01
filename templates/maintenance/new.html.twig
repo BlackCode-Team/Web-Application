@@ -1,11 +1,38 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}New Maintenance{% endblock %}
 
 {% block body %}
-    <h1>Create new Maintenance</h1>
 
-    {{ include('maintenance/_form.html.twig') }}
-
-    <a href="{{ path('app_maintenance_index') }}">back to list</a>
+<div class="col-lg-8 mx-auto">
+    <div class="card shadow">
+        <div class="card-header">
+            <h4 class="card-title">Nouvelle Maintenance</h4>
+        </div>
+        <div class="card-body">
+            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true, 'id': 'form'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.objet, 'Objet') }}
+                    {{ form_widget(form.objet, {'attr': {'class': 'form-control', 'placeholder': 'Objet'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.datedebut, 'Date de début') }}
+                    {{ form_widget(form.datedebut, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.datefin, 'Date de fin') }}
+                    {{ form_widget(form.datefin, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.vehicule, 'Véhicule') }}
+                    {{ form_widget(form.vehicule, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary float-right'}}) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('app_maintenance_index') }}" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

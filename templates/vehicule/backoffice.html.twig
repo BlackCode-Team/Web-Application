@@ -1,0 +1,172 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Vehicule{% endblock %}
+
+{% block body %}
+
+ <div class="row">
+    <div class="col-xl-8 col-lg-12 col-md-12 col-12 layout-spacing">
+        <div class="widget-content-area monthly-chart  br-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-2 col-12  align-self-center">
+                    <h3>type des vehicules</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12 mt-3">
+                    <div class="tab-content" id="monthly-chartContent">                                                                            
+                        <div style="max-width: 600px; margin: 0 auto;">
+                            <canvas id="availabilityChart" width="1000" height="900"></canvas>
+
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            var availabilityChart = new Chart(document.getElementById('availabilityChart'), {
+                                type: 'line',
+                                data: {{ availabilityData|raw }},
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Disponibilité des véhicules'
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-12 col-sm-12 col-12 layout-spacing">
+        <div class="statbox widget box">
+            <div class="widget-header ">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>Nombre des Voitures et Trotinettes Disponibles </h4>
+                    </div>                 
+                    </div>
+                </div>
+                <div class="widget-content widget-content-area  monthly-profit-chart">
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <canvas id="myChart" style="height: 300px;"></canvas>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var chartData = JSON.parse('{{ chartData|raw }}');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie', // Changed chart type to pie
+                        data: chartData,
+                        options: {
+                        // Removed x-axis scales options
+                        }
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+     
+</div>
+</div>
+   <div class="row">
+    <div class="col-lg-12">
+        <div class="widget widget-table-one">
+            <div class="widget-heading">
+                <h5 class="">Liste des véhicules</h5>
+            </div>
+            <div class="widget-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form method="get" action="{{ path('search') }}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="mm" placeholder="Entrez le modele ou la matricule">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">Recherche</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="{{ path('app_vehicule_back') }}" method="get">
+                            <div class="form-group">
+                                <label for="type">Type de véhicule</label>
+                                <select class="form-control" name="type" id="type" onchange="this.form.submit()">
+                                    <option value="Tous">Tous</option>
+                                    <option value="Voiture">Voiture</option>
+                                    <option value="Trottinette">Trottinette</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="table-responsive mt-4">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Image</th>
+                                <th>Modèle</th>
+                                <th>Matricule</th>
+                                <th>Puissance</th>
+                                <th>Type</th>
+                                <th>Prix</th>
+                                <th>Batterie</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                            {% for vehicule in vehicules %}
+                                <tr>
+<td><center><img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" style="max-width: 100px;" /></td>
+                                    <td>{{ vehicule.modele }}</td>
+                                    <td>{{ vehicule.matricule }}</td>
+                                    <td>{{ vehicule.puissance }}</td>
+                                    <td>{{ vehicule.type }}</td>
+                                    <td>{{ vehicule.prix }}</td>
+                                    <td>{{ vehicule.batterie }}</td>
+                                    <td> {% if vehicule.getStatus() == 'disponible' %}
+                                                <span class="badge outline-badge-success badge-pill">Disponible</span>
+                                            {% else %}
+                                                <span class="badge outline-badge-dark badge-pill">Réservé</span>
+                                            {% endif %}</td>
+
+                                    <td class="text-center">
+                                        <div class="toolbar">
+                                        <div class="toolbar-toggle">...</div>
+                                        <ul class="toolbar-dropdown animated fadeInUp table-controls list-inline">
+                                                            
+                                        <li class="list-inline-item"><a href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}" class="bs-tooltip" data-original-title="Show"><i class="flaticon-view-3"></i></a>
+                                        </li>
+                                        <li class="list-inline-item"><a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}" class="bs-tooltip" data-original-title="Edit"><i class="flaticon-edit-5"></i></a>
+                                        </li>
+                                        </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="10">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-section">
+                         {{ knp_pagination_render(vehicules) }}
+                    </div>
+                    <a href="{{ path('app_vehicule_new') }}" class="btn btn-primary">Nouveau Vehicule </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div> 
+{% endblock %}

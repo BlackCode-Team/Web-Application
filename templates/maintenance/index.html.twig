@@ -1,39 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
-{% block title %}Maintenance index{% endblock %}
+{% block title %}Maintenance{% endblock %}
 
 {% block body %}
-    <h1>Maintenance index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Matricule</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for maintenance in maintenances %}
-            <tr>
-                <td>{{ maintenance.vehicule.matricule }}</td>
-                <td>{{ maintenance.date ? maintenance.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_maintenance_show', {'idmaintenance': maintenance.idmaintenance}) }}">show</a>
-                    <a href="{{ path('app_maintenance_edit', {'idmaintenance': maintenance.idmaintenance}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-<div class="pagination-section">
-                  {{ knp_pagination_render(maintenances) }}
+    <div class="container-fluid">
+        <h1 class="my-4">Liste des maintenances</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive mt-4">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Objet</th>
+                                        <th>Date début</th>
+                                        <th>Date fin</th>
+                                        <th>Véhicule</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for maintenance in maintenances %}
+                                        <tr>
+                                            <td>{{ maintenance.idmaintenance }}</td>
+                                            <td>{{ maintenance.objet }}</td>
+                                            <td>{{ maintenance.datedebut|date('Y-m-d H:i:s') }}</td>
+                                            <td>{{ maintenance.datefin|date('Y-m-d H:i:s') }}</td>
+                                            <td>{{ maintenance.vehicule.matricule }}</td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a href="{{ path('app_maintenance_show', {'idmaintenance': maintenance.idmaintenance}) }}" class="btn btn-info">Voir</a>
+                                                    <a href="{{ path('app_maintenance_edit', {'idmaintenance': maintenance.idmaintenance}) }}" class="btn btn-warning">Modifier</a>
+                                                    {{ include('maintenance/_delete_form.html.twig') }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="6">Aucune maintenance trouvée.</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination mt-3">
+                            {{ knp_pagination_render(maintenances) }}
+                        </div>
+                    </div>
                 </div>
-
-    <a href="{{ path('app_maintenance_new') }}">Ajouter une nouvelle maintenance</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

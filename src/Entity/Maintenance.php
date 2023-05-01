@@ -13,8 +13,17 @@ class Maintenance
     #[ORM\Column]
     private ?int $idmaintenance=null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $objet=null;
+
     #[ORM\Column(type: "datetime")]
-     private ?\DateTimeInterface $date;
+     private ?\DateTimeInterface $datedebut;
+     public function __construct()
+     {
+         $this->datedebut = new \DateTime();
+     }
+     #[ORM\Column(type: "datetime")]
+     private ?\DateTimeInterface $datefin;
 
      #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Reclamation')]
     #[ORM\JoinColumn(name: 'idvehicule', referencedColumnName: 'idvehicule')]
@@ -25,14 +34,37 @@ class Maintenance
         return $this->idmaintenance;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getObjet(): ?string
     {
-        return $this->date;
+        return $this->objet;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setObjet(string $objet): self
     {
-        $this->date = $date;
+        $this->objet = $objet;
+
+        return $this;
+    }
+    public function getDatedebut(): ?\DateTimeInterface
+    {
+        return $this->datedebut;
+    }
+
+    public function setDatedebut(\DateTimeInterface $datedebut): self
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    public function getDatefin(): ?\DateTimeInterface
+    {
+        return $this->datefin;
+    }
+
+    public function setDatefin(\DateTimeInterface $datefin): self
+    {
+        $this->datefin = $datefin;
 
         return $this;
     }

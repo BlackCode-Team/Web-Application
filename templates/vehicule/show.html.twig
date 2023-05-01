@@ -1,52 +1,64 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Vehicule{% endblock %}
 
 {% block body %}
-    <h1>Vehicule</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Status</th>
-                <td>{{ vehicule.status }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ vehicule.type }}</td>
-            </tr>
-            <tr>
-                <th>Modele</th>
-                <td>{{ vehicule.modele }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ vehicule.prix }}</td>
-            </tr>
-            <tr>
-                <th>Batterie</th>
-                <td>{{ vehicule.batterie }}</td>
-            </tr>
-            <tr>
-                <th>Matricule</th>
-                <td>{{ vehicule.matricule }}</td>
-            </tr>
-            <tr>
-                <th>Puissance</th>
-                <td>{{ vehicule.puissance }}</td>
-            </tr>
-            <tr>
-    <th>Image</th>
-    <td><img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" /></td>
-    
-</tr>
-
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_vehicule_index') }}">back to list</a>
-
-    <a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
-
-    {{ include('vehicule/_delete_form.html.twig') }}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-lg-4">
+                            <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-8">
+                            <h2 class="mb-0">{{ vehicule.modele }}</h2>
+                            <p class="lead mb-0">{{ vehicule.matricule }}</p>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-4">
+                        <h6 class="text-muted">Puissance</h6>
+                    </div>
+                    <div class="col-lg-8">
+                    <p class="lead mb-0">{{ vehicule.puissance }}</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4">
+                        <h6 class="text-muted">Prix/H</h6>
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="lead mb-0">{{ vehicule.prix }}DT</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4">
+                        <h6 class="text-muted">Batterie</h6>
+                    </div>
+                    <div class="col-lg-8">
+                    <p class="lead mb-0">{{ vehicule.batterie }}</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4">
+                        <h6 class="text-muted">Status</h6>
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="lead mb-0">{{ vehicule.status }}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                        {{ include('vehicule/_delete_form.html.twig') }}
+                    </div>
+                    <a href="{{ path('app_vehicule_back') }}" class="btn btn-sm btn-outline-secondary">Retour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
