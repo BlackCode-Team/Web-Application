@@ -26,6 +26,7 @@ return [
     'app_historique_index2' => [['iduser'], ['iduser' => 1, '_controller' => 'App\\Controller\\HistoriqueController::index2'], [], [['variable', '/', '[^/]++', 'iduser', true], ['text', '/historique/user']], [], [], []],
     'app_historique_edit' => [['idhistorique'], ['_controller' => 'App\\Controller\\HistoriqueController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idhistorique', true], ['text', '/historique']], [], [], []],
     'app_historique_delete' => [['idhistorique'], ['_controller' => 'App\\Controller\\HistoriqueController::delete'], [], [['variable', '/', '[^/]++', 'idhistorique', true], ['text', '/historique']], [], [], []],
+    'app_homepage' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/h']], [], [], []],
     'app_itineraire_index' => [[], ['_controller' => 'App\\Controller\\ItineraireController::index'], [], [['text', '/itineraire/']], [], [], []],
     'app_itineraire_new' => [[], ['_controller' => 'App\\Controller\\ItineraireController::new'], [], [['text', '/itineraire/new']], [], [], []],
     'app_itineraire_show' => [['iditineraire'], ['_controller' => 'App\\Controller\\ItineraireController::show'], [], [['variable', '/', '[^/]++', 'iditineraire', true], ['text', '/itineraire']], [], [], []],
