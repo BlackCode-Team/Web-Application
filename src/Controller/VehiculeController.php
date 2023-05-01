@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Entity\Reservation;
+use App\Form\ReservationType;
 use App\Form\VehiculeType;
 use App\Repository\VehiculeRepository;
 use App\Entity\Rating;
@@ -22,12 +24,34 @@ use Symfony\UX\Chartjs\Model\Chart;
 class VehiculeController extends AbstractController
 {
     #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
-    public function index(VehiculeRepository $vehiculeRepository): Response
+    public function index(Request $request, VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator): Response
     {
-        return $this->render('vehicule/index.html.twig', [
-            'vehicules' => $vehiculeRepository->findAll(),
+        $sort = $request->query->get('sort');
+        if ($sort == 'price_asc') {
+            $vehicules = $vehiculeRepository->findBy([], ['prix' => 'ASC']);
+        } else if ($sort == 'price_desc') {
+            $vehicules = $vehiculeRepository->findBy([], ['prix' => 'DESC']);
+        } else {
+            $vehicules = $vehiculeRepository->findAll();
+        }
+    
+        $type = $request->query->get('type');
+        if ($type && $type != 'Tous') {
+            $vehicules = $vehiculeRepository->findBy(['type' => $type]);
+        }
+        
+        $vehicules = $paginator->paginate(
+            $vehicules, 
+            $request->query->getInt('page', 1), 
+            6 
+        );
+    
+        return $this->render('vehicule/frontoffice.html.twig', [
+            'vehicules' => $vehicules,
+            'sort' => $sort,
         ]);
     }
+    
 
     #[Route('/indexback', name: 'app_vehicule_indexback', methods: ['GET'])]
     public function indexbackkk(Request $request, VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator): Response
@@ -251,6 +275,14 @@ class VehiculeController extends AbstractController
             'vehicule' => $vehicule,
         ]);
     }
+
+    /*#[Route('/{idvehicule}', name: 'app_vehicule_reserver', methods: ['GET'])]
+    public function reserver(Vehicule $vehicule): Response
+    {
+        return $this->render('vehicule/index.html.twig', [
+            'vehicule' => $vehicule,
+        ]);
+    }*/
 
     #[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository): Response

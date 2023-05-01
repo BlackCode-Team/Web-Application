@@ -1,87 +1,63 @@
-{% extends 'back.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Vehicule{% endblock %}
 
 {% block body %}
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12 r-list-area">
-              <div class="r-car-search r-carlist-search">
-                <div class="container">
-                  <form>
-                    <div class="row">
-                      
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <form action="{{ path('vehicule_filter') }}" method="get">
-                          <div class="form-group">
-                            <label for="type">Type de vehicule</label>
-                            <select class="form-control" name="type" id="type">
-                              <option value="Tous">Tous</option>
-                              <option value="Voiture">Voiture</option>
-                              <option value="Trottinette">Trottinette</option>
-                            </select>
-                          </div>
-                          <button type="submit" class="btn btn-primary">Filter</button>
-                        </form>
-                      </div>
-             <form method ="get" action="{{path('search')}}">
-<input type="text" name="mm" placeholder="Entrez le modele ou la matricule">
-<input type="submit" value="search">
-</form> 
+<div class="container">
+  <div class="row justify-content-between align-items-center mb-4">
+    <div class="col-md-auto">
+      <h2 class="heading mb-0">La Liste Des Vehicules</h2>
+    </div>
+    <div class="col-md-auto">
+      <a href="{{ path('pdf_catalogue') }}" class="btn btn-primary">Télécharger le catalogue des voitures</a>
+    </div>
+  </div>
 
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                         <form action="{{ path('app_vehicule_index') }}" method="get">
-                          <div class="form-group">
-                          <label> Car Price </label>
-                          <select class="form-control" name="sort" id="sort">
-                            <option value="">Trier par</option>
-                            <option value="price_asc">Prix croissant</option>
-                            <option value="price_desc">Prix décroissant</option>
-                          </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Trier</button>
-                        </form>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mb-0">
-                          <input type="submit" class="form-control btn-primary" value="Search Car Now">
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div class="clearfix r-sort-val">
-                <div class="pull-left">
-                  <span>Trier par : </span>
-                  <select class="r-show-cars-filter">
-                    <option value="6"> Nom </option>
-                    <option value="10"> Prix </option>
-                  </select>
-                </div>
-                <div class="pull-right"><span class="r-total-result">12 Search results</span></div>
-              </div>
-              <div class="r-car-showcase">
-                    <div class="row clearfix r-best-offer-list">
-                    {% for vehicule in vehicules %}
-                  <div class="col-md-4">
-                      <div class="card mb-4 shadow-sm">
-                          <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" />
-                          <div class="card-body">
-                              <p class="card-text"><a href="#">{{ vehicule.modele }}</a></p>
-                              <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                      <a href="{{ path('app_vehicule_index', {'id': vehicule.idvehicule}) }}" ></a>
-                                  </div>
-                            <div class="r-best-offer-content">
-                            <p>Start at <b>{{ vehicule.prix }} DT</b> per day</p>
-                            <ul class="pl-0 mb-0">
-                              <li><i class="fa fa-cogs"></i><span>MANUAL</span></li>
-                              <li><i class="fa fa-beer"></i><span>PETROL</span></li>
-                              <li><i class="fa fa-road"></i><span>{{ vehicule.puissance }}</span></li>
-                            </ul>
-                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
-                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card p-4">
+        <form method="get">
+          <div class="form-group">
+            <label for="sort">Trier par prix:</label>
+            <select id="sort" name="sort" class="form-control" onchange="this.form.submit()">
+              <option value="price_asc" {% if sort == 'price_asc' %} selected {% endif %}>Croissant</option>
+              <option value="price_desc" {% if sort == 'price_desc' %} selected {% endif %}>Décroissant</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-4">
+        <form action="{{ path('app_vehicule_indexback') }}" method="get">
+          <div class="form-group">
+            <label for="type">Type:</label>
+            <select name="type" id="type" class="form-control" onchange="this.form.submit()">
+              <option value="Tous">Tous</option>
+              <option value="Voiture">Voiture</option>
+              <option value="Trottinette">Trottinette</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for vehicule in vehicules %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="{{ asset('images/' ~ vehicule.image) }}" alt="{{ vehicule.modele }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title mb-2">{{ vehicule.modele }}</h5>
+          <ul class="list-unstyled mb-3">
+            <li><i class="fa fa-cogs"></i> Automatique</li>
+            <li><i class="fa fa-beer"></i>Electrique</li>
+          </ul>
+          <p class="card-text mb-2">À partir de <b>{{ vehicule.prix }} DT</b> par jour</p>
+          <div class="d-flex justify-content-between">
+            <div class="dropdown">
+              <a class="btn btn-sm btn-outline-primary" href="{{ path('app_vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">Reserver</a>
                           </div>
                               </ul>
                               </div>
@@ -89,10 +65,12 @@
                     </div>
                   </div>
                   {% endfor %}
+                 
                 </div>
-              </div>
-        </div>
-            
-       
+                <div class="pagination-section">
+                  {{ knp_pagination_render(vehicules) }}
+                </div>
 
+              </div>
+                      
 {% endblock %}

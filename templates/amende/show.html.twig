@@ -3,40 +3,53 @@
 {% block title %}Amende{% endblock %}
 
 {% block body %}
-    <h1>Amende</h1>
+<div class="container">
+    <h1 class="text-center">Détails de l'amende</h1>
+    <hr>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Numero amende</th>
-                <td>{{ amende.idamende }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ amende.date ? amende.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Montant</th>
-                <td>{{ amende.montant }}</td>
-            </tr>
-            <tr>
-                <th>Cause</th>
-                <td>{{ amende.cause }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ amende.description }}</td>
-            </tr>
-            <tr>
-                <th>Statusamende</th>
-                <td>{{ amende.statusamende }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th class="table-dark">Numéro amende :</th>
+                        <td>{{ amende.idamende }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-dark">Date :</th>
+                        <td>{{ amende.date ? amende.date|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-dark">Montant :</th>
+                        <td>{{ amende.montant }} DT</td>
+                    </tr>
+                    <tr>
+                        <th class="table-dark">Cause :</th>
+                        <td>{{ amende.cause }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-dark">Description :</th>
+                        <td>{{ amende.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <a href="{{ path('app_amende_index') }}">back to list</a>
+            <a href="{{ path('app_amende_index') }}" class="btn btn-warning">Retour à la page precedente</a>
+            
+        </div>
 
-    <a href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">edit</a>
-
-    {{ include('amende/_delete_form.html.twig') }}
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Informations supplémentaires</h4>
+                </div>
+                <div class="card-body">
+                    <p>Les amendes doivent être payées dans les 30 jours suivant la date d'émission.</p>
+                    <p>En cas de retard de paiement, des frais supplémentaires peuvent s'appliquer.</p>
+                    <p>Contactez-nous si vous avez des questions ou des préoccupations concernant cette amende.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

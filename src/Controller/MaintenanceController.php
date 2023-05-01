@@ -49,8 +49,8 @@ class MaintenanceController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($maintenance);
             $em->flush();
-            sleep(3600);
-            $idvehicule->setStatus('disponible');
+            //sleep(3600);
+            //$idvehicule->setStatus('disponible');
             $em->flush();
             return $this->redirectToRoute('app_maintenance_index', [], Response::HTTP_SEE_OTHER);
         }

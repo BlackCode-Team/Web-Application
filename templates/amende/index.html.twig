@@ -3,59 +3,70 @@
 {% block title %}Amende index{% endblock %}
 
 {% block body %}
-  <div class="row" id="cancel-row">
-            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                <div class="statbox widget box box-shadow">
-                    <div class="widget-header">
-                        <div class="row">
-                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                <h4>Mon historique d'amendes </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-content widget-content-area">
-                        <div class="table-responsive mb-4">
-                            <table id="zero-config" class="table table-striped table-hover table-bordered" style="width:100%">
-<form action="{{ path('amende_filter') }}" method="get">
-        <label for="statusamende">Status:</label>
-        <select name="statusamende" id="statusamende">
-            <option value="Tous">Tous</option>
-            <option value="Paye">Paye</option>
-            <option value="Non Paye">Non Paye</option>
-        </select>
-        <button type="submit">Filtrer</button>
-    </form>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Numero amende</th>
-                <th>Date</th>
-                <th>Montant</th>
-                <th>Cause</th>
-                <th>Description</th>
-                <th>Status Amende</th>
-                <th>actions</th>
-            </tr>
+  <div class="container-fluid">
+
+    <div class="page-header">
+      <h1>Mon historique d'amendes</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form class="form-inline" method="get" action="{{ path('amende_filter') }}">
+          <div class="form-group">
+            <label class="sr-only" for="input-search">Recherche</label>
+            <input type="text" class="form-control" id="input-search" name="search" placeholder="Entrez le numéro de l'amende">
+          </div>
+          <button type="submit" class="btn btn-primary ml-2">Rechercher</button>
+        </form>
+      </div>
+      <div class="col-md-6 text-right">
+        <form class="form-inline" method="get" action="{{ path('amende_filter') }}">
+          <div class="form-group">
+            <label class="mr-2" for="input-status">Status:</label>
+            <select class="form-control" id="input-status" name="statusamende">
+              <option value="Tous">Tous</option>
+              <option value="Paye">Paye</option>
+              <option value="Non Paye">Non Paye</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary ml-2">Filtrer</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="table-responsive mt-4">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Numero amende</th>
+            <th>Date de creation</th>
+            <th>Montant</th>
+            <th>Cause</th>
+            <th>Description</th>
+            <th>Status Amende</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
-        {% for amende in amendes %}
-            <tr>
-                <td>{{ amende.idamende }}</td>
-                <td>{{ amende.date ? amende.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ amende.montant }}</td>
-                <td>{{ amende.cause }}</td>
-                <td>{{ amende.description }}</td>
-                <td>{{ amende.statusamende }}</td>
-                <td>
-                    <a href="{{ path('app_amende_show', {'idamende': amende.idamende}) }}">show</a>
-                    <a href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
+          {% for amende in amendes %}
+          <tr>
+            <td>{{ amende.idamende }}</td>
+            <td>{{ amende.date ? amende.date|date('Y-m-d H:i:s') : '' }}</td>
+            <td>{{ amende.montant }}</td>
+            <td>{{ amende.cause }}</td>
+            <td>{{ amende.description }}</td>
+            <td>{{ amende.statusamende }}</td>
+            <td>
+              <a class="btn btn-sm btn-primary" href="{{ path('app_amende_showback', {'idamende': amende.idamende}) }}">Voir</a>
+              <a class="btn btn-sm btn-warning" href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">Modifier</a>
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="7">Aucune amende trouvée</td>
+          </tr>
+          {% endfor %}
+
         </tbody>
     </table>
 

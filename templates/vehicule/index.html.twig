@@ -18,9 +18,9 @@
     </div>
     <div class="row">
         {% for vehicule in vehicules %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
                 <div class="card">
-                    <img src="{{ asset('images/' ~ vehicule.image) }}" class="card-img-top" alt="{{ vehicule.modele }}">
+                    <img src="{{ asset('images/' ~ vehicule.image) }}" class="card-img-top" alt="{{ vehicule.modele }} style="max-width: 50px;">
                     <div class="card-body">
                         <h5 class="card-title">{{ vehicule.modele }}</h5>
                         <p class="card-text">{{ vehicule.puissance }}</p>

@@ -1,13 +1,51 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
-{% block title %}Edit Amende{% endblock %}
+{% block title %}Modifier une amende{% endblock %}
 
 {% block body %}
-    <h1>Edit Amende</h1>
 
-    {{ include('amende/_form.html.twig', {'button_label': 'Update'}) }}
+<div class="container">
+    <h1 class="text-center mb-5">Modifier une amende</h1>
+    <hr>
+csharp
+Copy code
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="post">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.date, 'Date :') }}
+                {{ form_widget(form.date, { 'attr': {'class': 'form-control'} }) }}
+            </div>
 
-    <a href="{{ path('app_amende_index') }}">back to list</a>
+            <div class="form-group">
+                {{ form_label(form.montant, 'Montant :') }}
+                {{ form_widget(form.montant, { 'attr': {'class': 'form-control'} }) }}
+            </div>
 
-    {{ include('amende/_delete_form.html.twig') }}
+            <div class="form-group">
+                {{ form_label(form.cause, 'Cause :') }}
+                {{ form_widget(form.cause, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.description, 'Description :') }}
+                {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.statusamende, 'Statut de l\'amende :') }}
+                {{ form_widget(form.statusamende, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+            {{ form_end(form) }}
+
+            <a href="{{ path('app_amende_index') }}" class="btn btn-secondary mt-3">Retour à la liste des amendes</a>
+
+            {{ include('amende/_delete_form.html.twig') }}
+        </form>
+    </div>
+</div>
+</div>
 {% endblock %}

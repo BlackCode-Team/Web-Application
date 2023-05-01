@@ -49,6 +49,14 @@ class AmendeController extends AbstractController
         ]);
     }
 
+    #[Route('/back/{idamende}', name: 'app_amende_showback', methods: ['GET'])]
+    public function showAdmin(Amende $amende): Response
+    {
+        return $this->render('amende/showback.html.twig', [
+            'amende' => $amende,
+        ]);
+    }
+
     #[Route('/{idamende}/edit', name: 'app_amende_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Amende $amende, AmendeRepository $amendeRepository): Response
     {
