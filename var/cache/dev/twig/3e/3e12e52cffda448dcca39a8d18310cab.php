@@ -33,7 +33,7 @@ class __TwigTemplate_fc3622a5df7d40305e1ae0054d77aaf6 extends \Twig\Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_fc3622a5df7d40305e1ae0054d77aaf6 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "vehicule/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "vehicule/edit.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "vehicule/edit.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -200,7 +200,7 @@ class __TwigTemplate_fc3622a5df7d40305e1ae0054d77aaf6 extends \Twig\Template
         echo "
     <a href=\"";
         // line 72
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_back");
         echo "\">back to list</a>
     ";
         // line 73
@@ -233,7 +233,7 @@ class __TwigTemplate_fc3622a5df7d40305e1ae0054d77aaf6 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
 {% block title %}Edit Vehicule{% endblock %}
 
@@ -304,10 +304,10 @@ class __TwigTemplate_fc3622a5df7d40305e1ae0054d77aaf6 extends \Twig\Template
                     </div>
                 </div>
  {{ form_end(form) }}
-    <a href=\"{{ path('app_vehicule_index') }}\">back to list</a>
+    <a href=\"{{ path('app_vehicule_back') }}\">back to list</a>
     {{ include('vehicule/_delete_form.html.twig') }}
 
 {% endblock %}
-", "vehicule/edit.html.twig", "C:\\Users\\Rania2\\Documents\\Web-Application\\templates\\vehicule\\edit.html.twig");
+", "vehicule/edit.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\vehicule\\edit.html.twig");
     }
 }
