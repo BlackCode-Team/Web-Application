@@ -62,6 +62,18 @@ class VehiculeRepository extends ServiceEntityRepository
         return $req->getQuery()->getResult();
     }
 
+    public function findByItineraire(int $iditineraire)
+    {
+        return $this->createQueryBuilder('v')
+            ->join('v.reservations', 'r')
+            ->join('r.itineraire', 'i')
+            ->where('i.id = :iditineraire')
+            ->setParameter('iditineraire', $iditineraire)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 
  /*   public function findByLocationOrderByPrix(string $parkName)
     {

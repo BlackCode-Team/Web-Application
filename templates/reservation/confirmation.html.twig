@@ -1,21 +1,29 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Réserver{% endblock %}
+
 {% block body %}
-
-{{ form_start(form) }}
-
-<div >
-    {{ form_label(form.prixreservation) }}
-    {{ form_widget(form.prixreservation) }}
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Confirmer la réservation</h2>
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.prixreservation, 'Prix de la location :') }}
+                {{ form_widget(form.prixreservation, { 'attr': {'class': 'form-control', 'readonly': true} }) }}
+            </div>
+            <div style="display:none;">
+                {{ form_widget(form.datedebut) }}
+                {{ form_widget(form.datefin) }}
+                {{ form_widget(form.utilisateur) }}
+                {{ form_widget(form.itineraire) }}
+                {{ form_widget(form.vehicule) }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" >{{ button_label|default('Confirmer') }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 </div>
-<div style="display:none;">
-{{ form_widget(form.datedebut) }}
-{{ form_widget(form.datefin) }}
-{{ form_widget(form.utilisateur) }}
-{{ form_widget(form.itineraire) }}
-{{ form_widget(form.vehicule) }}
-</div>
-
-    <button class="btn">{{ button_label|default('Réservez') }}</button>
- 
-{{ form_end(form) }}
 {% endblock %}
