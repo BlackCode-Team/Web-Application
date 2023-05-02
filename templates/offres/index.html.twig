@@ -7,13 +7,25 @@
 {% endblock %}
 
 {% block body %}
+<div style="display: flex; justify-content: space-around;">
+<div >
+<h2> Nous sommes ravis de vous présenter nos offres exclusives !
+Nos offres sont régulièrement mises à jour, alors assurez-vous de 
+les vérifier régulièrement pour ne rien manquer.
+ Profitez de nos offres exceptionnelles dès maintenant et économisez sur vos locations en ligne !"</h2>
+ </div>
+ <div>
+    <img src="{{asset('assets/images/offre.png')}}" alt="offre" width="200" height="200">
+ </div>
+</div>
+
     <div id="calendar-holder"></div>
     <script>document.addEventListener('DOMContentLoaded', () => {
     var calendarEl = document.getElementById('calendar-holder');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         defaultView: 'dayGridMonth',
-        editable: true,
+        editable: true,height: 650,width: 650,contentHeight: 600,
         eventSources: [
             {
                 url: "/fc-load-events",
