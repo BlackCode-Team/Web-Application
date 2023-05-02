@@ -171,7 +171,7 @@ class __TwigTemplate_6763632e30296484b0c8cea09a64ed44 extends \Twig\Template
             echo " DT</b> par jour</p>
           <div class=\"d-flex justify-content-between\">
             <div class=\"dropdown\">
-              <a class=\"btn btn-sm btn-outline-primary\"  href=\"";
+              <a class=\"btn btn-sm btn-outline-primary\" href=\"";
             // line 60
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_new", ["idvehicule" => twig_get_attribute($this->env, $this->source, $context["vehicule"], "idvehicule", [], "any", false, false, false, 60)]), "html", null, true);
             echo "\">Reserver</a>
@@ -283,7 +283,7 @@ class __TwigTemplate_6763632e30296484b0c8cea09a64ed44 extends \Twig\Template
           <p class=\"card-text mb-2\">À partir de <b>{{ vehicule.prix }} DT</b> par jour</p>
           <div class=\"d-flex justify-content-between\">
             <div class=\"dropdown\">
-              <a class=\"btn btn-sm btn-outline-primary\"  href=\"{{ path('app_reservation_new', {'idvehicule': vehicule.idvehicule}) }}\">Reserver</a>
+              <a class=\"btn btn-sm btn-outline-primary\" href=\"{{ path('app_reservation_new', {'idvehicule': vehicule.idvehicule}) }}\">Reserver</a>
                           </div>
                               </ul>
                               </div>
@@ -299,6 +299,6 @@ class __TwigTemplate_6763632e30296484b0c8cea09a64ed44 extends \Twig\Template
 
               </div>
                       
-{% endblock %}", "vehicule/frontoffice.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\vehicule\\frontoffice.html.twig");
+{% endblock %}", "vehicule/frontoffice.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\vehicule\\frontoffice.html.twig");
     }
 }

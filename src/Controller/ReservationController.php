@@ -6,7 +6,6 @@ use App\Entity\Reservation;
 use App\Entity\Offre;
 use App\Entity\Utilisateur;
 use App\Entity\Vehicule;
-
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,6 +26,8 @@ use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Label\Font\NotoSans;
+use Symfony\Component\Security\Core\Security;
+
 
 #[Route('/reservation')]
 class ReservationController extends AbstractController
@@ -65,8 +66,8 @@ class ReservationController extends AbstractController
     }
     
     #[Route('/new/{idvehicule}', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule): Response
-    {
+    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule,Security $security): Response
+    {$user = $security->getUser();
         $vehicule = $this->getDoctrine()->getRepository(Vehicule::class)->find($idvehicule);
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -76,19 +77,18 @@ class ReservationController extends AbstractController
         $historique = new Historique();
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
-        $date_fin = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
-         $reservation->setdateFin($date_fin);   
-        $date_debut = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
-        $reservation->setdateDebut($date_debut);   
+     
      //   $form->get('prixreservation')->setData($totalPrice);
         $form->get('vehicule')->setData(null);
      
         return $this->redirectToRoute('app_reservation_editPrix', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
     }
-        return $this->renderForm('reservation/new2.html.twig', [
+        return $this->renderForm('reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
-            'vehicule'=>$vehicule
+            'vehicule'=>$vehicule,
+            'utilisateur'=>$user
+
         ]);
     }
 
@@ -110,7 +110,7 @@ class ReservationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
 
-            return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_reservation_show', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
         }
             return $this->renderForm('reservation/confirmation.html.twig', [
                 'reservation' => $reservation,

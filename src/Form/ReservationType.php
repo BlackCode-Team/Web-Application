@@ -16,6 +16,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -56,17 +57,19 @@ class ReservationType extends AbstractType
             // ]
         //])
         
-        ->add('utilisateur',EntityType::class,
-        ['class'=>Utilisateur::class,
-        'choice_label'=>'cin'])
-        ->add('itineraire',EntityType::class,
-        ['class'=>Itineraire::class,
-        'choice_label'=>'pointarrivee'])
-        ->add('vehicule', EntityType::class, [
-            'class' => Vehicule::class,
-            'choice_label' => 'modele',
-            'attr' => ['id' => 'vehicule-field']
+        ->add('utilisateur', TextType::class, [
+            'label' => 'Nom d\'utilisateur',
+            'attr' => ['placeholder' => 'Saisir le nom d\'utilisateur']
         ])
+        ->add('itineraire', TextType::class, [
+            'label' => 'Itinéraire',
+            'attr' => ['placeholder' => 'Saisir l\'itinéraire']
+        ])
+        ->add('vehicule', TextType::class, [
+            'label' => 'Vehicule',
+            
+        ])
+        
         ;
     }
 

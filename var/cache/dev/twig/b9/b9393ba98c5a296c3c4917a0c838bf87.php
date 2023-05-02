@@ -205,11 +205,9 @@ class __TwigTemplate_a624c4d2b6633f9988e45a7d693de75b extends \Twig\Template
         // line 73
         echo "      </tbody>
     </table>
-    <a class=\"btn btn-sm btn-primary\" href=\"";
-        // line 75
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reservation_new");
-        echo "\" role=\"button\">Nouvelle réservation</a>
-            </div>
+    ";
+        // line 76
+        echo "            </div>
         </div>
     </div>
 </div>    
@@ -234,7 +232,7 @@ class __TwigTemplate_a624c4d2b6633f9988e45a7d693de75b extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  210 => 75,  206 => 73,  197 => 69,  188 => 65,  184 => 64,  179 => 62,  175 => 61,  171 => 60,  167 => 59,  163 => 58,  159 => 57,  155 => 56,  151 => 55,  148 => 54,  143 => 53,  110 => 23,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  210 => 76,  206 => 73,  197 => 69,  188 => 65,  184 => 64,  179 => 62,  175 => 61,  171 => 60,  167 => 59,  163 => 58,  159 => 57,  155 => 56,  151 => 55,  148 => 54,  143 => 53,  110 => 23,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -313,12 +311,12 @@ class __TwigTemplate_a624c4d2b6633f9988e45a7d693de75b extends \Twig\Template
         {% endfor %}
       </tbody>
     </table>
-    <a class=\"btn btn-sm btn-primary\" href=\"{{ path('app_reservation_new') }}\" role=\"button\">Nouvelle réservation</a>
+    {# <a class=\"btn btn-sm btn-primary\" href=\"{{ path('app_reservation_new') }}\" role=\"button\">Nouvelle réservation</a> #}
             </div>
         </div>
     </div>
 </div>    
 {% endblock %}
-", "reservation/index.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\reservation\\index.html.twig");
+", "reservation/index.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\reservation\\index.html.twig");
     }
 }

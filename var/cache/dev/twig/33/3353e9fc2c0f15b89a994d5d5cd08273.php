@@ -306,6 +306,6 @@ class __TwigTemplate_ed828f7e160f1c032b717e4c40ef7184 extends \Twig\Template
 
      <a href=\"{{ path('app_reservation_index') }}\">back to list</a> 
 {% endblock %}
-", "reservation/new2.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\reservation\\new2.html.twig");
+", "reservation/new2.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\reservation\\new2.html.twig");
     }
 }
