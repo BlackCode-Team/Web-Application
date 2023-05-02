@@ -87,7 +87,7 @@ Reservation
 
 {% block body %}
  <div class="r-slider-serach form-search dark">
-                {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
+                 {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
                   <div class="form-title form-title-large">
                       <span class="r-form-icon"><img src="assets/images/footer-form-icon.png" alt=""></span>
                       <h2>Search Your <b>Best Cars</b></h2>
@@ -146,20 +146,6 @@ Reservation
     <a href="#" class="float-left"><i class="fa fa-plus-circle"></i>Advanced Search</a>
 <button id="find-care-button" type="submit" class="btn m-auto d-block btn-full" data-iditineraire="{{ itineraire.iditineraire }}">Find Car</button></div>
 
-<script>
-    // Add an event listener to the button element
-    document.getElementById("find-care-button").addEventListener("click", function(event) {
-        // Prevent the default behavior of the button (i.e., submitting a form)
-        event.preventDefault();
-        
-        // Retrieve the itineraire ID from the data-iditineraire attribute of the button
-       var iditineraire = document.getElementById("find-care-button").getAttribute("data-iditineraire");
-
-        
-        // Redirect to the app_vehicule_index route with the itineraire ID as a parameter
-        window.location.href = "{{ path('app_vehicule_index') }}?iditineraire=" + iditineraire;
-    });
-</script>
                   </div>
               {{ form_end(form) }}
             </div>

@@ -86,7 +86,7 @@ class __TwigTemplate_fb735d0bf8d0f3e611532e3707dac28e extends \Twig\Template
 
         // line 89
         echo " <div class=\"r-slider-serach form-search dark\">
-                ";
+                 ";
         // line 90
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 90, $this->source); })()), 'form_start', ["attr" => ["class" => "needs-validation", "novalidate" => true, "id" => "form"]]);
         echo "
@@ -175,27 +175,10 @@ class __TwigTemplate_fb735d0bf8d0f3e611532e3707dac28e extends \Twig\Template
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["itineraire"]) || array_key_exists("itineraire", $context) ? $context["itineraire"] : (function () { throw new RuntimeError('Variable "itineraire" does not exist.', 147, $this->source); })()), "iditineraire", [], "any", false, false, false, 147), "html", null, true);
         echo "\">Find Car</button></div>
 
-<script>
-    // Add an event listener to the button element
-    document.getElementById(\"find-care-button\").addEventListener(\"click\", function(event) {
-        // Prevent the default behavior of the button (i.e., submitting a form)
-        event.preventDefault();
-        
-        // Retrieve the itineraire ID from the data-iditineraire attribute of the button
-       var iditineraire = document.getElementById(\"find-care-button\").getAttribute(\"data-iditineraire\");
-
-        
-        // Redirect to the app_vehicule_index route with the itineraire ID as a parameter
-        window.location.href = \"";
-        // line 160
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
-        echo "?iditineraire=\" + iditineraire;
-    });
-</script>
                   </div>
               ";
-        // line 164
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 164, $this->source); })()), 'form_end');
+        // line 150
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 150, $this->source); })()), 'form_end');
         echo "
             </div>
           </div>
@@ -220,7 +203,7 @@ class __TwigTemplate_fb735d0bf8d0f3e611532e3707dac28e extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  198 => 164,  191 => 160,  175 => 147,  163 => 138,  158 => 136,  145 => 126,  140 => 124,  127 => 114,  122 => 112,  109 => 102,  104 => 100,  91 => 90,  88 => 89,  78 => 88,  59 => 86,  36 => 84,);
+        return array (  181 => 150,  175 => 147,  163 => 138,  158 => 136,  145 => 126,  140 => 124,  127 => 114,  122 => 112,  109 => 102,  104 => 100,  91 => 90,  88 => 89,  78 => 88,  59 => 86,  36 => 84,);
     }
 
     public function getSourceContext()
@@ -314,7 +297,7 @@ Reservation
 
 {% block body %}
  <div class=\"r-slider-serach form-search dark\">
-                {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
+                 {{ form_start(form ,{'attr': {'class' : 'needs-validation','novalidate': true,'id' : 'form'}}) }}
                   <div class=\"form-title form-title-large\">
                       <span class=\"r-form-icon\"><img src=\"assets/images/footer-form-icon.png\" alt=\"\"></span>
                       <h2>Search Your <b>Best Cars</b></h2>
@@ -373,25 +356,11 @@ Reservation
     <a href=\"#\" class=\"float-left\"><i class=\"fa fa-plus-circle\"></i>Advanced Search</a>
 <button id=\"find-care-button\" type=\"submit\" class=\"btn m-auto d-block btn-full\" data-iditineraire=\"{{ itineraire.iditineraire }}\">Find Car</button></div>
 
-<script>
-    // Add an event listener to the button element
-    document.getElementById(\"find-care-button\").addEventListener(\"click\", function(event) {
-        // Prevent the default behavior of the button (i.e., submitting a form)
-        event.preventDefault();
-        
-        // Retrieve the itineraire ID from the data-iditineraire attribute of the button
-       var iditineraire = document.getElementById(\"find-care-button\").getAttribute(\"data-iditineraire\");
-
-        
-        // Redirect to the app_vehicule_index route with the itineraire ID as a parameter
-        window.location.href = \"{{ path('app_vehicule_index') }}?iditineraire=\" + iditineraire;
-    });
-</script>
                   </div>
               {{ form_end(form) }}
             </div>
           </div>
           {% endblock %}
-", "itineraire/new.html.twig", "C:\\Users\\Mega-PC\\Desktop\\Web-Application\\templates\\itineraire\\new.html.twig");
+", "itineraire/new.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\itineraire\\new.html.twig");
     }
 }

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Reservation;
 use App\Entity\Offre;
 use App\Entity\Utilisateur;
+use App\Entity\Vehicule;
 
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
@@ -63,9 +64,10 @@ class ReservationController extends AbstractController
         ]);
     }
     
-    #[Route('/new', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository): Response
+    #[Route('/new/{idvehicule}', name: 'app_reservation_new', methods: ['GET', 'POST'])]
+    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule): Response
     {
+        $vehicule = $this->getDoctrine()->getRepository(Vehicule::class)->find($idvehicule);
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
@@ -75,16 +77,18 @@ class ReservationController extends AbstractController
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
         $date_fin = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
-     $reservation->setdateFin($date_fin);   
-     $date_debut = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
-     $reservation->setdateDebut($date_debut);   
+         $reservation->setdateFin($date_fin);   
+        $date_debut = new DateTime($_POST['datedebut_date'] . ' ' . $_POST['datedebut_time']);
+        $reservation->setdateDebut($date_debut);   
      //   $form->get('prixreservation')->setData($totalPrice);
+        $form->get('vehicule')->setData(null);
      
         return $this->redirectToRoute('app_reservation_editPrix', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
     }
-        return $this->renderForm('reservation/new.html.twig', [
+        return $this->renderForm('reservation/new2.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
+            'vehicule'=>$vehicule
         ]);
     }
 

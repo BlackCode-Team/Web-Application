@@ -72,7 +72,7 @@ return [
     'app_reponse_edit' => [['idreponse'], ['_controller' => 'App\\Controller\\ReponseController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idreponse', true], ['text', '/reponse']], [], [], []],
     'app_reponse_delete' => [['idreponse'], ['_controller' => 'App\\Controller\\ReponseController::delete'], [], [['variable', '/', '[^/]++', 'idreponse', true], ['text', '/reponse']], [], [], []],
     'app_reservation_index' => [[], ['_controller' => 'App\\Controller\\ReservationController::index'], [], [['text', '/reservation/']], [], [], []],
-    'app_reservation_new' => [[], ['_controller' => 'App\\Controller\\ReservationController::new'], [], [['text', '/reservation/new']], [], [], []],
+    'app_reservation_new' => [['idvehicule'], ['_controller' => 'App\\Controller\\ReservationController::new'], [], [['variable', '/', '[^/]++', 'idvehicule', true], ['text', '/reservation/new']], [], [], []],
     'app_reservation_show' => [['idreservation'], ['_controller' => 'App\\Controller\\ReservationController::show'], [], [['variable', '/', '[^/]++', 'idreservation', true], ['text', '/reservation']], [], [], []],
     'app_reservation_editPrix' => [['idreservation'], ['_controller' => 'App\\Controller\\ReservationController::editPrix'], [], [['text', '/editPrix'], ['variable', '/', '[^/]++', 'idreservation', true], ['text', '/reservation']], [], [], []],
     'app_reservation_edit' => [['idreservation'], ['_controller' => 'App\\Controller\\ReservationController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idreservation', true], ['text', '/reservation']], [], [], []],

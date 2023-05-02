@@ -85,7 +85,12 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo " <div class=\"r-slider-serach form-search dark\">
+        echo "
+";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["vehicule"]) || array_key_exists("vehicule", $context) ? $context["vehicule"] : (function () { throw new RuntimeError('Variable "vehicule" does not exist.', 7, $this->source); })()), "modele", [], "any", false, false, false, 7), "html", null, true);
+        echo "
+ <div class=\"r-slider-serach form-search dark\">
               <form action=\"#\">
                   <div class=\"form-title form-title-large\">
                       <span class=\"r-form-icon\"><img src=\"assets/images/footer-form-icon.png\" alt=\"\"></span>
@@ -111,6 +116,19 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
                     </div>
                   </div>
                  <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Picking Up Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datedebut_date\" >
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Picking Up Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datedebut_time\">
+    </div>
+  </div>
+</div>
 
                  <div class=\"row row-inputs\">
   <div class=\"col-sm-6\">
@@ -131,7 +149,7 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
                     <div class=\"inner clearfix\">
                         <a href=\"#\" class=\"float-left\"><i class=\"fa fa-plus-circle\"></i>Advanced Search</a>
                         ";
-        // line 52
+        // line 67
         echo "  <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
         echo "\" class=\"btn m-auto d-block btn-full\" >Find Car</a>
@@ -161,7 +179,7 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 52,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  153 => 67,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -171,6 +189,8 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
 {% block title %}New Reservation{% endblock %}
 
 {% block body %}
+
+{{ vehicule.modele }}
  <div class=\"r-slider-serach form-search dark\">
               <form action=\"#\">
                   <div class=\"form-title form-title-large\">
@@ -197,6 +217,19 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
                     </div>
                   </div>
                  <div class=\"row row-inputs\">
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label label\" id=\"datetimepicker2\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpDate\">Picking Up Date</label>
+      <input type=\"date\" class=\"form-control\" id=\"formSearchUpDate\" name=\"datedebut_date\" >
+    </div>
+  </div>
+  <div class=\"col-sm-6\">
+    <div class=\"form-group has-icon has-label date\" id=\"datetimepicker3\" data-target-input=\"nearest\">
+      <label for=\"formSearchUpTime\">Picking Up Time</label>
+      <input type=\"time\" class=\"form-control\" id=\"formSearchUpTime\" name=\"datedebut_time\">
+    </div>
+  </div>
+</div>
 
                  <div class=\"row row-inputs\">
   <div class=\"col-sm-6\">
@@ -223,6 +256,6 @@ class __TwigTemplate_967eac6419523641d3d12b5ac4539f6a extends \Twig\Template
               </form>
             </div>
           </div>
-          {% endblock %}", "reservation/new.html.twig", "C:\\Users\\ychaa\\OneDrive\\Documents\\GitHub\\Web-Application\\templates\\reservation\\new.html.twig");
+          {% endblock %}", "reservation/new.html.twig", "C:\\Users\\mhcab\\OneDrive\\Bureau\\Web-Application\\templates\\reservation\\new.html.twig");
     }
 }

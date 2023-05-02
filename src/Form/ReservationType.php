@@ -62,9 +62,11 @@ class ReservationType extends AbstractType
         ->add('itineraire',EntityType::class,
         ['class'=>Itineraire::class,
         'choice_label'=>'pointarrivee'])
-        ->add('vehicule',EntityType::class,
-        ['class'=>Vehicule::class,
-        'choice_label'=>'matricule'])
+        ->add('vehicule', EntityType::class, [
+            'class' => Vehicule::class,
+            'choice_label' => 'modele',
+            'attr' => ['id' => 'vehicule-field']
+        ])
         ;
     }
 
