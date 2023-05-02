@@ -7,7 +7,6 @@ use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Form\VehiculeType;
 use App\Repository\VehiculeRepository;
-use App\Repository\ItineraireRepository;
 use App\Entity\Rating;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +24,7 @@ use Symfony\UX\Chartjs\Model\Chart;
 class VehiculeController extends AbstractController
 {
     #[Route('/', name: 'app_vehicule_index', methods: ['GET'])]
-    public function index(Request $request, VehiculeRepository $vehiculeRepository, ItineraireRepository $itineraireRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator): Response
     {
         $sort = $request->query->get('sort');
         if ($sort == 'price_asc') {
@@ -33,14 +32,8 @@ class VehiculeController extends AbstractController
         } else if ($sort == 'price_desc') {
             $vehicules = $vehiculeRepository->findBy([], ['prix' => 'DESC']);
         } else {
-            $itineraireId = $request->query->get('itineraire_id'); 
-            $itineraire = $itineraireRepository->find($itineraireId);
-            if ($itineraire) {
-                $vehicules = $vehiculeRepository->findBy(['itineraire' => $itineraire]);
-            } else {
-                $vehicules = $vehiculeRepository->findAll();
-            }
-                    }
+            $vehicules = $vehiculeRepository->findAll();
+        }
     
         $type = $request->query->get('type');
         if ($type && $type != 'Tous') {
@@ -51,7 +44,8 @@ class VehiculeController extends AbstractController
             $vehicules, 
             $request->query->getInt('page', 1), 
             6 
-        );    
+        );
+    
         return $this->render('vehicule/frontoffice.html.twig', [
             'vehicules' => $vehicules,
             'sort' => $sort,
@@ -90,24 +84,6 @@ class VehiculeController extends AbstractController
         ]);
     }
 
-    #[Route('/find', name: 'app_vehicule_find', methods: ['POST'])]
-    public function findByItineraire(Request $request, VehiculeRepository $vehiculeRepository): Response
-    {
-    $idvehicule = $request->query->get('idvehicule');
-
-    $vehicule = $vehiculeRepository->find($idvehicule);
-
-    if (!$vehicule) {
-        throw $this->createNotFoundException('Vehicule not found');
-    }
-
-    $itineraire = $vehicule->getItineraire();
-
-    return $this->render('vehicule/frontoffice.html.twig', [
-        'vehicule' => $vehicule,
-        'itineraire' => $itineraire,
-    ]);
-}
 
 
   /*  #[Route('/1/{id}', name:'vehicules_par_location')]
@@ -185,7 +161,7 @@ class VehiculeController extends AbstractController
         }
 
         $availabilityData = [
-            'labels' => ['26/04/2023', '27/04/2023', '28/04/2023', '29/04/2023', '30/04/2023', '01/05/2023', '02/052023'],
+            'labels' => ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
             'datasets' => [
                 [
                     'label' => 'Disponible',
@@ -283,7 +259,7 @@ class VehiculeController extends AbstractController
             // mise à jour de l'attribut "image" de l'objet véhicule
             $vehicule->setImage($newFilename);
             $vehiculeRepository->save($vehicule, true);
-            return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->renderForm('vehicule/new.html.twig', [
             'vehicule' => $vehicule,
@@ -325,7 +301,7 @@ class VehiculeController extends AbstractController
             $vehicule->setImage($newFilename);
             $vehiculeRepository->save($vehicule, true);
 
-            return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->renderForm('vehicule/edit.html.twig', [
             'vehicule' => $vehicule,
@@ -342,7 +318,7 @@ $entityManager = $this->getDoctrine()->getManager();
     $entityManager->remove($vehicule);
     $entityManager->flush();        }
 
-        return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
     }
 
   

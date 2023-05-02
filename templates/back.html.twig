@@ -148,15 +148,15 @@
                           
                         </li>
 
-                        <li class="menu">
-                            <a href="{{path('app_utilisateur_block')}}">   {# lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} #}
+                        {# <li class="menu">
+                            <a href="{{path('app_utilisateur_block')}}">    lehne 7otou les path mte3kom ili ma3neha yebda nom ta3 fichier .twig {{path('esmou')}} 
                                 <div class="">
                                     <i class="fa-solid fa-user-shield"></i>
                                     <span>Gestion Clients</span>
                                 </div>
                             </a>
                           
-                        </li>
+                        </li> #}
                     
                         <li class="menu">
                             <a href="{{path('app_badge_index')}}">
@@ -195,33 +195,38 @@
                           
                         </li>
                         <li class="menu">
+                            <a href="{{path('app_maintenance_index')}}">
+                                <div class="">
+                                    <i class="flaticon-danger-line"></i>
+                                    <span>Gestion Maintenance</span>
+                                </div>
+                            </a>
+                          
+                        </li>
+                        <li class="menu">
                             <a href="{{path('app_reservation_index')}}">
                                 <div class="">
-                                    <i class="flaticon-notes-1"></i>
+                                    <i class="flaticon-money"></i>
                                     <span>Gestion Reservation</span>
                                 </div>
                             </a>
                           
                         </li>
+
+                        <li class="menu">
+                            <a href="{{ path('app_amende_index') }}">
+                                <div class="">
+                                    <i class="flaticon-notes-1"></i>
+                                    <span>Gestion Amendes</span>
+                                </div>
+                            </a>
+                        </li>
+
                         <li class="menu">
                             <a href="{{path('app_reclamation_index')}}">
                                 <div class="">
-                                    <i class="flaticon-danger-line"></i>
-                                    <span>Gestion Reclamation</span>
-                                </div>
-                            </a>
-                          
-                        </li>
-                    
-
-
-  
-
-                        <li class="menu">
-                            <a href="" class="dropdown-toggle collapsed">
-                                <div class="">
                                     <i class="flaticon-mail-19"></i>
-                                    <span>ChatBox</span>
+                                    <span>Gestion Reclamation</span>
                                 </div>
                             </a>
                     
