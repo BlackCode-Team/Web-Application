@@ -1,0 +1,27 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Search By GR-CODE{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    <h1> Search by QR-CODE </h1> <hr>
+
+    <div class ="row">
+        <div class="col-md-6">
+        {{ form_start(form)}}
+        {{form_row(form.cin, {'attr': {'class': 'form-control', 'placeholder': 'Search'}})}}
+        <hr>
+        <button type="submit" class="btn btn-success btn-black"> Search </button>
+        {{form_end(form)}}
+    </div>
+    <div class="col-md-6">
+    {% if qrCode %}
+                <img src="{{ qrCode }}" alt="qr-code">
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

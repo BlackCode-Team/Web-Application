@@ -18,4 +18,5 @@ return [
     MercurySeries\FlashyBundle\MercurySeriesFlashyBundle::class => ['all' => true],
     CalendarBundle\CalendarBundle::class => ['all' => true],
     Endroid\QrCodeBundle\EndroidQrCodeBundle::class => ['all' => true],
+    Oneup\UploaderBundle\OneupUploaderBundle::class => ['all' => true],
 ];

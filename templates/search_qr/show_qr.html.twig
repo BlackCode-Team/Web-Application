@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Scan the QR code to view user data</h1>
+  <div id="qrcode"></div>
+  {% if qrCode %}
+    <a href="{{ path('app_show_pdf', {'cin': utilisateur.cin}) }}">
+        <img src="{{ qrCode }}" alt="QR Code">
+    </a>
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/qrcode@1.2.2/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById("qrcode"), "{{ qrCode }}");
+  </script>
+{% endblock %}

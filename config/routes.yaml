@@ -20,19 +20,7 @@ app_utilisateur_index:
     controller: App\Controller\UtilisateurController::index
     methods: GET
 
-app_utilisateur_block:
-    path: /utilisateur/block
-    controller: App\Controller\UtilisateurController::showBlock
-    methods: GET
 
-block_user:
-    path: '/block/{iduser}'
-    controller: App\Controller\UtilisateurController::blockUser
-   
-
-unblock_user:
-    path: '/unblock/{iduser}'
-    controller: App\Controller\UtilisateurController::unblockUser
 
 app_utilisateur_edit:
     path: '/{iduser}/edit'
@@ -62,3 +50,19 @@ profil_edit:
     methods: ['GET', 'POST']
     requirements:
         iduser: '\d+'
+
+app_utilisateur_block:
+    path: /utilisateur/block
+    controller: App\Controller\UtilisateurController::showBlock
+    methods: GET
+
+
+block_user:
+    path: /utilisateur/block-user/{iduser}
+    controller: App\Controller\UtilisateurController::blockUser
+    methods: POST
+
+unblock_user:
+    path: /utilisateur/unblock-user/{iduser}
+    controller: App\Controller\UtilisateurController::unblockUser
+    methods: POST
