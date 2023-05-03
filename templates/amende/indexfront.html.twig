@@ -1,4 +1,4 @@
-{% extends 'back.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Amende index{% endblock %}
 
@@ -11,7 +11,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <form class="form-inline" method="get" action="{{ path('amende_filter') }}">
+        <form class="form-inline" method="get" action="{{ path('amende_filterfront') }}">
           <div class="form-group">
             <label class="sr-only" for="input-search">Recherche</label>
             <input type="text" class="form-control" id="input-search" name="search" placeholder="Entrez le numéro de l'amende">
@@ -20,7 +20,7 @@
         </form>
       </div>
       <div class="col-md-6 text-right">
-        <form class="form-inline" method="get" action="{{ path('amende_filter') }}">
+        <form class="form-inline" method="get" action="{{ path('amende_filterfront') }}">
           <div class="form-group">
             <label class="mr-2" for="input-status">Status:</label>
             <select class="form-control" id="input-status" name="statusamende">
@@ -55,8 +55,7 @@
             <td>{{ amende.cause }}</td>
             <td>{{ amende.description }}</td>
             <td>
-              <a class="btn btn-sm btn-primary" href="{{ path('app_amende_showback', {'idamende': amende.idamende}) }}">Voir</a>
-              <a class="btn btn-sm btn-warning" href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">Modifier</a>
+              <a class="btn btn-sm btn-primary" href="{{ path('app_amende_show', {'idamende': amende.idamende}) }}">Voir</a>
             </td>
           </tr>
           {% else %}
@@ -68,5 +67,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_amende_new') }}">Create new</a>
 {% endblock %}

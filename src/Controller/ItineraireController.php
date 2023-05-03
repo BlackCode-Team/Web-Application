@@ -55,6 +55,7 @@ class ItineraireController extends AbstractController
             'itineraire' => $itineraire,
         ]);
     }
+    
 
     #[Route('/{iditineraire}/edit', name: 'app_itineraire_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Itineraire $itineraire, ItineraireRepository $itineraireRepository): Response
