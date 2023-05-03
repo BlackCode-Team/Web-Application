@@ -90,13 +90,28 @@ class __TwigTemplate_5cc754a53768f148f933ac60c6291389 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        echo "    <div id=\"calendar-holder\"></div>
+        echo "<div style=\"display: flex; justify-content: space-around;\">
+<div >
+<h2> Nous sommes ravis de vous présenter nos offres exclusives !
+Nos offres sont régulièrement mises à jour, alors assurez-vous de 
+les vérifier régulièrement pour ne rien manquer.
+ Profitez de nos offres exceptionnelles dès maintenant et économisez sur vos locations en ligne !\"</h2>
+ </div>
+ <div>
+    <img src=\"";
+        // line 18
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/offre.png"), "html", null, true);
+        echo "\" alt=\"offre\" width=\"200\" height=\"200\">
+ </div>
+</div>
+
+    <div id=\"calendar-holder\"></div>
     <script>document.addEventListener('DOMContentLoaded', () => {
     var calendarEl = document.getElementById('calendar-holder');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         defaultView: 'dayGridMonth',
-        editable: true,
+        editable: true,height: 650,width: 650,contentHeight: 600,
         eventSources: [
             {
                 url: \"/fc-load-events\",
@@ -128,7 +143,7 @@ class __TwigTemplate_5cc754a53768f148f933ac60c6291389 extends \Twig\Template
 
     }
 
-    // line 40
+    // line 52
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -138,7 +153,7 @@ class __TwigTemplate_5cc754a53768f148f933ac60c6291389 extends \Twig\Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 41
+        // line 53
         echo "    <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js\"></script>
@@ -164,7 +179,7 @@ class __TwigTemplate_5cc754a53768f148f933ac60c6291389 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  142 => 41,  132 => 40,  93 => 10,  83 => 9,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  157 => 53,  147 => 52,  103 => 18,  93 => 10,  83 => 9,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -178,13 +193,25 @@ class __TwigTemplate_5cc754a53768f148f933ac60c6291389 extends \Twig\Template
 {% endblock %}
 
 {% block body %}
+<div style=\"display: flex; justify-content: space-around;\">
+<div >
+<h2> Nous sommes ravis de vous présenter nos offres exclusives !
+Nos offres sont régulièrement mises à jour, alors assurez-vous de 
+les vérifier régulièrement pour ne rien manquer.
+ Profitez de nos offres exceptionnelles dès maintenant et économisez sur vos locations en ligne !\"</h2>
+ </div>
+ <div>
+    <img src=\"{{asset('assets/images/offre.png')}}\" alt=\"offre\" width=\"200\" height=\"200\">
+ </div>
+</div>
+
     <div id=\"calendar-holder\"></div>
     <script>document.addEventListener('DOMContentLoaded', () => {
     var calendarEl = document.getElementById('calendar-holder');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         defaultView: 'dayGridMonth',
-        editable: true,
+        editable: true,height: 650,width: 650,contentHeight: 600,
         eventSources: [
             {
                 url: \"/fc-load-events\",

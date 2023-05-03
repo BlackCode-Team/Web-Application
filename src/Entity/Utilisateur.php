@@ -24,11 +24,6 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $role='client';
 
-     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isBlocked = false;
-
     
      #[ORM\Column( length:255)]
      #[Assert\Regex(
@@ -85,6 +80,9 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?int $nbpoint=null;
+
+    #[ORM\Column]
+    private ?int $is_blocked=0;
 
     #[ORM\Column]
     private $roles;
@@ -221,14 +219,14 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
         return $this;
     }
     
-    public function getIsBlocked(): ?bool
+    public function getIs_blocked(): ?int
     {
-        return $this->isBlocked;
+        return $this->is_blocked;
     }
 
-    public function setIsBlocked(bool $isBlocked): self
+    public function setIs_blocked(int $is_blocked): self
     {
-        $this->isBlocked = $isBlocked;
+        $this->is_blocked = $is_blocked;
 
         return $this;
     }

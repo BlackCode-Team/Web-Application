@@ -114,7 +114,7 @@ class __TwigTemplate_c03370819da04675eaa595f7a6ad6640 extends \Twig\Template
       <th class=\"text-center\">Email</th>
       <th class=\"text-center\">Cin</th>
       <th class=\"text-center\">Permis</th>
-      <th class=\"text-center\">Nbpoint</th>
+      
       <th class=\"text-center\">Actions</th>
     </tr>
   </thead>
@@ -159,10 +159,7 @@ class __TwigTemplate_c03370819da04675eaa595f7a6ad6640 extends \Twig\Template
             // line 48
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "permis", [], "any", false, false, false, 48), "html", null, true);
             echo "</td>
-      <td class=\"text-center\">";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "nbpoint", [], "any", false, false, false, 49), "html", null, true);
-            echo "</td>
+      
       <td class=\"text-center\">
         <a class=\"btn btn-primary btn-sm\" href=\"";
             // line 51
@@ -261,7 +258,7 @@ class __TwigTemplate_c03370819da04675eaa595f7a6ad6640 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  220 => 68,  210 => 67,  196 => 63,  191 => 60,  182 => 56,  173 => 52,  169 => 51,  164 => 49,  160 => 48,  156 => 47,  152 => 46,  148 => 45,  144 => 44,  140 => 43,  136 => 42,  132 => 41,  129 => 40,  124 => 39,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  217 => 68,  207 => 67,  193 => 63,  188 => 60,  179 => 56,  170 => 52,  166 => 51,  160 => 48,  156 => 47,  152 => 46,  148 => 45,  144 => 44,  140 => 43,  136 => 42,  132 => 41,  129 => 40,  124 => 39,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -299,7 +296,7 @@ class __TwigTemplate_c03370819da04675eaa595f7a6ad6640 extends \Twig\Template
       <th class=\"text-center\">Email</th>
       <th class=\"text-center\">Cin</th>
       <th class=\"text-center\">Permis</th>
-      <th class=\"text-center\">Nbpoint</th>
+      
       <th class=\"text-center\">Actions</th>
     </tr>
   </thead>
@@ -314,7 +311,7 @@ class __TwigTemplate_c03370819da04675eaa595f7a6ad6640 extends \Twig\Template
       <td class=\"text-center\">{{ utilisateur.email }}</td>
       <td class=\"text-center\">{{ utilisateur.cin }}</td>
       <td class=\"text-center\">{{ utilisateur.permis }}</td>
-      <td class=\"text-center\">{{ utilisateur.nbpoint }}</td>
+      
       <td class=\"text-center\">
         <a class=\"btn btn-primary btn-sm\" href=\"{{ path('app_utilisateur_show', {'iduser': utilisateur.iduser}) }}\">Afficher</a>
         <a class=\"btn btn-warning btn-sm\" href=\"{{ path('app_utilisateur_edit', {'iduser': utilisateur.iduser}) }}\">Modifier</a>

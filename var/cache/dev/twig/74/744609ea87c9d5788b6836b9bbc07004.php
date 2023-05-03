@@ -114,7 +114,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-unlock.png"), "html", null, true);
         echo "\" alt='' /> <span>Logout</span></a>";
         // line 44
-        echo "                      <a href=\"\" class=\"r-search\"> <img src=\"";
+        echo "                     <a href=\"\" class=\"r-search\"> <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-search.png"), "html", null, true);
         echo "\" alt='' /> <span>Search</span></a>";
         // line 45
@@ -129,6 +129,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                           </form>
                         </div>
                       </div> <!-- /r-search-wrapper -->
+                    
                     </div>
                     <div class=\"r-nav-section float-right\">
                       <nav>
@@ -136,29 +137,38 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                       
                           <li >
                             <a href=\"";
-        // line 62
+        // line 63
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_itineraire_new");
         echo "\">RESERVATION</a>";
-        // line 63
+        // line 64
         echo "                        
                           </li>
                           <li >
                             <a href=\"";
-        // line 66
+        // line 67
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vehicule_index");
         echo "\">VEHICLES</a>
                                            ";
-        // line 67
+        // line 68
         echo " 
                           </li>
                           <li><a href=\"";
-        // line 69
+        // line 70
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_park_index");
         echo "\">PARCS</a></li>
                           <li><a href=\"";
-        // line 70
+        // line 71
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Aff");
+        echo "\">BADGES</a></li>
+                          <li><a href=\"";
+        // line 72
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offres");
+        echo "\">OFFRES</a></li>
+                          <li><a href=\"";
+        // line 73
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">RECLAMATION</a></li>
+                          
                         </ul>
                       </nav>
                     </div>
@@ -172,7 +182,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                 <div class=\"r-breadcrum\">
                   <ul>
                     <li><a href=\"\">HOME</a></li>     ";
-        // line 84
+        // line 88
         echo "                    <li><span>";
         $this->displayBlock('page', $context, $blocks);
         echo "</span></li>
@@ -184,13 +194,13 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
         </header> 
         <section id=\"r-drivers-part\" class=\"r-drivers-part\">
         ";
-        // line 92
+        // line 96
         $this->displayBlock('body', $context, $blocks);
         echo " ";
-        // line 93
+        // line 97
         echo "        </section>
         ";
-        // line 119
+        // line 123
         echo "        <footer>
           <div class=\"r-footer\">
             <div class=\"container\">
@@ -198,7 +208,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                 <div class=\"col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12\">
                   <div class=\"r-footer-block\">
                     <img src=\"";
-        // line 125
+        // line 129
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/carngo.png"), "html", null, true);
         echo "\" class=\"d-block img-fluid\" alt=\"\">
                     <p>
@@ -251,7 +261,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                   <div class=\"r-footer-block\">
                     <div class=\"r-footer-widget r-footer-map\">
                       <a href=\"#\"> <img src=\"";
-        // line 175
+        // line 179
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/icon-footer-map.png"), "html", null, true);
         echo "\" class=\"icon\" alt=''/> RoyalCars on Map</a>
                     </div>
@@ -290,36 +300,36 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
       <div id=\"r-to-top\" class=\"r-to-top\"><i class=\"fa fa-angle-up\"></i></div>
       <!-- JQUERY:: JQUERY.JS -->
       <script src=\"";
-        // line 211
+        // line 215
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: BOOTSTRAP.JS -->
       <script src=\"";
-        // line 214
+        // line 218
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/tether.min.js"), "html", null, true);
         echo "\"></script>
       <script src=\"";
-        // line 215
+        // line 219
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: PLUGINS -->
       <script src=\"";
-        // line 218
+        // line 222
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/plugins/owl/owl.carousel.min.js"), "html", null, true);
         echo "\"></script>
 
       <!-- JQUERY:: CUSTOM -->
       <script src=\"";
-        // line 221
+        // line 225
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/custom.js"), "html", null, true);
         echo "\"></script>
 
       ";
-        // line 223
+        // line 227
         $this->displayBlock('javascript', $context, $blocks);
-        // line 224
+        // line 228
         echo "  </body>
 
 
@@ -351,7 +361,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
 
     }
 
-    // line 84
+    // line 88
     public function block_page($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -370,7 +380,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
 
     }
 
-    // line 92
+    // line 96
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -389,7 +399,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
 
     }
 
-    // line 223
+    // line 227
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -420,7 +430,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  393 => 223,  374 => 92,  355 => 84,  336 => 17,  323 => 224,  321 => 223,  316 => 221,  310 => 218,  304 => 215,  300 => 214,  294 => 211,  255 => 175,  202 => 125,  194 => 119,  191 => 93,  188 => 92,  176 => 84,  160 => 70,  156 => 69,  152 => 67,  148 => 66,  143 => 63,  140 => 62,  121 => 45,  117 => 44,  112 => 43,  105 => 39,  102 => 38,  97 => 37,  80 => 23,  76 => 22,  70 => 18,  68 => 17,  64 => 16,  47 => 1,);
+        return array (  403 => 227,  384 => 96,  365 => 88,  346 => 17,  333 => 228,  331 => 227,  326 => 225,  320 => 222,  314 => 219,  310 => 218,  304 => 215,  265 => 179,  212 => 129,  204 => 123,  201 => 97,  198 => 96,  186 => 88,  169 => 73,  165 => 72,  161 => 71,  157 => 70,  153 => 68,  149 => 67,  144 => 64,  141 => 63,  121 => 45,  117 => 44,  112 => 43,  105 => 39,  102 => 38,  97 => 37,  80 => 23,  76 => 22,  70 => 18,  68 => 17,  64 => 16,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -468,7 +478,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                   <div class=\"col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-12\">
                     <div class=\"r-header-action float-right\">
                       <a href=\"{{path('app_logout')}}\"> <img src=\"{{asset('assets/images/icon-unlock.png')}}\" alt='' /> <span>Logout</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route login #}
-                      <a href=\"\" class=\"r-search\"> <img src=\"{{asset('assets/images/icon-search.png')}}\" alt='' /> <span>Search</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route rech #}
+                     <a href=\"\" class=\"r-search\"> <img src=\"{{asset('assets/images/icon-search.png')}}\" alt='' /> <span>Search</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route rech #}
 
                       <div class=\"r-search-wrapper\">
                         <div class=\"r-search-inner\">
@@ -480,6 +490,7 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                           </form>
                         </div>
                       </div> <!-- /r-search-wrapper -->
+                    
                     </div>
                     <div class=\"r-nav-section float-right\">
                       <nav>
@@ -494,7 +505,10 @@ class __TwigTemplate_d25108ecc4fb6d1b9071dd310fb1ba51 extends \Twig\Template
                                            {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
                           </li>
                           <li><a href=\"{{path('app_park_index')}}\">PARCS</a></li>
+                          <li><a href=\"{{path('Aff')}}\">BADGES</a></li>
+                          <li><a href=\"{{path('app_offres')}}\">OFFRES</a></li>
                           <li><a href=\"{{path('app_reclamation_new')}}\">RECLAMATION</a></li>
+                          
                         </ul>
                       </nav>
                     </div>

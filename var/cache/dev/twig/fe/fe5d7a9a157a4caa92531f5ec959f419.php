@@ -127,6 +127,14 @@ class __TwigTemplate_b590595bb24359f0967741507b14a018 extends \Twig\Template
                           </li>
                       
                           <li><a href=\"/park\">PARCS</a></li>
+                          <li><a href=\"";
+        // line 88
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Aff");
+        echo "\">BADGES</a></li>
+                          <li><a href=\"";
+        // line 89
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offres");
+        echo "\">OFFRES</a></li>
                           <li><a href=\"/reclamation\">RECLAMATION</a></li>
                         </ul>
                       </nav>
@@ -1091,9 +1099,14 @@ class __TwigTemplate_b590595bb24359f0967741507b14a018 extends \Twig\Template
         return "index.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  136 => 89,  132 => 88,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -1185,6 +1198,8 @@ class __TwigTemplate_b590595bb24359f0967741507b14a018 extends \Twig\Template
                           </li>
                       
                           <li><a href=\"/park\">PARCS</a></li>
+                          <li><a href=\"{{path('Aff')}}\">BADGES</a></li>
+                          <li><a href=\"{{path('app_offres')}}\">OFFRES</a></li>
                           <li><a href=\"/reclamation\">RECLAMATION</a></li>
                         </ul>
                       </nav>
