@@ -58,16 +58,20 @@ class ReservationType extends AbstractType
         //])
         
         ->add('utilisateur', TextType::class, [
-            'label' => 'Nom d\'utilisateur',
-            'attr' => ['placeholder' => 'Saisir le nom d\'utilisateur']
+            'label' => 'Nom d utilisateur',
+            'mapped' => false, // tells Symfony not to map the field to the entity
         ])
+
         ->add('itineraire', TextType::class, [
+            'mapped' => false, // tells Symfony not to map the field to the entity
+
             'label' => 'Itinéraire',
-            'attr' => ['placeholder' => 'Saisir l\'itinéraire']
+            // 'attr' => ['placeholder' => 'Saisir l'itinéraire']
         ])
         ->add('vehicule', TextType::class, [
             'label' => 'Vehicule',
-            
+            'mapped' => false, // tells Symfony not to map the field to the entity
+
         ])
         
         ;

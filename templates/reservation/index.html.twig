@@ -61,7 +61,7 @@
           <td>{{ reservation.vehicule.matricule }}</td>
           <td>{{ reservation.itineraire.pointarrivee }}</td>
           <td>
-            <a class="btn btn-sm btn-primary" href="{{ path('app_reservation_show', {'idreservation': reservation.idreservation}) }}" role="button">Détails</a>
+            <a class="btn btn-sm btn-primary" href="{{ path('app_reservation_showback', {'idreservation': reservation.idreservation}) }}" role="button">Détails</a>
             <a class="btn btn-sm btn-warning" href="{{ path('app_reservation_edit', {'idreservation': reservation.idreservation}) }}" role="button">Modifier</a>
           </td>
         </tr>
@@ -74,6 +74,9 @@
     </table>
     {# <a class="btn btn-sm btn-primary" href="{{ path('app_reservation_new') }}" role="button">Nouvelle réservation</a> #}
             </div>
+             <div class="pagination-section">
+                         {{ knp_pagination_render(reservations) }}
+                    </div>
         </div>
     </div>
 </div>    

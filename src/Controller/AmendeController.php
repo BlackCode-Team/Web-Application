@@ -41,6 +41,14 @@ class AmendeController extends AbstractController
         ]);
     }
 
+    #[Route('/front', name: 'app_amende_indexfront', methods: ['GET'])]
+    public function indexfront(AmendeRepository $amendeRepository): Response
+    {
+        return $this->render('amende/indexfront.html.twig', [
+            'amendes' => $amendeRepository->findAll(),
+        ]);
+    }
+
     #[Route('/{idamende}', name: 'app_amende_show', methods: ['GET'])]
     public function show(Amende $amende): Response
     {
@@ -100,5 +108,23 @@ class AmendeController extends AbstractController
         return $this->render('amende/index.html.twig', [
             'amendes' => $amendes,
         ]);
-}
+    }
+    
+        #[Route('/front/filtre/status', name: 'amende_filterfront' ,methods: ['GET'])]
+        public function filterfront(Request $request)
+        {
+            $statusamende = $request->query->get('statusamende');
+            if ($statusamende=='Tous') {
+                $amendes = $this->getDoctrine()
+                    ->getRepository(Amende::class)
+                    ->findAll();}
+                    else{
+            $amendes = $this->getDoctrine()
+                ->getRepository(Amende::class)
+                ->findBy(['statusamende' => $statusamende]);
+                    }
+            return $this->render('amende/indexfront.html.twig', [
+                'amendes' => $amendes,
+            ]);
+        }
 }
