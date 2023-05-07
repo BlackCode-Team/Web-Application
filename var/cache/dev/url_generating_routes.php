@@ -57,6 +57,7 @@ return [
     'addparkJSON' => [[], ['_controller' => 'App\\Controller\\ParkController::addparkJSON'], [], [['text', '/park/addparkJSON/new']], [], [], []],
     'deleteparksJSON' => [['id'], ['_controller' => 'App\\Controller\\ParkController::deleteparksJSON'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/park/deleteparksJSON']], [], [], []],
     'updateparkJSON' => [['id'], ['_controller' => 'App\\Controller\\ParkController::updateparkJSON'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/park/updateparkJSON']], [], [], []],
+    'app_json_map' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::mapjson'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park/jsonmap']], [], [], []],
     'app_park_indexad' => [[], ['_controller' => 'App\\Controller\\ParkController::indexad'], [], [['text', '/park/admin']], [], [], []],
     'app_park_new' => [[], ['_controller' => 'App\\Controller\\ParkController::new'], [], [['text', '/park/new']], [], [], []],
     'app_park_show' => [['idpark'], ['_controller' => 'App\\Controller\\ParkController::show'], [], [['variable', '/', '[^/]++', 'idpark', true], ['text', '/park']], [], [], []],

@@ -118,7 +118,27 @@ public function updateparkJSON(Request $req, $id, NormalizerInterface $Normalize
     return new Response("park updated successfully " . json_encode($jsonContent));
 }
 
-/////////////////////////////////////////////////////
+///////////////////////////////////////////////////// map json
+#[Route('/jsonmap/{idpark}', name: 'app_json_map')]
+public function mapjson(Park $park,int $idpark, ParkRepository $parkRepository): Response
+{
+ $client = new \GuzzleHttp\Client();
+ $response = $client->get('https://nominatim.openstreetmap.org/search?q=' . urlencode($park->getVille()) . '&format=jsonv2');
+ $data = json_decode($response->getBody(), true);
+ $position = [$data[0]['lat'], $data[0]['lon']];
+     
+ return $this->render('chart_park/map.html.twig', [
+     'position' => $position,
+     'park' =>$park,
+ ]);
+ }
+
+
+
+
+
+
+////////////////////////////////////////////////
     //zedt el pagination 
     #[Route('/admin', name: 'app_park_indexad', methods: ['GET'])]
     public function indexad(Request $request,ParkRepository $parkRepository,PaginatorInterface $paginator): Response
