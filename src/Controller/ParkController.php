@@ -10,27 +10,115 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\Security\Core\Security;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+
+use Symfony\Component\Serializer\SerializerInterface;
+ 
+use Doctrine\ORM\EntityManagerInterface;
+
+
 #[Route('/park')]
 class ParkController extends AbstractController
 {
     #[Route('/', name: 'app_park_index', methods: ['GET'])]
-    public function index(ParkRepository $parkRepository, Security $security): Response
+    public function index(ParkRepository $parkRepository): Response
     {
-        $user = $security->getUser();
-        $userId = $user ? $user->getIduser() : null;
         return $this->render('park/index.html.twig', [
             'parks' => $parkRepository->findAll(),
-            'userId' => $userId,
         ]);
     }
 
+    /////////////////////json
+    #[Route('/jsonall', name: 'app_park_json', methods: ['GET'])]
+    public function jsonindex(ParkRepository $parkRepository, SerializerInterface $serializer): Response
+    {
+        $parks = $parkRepository->findAll();
+        
+        // Debugging statement - check the number of parks returned by the query
+        dump(count($parks));
+        
+        $json = $serializer->serialize($parks, 'json', ['Groups' => 'parks']);
+        
+        // Debugging statement - check the content of $parksNormalises
+        dump($json);
+    
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+////////////////////////////////////////////////////////////////////
+#[Route("/{idpark}/recjson", name: "recupjsonpark")]
+public function parkId(int $idpark, NormalizerInterface $normalizer, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+{
+    $parkRepository = $entityManager->getRepository(Park::class);
+    dump($idpark);
+    $park = $parkRepository->find($idpark);
+    $json = $serializer->serialize($park, 'json', ['Groups' => 'parks']);
+    dump($json); 
+    return new Response($json, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+}
+
+///////////////////////////////////////////////////////
+#[Route("/addparkJSON/new", name: "addparkJSON")]
+public function addparkJSON(Request $req,   NormalizerInterface $Normalizer, SerializerInterface $serializer)
+{
+
+    $em = $this->getDoctrine()->getManager();
+    $park = new park();
+    $park->setNom($req->get('nom'));
+    $park->setVille($req->get('ville'));
+    $park->setNbspot($req->get('nbspot'));
+    $park->setStatut($req->get('statut'));
+    $em->persist($park);
+    $em->flush();
+
+        $json = $serializer->serialize($park, 'json', ['Groups' => 'parks']);
+
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+}
+//////////////////////////////////////////////////////////delete
+#[Route("/deleteparksJSON/{id}", name: "deleteparksJSON")]
+public function deleteparksJSON(Request $req,int $id, NormalizerInterface $Normalizer, SerializerInterface $serializer)
+{
+
+    $em = $this->getDoctrine()->getManager();
+    $park = $em->getRepository(park::class)->find($id);
+    $em->remove($park);
+    $em->flush();
+    $jsonContent = $serializer->serialize($park, 'json', ['Groups' => 'parks']);
+    return new Response("parks deleted successfully " . json_encode($jsonContent));
+}
+
+///////////////////////////////////////////////////////update 
+#[Route("/updateparkJSON/{id}", name: "updateparkJSON")]
+public function updateparkJSON(Request $req, $id, NormalizerInterface $Normalizer, SerializerInterface $serializer)
+{
+
+    $em = $this->getDoctrine()->getManager();
+    $park = $em->getRepository(park::class)->find($id);
+    $park->setNom($req->get('nom'));
+    $park->setVille($req->get('ville'));
+    $park->setNbspot($req->get('nbspot'));
+    $park->setStatut($req->get('statut'));
+
+    $em->flush();
+
+    $jsonContent = $serializer->serialize($park, 'json', ['Groups' => 'parks']);
+    return new Response("park updated successfully " . json_encode($jsonContent));
+}
+
+/////////////////////////////////////////////////////
     //zedt el pagination 
     #[Route('/admin', name: 'app_park_indexad', methods: ['GET'])]
     public function indexad(Request $request,ParkRepository $parkRepository,PaginatorInterface $paginator): Response
@@ -114,7 +202,7 @@ class ParkController extends AbstractController
             'chartData2' => json_encode($chartData2),
         ]);
     }
-
+    
     #[Route('/new', name: 'app_park_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ParkRepository $parkRepository): Response
     {
@@ -133,6 +221,9 @@ class ParkController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
+
 
     #[Route('/{idpark}', name: 'app_park_show', methods: ['GET'])]
     public function show(Park $park): Response

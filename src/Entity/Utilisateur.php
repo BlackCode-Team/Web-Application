@@ -82,7 +82,7 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
     private ?int $nbpoint=null;
 
     #[ORM\Column]
-    private ?int $is_blocked=0;
+    public ?int $is_blocked=0;
 
     #[ORM\Column]
     private $roles;
@@ -330,19 +330,19 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
     /**
      * Return the authentication code.
      */
-    public function getEmailAuthCode(): string{
-        if (null == $this->authCode){
-            throw new \LogicException('The emailauthentification was not set');
-        }
-        return $this->authCode;
-    }
+    // public function getEmailAuthCode(): string{
+    //     // if (null == $this->authCode){
+    //     //     throw new \LogicException('The emailauthentification was not set');
+    //     // }
+    //     return $this->authCode;
+    // }
 
-    /**
-     * Set the authentication code.
-     */
-    public function setEmailAuthCode(string $authCode): void{
-        $this->authCode = $authCode;
-    }
+    // /**
+    //  * Set the authentication code.
+    //  */
+    // public function setEmailAuthCode(string $authCode): void{
+    //     $this->authCode = $authCode;
+    // }
 
 
 
