@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Knp\Snappy\Pdf;
 
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
@@ -57,8 +58,10 @@ class VehiculeController extends AbstractController
     public function indexJSON(VehiculeRepository $repo, SerializerInterface $serializer): Response
     {
         $vehicules=$repo->findAll();
-        $json=$serializer->serialize($vehicules,'json',['groups'=>"vehicules"]);
-        return new Response($json);
+        $json=$serializer->serialize($vehicules,'json',['Groups'=>"vehicules"]);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
     }
 
     #[Route('/indexback', name: 'app_vehicule_indexback', methods: ['GET'])]
@@ -291,27 +294,26 @@ class VehiculeController extends AbstractController
     }
 
     #[Route('/newJSON', name: 'app_vehicule_newJSON', methods: ['GET', 'POST'])]
-    public function newJSON(Request $request, VehiculeRepository $vehiculeRepository,NormalizerInterface $Normalizer): Response
+    public function newJSON(Request $request, VehiculeRepository $vehiculeRepository,NormalizerInterface $Normalizer, SerializerInterface $serializer): Response
     {
-        $vehicule = new Vehicule();
-        $form = $this->createForm(VehiculeType::class, $vehicule);
-        $form->handleRequest($request);
+            $em = $this->getDoctrine()->getManager();
+            $vehicule = new vehicule();
+            $vehicule->setImage($request->get('image'));
+            $vehicule->setMatricule($request->get('matricule'));
+            $vehicule->setModele($request->get('modele'));
+            $vehicule->setType($request->get('type'));
+            $vehicule->setPrix($request->get('prix'));
+            $vehicule->setPuissance($request->get('puissance'));
 
-        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($vehicule);
+            $em->flush();
+          
+    
+        $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
 
-            $file = $form['image']->getData();
-            $imageFile = $form->get('image')->getData();
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
-            $imageFile->move(
-                $this->getParameter('images_directory'),
-                $newFilename
-            );
-            $vehicule->setImage($newFilename);
-            $vehiculeRepository->save($vehicule, true);
-            return $this->redirectToRoute('app_vehicule_backJson', [], Response::HTTP_SEE_OTHER);
-        }
-        $jsonContent=$Normalizer->normalize($vehicule,'json',['groups'=>'vehicules']);
-        return new Response("Vehicule ajouté" . $json_encode($jsonContent));
     }
 
 
@@ -323,12 +325,17 @@ class VehiculeController extends AbstractController
         ]);
     }
 
-    #[Route('showJSON/{idvehicule}', name: 'app_vehicule_showJSON', methods: ['GET'])]
-    public function showJSON(Vehicule $vehicule, SerializerInterface $serializer): JsonResponse
-    {
-        $jsonContent = $serializer->serialize($vehicule, 'json', ['groups' => 'vehicules']);
-        return new JsonResponse($jsonContent, Response::HTTP_OK, [], true);
-    }
+    #[Route('/showJSON/{idvehicule}', name: 'app_vehicule_showJSON', methods: ['GET'])]
+public function showJSON(int $idvehicule, EntityManagerInterface $entityManager, SerializerInterface $serializer): Response
+{
+    $entityManager = $this->getDoctrine()->getManager();
+    $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    $jsonContent = $serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+
+    return new Response($jsonContent, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+}
 
 
     #[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
@@ -356,25 +363,25 @@ class VehiculeController extends AbstractController
         ]);
     }
 
-    #[Route('/{idvehicule}/editJSON', name: 'app_vehicule_editJSON', methods: ['GET', 'POST'])]
-    public function editJSON(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository,NormalizerInterface $Normalizer): Response
+    #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
+    public function editJSON( EntityManagerInterface $entityManager,Request $request, int $idvehicule, VehiculeRepository $vehiculeRepository, SerializerInterface $serializer): Response
     {
-        $form = $this->createForm(VehiculeType::class, $vehicule);
-        $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    //    $vehicule->setImage($request->get('image'));
+    //    $vehicule->setMatricule($request->get('matricule'));
+    //     $vehicule->setModele($request->get('modele'));
+        $vehicule->setType($request->get('type'));
+        $vehicule->setPrix($request->get('prix'));
+        $vehicule->setPuissance($request->get('puissance'));
+        
+        $entityManager->flush();
+      
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['image']->getData();
-            $imageFile = $form->get('image')->getData();
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
-            $imageFile->move(
-                $this->getParameter('images_directory'),
-                $newFilename
-            );
-            $vehicule->setImage($newFilename);
-            $vehiculeRepository->save($vehicule, true);
-        }
-        $jsonContent=$Normalizer->normalize($vehicule,'json',['groups'=>'vehicules']);
-        return new Response("vehicule modifié" . $json_encode($jsonContent));
+    $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+    return new Response($json, 200, [
+        'Content-Type' => 'application/json'
+    ]);
         
     }
 
@@ -390,16 +397,17 @@ class VehiculeController extends AbstractController
         return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/deleteJSON/{idvehicule}', name: 'app_vehicule_deleteJSON', methods: ['POST'])]
-    public function deleteJSON(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository,NormalizerInterface $Normalizer): Response
+    #[Route('/deleteJSON/{idvehicule}', name: 'app_vehicule_deleteJSON')]
+    public function deleteJSON(int $idvehicule, Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository,SerializerInterface $serializer): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$vehicule->getIdvehicule(), $request->request->get('_token'))) {
+        
         $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
         $entityManager->remove($vehicule);
         $entityManager->flush();
-        $jsonContent =$Normalizer-> normalize($vehicule,'json',['groups'=>'vehicules']);
+        $jsonContent =$serializer-> serialize($vehicule,'json',['Groups'=>'vehicules']);
         return new Response("Vehicule supprimé" . json_encode($jsonContent));
-            }
+            
 
     }
   
