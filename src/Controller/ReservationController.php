@@ -30,7 +30,12 @@ use Symfony\Component\Security\Core\Security;
 use App\Repository\ItineraireRepository;
 use Knp\Component\Pager\PaginatorInterface;
 
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
+use Symfony\Component\Serializer\SerializerInterface;
+
+use Doctrine\ORM\EntityManagerInterface;
 
 
 #[Route('/reservation')]
@@ -74,6 +79,52 @@ class ReservationController extends AbstractController
             'reservations' => $reservations,
         ]);
     }
+    #[Route('/jsonall', name: 'app_reservation_json', methods: ['GET'])]
+    public function jsonindex(ReservationRepository $reservationRepository, SerializerInterface $serializer): Response
+    {
+        $reservations = $reservationRepository->findAll();
+        
+        foreach ($reservations as $reservation) 
+        {
+            $currentDate = date('Y-m-d H:i:s');
+            $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
+            $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+
+            $currentDate = strtotime($currentDate);
+            
+            if ($currentDate > $endDate) {
+                $reservation->setStatus('Termine');
+            } else {
+                $reservation->setStatus('En cours');
+            }
+            $reservationRepository->save($reservation, true);
+        }
+        
+        // Debugging statement - check the number of parks returned by the query
+        dump(count($reservations));
+        
+        $json = $serializer->serialize($reservations, 'json', ['Groups' => 'reservations']);
+        
+        // Debugging statement - check the content of $parksNormalises
+        dump($json);
+    
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+    //////////////////////////////////::::
+    #[Route('/{idreservation}/recjson', name: 'app_reservation_show_JSON', methods: ['GET'])]
+    public function showJSON(Reservation $reservation,ReservationRepository $reservationRepository, EntityManagerInterface $entityManager , SerializerInterface $serializer,int $idreservation): Response
+    {
+        $reservationRepository = $entityManager->getRepository(Reservation::class);
+        dump($idreservation);
+        $reservation = $reservationRepository->find($idreservation);
+         dump($reservation);
+         $json = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+     }
     
     #[Route('/new/{idvehicule}', name: 'app_reservation_new', methods: ['GET', 'POST'])]
     public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule,Security $security,ItineraireRepository $itineraireRepository): Response

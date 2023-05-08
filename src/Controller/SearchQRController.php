@@ -41,7 +41,7 @@ class SearchQRController extends AbstractController
             }
             if ($user) {
                 $qrCode = $this->qrcodeService->qrcode($cin);
-                $pdf = $this->generatePdf($user, $qrCode, $user->getEmail);
+                $pdf = $this->generatePdf($user, $qrCode);
                 return new Response($pdf, 200, [
                     'Content-Type' => 'application/pdf',
                     'Content-Disposition' => 'attachment; filename="user_data.pdf"'
@@ -69,26 +69,26 @@ public function showPdf(string $cin, UtilisateurRepository $userRepository): Res
     $qrCodeService = $this->get(qrcodeService::class);
     $qrCode = $qrCodeService->qrcode($cin);
     $filename= $user->getEmail();
-    $pdf = $this->generatePdf($user, $qrCode, $filename);
+    $pdf = $this->generatePdf($user, $qrCode);
     return new Response($pdf, 200, [
         'Content-Type' => 'application/pdf',
         'Content-Disposition' => 'inline; filename="user_data.pdf"'
     ]);
 }
 
-    protected function generatePdf(Utilisateur $user, string $qrCode, string $fileName): string
+    protected function generatePdf(Utilisateur $user, string $qrCode): string
     {
         $mpdf = new Mpdf();
         $mpdf->WriteHTML('<h1>User Data</h1>');
         $mpdf->WriteHTML('<p>CIN: '.$user->getCin().'</p>');
         $mpdf->WriteHTML('<p>Name: '.$user->getNom().'</p>');
-        $mpdf->WriteHTML('<p>Email: '.$user->getPrenom().'</p>');
+        $mpdf->WriteHTML('<p>Prenom: '.$user->getPrenom().'</p>');
         $mpdf->WriteHTML('<p>Email: '.$user->getEmail().'</p>');
-        $mpdf->WriteHTML('<p>Email: '.$user->getNbpoint().'</p>');
-        $mpdf->WriteHTML('<p>Email: '.$user->getPermis().'</p>');
+        $mpdf->WriteHTML('<p>Nombre de Points: '.$user->getNbpoint().'</p>');
+        $mpdf->WriteHTML('<p>Permis: '.$user->getPermis().'</p>');
         $mpdf->WriteHTML('<p>QR Code:</p>');
         $mpdf->Image($qrCode, null, null, 30, 30, '', '', true, false);
-        return $mpdf->Output($fileName, 'S');
+        return $mpdf->Output('', 'S');
     }
  
 }

@@ -41,7 +41,7 @@ class Vehicule
 
     #[ORM\ManyToOne(targetEntity: Itineraire::class, inversedBy: 'Vehicule')]
     #[ORM\JoinColumn(name: 'iditineraire', referencedColumnName: 'iditineraire')]
-    private ?Itineraire $itineraire=null;
+    public ?Itineraire $itineraire;
 
     public function getModele(): ?string
     {
@@ -144,28 +144,23 @@ class Vehicule
         return $this;
     }
 
-    public function getItineraire(): ?Itineraire
-    {
-        return $this->itineraire;
-    }
+    // public function getItineraire(): ?Itineraire
+    // {
+    //     return $this->itineraire;
+    // }
 
-    public function setItineraire(?Itineraire $itineraire): self
-    {
-        $this->itineraire = $itineraire;
+    // // public function setItineraire(?Itineraire $itineraire): self
+    // // {
+    // //     $this->itineraire = $itineraire;
 
-        return $this;
-    }
-    public function getIditineraire(): ?int
-    {
-        return $this->iditineraire;
-    }
+    // //     return $this;
+    // // }
+    // public function getIditineraire(): ?int
+    // {
+    //     return $this->iditineraire;
+    // }
 
-    public function setIditineraire(int $iditineraire): self
-    {
-        $this->iditineraire = $iditineraire;
-
-        return $this;
-    }
+   
 
 
 
