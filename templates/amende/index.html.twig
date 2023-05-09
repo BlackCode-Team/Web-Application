@@ -43,7 +43,6 @@
             <th>Montant</th>
             <th>Cause</th>
             <th>Description</th>
-            <th>Status Amende</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -55,7 +54,6 @@
             <td>{{ amende.montant }}</td>
             <td>{{ amende.cause }}</td>
             <td>{{ amende.description }}</td>
-            <td>{{ amende.statusamende }}</td>
             <td>
               <a class="btn btn-sm btn-primary" href="{{ path('app_amende_showback', {'idamende': amende.idamende}) }}">Voir</a>
               <a class="btn btn-sm btn-warning" href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">Modifier</a>

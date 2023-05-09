@@ -31,7 +31,7 @@
       <th class="text-center">Email</th>
       <th class="text-center">Cin</th>
       <th class="text-center">Permis</th>
-      <th class="text-center">Nbpoint</th>
+      
       <th class="text-center">Actions</th>
     </tr>
   </thead>
@@ -46,7 +46,7 @@
       <td class="text-center">{{ utilisateur.email }}</td>
       <td class="text-center">{{ utilisateur.cin }}</td>
       <td class="text-center">{{ utilisateur.permis }}</td>
-      <td class="text-center">{{ utilisateur.nbpoint }}</td>
+      
       <td class="text-center">
         <a class="btn btn-primary btn-sm" href="{{ path('app_utilisateur_show', {'iduser': utilisateur.iduser}) }}">Afficher</a>
         <a class="btn btn-warning btn-sm" href="{{ path('app_utilisateur_edit', {'iduser': utilisateur.iduser}) }}">Modifier</a>

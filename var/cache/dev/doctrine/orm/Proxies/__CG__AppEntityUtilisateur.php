@@ -35,6 +35,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
      * @var array<string, null> properties to be lazy loaded, indexed by property name
      */
     public static $lazyPropertiesNames = array (
+  'is_blocked' => NULL,
 );
 
     /**
@@ -43,22 +44,67 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
      * @see \Doctrine\Common\Proxy\Proxy::__getLazyProperties
      */
     public static $lazyPropertiesDefaults = array (
+  'is_blocked' => 0,
 );
 
 
 
     public function __construct(?\Closure $initializer = null, ?\Closure $cloner = null)
     {
+        unset($this->is_blocked);
 
         $this->__initializer__ = $initializer;
         $this->__cloner__      = $cloner;
     }
 
+    /**
+     * 
+     * @param string $name
+     */
+    public function __get($name)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__get', [$name]);
+            return $this->$name;
+        }
 
+        trigger_error(sprintf('Undefined property: %s::$%s', __CLASS__, $name), E_USER_NOTICE);
 
+    }
 
+    /**
+     * 
+     * @param string $name
+     * @param mixed  $value
+     */
+    public function __set($name, $value)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', [$name, $value]);
 
+            $this->$name = $value;
 
+            return;
+        }
+
+        $this->$name = $value;
+    }
+
+    /**
+     * 
+     * @param  string $name
+     * @return boolean
+     */
+    public function __isset($name)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__isset', [$name]);
+
+            return isset($this->$name);
+        }
+
+        return false;
+    }
 
     /**
      * 
@@ -67,10 +113,10 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', 'is_blocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'isBlocked', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'iduser', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'role', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pwd', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'permis', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nbpoint', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'resetToken', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'authCode', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'idaffectation'];
     }
 
     /**
@@ -92,6 +138,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
                 }
             };
 
+            unset($this->is_blocked);
         }
     }
 
@@ -393,23 +440,23 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getIsBlocked(): ?bool
+    public function getIs_blocked(): ?int
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsBlocked', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIs_blocked', []);
 
-        return parent::getIsBlocked();
+        return parent::getIs_blocked();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setIsBlocked(bool $isBlocked): \App\Entity\Utilisateur
+    public function setIs_blocked(int $is_blocked): \App\Entity\Utilisateur
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBlocked', [$isBlocked]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIs_blocked', [$is_blocked]);
 
-        return parent::setIsBlocked($isBlocked);
+        return parent::setIs_blocked($is_blocked);
     }
 
     /**
@@ -542,28 +589,6 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailAuthRecipient', []);
 
         return parent::getEmailAuthRecipient();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getEmailAuthCode(): string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailAuthCode', []);
-
-        return parent::getEmailAuthCode();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEmailAuthCode(string $authCode): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailAuthCode', [$authCode]);
-
-        parent::setEmailAuthCode($authCode);
     }
 
 }

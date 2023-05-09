@@ -24,11 +24,6 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $role='client';
 
-     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isBlocked = false;
-
     
      #[ORM\Column( length:255)]
      #[Assert\Regex(
@@ -85,6 +80,9 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?int $nbpoint=null;
+
+    #[ORM\Column]
+    public ?int $is_blocked=0;
 
     #[ORM\Column]
     private $roles;
@@ -221,14 +219,14 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
         return $this;
     }
     
-    public function getIsBlocked(): ?bool
+    public function getIs_blocked(): ?int
     {
-        return $this->isBlocked;
+        return $this->is_blocked;
     }
 
-    public function setIsBlocked(bool $isBlocked): self
+    public function setIs_blocked(int $is_blocked): self
     {
-        $this->isBlocked = $isBlocked;
+        $this->is_blocked = $is_blocked;
 
         return $this;
     }
@@ -332,19 +330,19 @@ class Utilisateur implements UserInterface , PasswordAuthenticatedUserInterface
     /**
      * Return the authentication code.
      */
-    public function getEmailAuthCode(): string{
-        if (null == $this->authCode){
-            throw new \LogicException('The emailauthentification was not set');
-        }
-        return $this->authCode;
-    }
+    // public function getEmailAuthCode(): string{
+    //     // if (null == $this->authCode){
+    //     //     throw new \LogicException('The emailauthentification was not set');
+    //     // }
+    //     return $this->authCode;
+    // }
 
-    /**
-     * Set the authentication code.
-     */
-    public function setEmailAuthCode(string $authCode): void{
-        $this->authCode = $authCode;
-    }
+    // /**
+    //  * Set the authentication code.
+    //  */
+    // public function setEmailAuthCode(string $authCode): void{
+    //     $this->authCode = $authCode;
+    // }
 
 
 

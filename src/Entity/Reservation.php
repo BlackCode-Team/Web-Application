@@ -18,22 +18,27 @@ class Reservation
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups("reservation")]
     private ?int $idreservation=null;
 
  
     #[ORM\Column(type: "datetime")]
+    #[Groups("reservation")]
      private ?\DateTimeInterface $datedebut;
      public function __construct()
      {
          $this->datedebut = new \DateTime();
      }
      #[ORM\Column(type: "datetime")]
+     #[Groups("reservation")]
      private ?\DateTimeInterface $datefin;
    
     #[ORM\Column(length: 255)]
+    #[Groups("reservation")]
     private ?string $status ="En cours";
    
     #[ORM\Column]
+    #[Groups("reservation")]
     private ?int $prixreservation=null;
     #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reservations')]
     #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]

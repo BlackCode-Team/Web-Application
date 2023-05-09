@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                         <th>Prix:</th>
-                        <td>{{ reservation.prixreservation }} DT</td>
+                        <td>{{ reservation.prixreservation }} 96 DT</td>
                     </tr>
                     <tr>
                         <th>Matricule:</th>
@@ -46,16 +46,12 @@
             </table>
 
             <div class="my-5">
-                <a class="btn btn-secondary" href="{{ path('app_reservation_index') }}">
-                    Back to list
-                </a>
                 <a class="btn btn-primary" href="{{ path('reservation_pdf', { 'idreservation': reservation.idreservation }) }}">
                     Download PDF
                 </a>
             </div>
         </div>
         <div class="col-md-4">
-{{ include('reservation/_delete_form.html.twig', {'button_class': 'btn btn-danger btn-1 btn-1e mb-4 mr-3'}) }}
         </div>
     </div>
 </div>

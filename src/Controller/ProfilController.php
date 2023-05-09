@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\FormView;
+use Endroid\QrCode\QrCode;
 
 class ProfilController extends AbstractController
 {
@@ -19,8 +19,9 @@ class ProfilController extends AbstractController
         $form = $this->createForm(ProfilType::class, $utilisateur);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $utilisateurRepository->save($utilisateur, true);
+        if ($form->isSubmitted() ) {
+            $utilisateur->setNom($form->get('nom')->getData());
+            $utilisateurRepository->save($utilisateur);
 
             return $this->redirectToRoute('profil_edit', ['iduser' => $utilisateur->getIduser()], Response::HTTP_SEE_OTHER);
         }
@@ -41,11 +42,13 @@ class ProfilController extends AbstractController
         ]);
     }
 
-    #[Route('/profil', name: 'app_profil_index')]
-    public function index(): Response
-    {
-        return $this->render('profil/profile.html.twig', [
-            'controller_name' => 'ProfilController',
-        ]);
-    }
+    ##[Route('/profil', name: 'app_profil_index')]
+    #public function index(): Response
+    #{
+    #    return $this->render('profil/profile.html.twig', [
+    #        'controller_name' => 'ProfilController',
+    #    ]);
+    #}
+
+   
 }

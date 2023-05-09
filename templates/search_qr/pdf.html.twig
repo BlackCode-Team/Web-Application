@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if pdf_url %}
+        <p>Cliquez sur le lien suivant pour afficher le fichier PDF:</p>
+        <a href="{{ pdf_url }}">Fichier PDF</a>
+    {% else %}
+        <p>Aucun fichier PDF n'a été généré.</p>
+    {% endif %}
+{% endblock %}

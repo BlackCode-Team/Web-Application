@@ -41,7 +41,7 @@
                   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <div class="r-header-action float-right">
                       <a href="{{path('app_logout')}}"> <img src="{{asset('assets/images/icon-unlock.png')}}" alt='' /> <span>Logout</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route login #}
-                      <a href="" class="r-search"> <img src="{{asset('assets/images/icon-search.png')}}" alt='' /> <span>Search</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route rech #}
+                     <a href="" class="r-search"> <img src="{{asset('assets/images/icon-search.png')}}" alt='' /> <span>Search</span></a>{# hetha fil index bech yetbadel iwali nom ta3 route rech #}
 
                       <div class="r-search-wrapper">
                         <div class="r-search-inner">
@@ -53,6 +53,7 @@
                           </form>
                         </div>
                       </div> <!-- /r-search-wrapper -->
+                    
                     </div>
                     <div class="r-nav-section float-right">
                       <nav>
@@ -63,13 +64,14 @@
                         
                           </li>
                           <li >
-                            <a href="{{path('app_vehicule_index')}}">VEHICLES</a>
+                            <a href="{{path('app_amende_indexfront')}}">Amende</a>
                                            {#lehne ena 7atet links ta3 lpaget html 3adinn ama relement hethom bich yetbadlou bel twig ta3 kol we7ed#} 
                           </li>
                           <li><a href="{{path('app_park_index')}}">PARCS</a></li>
                           <li><a href="{{path('Aff')}}">BADGES</a></li>
                           <li><a href="{{path('app_offres')}}">OFFRES</a></li>
                           <li><a href="{{path('app_reclamation_new')}}">RECLAMATION</a></li>
+                          <li><a href="{{path('app_historique_index')}}">Historique</a></li>
                           
                         </ul>
                       </nav>

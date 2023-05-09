@@ -1,0 +1,8 @@
+oneup_uploader:
+    mappings:
+        gallery:
+            frontend: blueimp
+            storage:
+                type: filesystem
+                directory: '%kernel.project_dir%/public/uploads/images'
+                filesystem: 'local'

@@ -13,35 +13,44 @@ class Vehicule
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups("Vehicules")]
     private ?int $idvehicule= null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("Vehicules")]
     private ?string $status = 'disponible';
 
     #[ORM\Column(length: 255)]
+    #[Groups("Vehicules")]
     private ?string $type=null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("Vehicules")]
     private ?string $modele=null;
 
     #[ORM\Column]
+    #[Groups("Vehicules")]
     private ?int $prix=null;
 
     #[ORM\Column]
+    #[Groups("Vehicules")]
     private ?int $batterie=null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("Vehicules")]
     private ?string $matricule=null;
 
     #[ORM\Column]
+    #[Groups("Vehicules")]
     private ?int $puissance=null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("Vehicules")]
     private ?string $image=null;
 
     #[ORM\ManyToOne(targetEntity: Itineraire::class, inversedBy: 'Vehicule')]
     #[ORM\JoinColumn(name: 'iditineraire', referencedColumnName: 'iditineraire')]
-    private ?Itineraire $itineraire=null;
+    public ?Itineraire $itineraire;
 
     public function getModele(): ?string
     {
@@ -144,28 +153,23 @@ class Vehicule
         return $this;
     }
 
-    public function getItineraire(): ?Itineraire
-    {
-        return $this->itineraire;
-    }
+    // public function getItineraire(): ?Itineraire
+    // {
+    //     return $this->itineraire;
+    // }
 
-    public function setItineraire(?Itineraire $itineraire): self
-    {
-        $this->itineraire = $itineraire;
+    // // public function setItineraire(?Itineraire $itineraire): self
+    // // {
+    // //     $this->itineraire = $itineraire;
 
-        return $this;
-    }
-    public function getIditineraire(): ?int
-    {
-        return $this->iditineraire;
-    }
+    // //     return $this;
+    // // }
+    // public function getIditineraire(): ?int
+    // {
+    //     return $this->iditineraire;
+    // }
 
-    public function setIditineraire(int $iditineraire): self
-    {
-        $this->iditineraire = $iditineraire;
-
-        return $this;
-    }
+   
 
 
 

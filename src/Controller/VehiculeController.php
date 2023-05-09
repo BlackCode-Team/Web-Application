@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Knp\Snappy\Pdf;
 
+
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
@@ -35,6 +36,10 @@ class VehiculeController extends AbstractController
             $vehicules = $vehiculeRepository->findBy([], ['prix' => 'DESC']);
         } else {
             $vehicules = $vehiculeRepository->findAll();
+        }
+
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
         }
     
         $type = $request->query->get('type');
@@ -73,6 +78,10 @@ class VehiculeController extends AbstractController
             $vehicules = $vehiculeRepository->findBy([], ['prix' => 'DESC']);
         } else {
             $vehicules = $vehiculeRepository->findAll();
+        }
+         // Supprimer la chaîne "file:/C:/Users/Rania2/Documents/Web-Application/public/images/" de l'attribut image
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
         }
 
         $type = $request->query->get('type');
@@ -124,6 +133,10 @@ class VehiculeController extends AbstractController
         $totalCars = $vehiculeRepository->getTotalTypeVoiture();
         $totalTrottinette = $vehiculeRepository->getTotalTypeTrottinette();
 
+         // Supprimer la chaîne "file:/C:/Users/Rania2/Documents/Web-Application/public/images/" de l'attribut image
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
+        }
         $type = $request->query->get('type');
         $matricule = $request->query->get('mm');
 
@@ -273,7 +286,11 @@ class VehiculeController extends AbstractController
             $imageFile = $form->get('image')->getData();
             
             // génération d'un nom de fichier unique
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
+           // $newFilename = uniqid().'.'.$imageFile->guessExtension();
+
+           $newFilename = uniqid().'.'.$imageFile->guessExtension();
+            /*$imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+            $vehicule->setImage($imagePath);
 
             // déplacement du fichier dans le dossier public/images
             $imageFile->move(
@@ -283,6 +300,18 @@ class VehiculeController extends AbstractController
 
             // mise à jour de l'attribut "image" de l'objet véhicule
             $vehicule->setImage($newFilename);
+            $vehiculeRepository->save($vehicule, true);*/
+
+            $imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+
+            // déplacement du fichier dans le dossier public/images
+            $imageFile->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+
+            // mise à jour de l'attribut "image" de l'objet véhicule
+            $vehicule->setImage($imagePath);
             $vehiculeRepository->save($vehicule, true);
             return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
         }
@@ -315,7 +344,9 @@ class VehiculeController extends AbstractController
 
     #[Route('/{idvehicule}', name: 'app_vehicule_show', methods: ['GET'])]
     public function show(Vehicule $vehicule): Response
-    {
+    {    
+        $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
+        
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
         ]);
@@ -334,29 +365,54 @@ public function showJSON(int $idvehicule, EntityManagerInterface $entityManager,
 }
 
 
-    #[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository): Response
+#[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
+public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository): Response
+{
+    $form = $this->createForm(VehiculeType::class, $vehicule);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $imageFile = $form->get('image')->getData();
+        $newFilename = uniqid().'.'.$imageFile->guessExtension();
+        $imageFile->move(
+            $this->getParameter('images_directory'),
+            $newFilename
+        );
+        $imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+
+        // chemin complet de l'image
+       // $imagePath = 'file:/' . $this->getParameter('images_directory') . '/' . $newFilename;
+        // mise à jour de l'attribut "image" de l'objet véhicule
+        $vehicule->setImage($imagePath);
+        $vehiculeRepository->save($vehicule, true);
+        return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
+    }
+    return $this->renderForm('vehicule/edit.html.twig', [
+        'vehicule' => $vehicule,
+        'form' => $form,
+    ]);
+}
+
+    #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
+    public function editJSON( EntityManagerInterface $entityManager,Request $request, int $idvehicule, VehiculeRepository $vehiculeRepository, SerializerInterface $serializer): Response
     {
-        $form = $this->createForm(VehiculeType::class, $vehicule);
-        $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    //    $vehicule->setImage($request->get('image'));
+    //    $vehicule->setMatricule($request->get('matricule'));
+    //     $vehicule->setModele($request->get('modele'));
+        $vehicule->setType($request->get('type'));
+        $vehicule->setPrix($request->get('prix'));
+        $vehicule->setPuissance($request->get('puissance'));
+        
+        $entityManager->flush();
+      
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['image']->getData();
-            $imageFile = $form->get('image')->getData();
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
-            $imageFile->move(
-                $this->getParameter('images_directory'),
-                $newFilename
-            );
-            $vehicule->setImage($newFilename);
-            $vehiculeRepository->save($vehicule, true);
-
-            return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
-        }
-        return $this->renderForm('vehicule/edit.html.twig', [
-            'vehicule' => $vehicule,
-            'form' => $form,
-        ]);
+    $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+    return new Response($json, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+        
     }
 
     #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]

@@ -27,6 +27,15 @@ use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Label\Font\NotoSans;
 use Symfony\Component\Security\Core\Security;
+use App\Repository\ItineraireRepository;
+use Knp\Component\Pager\PaginatorInterface;
+
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+
+use Symfony\Component\Serializer\SerializerInterface;
+
+use Doctrine\ORM\EntityManagerInterface;
 
 
 #[Route('/reservation')]
@@ -40,7 +49,38 @@ class ReservationController extends AbstractController
     //     ]);
     // }
     #[Route('/', name: 'app_reservation_index', methods: ['GET'])]
-    public function index(ReservationRepository $reservationRepository): Response
+    public function index(Request $request, ReservationRepository $reservationRepository,PaginatorInterface $paginator): Response
+    {
+        $reservations = $reservationRepository->findAll();
+        
+        foreach ($reservations as $reservation) 
+        {
+            $currentDate = date('Y-m-d H:i:s');
+            $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
+            $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+
+            $currentDate = strtotime($currentDate);
+            
+            if ($currentDate > $endDate) {
+                $reservation->setStatus('Termine');
+            } else {
+                $reservation->setStatus('En cours');
+            }
+            $reservationRepository->save($reservation, true);
+        }
+
+        $reservations = $paginator->paginate(
+            $reservations, 
+            $request->query->getInt('page', 1), 
+            5
+        );
+        
+        return $this->render('reservation/index.html.twig', [
+            'reservations' => $reservations,
+        ]);
+    }
+    #[Route('/jsonall', name: 'app_reservation_json', methods: ['GET'])]
+    public function jsonindex(ReservationRepository $reservationRepository, SerializerInterface $serializer): Response
     {
         $reservations = $reservationRepository->findAll();
         
@@ -60,14 +100,36 @@ class ReservationController extends AbstractController
             $reservationRepository->save($reservation, true);
         }
         
-        return $this->render('reservation/index.html.twig', [
-            'reservations' => $reservations,
+        // Debugging statement - check the number of parks returned by the query
+        dump(count($reservations));
+        
+        $json = $serializer->serialize($reservations, 'json', ['Groups' => 'reservations']);
+        
+        // Debugging statement - check the content of $parksNormalises
+        dump($json);
+    
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
         ]);
     }
+    //////////////////////////////////::::
+    #[Route('/{idreservation}/recjson', name: 'app_reservation_show_JSON', methods: ['GET'])]
+    public function showJSON(Reservation $reservation,ReservationRepository $reservationRepository, EntityManagerInterface $entityManager , SerializerInterface $serializer,int $idreservation): Response
+    {
+        $reservationRepository = $entityManager->getRepository(Reservation::class);
+        dump($idreservation);
+        $reservation = $reservationRepository->find($idreservation);
+         dump($reservation);
+         $json = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+     }
     
     #[Route('/new/{idvehicule}', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule,Security $security): Response
-    {$user = $security->getUser();
+    public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule,Security $security,ItineraireRepository $itineraireRepository): Response
+    {
+        $user = $security->getUser();
         $vehicule = $this->getDoctrine()->getRepository(Vehicule::class)->find($idvehicule);
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -77,10 +139,16 @@ class ReservationController extends AbstractController
         $historique = new Historique();
         $historique->setReservation($reservation);
         $historiqueRepository->save($historique, true);
-     
+        $reservation->setUtilisateur($user);
+        $itineraires = $itineraireRepository->find(5);
+         $reservation->setItineraire($itineraires);
+        $reservation->setVehicule($vehicule);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($reservation);
+        $entityManager->flush();
      //   $form->get('prixreservation')->setData($totalPrice);
-        $form->get('vehicule')->setData(null);
-     
+        // $form->get('vehicule')->setData(null);
+
         return $this->redirectToRoute('app_reservation_editPrix', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
     }
         return $this->renderForm('reservation/new.html.twig', [
@@ -99,6 +167,14 @@ class ReservationController extends AbstractController
             'reservation' => $reservation,
         ]);
     }
+
+    #[Route('/back/{idreservation}', name: 'app_reservation_showback', methods: ['GET'])]
+    public function showadmin(Reservation $reservation): Response
+    {
+        return $this->render('reservation/showadmin.html.twig', [
+            'reservation' => $reservation,
+        ]);
+    }
     #[Route('/{idreservation}/editPrix', name: 'app_reservation_editPrix', methods: ['GET', 'POST'])]
     public function editPrix(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
     {
@@ -109,8 +185,11 @@ class ReservationController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($reservation);
+            $entityManager->flush();
 
-            return $this->redirectToRoute('app_reservation_show', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
+           // return $this->redirectToRoute('app_reservation_show', ['idreservation' => $reservation->getIdreservation()], Response::HTTP_SEE_OTHER);
         }
             return $this->renderForm('reservation/confirmation.html.twig', [
                 'reservation' => $reservation,
@@ -194,7 +273,7 @@ $timePrice = ($diffDays * 24 * $reservation->getVehicule()->getPrix()) + ($diffM
     // }
 
     #[Route('/filtre/status', name: 'reservation_filter' ,methods: ['GET'])]
-    public function filter(Request $request)
+    public function filter(Request $request,PaginatorInterface $paginator)
     {
         $status = $request->query->get('status');
         if ($status=='Tous') {
@@ -206,15 +285,28 @@ $timePrice = ($diffDays * 24 * $reservation->getVehicule()->getPrix()) + ($diffM
             ->getRepository(Reservation::class)
             ->findBy(['status' => $status]);
                 }
+
+                $reservations = $paginator->paginate(
+                    $reservations, 
+                    $request->query->getInt('page', 1), 
+                    5
+                );
         return $this->render('reservation/index.html.twig', [
             'reservations' => $reservations,
         ]);
     }
 
     #[route('/Search/a',name:'search',methods: ['GET'])]
-    function search(ReservationRepository $repo,Request $request ){
+    function search(ReservationRepository $repo,Request $request ,PaginatorInterface $paginator){
      $cinUtilisateur = $request->get('mm');
      $reservations=$repo->SearchBy($cinUtilisateur);
+
+     $reservations = $paginator->paginate(
+        $reservations, 
+        $request->query->getInt('page', 1), 
+        5
+    );
+
      return $this->render('reservation/index.html.twig', [
         'reservations' => $reservations,
     ]);

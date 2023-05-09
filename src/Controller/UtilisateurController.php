@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 #[Route('/utilisateur', name: 'app_utilisateur')]
 class UtilisateurController extends AbstractController
@@ -83,33 +84,5 @@ class UtilisateurController extends AbstractController
         return $this->redirectToRoute('app_utilisateur_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/block', name: 'app_utilisateur_block', methods: ['GET'])]
-    public function showBlock(UtilisateurRepository $utilisateurRepository): Response
-    {
-        $utilisateurs = $utilisateurRepository->findBy(['role' => 'client']);
-
-        return $this->render('utilisateur/block.html.twig', [
-            'utilisateurs' => $utilisateurs,
-        ]);
-    }
-    /**
-         * @Route("/block-user/{iduser}", name="block_user")
-         */
     
-    public function blockUser(Request $request, UtilisateurRepository $utilisateurRepository, Utilisateur $user): Response
-    {
-        $utilisateurRepository->updateIsBlocked($user, true);
-
-        return $this->redirectToRoute('app_utilisateur_block');
-    }
-
-   /**
-   * @Route("/unblock-user/{iduser}", name="unblock_user")
-   */
-    public function unblockUser(Request $request, UtilisateurRepository $userRepository, Utilisateur $user): Response
-    {
-        $userRepository->updateIsBlocked($user, false);
-
-        return $this->redirectToRoute('app_utilisateur_block');
-    }
 }
