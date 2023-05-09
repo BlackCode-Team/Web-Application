@@ -62,3 +62,34 @@ profil_edit:
     methods: ['GET', 'POST']
     requirements:
         iduser: '\d+'
+list:
+    path: /allBadges
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\BadgeController::getBadges
+
+listt:
+    path: /allOffres
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\OffreController::getOffres
+
+app_badge_show:
+    path: '/badgeJson/{idbadge}'
+    controller: App\Controller\BadgeController::BadgeId
+    methods: ['GET', 'POST']
+ajouter_badge:
+    path: '/ajouterBadgeJson/new'
+    controller: App\Controller\BadgeController::ajouterBadgeJson
+    methods: ['GET', 'POST']
+
+modifier_badge_json:
+  path: '/modifierBadgeJSON/{idbadge}'
+  controller: App\Controller\BadgeController::modifierBadgeJson
+  methods: ['GET', 'POST']
+
+supprimer_badge_json:
+  path: '/supprimerBadgeJson/{idbadge}'
+  controller: App\Controller\BadgeController::supprimerBadgeJson
+  methods: ['GET', 'POST']
+
