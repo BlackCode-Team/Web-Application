@@ -11,7 +11,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <form class="form-inline" method="get" action="{{ path('amende_filter') }}">
+        <form class="form-inline" method="get" action="{{ path('search2') }}">
           <div class="form-group">
             <label class="sr-only" for="input-search">Recherche</label>
             <input type="text" class="form-control" id="input-search" name="search" placeholder="Entrez le numéro de l'amende">
@@ -42,7 +42,8 @@
             <th>Date de creation</th>
             <th>Montant</th>
             <th>Cause</th>
-            <th>Description</th>
+            <th>Description</th>     
+            <th>Status Amende</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -54,8 +55,8 @@
             <td>{{ amende.montant }}</td>
             <td>{{ amende.cause }}</td>
             <td>{{ amende.description }}</td>
-            <td>
-              <a class="btn btn-sm btn-primary" href="{{ path('app_amende_showback', {'idamende': amende.idamende}) }}">Voir</a>
+            <td>{{ amende.statusamende }}</td>
+             <td> <a class="btn btn-sm btn-primary" href="{{ path('app_amende_showback', {'idamende': amende.idamende}) }}">Voir</a>
               <a class="btn btn-sm btn-warning" href="{{ path('app_amende_edit', {'idamende': amende.idamende}) }}">Modifier</a>
             </td>
           </tr>

@@ -155,17 +155,17 @@ class Vehicule
 
         return $this;
     }
-    public function getIditineraire(): ?int
-    {
-        return $this->iditineraire;
-    }
+    // public function getIditineraire(): ?int
+    // {
+    //     return $this->iditineraire;
+    // }
 
-    public function setIditineraire(int $iditineraire): self
-    {
-        $this->iditineraire = $iditineraire;
+    // public function setIditineraire(int $iditineraire): self
+    // {
+    //     $this->iditineraire = $iditineraire;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
 
 

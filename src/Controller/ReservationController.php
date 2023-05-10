@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Controller;
-
+use DateTime;
 use App\Entity\Reservation;
+use App\Entity\Itineraire;
+
 use App\Entity\Offre;
 use App\Entity\Utilisateur;
 use App\Entity\Vehicule;
@@ -29,9 +31,9 @@ use Endroid\QrCode\Label\Font\NotoSans;
 use Symfony\Component\Security\Core\Security;
 use App\Repository\ItineraireRepository;
 use Knp\Component\Pager\PaginatorInterface;
-
-
-
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Doctrine\ORM\EntityManagerInterface;
 
 #[Route('/reservation')]
 class ReservationController extends AbstractController
@@ -327,4 +329,242 @@ public function generatePdfa(Reservation $reservation = null, PdfService $pdf) {
    
     //     return $this->render('reservation/qr.html.twig', $qrCodes);
     // }
+    #[Route('/jsonall/a', name: 'app_reservation_json', methods: ['GET'])]
+    public function jsonindex(ReservationRepository $reservationRepository, SerializerInterface $serializer): Response
+    {
+        $reservations = $reservationRepository->findAll();
+
+        foreach ($reservations as $reservation) 
+        {
+            $currentDate = date('Y-m-d H:i:s');
+            $startDate = strtotime($reservation->getDatedebut()->format('Y-m-d H:i:s'));
+            $endDate = strtotime($reservation->getDatefin()->format('Y-m-d H:i:s'));
+
+            $currentDate = strtotime($currentDate);
+
+            if ($currentDate > $endDate) {
+                $reservation->setStatus('Termine');
+            } else {
+                $reservation->setStatus('En cours');
+            }
+            $reservationRepository->save($reservation, true);
+        }
+
+        // Debugging statement - check the number of reservations returned by the query
+        dump(count($reservations));
+
+        $json = $serializer->serialize($reservations, 'json', ['Groups' => 'reservations']);
+
+        // Debugging statement - check the content of $reservationsNormalises
+        dump($json);
+
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+    
+    #[Route('/newres/JSON/', name: 'app_reservation_new_JSON', methods: ['GET', 'POST'])]
+    public function newJSON(Request $req, SerializerInterface $serializer)
+    {
+        $reservation = new Reservation();
+
+        $datedebut = DateTime::createFromFormat('Y-m-d H:i:s', $req->get('datedebut'));
+        $datefin = DateTime::createFromFormat('Y-m-d H:i:s', $req->get('datefin'));
+    
+        $reservation->setDatedebut($datedebut);
+        $reservation->setDatefin($datefin);
+    
+        $reservation->setStatus($req->get('status'));
+        $reservation->setPrixreservation($req->get('prixreservation'));
+$vehicule = $this->getDoctrine()->getRepository(Vehicule::class)->find($req->get('idvehicule'));
+$reservation->setVehicule($vehicule);
+$itineraire = $this->getDoctrine()->getRepository(Itineraire::class)->find($req->get('iditineraire'));
+$reservation->setItineraire($itineraire);
+$utilisateur = $this->getDoctrine()->getRepository(Utilisateur::class)->find($req->get('idutilisateur'));
+$reservation->setUtilisateur($utilisateur);
+
+        //  $reservation->setItineraire($req->get('itineraire'));
+
+        // $reservation->setUtilisateur($req->get('utilisateur'));
+
+        //  $reservation->setItineraire($itineraires);
+        // $reservation->setVehicule($vehicule);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($reservation);
+        $entityManager->flush(); 
+    
+        $json = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+}
+
+
+  
+    #[Route('/JSON/{idreservation}', name: 'app_reservation_show_JSON', methods: ['GET'])]
+    public function showJSON(Reservation $reservation,ReservationRepository $reservationRepository, EntityManagerInterface $entityManager , SerializerInterface $serializer,int $idreservation): Response
+    {
+        $reservationRepository = $entityManager->getRepository(Reservation::class);
+        $reservation = $reservationRepository->find($idreservation);
+                $jsonContent = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+                
+        return new Response($jsonContent, 200, [
+            'Content-Type' => 'application/json'
+        ]);   
+     }        
+
+    #[Route('/back/JSON/{idreservation}', name: 'app_reservation_showback_JSON', methods: ['GET'])]
+    public function showadminJSON(Reservation $reservation): Response
+    {
+        return $this->render('reservation/showadmin.html.twig', [
+            'reservation' => $reservation,
+        ]);
+    }
+    #[Route('/JSON/{idreservation}/editPrix', name: 'app_reservation_editPrix_JSON', methods: ['GET', 'POST'])]
+public function editPrixJSON(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): JsonResponse
+{
+    $totalPrice = $this->calculateTotalPrice($reservation);
+    $a=intval($totalPrice);
+    $reservation->setPrixreservation($a);
+    $form = $this->createForm(ReservationType::class, $reservation);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $reservationRepository->save($reservation, true);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($reservation);
+        $entityManager->flush();
+    }
+    return $this->json([
+        'reservation' => $reservation,
+        'form' => $form->createView(),
+    ]);
+}
+
+#[Route('/JSON/edit/{idreservation}', name: 'app_reservation_edit_JSON', methods: ['GET', 'POST'])]
+public function editJSON(Request $req,int $idreservation, Reservation $reservation, ReservationRepository $reservationRepository,SerializerInterface $serializer)
+{
+    $em = $this->getDoctrine()->getManager();
+    $reservation = $em->getRepository(reservation::class)->find($idreservation);
+ 
+    $datedebut = DateTime::createFromFormat('Y-m-d H:i:s', $req->get('datedebut'));
+    $datefin = DateTime::createFromFormat('Y-m-d H:i:s', $req->get('datefin'));
+
+    $reservation->setDatedebut($datedebut);
+    $reservation->setDatefin($datefin);
+
+    $reservation->setStatus($req->get('status'));
+    $reservation->setPrixreservation($req->get('prixreservation'));
+
+    $em->flush();
+
+    $jsonContent = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+    return new Response("reservation updated successfully " . json_encode($jsonContent));
+}
+
+
+#[Route('/deleteJSON/{idreservation}', name: 'app_reservation_delete_JSON')]
+public function deleteJSON(Request $request, int $idreservation,Reservation $reservation, ReservationRepository $reservationRepository, SerializerInterface $serializer)
+{
+
+    $em = $this->getDoctrine()->getManager();
+    $reservation = $em->getRepository(reservation::class)->find($idreservation);
+    $em->remove($reservation);
+    $em->flush();
+    $jsonContent = $serializer->serialize($reservation, 'json', ['Groups' => 'reservations']);
+    return new Response("reservation deleted successfully " . json_encode($jsonContent));
+}
+
+#[Route('/JSON/tarif/{idreservation}', methods: ['GET'])]
+public function calculateTotalPriceJSON(Reservation $reservation): JsonResponse
+{
+    // Get the base price from the reservation object
+    $basePrice = 5;
+
+    // Calculate the price based on the time of rental
+    $datedebut = ($reservation->getDatedebut());
+    $datefin = ($reservation->getDatefin());
+
+    // Difference en jours
+    $diffDays = $datedebut->diff($datefin)->days;
+
+    // Difference en minutes
+    $diffMinutes = $datedebut->diff($datefin)->format('%i');
+
+    // Calcul du prix
+    $timePrice = ($diffDays * 24 * $reservation->getVehicule()->getPrix()) + ($diffMinutes * $reservation->getVehicule()->getPrix() / 60)+$reservation->getDatedebut()->diff($reservation->getDatefin())->h * $reservation->getVehicule()->getPrix();
+
+    // Calculate the price based on the distance traveled
+    $distancePrice = $reservation->getItineraire()->getkilometrage() * $reservation->getVehicule()->getPrix();
+
+    // Calculate the total price
+    $totalPrice = $basePrice + $timePrice + $distancePrice;
+
+    return $this->json(['totalPrice' => (int)$totalPrice]);
+}
+
+#[Route('/filtre/status/JSON', name: 'reservation_filter_json', methods: ['GET'])]
+public function filterJSON(Request $request, PaginatorInterface $paginator)
+{
+$status = $request->query->get('status');
+if ($status == 'Tous') {
+$reservations = $this->getDoctrine()->getRepository(Reservation::class)->findAll();
+} else {
+$reservations = $this->getDoctrine()->getRepository(Reservation::class)->findBy(['status' => $status]);
+}
+
+$reservations = $paginator->paginate(
+    $reservations,
+    $request->query->getInt('page', 1),
+    5);
+}
+
+
+#[Route('/Search/a/JSON', name: 'reservation_search_json', methods: ['GET'])]
+public function searchJSON(ReservationRepository $repo, Request $request, PaginatorInterface $paginator)
+{
+$cinUtilisateur = $request->get('mm');
+$reservations = $repo->SearchBy($cinUtilisateur);
+$reservations = $paginator->paginate(
+    $reservations,
+    $request->query->getInt('page', 1),
+    5
+);
+$responseArray = [];
+foreach ($reservations as $reservation) {
+    $reservationArray = [
+        'id' => $reservation->getId(),
+        'nom' => $reservation->getNom(),
+        'prenom' => $reservation->getPrenom(),
+        'email' => $reservation->getEmail(),
+        'telephone' => $reservation->getTelephone(),
+        'date' => $reservation->getDate()->format('Y-m-d H:i:s'),
+        'nombrePersonnes' => $reservation->getNombrePersonnes(),
+        'status' => $reservation->getStatus(),
+    ];
+    array_push($responseArray, $reservationArray);
+}
+$response = new JsonResponse($responseArray);
+return $response;
+}
+
+#[Route('/pdf/{idreservation}/JSON', name: 'reservation_pdf_json', methods: ['GET'])]
+public function generatePdfaJSON(Reservation $reservation = null, PdfService $pdf)
+{
+$writer = new PngWriter();
+$randomCode = uniqid(); // generate a random code
+$qrCode = QrCode::create($randomCode)
+->setEncoding(new Encoding('UTF-8'))
+->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+->setSize(120)
+->setMargin(0)
+->setForegroundColor(new Color(0, 0, 0))
+->setBackgroundColor(new Color(255, 255, 255));
+// $logo = Logo::create($this->getParameter('kernel.project_dir').'/public/img/qr.jpg')
+// ->setResizeToWidth(60);
+$label = Label::create('')->setFont(new NotoSans(8));
+
+
+}
+
 }
