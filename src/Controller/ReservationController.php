@@ -77,6 +77,9 @@ class ReservationController extends AbstractController
         ]);
     }
     
+    //////////////////////////////////::::
+
+    
     #[Route('/new/{idvehicule}', name: 'app_reservation_new', methods: ['GET', 'POST'])]
     public function new(Request $request,HistoriqueRepository $historiqueRepository, ReservationRepository $reservationRepository, int $idvehicule,Security $security,ItineraireRepository $itineraireRepository): Response
     {

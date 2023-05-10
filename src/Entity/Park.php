@@ -13,18 +13,23 @@ class Park
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups("parks")]
     private ?int $idpark= null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("parks")]
     private ?string $nom= null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("parks")]
     private ?string $ville= null;
 
     #[ORM\Column]
+    #[Groups("parks")]
     private ?int $nbspot= null;
 
     #[ORM\Column(length: 255)]
+    #[Groups("parks")]
     private ?string $statut= null;
 
     public function getIdpark(): ?int

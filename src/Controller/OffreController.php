@@ -39,6 +39,8 @@ class OffreController extends AbstractController
             'util' => $offres, 'searchValue' => $requestString
         ]);
     }
+  
+
 
     #[Route('/new', name: 'app_offre_new', methods: ['GET', 'POST'])]
     public function new(FlashyNotifier $flashy,Request $request, OffreRepository $offreRepository): Response

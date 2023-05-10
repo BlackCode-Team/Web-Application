@@ -63,13 +63,13 @@ class ParkRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Park
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   public function findOneByid(int $id): ?Park
+   {
+       return $this->createQueryBuilder('p')
+           ->andWhere('p.idpark = :idpark')
+           ->setParameter('idpark', $id)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
 }

@@ -15,7 +15,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Knp\Snappy\Pdf;
+
 
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
@@ -34,6 +37,10 @@ class VehiculeController extends AbstractController
         } else {
             $vehicules = $vehiculeRepository->findAll();
         }
+
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
+        }
     
         $type = $request->query->get('type');
         if ($type && $type != 'Tous') {
@@ -50,8 +57,16 @@ class VehiculeController extends AbstractController
             'vehicules' => $vehicules,
             'sort' => $sort,
         ]);
+    } 
+    #[Route('/JSON', name: 'app_vehicule_indexJSON', methods: ['GET'])]
+    public function indexJSON(VehiculeRepository $repo, SerializerInterface $serializer): Response
+    {
+        $vehicules=$repo->findAll();
+        $json=$serializer->serialize($vehicules,'json',['Groups'=>"vehicules"]);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
     }
-    
 
     #[Route('/indexback', name: 'app_vehicule_indexback', methods: ['GET'])]
     public function indexbackkk(Request $request, VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator): Response
@@ -63,6 +78,10 @@ class VehiculeController extends AbstractController
             $vehicules = $vehiculeRepository->findBy([], ['prix' => 'DESC']);
         } else {
             $vehicules = $vehiculeRepository->findAll();
+        }
+         // Supprimer la chaîne "file:/C:/Users/Rania2/Documents/Web-Application/public/images/" de l'attribut image
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
         }
 
         $type = $request->query->get('type');
@@ -114,6 +133,10 @@ class VehiculeController extends AbstractController
         $totalCars = $vehiculeRepository->getTotalTypeVoiture();
         $totalTrottinette = $vehiculeRepository->getTotalTypeTrottinette();
 
+         // Supprimer la chaîne "file:/C:/Users/Rania2/Documents/Web-Application/public/images/" de l'attribut image
+        foreach ($vehicules as $vehicule) {
+            $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
+        }
         $type = $request->query->get('type');
         $matricule = $request->query->get('mm');
 
@@ -263,7 +286,11 @@ class VehiculeController extends AbstractController
             $imageFile = $form->get('image')->getData();
             
             // génération d'un nom de fichier unique
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
+           // $newFilename = uniqid().'.'.$imageFile->guessExtension();
+
+           $newFilename = uniqid().'.'.$imageFile->guessExtension();
+            /*$imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+            $vehicule->setImage($imagePath);
 
             // déplacement du fichier dans le dossier public/images
             $imageFile->move(
@@ -273,8 +300,20 @@ class VehiculeController extends AbstractController
 
             // mise à jour de l'attribut "image" de l'objet véhicule
             $vehicule->setImage($newFilename);
+            $vehiculeRepository->save($vehicule, true);*/
+
+            $imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+
+            // déplacement du fichier dans le dossier public/images
+            $imageFile->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+
+            // mise à jour de l'attribut "image" de l'objet véhicule
+            $vehicule->setImage($imagePath);
             $vehiculeRepository->save($vehicule, true);
-            return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
         }
         return $this->renderForm('vehicule/new.html.twig', [
             'vehicule' => $vehicule,
@@ -282,47 +321,121 @@ class VehiculeController extends AbstractController
         ]);
     }
 
+    #[Route('/newJSON', name: 'app_vehicule_newJSON', methods: ['GET', 'POST'])]
+    public function newJSON(Request $request, VehiculeRepository $vehiculeRepository,NormalizerInterface $Normalizer, SerializerInterface $serializer): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $vehicule = new vehicule();
+            $vehicule->setImage($request->get('image'));
+            $vehicule->setMatricule($request->get('matricule'));
+            $vehicule->setModele($request->get('modele'));
+            $vehicule->setType($request->get('type'));
+            $vehicule->setPrix($request->get('prix'));
+            $vehicule->setPuissance($request->get('puissance'));
+            $vehicule->setStatus ($request->get('status'));
+
+            $em->persist($vehicule);
+            $em->flush();  
+        $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
 
     #[Route('/{idvehicule}', name: 'app_vehicule_show', methods: ['GET'])]
     public function show(Vehicule $vehicule): Response
-    {
+    {    
+        $vehicule->setImage(str_replace("file:/C:/Users/Rania2/Documents/Web-Application/public/images/", "", $vehicule->getImage()));
+        
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
         ]);
     }
 
-    /*#[Route('/{idvehicule}', name: 'app_vehicule_reserver', methods: ['GET'])]
-    public function reserver(Vehicule $vehicule): Response
-    {
-        return $this->render('vehicule/index.html.twig', [
-            'vehicule' => $vehicule,
-        ]);
-    }*/
+    #[Route('/showJSON/{idvehicule}', name: 'app_vehicule_showJSON', methods: ['GET'])]
+public function showJSON(int $idvehicule, EntityManagerInterface $entityManager, SerializerInterface $serializer): Response
+{
+    $entityManager = $this->getDoctrine()->getManager();
+    $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    $jsonContent = $serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
 
-    #[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository): Response
-    {
-        $form = $this->createForm(VehiculeType::class, $vehicule);
-        $form->handleRequest($request);
+    return new Response($jsonContent, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+}
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['image']->getData();
-            $imageFile = $form->get('image')->getData();
-            $newFilename = uniqid().'.'.$imageFile->guessExtension();
-            $imageFile->move(
-                $this->getParameter('images_directory'),
-                $newFilename
-            );
-            $vehicule->setImage($newFilename);
-            $vehiculeRepository->save($vehicule, true);
 
-            return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
-        }
-        return $this->renderForm('vehicule/edit.html.twig', [
-            'vehicule' => $vehicule,
-            'form' => $form,
-        ]);
+#[Route('/{idvehicule}/edit', name: 'app_vehicule_edit', methods: ['GET', 'POST'])]
+public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository): Response
+{
+    $form = $this->createForm(VehiculeType::class, $vehicule);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $imageFile = $form->get('image')->getData();
+        $newFilename = uniqid().'.'.$imageFile->guessExtension();
+        $imageFile->move(
+            $this->getParameter('images_directory'),
+            $newFilename
+        );
+        $imagePath = 'file:/C:/Users/Rania2/Documents/Web-Application/public/images/' . $newFilename;
+
+        // chemin complet de l'image
+       // $imagePath = 'file:/' . $this->getParameter('images_directory') . '/' . $newFilename;
+        // mise à jour de l'attribut "image" de l'objet véhicule
+        $vehicule->setImage($imagePath);
+        $vehiculeRepository->save($vehicule, true);
+        return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
     }
+    return $this->renderForm('vehicule/edit.html.twig', [
+        'vehicule' => $vehicule,
+        'form' => $form,
+    ]);
+}
+
+    #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
+    public function editJSON( EntityManagerInterface $entityManager,Request $request, int $idvehicule, VehiculeRepository $vehiculeRepository, SerializerInterface $serializer): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    //    $vehicule->setImage($request->get('image'));
+    //    $vehicule->setMatricule($request->get('matricule'));
+    //     $vehicule->setModele($request->get('modele'));
+        $vehicule->setType($request->get('type'));
+        $vehicule->setPrix($request->get('prix'));
+        $vehicule->setPuissance($request->get('puissance'));
+        
+        $entityManager->flush();
+      
+
+    $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+    return new Response($json, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+        
+    }
+
+  /*  #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
+    public function editJSON( EntityManagerInterface $entityManager,Request $request, int $idvehicule, VehiculeRepository $vehiculeRepository, SerializerInterface $serializer): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+    //    $vehicule->setImage($request->get('image'));
+    //    $vehicule->setMatricule($request->get('matricule'));
+    //     $vehicule->setModele($request->get('modele'));
+        $vehicule->setType($request->get('type'));
+        $vehicule->setPrix($request->get('prix'));
+        $vehicule->setPuissance($request->get('puissance'));
+        
+        $entityManager->flush();
+      
+
+    $json=$serializer->serialize($vehicule, 'json', ['Groups' => 'vehicules']);
+    return new Response($json, 200, [
+        'Content-Type' => 'application/json'
+    ]);
+        
+    }*/
 
     
     #[Route('/{idvehicule}', name: 'app_vehicule_delete', methods: ['POST'])]
@@ -333,9 +446,22 @@ class VehiculeController extends AbstractController
         $entityManager->remove($vehicule);
         $entityManager->flush();        }
 
-        return $this->redirectToRoute('app_vehicule_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_vehicule_back', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/deleteJSON/{idvehicule}', name: 'app_vehicule_deleteJSON')]
+    public function deleteJSON(int $idvehicule, Request $request, Vehicule $vehicule, VehiculeRepository $vehiculeRepository,SerializerInterface $serializer): Response
+    {
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $vehicule = $entityManager->getRepository(Vehicule::class)->find($idvehicule);
+        $entityManager->remove($vehicule);
+        $entityManager->flush();
+        $jsonContent =$serializer-> serialize($vehicule,'json',['Groups'=>'vehicules']);
+        return new Response("Vehicule supprimé" . json_encode($jsonContent));
+            
+
+    }
   
    #[Route('/filtre/type', name: 'vehicule_filter' ,methods: ['GET'])]
     public function filter(Request $request)
@@ -354,8 +480,6 @@ class VehiculeController extends AbstractController
             'vehicules' => $vehicules,
         ]);
     }
-
-   
 
     private VehiculeRepository $vehiculeRepository;
     private Pdf $pdfGenerator;

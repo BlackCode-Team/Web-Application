@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; 
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[Route('/badge')]
 class BadgeController extends AbstractController
@@ -27,7 +28,7 @@ class BadgeController extends AbstractController
             'badges' => $badges,
         ]);
     }
-    
+ 
     #[Route('/search', name: 'search', methods: ['GET', 'POST'])]
     public function searchBadge(Request $request)
     {
@@ -70,7 +71,62 @@ class BadgeController extends AbstractController
 
     ]);
 }
+#[Route('/allBadges',name:"list")]
+    public function getBadges(BadgeRepository $badgeRepository, NormalizerInterface $normalizer)
+    {
+        $badges= $badgeRepository->findAll();
+        $badgeNormalizer=$normalizer->normalize($badges,'json',['groups'=>"badges"]);
+        $json=json_encode($badgeNormalizer);
+        return new Response($json);
+    }
 
+    #[Route('/badgeJson/{idbadge}',name:"badge")]
+    public function BadgeId($idbadge,NormalizerInterface $normalizer,BadgeRepository $badgeRepository)
+    {
+        $badge=$badgeRepository->find($idbadge);
+        $badgeNormaliz=$normalizer->normalize($badge,'json',['groups',"badges"]);
+        return new Response(json_encode($badgeNormaliz));
+    }
+
+    #[Route('/ajouterBadgeJson/new',name:'ajoutBadgeJson')]
+    public function ajouterBadgeJson(Request $req, NormalizerInterface $normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $badge= new Badge();
+        $badge->setTypebadge($req->get('typebadge'));
+        $badge->setNbpoint($req->get('nbpoint'));
+        $em->persist($badge);
+        $em->flush();
+
+        $jsonContent = $normalizer->normalize($badge,'json',['groups'=>'badges']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    #[Route('modifierBadgeJSON/{idbadge}',name:"modifierBadgeJSON")]
+    public function modifierBadgeJson(Request $req, $idbadge, NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $badge=$em->getRepository(Badge::class)->find($idbadge);
+        $badge->setTypebadge($req->get('typebadge'));
+        $badge->setNbpoint($req->get('nbpoint'));
+        $em->flush();
+
+        $jsonContent = $normalizer->normalize($badge,'json',['groups'=>'badges']);
+        return new Response("badge modifié avec succés".json_encode($jsonContent));
+
+    }
+
+    #[Route('supprimerBadgeJson/{idbadge}',name:"supprimerBadgeJosn")]
+    public function supprimerBadgeJson(Request $req, $idbadge, NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $badge=$em->getRepository(Badge::class)->find($idbadge);
+        $em->remove($badge);
+        $em->flush();
+        $jsonContent = $normalizer->normalize($badge,'json',['groups'=>'badges']);
+        return new Response("badge supprimé avec succés".json_encode($jsonContent));
+
+    }
 
     #[Route('/new', name: 'app_badge_new', methods: ['GET', 'POST'])]
     public function new(Request $request, BadgeRepository $badgeRepository): Response

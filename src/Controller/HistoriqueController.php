@@ -20,14 +20,12 @@ class HistoriqueController extends AbstractController
     public function index(HistoriqueRepository $historiqueRepository,Security $security): Response
     {        $user = $security->getUser();    
             $cin = $user ? $user->getCin() : null;
-            echo"$cin";
         return $this->render('historique/index.html.twig', [
             'historiques' => $historiqueRepository->findall(),
             'cin' => $cin,
 
         ]);
     }
-
     #[Route('/new', name: 'app_historique_new', methods: ['GET', 'POST'])]
     public function new(Request $request, HistoriqueRepository $historiqueRepository): Response
     {
