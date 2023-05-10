@@ -39,6 +39,11 @@ class AmendeRepository extends ServiceEntityRepository
         }
     }
 
+    function SearchBy($num){
+        $req = $this->createQueryBuilder('s')
+         ->where('s.num LIKE :mm')
+         ->setParameter('mm', '%'.$num.'%'); 
+        return $req->getQuery()->getResult();}
 //    /**
 //     * @return Amende[] Returns an array of Amende objects
 //     */

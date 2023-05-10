@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Repository;
 use App\Repository\BadgeRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: BadgeRepository::class)]
 
@@ -19,12 +20,15 @@ class Badge
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups("badges")]
     private ?int $idbadge=null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups("badges")]
     private $typebadge;
 
     #[ORM\Column(nullable:false)]
+    #[Groups("badges")]
     private $nbpoint;
 
     public function getIdbadge(): ?int
