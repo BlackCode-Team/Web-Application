@@ -415,7 +415,7 @@ public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $v
         
     }
 
-    #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
+  /*  #[Route('/editJSON/{idvehicule}', name: 'app_vehicule_editJSON')]
     public function editJSON( EntityManagerInterface $entityManager,Request $request, int $idvehicule, VehiculeRepository $vehiculeRepository, SerializerInterface $serializer): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -435,7 +435,7 @@ public function edit(Request $request, Vehicule $vehicule, VehiculeRepository $v
         'Content-Type' => 'application/json'
     ]);
         
-    }
+    }*/
 
     
     #[Route('/{idvehicule}', name: 'app_vehicule_delete', methods: ['POST'])]
