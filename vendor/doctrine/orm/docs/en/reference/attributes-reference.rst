@@ -368,6 +368,7 @@ Optional parameters:
 -  **length**: By default this is 255.
 -  **columnDefinition**: By default this is null the definition according to the type will be used. This option allows to override it.
 -  **enumType**: By default this is `null`. Allows to map discriminatorColumn value to PHP enum
+-  **options**: See "options" attribute on :ref:`#[Column] <attrref_column>`.
 
 .. _attrref_discriminatormap:
 
@@ -575,7 +576,7 @@ Example with partial indexes:
 
     #[Index(name: "search_idx", columns: ["category"],
         options: [
-            "where": "((category IS NOT NULL))"
+            "where" => "((category IS NOT NULL))"
         ]
     )]
     class ECommerceProduct
@@ -1104,7 +1105,8 @@ context.
 Required parameters:
 
 -  **name**: Name of the Index
--  **columns**: Array of columns.
+-  **fields**: Array of fields (the names of the properties, used in the entity class).
+-  **columns**: Array of columns (the names of the columns, used in the schema).
 
 Optional parameters:
 

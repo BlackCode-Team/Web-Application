@@ -127,4 +127,13 @@ class AmendeController extends AbstractController
                 'amendes' => $amendes,
             ]);
         }
+        
+    #[route('/Search/amende',name:'search2',methods: ['GET'])]
+    function search(AmendeRepository $repo,Request $request ){
+     $num = $request->get('mm');
+     $amendes=$repo->SearchBy($num);
+     return $this->render('amende/index.html.twig', [
+        'amendes' => $amendes,
+    ]);
+}
 }

@@ -10,6 +10,7 @@ return array(
     'App\\Controller\\BadgeController' => $baseDir . '/src/Controller/BadgeController.php',
     'App\\Controller\\BadgesController' => $baseDir . '/src/Controller/BadgesController.php',
     'App\\Controller\\BaseController' => $baseDir . '/src/Controller/BaseController.php',
+    'App\\Controller\\BlockedUserController' => $baseDir . '/src/Controller/BlockedUserController.php',
     'App\\Controller\\ChartParkController' => $baseDir . '/src/Controller/ChartParkController.php',
     'App\\Controller\\HistoriqueController' => $baseDir . '/src/Controller/HistoriqueController.php',
     'App\\Controller\\IndexController' => $baseDir . '/src/Controller/IndexController.php',

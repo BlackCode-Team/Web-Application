@@ -18,30 +18,34 @@ class Reservation
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups("reservation")]
+    #[Groups("reservations")]
     private ?int $idreservation=null;
 
  
     #[ORM\Column(type: "datetime")]
-    #[Groups("reservation")]
+    #[Groups("reservations")]
+
      private ?\DateTimeInterface $datedebut;
      public function __construct()
      {
          $this->datedebut = new \DateTime();
      }
      #[ORM\Column(type: "datetime")]
-     #[Groups("reservation")]
+     #[Groups("reservations")]
+
      private ?\DateTimeInterface $datefin;
    
     #[ORM\Column(length: 255)]
-    #[Groups("reservation")]
+    #[Groups("reservations")]
+
     private ?string $status ="En cours";
    
     #[ORM\Column]
-    #[Groups("reservation")]
+    #[Groups("reservations")]
     private ?int $prixreservation=null;
     #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'Reservations')]
     #[ORM\JoinColumn(name: 'iduser', referencedColumnName: 'iduser')]
+    
     private ?Utilisateur $utilisateur=null ;
 
     #[ORM\ManyToOne(targetEntity: Vehicule::class, inversedBy: 'Reservations')]
