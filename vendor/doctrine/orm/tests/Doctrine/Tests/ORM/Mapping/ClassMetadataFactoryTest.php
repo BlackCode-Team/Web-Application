@@ -385,11 +385,6 @@ class ClassMetadataFactoryTest extends OrmTestCase
         self::assertEquals('user-id', $userMetadata->fieldMappings['id']['columnName']);
         self::assertEquals('user-name', $userMetadata->fieldMappings['name']['columnName']);
 
-        $address = $userMetadata->associationMappings['address'];
-        self::assertTrue($address['joinColumns'][0]['quoted']);
-        self::assertEquals('address-id', $address['joinColumns'][0]['name']);
-        self::assertEquals('address-id', $address['joinColumns'][0]['referencedColumnName']);
-
         $groups = $userMetadata->associationMappings['groups'];
         self::assertTrue($groups['joinTable']['quoted']);
         self::assertTrue($groups['joinTable']['joinColumns'][0]['quoted']);
@@ -456,29 +451,6 @@ class ClassMetadataFactoryTest extends OrmTestCase
         $property = $class->getProperty('em');
         $property->setAccessible(true);
         self::assertSame($entityManager, $property->getValue($classMetadataFactory));
-    }
-
-    /** @group DDC-3305 */
-    public function testRejectsEmbeddableWithoutValidClassName(): void
-    {
-        $metadata = $this->createValidClassMetadata();
-
-        $metadata->mapEmbedded(
-            [
-                'fieldName'    => 'embedded',
-                'class'        => '',
-                'columnPrefix' => false,
-            ]
-        );
-
-        $cmf = $this->createTestFactory();
-
-        $cmf->setMetadataForClass($metadata->name, $metadata);
-
-        $this->expectException(MappingException::class);
-        $this->expectExceptionMessage('The embed mapping \'embedded\' misses the \'class\' attribute.');
-
-        $cmf->getMetadataFor($metadata->name);
     }
 
     /** @group DDC-4006 */
@@ -587,7 +559,7 @@ class TestEntity1
 class CustomIdGenerator extends AbstractIdGenerator
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function generateId(EntityManagerInterface $em, $entity): string
     {

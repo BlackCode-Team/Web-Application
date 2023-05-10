@@ -760,6 +760,7 @@ class ComposerStaticInit233ca153693863399a7db6343c01ce0a
         'App\\Controller\\BadgeController' => __DIR__ . '/../..' . '/src/Controller/BadgeController.php',
         'App\\Controller\\BadgesController' => __DIR__ . '/../..' . '/src/Controller/BadgesController.php',
         'App\\Controller\\BaseController' => __DIR__ . '/../..' . '/src/Controller/BaseController.php',
+        'App\\Controller\\BlockedUserController' => __DIR__ . '/../..' . '/src/Controller/BlockedUserController.php',
         'App\\Controller\\ChartParkController' => __DIR__ . '/../..' . '/src/Controller/ChartParkController.php',
         'App\\Controller\\HistoriqueController' => __DIR__ . '/../..' . '/src/Controller/HistoriqueController.php',
         'App\\Controller\\IndexController' => __DIR__ . '/../..' . '/src/Controller/IndexController.php',

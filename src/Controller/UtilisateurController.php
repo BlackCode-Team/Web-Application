@@ -10,8 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Doctrine\Persistence\ManagerRegistry;
 
-#[Route('/utilisateur', name: 'app_utilisateur')]
+#[Route('/utilisateur')]
 class UtilisateurController extends AbstractController
 {
     #[Route('/', name: 'app_utilisateur_index', methods: ['GET'])]
@@ -84,5 +88,115 @@ class UtilisateurController extends AbstractController
         return $this->redirectToRoute('app_utilisateur_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    /////////////////////json
+    #[Route('/jsonall', name: 'app_user_json', methods: ['GET'])]
+    public function jsonindex(UtilisateurRepository $userRepository, SerializerInterface $serializer): Response
+    {
+        $parks = $userRepository->findAll();
+        
+        // Debugging statement - check the number of parks returned by the query
+        dump(count($parks));
+        
+        $json = $serializer->serialize($parks, 'json', ['Groups' => 'users']);
+        
+        // Debugging statement - check the content of $parksNormalises
+        dump($json);
     
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+    ////////////////////////////////////////////////////////////////////
+    #[Route("/{iduser}/recjson", name: "recupjsonuser")]
+    public function userId(int $iduser, NormalizerInterface $normalizer, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $UtilisateurRepository = $entityManager->getRepository(Park::class);
+        dump($iduser);
+        $user = $UtilisateurRepository->find($iduser);
+        $json = $serializer->serialize($user, 'json', ['Groups' => 'users']);
+        dump($json); 
+        return new Response($json, 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+
+    ///////////////////////////////////////////////////////
+    #[Route("/adduserJSON/new", name: "adduserJSON")]
+    public function adduserJSON(Request $req,   NormalizerInterface $Normalizer, SerializerInterface $serializer)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = new Utilisateur();
+        $user->setNom($req->get('nom'));
+        $user->setPrenom($req->get('prenom'));
+        $user->setEmail($req->get('email'));
+        $user->setCin($req->get('cin'));
+        $user->setPermis($req->get('permis'));
+        $em->persist($user);
+        $em->flush();
+
+
+            $json = $serializer->serialize($user, 'json', ['Groups' => 'users']);
+
+            return new Response($json, 200, [
+                'Content-Type' => 'application/json'
+            ]);
+    }
+
+
+    //////////////////////////////////////////////////////////delete
+    #[Route("/deleteusersJSON/{id}", name: "deleteusersJSON")]
+    public function deleteusersJSON(Request $req,int $id, NormalizerInterface $Normalizer, SerializerInterface $serializer)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Utilisateur::class)->find($id);
+        $em->remove($user);
+        $em->flush();
+        
+        $jsonContent = $serializer->serialize($user, 'json', ['Groups' => 'users']);
+        return new Response("user deleted successfully " . json_encode($jsonContent));
+    }
+
+///////////////////////////////////////////////////////update 
+#[Route("/updateuserJSON/{id}", name: "updateuserJSON")]
+public function updateuserJSON(Request $req, $id, NormalizerInterface $Normalizer, SerializerInterface $serializer)
+{
+
+    
+    $em = $this->getDoctrine()->getManager();
+    $user = $em->getRepository(Utilisateur::class)->find($id);
+        $user->setNom($req->get('nom'));
+        $user->setPrenom($req->get('prenom'));
+        $user->setEmail($req->get('email'));
+        $user->setCin($req->get('cin'));
+        $user->setPermis($req->get('permis'));
+        
+
+        $em->flush();
+    $jsonContent = $serializer->serialize($user, 'json', ['Groups' => 'users']);
+    return new Response("user updated successfully " . json_encode($jsonContent));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -55,17 +55,16 @@ return [
         '/search' => [[['_route' => 'app_search_q_r', '_controller' => 'App\\Controller\\SearchQRController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/utilisateur' => [
-            [['_route' => 'app_utilisateurapp_utilisateur_index', '_controller' => 'App\\Controller\\UtilisateurController::index'], null, ['GET' => 0], null, true, false, null],
-            [['_route' => 'app_utilisateur_index', '_controller' => 'App\\Controller\\UtilisateurController::index'], null, ['GET' => 0], null, false, false, null],
-        ],
-        '/utilisateur/new' => [[['_route' => 'app_utilisateurapp_utilisateur_new', '_controller' => 'App\\Controller\\UtilisateurController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/utilisateur/jsonall' => [[['_route' => 'app_user_json', '_controller' => 'App\\Controller\\UtilisateurController::jsonindex'], null, ['GET' => 0], null, false, false, null]],
+        '/utilisateur/adduserJSON/new' => [[['_route' => 'adduserJSON', '_controller' => 'App\\Controller\\UtilisateurController::adduserJSON'], null, null, null, false, false, null]],
         '/vehicule' => [[['_route' => 'app_vehicule_index', '_controller' => 'App\\Controller\\VehiculeController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/vehicule/JSON' => [[['_route' => 'app_vehicule_indexJSON', '_controller' => 'App\\Controller\\VehiculeController::indexJSON'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/indexback' => [[['_route' => 'app_vehicule_indexback', '_controller' => 'App\\Controller\\VehiculeController::indexbackkk'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/back' => [[['_route' => 'app_vehicule_back', '_controller' => 'App\\Controller\\VehiculeController::indexback'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/Search/a' => [[['_route' => 'searchv', '_controller' => 'App\\Controller\\VehiculeController::searchpsrchoix'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/search' => [[['_route' => 'search_vehicule', '_controller' => 'App\\Controller\\VehiculeController::search'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/new' => [[['_route' => 'app_vehicule_new', '_controller' => 'App\\Controller\\VehiculeController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/vehicule/newJSON' => [[['_route' => 'app_vehicule_newJSON', '_controller' => 'App\\Controller\\VehiculeController::newJSON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/vehicule/filtre/type' => [[['_route' => 'vehicule_filter', '_controller' => 'App\\Controller\\VehiculeController::filter'], null, ['GET' => 0], null, false, false, null]],
         '/vehicule/pdf/catalogue' => [[['_route' => 'pdf_catalogue', '_controller' => 'App\\Controller\\VehiculeController::cataloguePdf'], null, ['GET' => 0], null, false, false, null]],
         '/fc-load-events' => [[['_route' => 'fc_load_events', '_controller' => 'CalendarBundle\\Controller\\CalendarController::loadAction'], null, null, null, false, false, null]],
@@ -75,6 +74,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/new' => [[['_route' => 'app_utilisateur_new', '_controller' => 'App\\Controller\\UtilisateurController::new'], null, null, null, false, false, null]],
+        '/utilisateur' => [[['_route' => 'app_utilisateur_index', '_controller' => 'App\\Controller\\UtilisateurController::index'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -175,44 +175,48 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/utilisateur/([^/]++)(?'
-                    .'|(*:1036)'
-                    .'|/edit(*:1050)'
-                    .'|(*:1059)'
+                .'|/utilisateur/(?'
+                    .'|([^/]++)/recjson(*:1044)'
+                    .'|deleteusersJSON/([^/]++)(*:1077)'
+                    .'|updateuserJSON/([^/]++)(*:1109)'
+                    .'|([^/]++)(*:1126)'
                 .')'
-                .'|/vehicule/([^/]++)(?'
-                    .'|(*:1090)'
-                    .'|/edit(*:1104)'
-                    .'|(*:1113)'
+                .'|/vehicule/(?'
+                    .'|([^/]++)(*:1157)'
+                    .'|showJSON/([^/]++)(*:1183)'
+                    .'|([^/]++)/edit(*:1205)'
+                    .'|editJSON/([^/]++)(*:1231)'
+                    .'|([^/]++)(*:1248)'
+                    .'|deleteJSON/([^/]++)(*:1276)'
                 .')'
-                .'|/qr\\-code/([^/]++)/([\\w\\W]+)(*:1151)'
+                .'|/qr\\-code/([^/]++)/([\\w\\W]+)(*:1314)'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:1191)'
-                    .'|wdt/([^/]++)(*:1212)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:1354)'
+                    .'|wdt/([^/]++)(*:1375)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:1259)'
-                            .'|router(*:1274)'
+                            .'|search/results(*:1422)'
+                            .'|router(*:1437)'
                             .'|exception(?'
-                                .'|(*:1295)'
-                                .'|\\.css(*:1309)'
+                                .'|(*:1458)'
+                                .'|\\.css(*:1472)'
                             .')'
                         .')'
-                        .'|(*:1320)'
+                        .'|(*:1483)'
                     .')'
                 .')'
                 .'|/([^/]++)(?'
-                    .'|/edit(*:1348)'
-                    .'|(*:1357)'
+                    .'|/edit(*:1511)'
+                    .'|(*:1520)'
                 .')'
                 .'|/profil(?'
-                    .'|(*:1377)'
+                    .'|(*:1540)'
                     .'|/(?'
-                        .'|(\\d+)(*:1395)'
-                        .'|(\\d+)/edit(*:1414)'
+                        .'|(\\d+)(*:1558)'
+                        .'|(\\d+)/edit(*:1577)'
                     .')'
                 .')'
-                .'|/alerteBlock(*:1437)'
+                .'|/alerteBlock(*:1600)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -267,29 +271,30 @@ return [
         957 => [[['_route' => 'app_reservation_delete', '_controller' => 'App\\Controller\\ReservationController::delete'], ['idreservation'], ['POST' => 0], null, false, true, null]],
         980 => [[['_route' => 'app_reservation_calculatetotalprice', '_controller' => 'App\\Controller\\ReservationController::calculateTotalPrice'], ['idreservation'], ['GET' => 0], null, false, true, null]],
         1000 => [[['_route' => 'reservation_pdf', '_controller' => 'App\\Controller\\ReservationController::generatePdfa'], ['idreservation'], null, null, false, true, null]],
-        1036 => [[['_route' => 'app_utilisateurapp_utilisateur_show', '_controller' => 'App\\Controller\\UtilisateurController::show'], ['iduser'], ['GET' => 0], null, false, true, null]],
-        1050 => [[['_route' => 'app_utilisateurapp_utilisateur_edit', '_controller' => 'App\\Controller\\UtilisateurController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1059 => [
-            [['_route' => 'app_utilisateurapp_utilisateur_delete', '_controller' => 'App\\Controller\\UtilisateurController::delete'], ['iduser'], ['POST' => 0], null, false, true, null],
-            [['_route' => 'app_utilisateur_show', '_controller' => 'App\\Controller\\UtilisateurController::show'], ['iduser'], null, null, false, true, null],
-        ],
-        1090 => [[['_route' => 'app_vehicule_show', '_controller' => 'App\\Controller\\VehiculeController::show'], ['idvehicule'], ['GET' => 0], null, false, true, null]],
-        1104 => [[['_route' => 'app_vehicule_edit', '_controller' => 'App\\Controller\\VehiculeController::edit'], ['idvehicule'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1113 => [[['_route' => 'app_vehicule_delete', '_controller' => 'App\\Controller\\VehiculeController::delete'], ['idvehicule'], ['POST' => 0], null, false, true, null]],
-        1151 => [[['_route' => 'qr_code_generate', '_controller' => 'Endroid\\QrCodeBundle\\Controller\\GenerateController'], ['builder', 'data'], null, null, false, true, null]],
-        1191 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        1212 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        1259 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        1274 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        1295 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        1309 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        1320 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        1348 => [[['_route' => 'app_utilisateur_edit', '_controller' => 'App\\Controller\\UtilisateurController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1357 => [[['_route' => 'app_utilisateur_delete', '_controller' => 'App\\Controller\\UtilisateurController::delete'], ['iduser'], ['POST' => 0], null, false, true, null]],
-        1377 => [[['_route' => 'app_profil_index', '_controller' => 'App\\Controller\\ProfilController::index'], [], ['GET' => 0], null, false, false, null]],
-        1395 => [[['_route' => 'profil_show', '_controller' => 'App\\Controller\\ProfilController::show'], ['iduser'], ['GET' => 0], null, false, true, null]],
-        1414 => [[['_route' => 'profil_edit', '_controller' => 'App\\Controller\\ProfilController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1437 => [
+        1044 => [[['_route' => 'recupjsonuser', '_controller' => 'App\\Controller\\UtilisateurController::userId'], ['iduser'], null, null, false, false, null]],
+        1077 => [[['_route' => 'deleteusersJSON', '_controller' => 'App\\Controller\\UtilisateurController::deleteusersJSON'], ['id'], null, null, false, true, null]],
+        1109 => [[['_route' => 'updateuserJSON', '_controller' => 'App\\Controller\\UtilisateurController::updateuserJSON'], ['id'], null, null, false, true, null]],
+        1126 => [[['_route' => 'app_utilisateur_show', '_controller' => 'App\\Controller\\UtilisateurController::show'], ['iduser'], null, null, false, true, null]],
+        1157 => [[['_route' => 'app_vehicule_show', '_controller' => 'App\\Controller\\VehiculeController::show'], ['idvehicule'], ['GET' => 0], null, false, true, null]],
+        1183 => [[['_route' => 'app_vehicule_showJSON', '_controller' => 'App\\Controller\\VehiculeController::showJSON'], ['idvehicule'], ['GET' => 0], null, false, true, null]],
+        1205 => [[['_route' => 'app_vehicule_edit', '_controller' => 'App\\Controller\\VehiculeController::edit'], ['idvehicule'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1231 => [[['_route' => 'app_vehicule_editJSON', '_controller' => 'App\\Controller\\VehiculeController::editJSON'], ['idvehicule'], null, null, false, true, null]],
+        1248 => [[['_route' => 'app_vehicule_delete', '_controller' => 'App\\Controller\\VehiculeController::delete'], ['idvehicule'], ['POST' => 0], null, false, true, null]],
+        1276 => [[['_route' => 'app_vehicule_deleteJSON', '_controller' => 'App\\Controller\\VehiculeController::deleteJSON'], ['idvehicule'], null, null, false, true, null]],
+        1314 => [[['_route' => 'qr_code_generate', '_controller' => 'Endroid\\QrCodeBundle\\Controller\\GenerateController'], ['builder', 'data'], null, null, false, true, null]],
+        1354 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        1375 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        1422 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        1437 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        1458 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        1472 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        1483 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        1511 => [[['_route' => 'app_utilisateur_edit', '_controller' => 'App\\Controller\\UtilisateurController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1520 => [[['_route' => 'app_utilisateur_delete', '_controller' => 'App\\Controller\\UtilisateurController::delete'], ['iduser'], ['POST' => 0], null, false, true, null]],
+        1540 => [[['_route' => 'app_profil_index', '_controller' => 'App\\Controller\\ProfilController::index'], [], ['GET' => 0], null, false, false, null]],
+        1558 => [[['_route' => 'profil_show', '_controller' => 'App\\Controller\\ProfilController::show'], ['iduser'], ['GET' => 0], null, false, true, null]],
+        1577 => [[['_route' => 'profil_edit', '_controller' => 'App\\Controller\\ProfilController::edit'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1600 => [
             [['_route' => 'blocked_user', '_controller' => 'App\\Controller\\BlockedUserController::alert'], [], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

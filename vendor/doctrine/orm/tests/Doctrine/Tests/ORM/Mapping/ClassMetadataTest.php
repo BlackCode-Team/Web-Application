@@ -1339,6 +1339,20 @@ class ClassMetadataTest extends OrmTestCase
 
         self::assertTrue($classMetadata->hasField('test'));
     }
+
+    /** @group DDC-3305 */
+    public function testRejectsEmbeddableWithoutValidClassName(): void
+    {
+        $metadata = new ClassMetadata(TestEntity1::class);
+
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('The embed mapping \'embedded\' misses the \'class\' attribute.');
+        $metadata->mapEmbedded([
+            'fieldName'    => 'embedded',
+            'class'        => '',
+            'columnPrefix' => false,
+        ]);
+    }
 }
 
 /** @MappedSuperclass */
@@ -1354,7 +1368,7 @@ class DDC2700MappedSuperClass
 class MyNamespacedNamingStrategy extends DefaultNamingStrategy
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function classToTableName($className)
     {
@@ -1369,7 +1383,7 @@ class MyNamespacedNamingStrategy extends DefaultNamingStrategy
 class MyPrefixNamingStrategy extends DefaultNamingStrategy
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function propertyToColumnName($propertyName, $className = null)
     {
